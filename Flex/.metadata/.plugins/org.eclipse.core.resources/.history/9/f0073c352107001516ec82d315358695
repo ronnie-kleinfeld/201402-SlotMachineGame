@@ -1,0 +1,23 @@
+package com.gotchaslots.slots.mobile.ui.lobby.promotionPanel.timerBonus.textFields
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class TimerBonusInitTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.LobbyTimerBonusInit;
+		}
+		
+		// class
+		public function TimerBonusInitTextField(w:int, h:int)
+		{
+			super(w, h, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.TimerBonus_Checking_your_Timer_Bonus_Status));
+		}
+	}
+}

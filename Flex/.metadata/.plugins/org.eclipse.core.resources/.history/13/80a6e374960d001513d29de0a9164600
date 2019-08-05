@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	public class NetworkTypeEnum
+	{
+		public function NetworkTypeEnum()
+		{
+		}
+	}
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.higherLower.HigherLowerEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtainsThreeBears.bed.BedEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtainsThreeBears.soup.SoupEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtain.aircraft.AircraftEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtain.boat.BoatEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtain.car.CarEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtain.funny.FunnyEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.bonusGame.curtain.halloween.HalloweenEmbed"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

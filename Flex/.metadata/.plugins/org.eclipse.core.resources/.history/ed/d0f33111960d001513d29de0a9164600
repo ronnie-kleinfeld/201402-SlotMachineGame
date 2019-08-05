@@ -1,0 +1,46 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CMNetworkType;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMNetworkEvent;
+	
+	public class NetworkHandler extends BaseCoreMobileHandler
+	{
+		// properties
+		public function MonitorNetworkChanges():void
+		{
+			var networkType:int = CoreMobile.mobile.getNetworkType();
+			switch(networkType)
+			{
+				case CMNetworkType.NONE:
+					trace("no network connectivity");
+					break;
+				case CMNetworkType.MOBILE:
+					trace("on mobile network");
+					break;
+				case CMNetworkType.WIFI:
+					trace("on wifi network");
+					break;
+			}		}		
+
+		// class
+		public function NetworkHandler()
+		{
+			super();
+		}
+				
+		// monitor network
+		public function MonitorNetworkChanges():void
+		{
+			if (Init())
+			{
+				CoreMobile.mobile.addEventListener(CMNetworkEvent.NETWORK_REACHABILITY_CHANGED, onNetworkRechabilityChanged);
+			}
+		}
+		private function onNetworkRechabilityChanged(event:CMNetworkEvent):void
+		{
+			dispatchEvent(new NetworkEvent(NetworkEvent.NetworkChanged));
+		}
+	}
+}

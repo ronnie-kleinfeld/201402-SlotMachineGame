@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="_13f0bbf19dede8d1020082db747b0dba88fedff33a7565be713c2d79766f4d88_flash_display_Sprite" mod="1423117134245" signatureChecksum="2126871497" >
+        <def id="_13f0bbf19dede8d1020082db747b0dba88fedff33a7565be713c2d79766f4d88_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/GAIDFAAccess" mod="1423114018455" signatureChecksum="3919597773" >
+        <def id="com.milkmangames.nativeextensions:GAIDFAAccess" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="77f5203daa9964249526eb0f5d1e781d1f6e3b3d432c5cb631c91620c51ddc8c"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

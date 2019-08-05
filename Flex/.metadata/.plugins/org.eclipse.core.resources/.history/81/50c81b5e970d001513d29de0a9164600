@@ -1,0 +1,107 @@
+package
+{
+	import com.demonsters.debugger.MonsterDebugger;
+	import com.gotchaslots.common.data.Main;
+	import com.gotchaslots.common.ui.common.components.SpriteEx;
+	import com.gotchaslots.common.ui.main.MainPanel;
+	import com.gotchaslots.common.ui.notifications.popup.connect.ConnectPopup;
+	import com.gotchaslots.slots.ui.notifications.SlotsNotificationsHandler;
+	
+	import flash.desktop.NativeApplication;
+	import flash.desktop.SystemIdleMode;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
+	import flash.ui.Multitouch;
+	import flash.ui.MultitouchInputMode;
+	
+	[SWF(backgroundColor='#8330ba')]
+	public class GotchaSlots extends SpriteEx
+	{
+		// class
+		public function GotchaSlots()
+		{
+			//MonsterDebugger.initialize(this);
+			//stage.align = StageAlign.TOP_LEFT;
+			//stage.scaleMode = StageScaleMode.NO_SCALE;
+			//stage.frameRate = 60;
+			//Main.Instance.Init(stage);
+			
+			//return;
+			super();
+			
+			CONFIG::DEBUG
+				{
+					MonsterDebugger.initialize(this);
+				}
+				
+				Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
+			
+			Main.Instance.Init(stage);
+			Main.Instance.XServices.Init();
+			Main.Instance.XServices.Network.NetworkType;
+			
+			Main.Instance.XServices.GoogleAnalytics.TrackMainView();
+			
+			SlotsNotificationsHandler.Instance;
+			
+			//NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, OnActivate);
+			//NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, OnDeactivate);
+			NativeApplication.nativeApplication.addEventListener(Event.NETWORK_CHANGE, OnNetworkChange);
+			NativeApplication.nativeApplication.addEventListener(KeyboardEvent.KEY_DOWN, OnKeyDown);
+			NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			
+			this.addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		// add to stage
+		protected function OnAddedToStage(event:Event):void
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+			
+			addChild(new MainPanel());
+			
+			//addChild(new PerformanceMonitor());
+			//addChild(LogPanel.Instance);
+		}
+		
+		// events
+		protected function OnNetworkChange(event:Event):void
+		{
+			Main.Instance.XServices.InternetTime.UpdateMS();
+		}
+		protected function OnKeyDown(event:KeyboardEvent):void
+		{
+			switch (event.keyCode)
+			{
+				case Keyboard.BACK:
+					event.preventDefault();
+					if (SlotsNotificationsHandler.Instance.ShowingNotifications)
+					{
+						if (SlotsNotificationsHandler.Instance.NotificationType is ConnectPopup)
+						{
+							// don't close ConnectPopup by back button
+						}
+						else
+						{
+							SlotsNotificationsHandler.Instance.RemoveNotification();
+						}
+					}
+					else if (Main.Instance.ActiveMachine)
+					{
+						Main.Instance.RemoveActiveMachine();
+					}
+					else
+					{
+						event.preventDefault();
+						SlotsNotificationsHandler.Instance.ShowPromptOnClosePopup(null);
+					}
+					break;
+				case Keyboard.MENU:
+					event.preventDefault();
+					SlotsNotificationsHandler.Instance.ShowMenuSettingsPopup(null);
+					break;
+			}
+		}
+	}
+}

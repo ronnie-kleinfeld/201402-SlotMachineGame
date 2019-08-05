@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="55" version="2.0">
+<workbenchAdvisor/>
+<window height="972" minimized="true" width="1074" x="0" y="23">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="210"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="136" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="158" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1432936105329" focus="true" label="Workspace - Flash">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="GotchaSlots.as" partName="GotchaSlots.as" path="/Users/ronniekleinfeld/Dev/as3/GotchaSlots2/Flex/com.gotchaslots.slots.mobile/src/GotchaSlots.as" title="GotchaSlots.as" tooltip="com.gotchaslots.slots.mobile/src/GotchaSlots.as" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/com.gotchaslots.slots.mobile/src/GotchaSlots.as"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1830" selectionTopPixel="525"/>
+</editor>
+<editor activePart="true" focus="true" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="ParseHandler.as" partName="ParseHandler.as" path="/Users/ronniekleinfeld/Dev/as3/GotchaSlots2/Flex/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as" title="ParseHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="364" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<viewState/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="732"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="com.adobe.flexbuilder.packageexplorer" partName="Package Explorer">
+<viewState LINK_NAVIGATOR_TO_EDITOR="1" fpeIsFlat="0" fpeSortBy="1" sorter="1">
+<fpeExpanded>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/%typeDefaultPackage"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices"/>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse"/>
+</fpeExpanded>
+<fpeSelection>
+<fpeElement fpePath="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as"/>
+</fpeSelection>
+<filters>
+<filter element=".flexProperties" isEnabled="true"/>
+<filter element=".actionScriptProperties" isEnabled="true"/>
+<filter element=".project" isEnabled="true"/>
+<filter element=".settings" isEnabled="true"/>
+<filter element=".flexLibProperties" isEnabled="true"/>
+<filter element=".DS_Store" isEnabled="true"/>
+<filter element=".model" isEnabled="true"/>
+<filter element="*.class" isEnabled="false"/>
+<filter element=".*" isEnabled="false"/>
+<filter element=".flexProperties" isEnabled="true"/>
+<filter element=".actionScriptProperties" isEnabled="true"/>
+<filter element=".project" isEnabled="true"/>
+<filter element=".settings" isEnabled="true"/>
+<filter element=".flexLibProperties" isEnabled="true"/>
+<filter element=".DS_Store" isEnabled="true"/>
+<filter element=".model" isEnabled="true"/>
+<filter element="*.class" isEnabled="false"/>
+<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/com.gotchaslots.slots.mobile"/>
+</expanded>
+<selection>
+<element path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" activePerspective="com.adobe.flexbuilder.editors.mxml.ui.perspectives.development">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.adobe.flexbuilder.debug.ui.perspectives.FlexDebugPerspectiveFactory" id="com.adobe.flexbuilder.debug.ui.perspectives.debug" label="Flash Debug"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.flashbridge.flashproject.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.egit.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.profileActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.debug.ui.flexDebuggingActionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.dcrad.actionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.zzz.editors.common.ui.project.publish"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.exportimport.actionSet1"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="com.adobe.flexbuilder.packageexplorer"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<new_wizard_action id="com.adobe.flexbuilder.editorcore.ui.project.wizards.newproject"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.FlexLibraryProjectWizard"/>
+<new_wizard_action id="com.adobe.flashbuilder.project.multiplatform.ui.MultiPlatformProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.NewActionScriptProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.ActionScriptLibraryProjectWizard"/>
+<new_wizard_action id="com.adobe.flashbuilder.project.multiplatform.ui.MultiPlatformActionScriptProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.flashbridge.NewFlashProProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLApplication"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLComponent"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLItemRenderer"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLModule"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLSkin"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.wizards.NewActionScriptFile.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.classWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.interfaceWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.skinnableComponentWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.workerWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.css.editor.wizards.NewCSSFile"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.flexUnitClassWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.flexUnitTestSuiteClassWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.packageWizard.flex"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<perspective_action id="com.adobe.flexbuilder.editors.mxml.ui.perspectives.development"/>
+<perspective_action id="com.adobe.flexbuilder.debug.ui.perspectives.debug"/>
+<perspective_action id="com.adobe.flash.profiler.ui.ProfilingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.ExpressionView"/>
+<view id="com.adobe.flexbuilder.packageexplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@2fbefab1">&#x0A;<folder activePageID="com.adobe.flexbuilder.packageexplorer" appearance="2" expanded="2">&#x0A;<page content="com.adobe.flexbuilder.packageexplorer" label="Package Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView" ratio="0.24921136" ratioLeft="237" ratioRight="714" relationship="2" relative="org.eclipse.ui.internal.ViewStack@2fbefab1">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@27d47b1a" ratio="0.74973714" ratioLeft="713" ratioRight="238" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.74973714" ratioLeft="713" ratioRight="238" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497181" ratioLeft="665" ratioRight="222" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="com.adobe.flexbuilder.dcrad.views.DataServicesView" label="LabelNotFound"/>
+<page content="com.adobe.flexbuilder.monitors.network.view.NetworkMonitorView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.04400607" ratioLeft="29" ratioRight="630" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@37fcc95c" ratio="0.77262443" ratioLeft="683" ratioRight="201" relationship="4" relative="org.eclipse.ui.internal.ViewStack@2fbefab1">&#x0A;<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.adobe.flexbuilder.mxml.editor.ui.perspectives.DevelopmentPerspectiveFactory" id="com.adobe.flexbuilder.editors.mxml.ui.perspectives.development" label="Flash"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.flashbridge.flashproject.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.egit.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.profileActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.debug.ui.flexDebuggingActionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.dcrad.actionSet"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.zzz.editors.common.ui.project.publish"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.exportimport.actionSet1"/>
+<alwaysOnActionSet id="com.adobe.flexbuilder.as.editor.ui.NavigationActions"/>
+<show_view_action id="com.adobe.flexbuilder.packageexplorer"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="com.adobe.flexbuilder.dcrad.views.DataServicesView"/>
+<new_wizard_action id="com.adobe.flexbuilder.editorcore.ui.project.wizards.newproject"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.FlexLibraryProjectWizard"/>
+<new_wizard_action id="com.adobe.flashbuilder.project.multiplatform.ui.MultiPlatformProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.NewActionScriptProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.project.ui.wizards.ActionScriptLibraryProjectWizard"/>
+<new_wizard_action id="com.adobe.flashbuilder.project.multiplatform.ui.MultiPlatformActionScriptProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.flashbridge.NewFlashProProjectWizard"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLApplication"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLComponent"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLItemRenderer"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLModule"/>
+<new_wizard_action id="com.adobe.flexbuilder.mxml.editor.ui.wizards.NewMXMLSkin"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.wizards.NewActionScriptFile.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.classWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.interfaceWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.skinnableComponentWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.workerWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.css.editor.wizards.NewCSSFile"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.flexUnitClassWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.flexUnitTestSuiteClassWizard.flex"/>
+<new_wizard_action id="com.adobe.flexbuilder.as.editor.packageWizard.flex"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<perspective_action id="com.adobe.flexbuilder.editors.mxml.ui.perspectives.development"/>
+<perspective_action id="com.adobe.flexbuilder.debug.ui.perspectives.debug"/>
+<perspective_action id="com.adobe.flash.profiler.ui.ProfilingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="com.adobe.flexbuilder.packageexplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@499ce8f3">
+<folder activePageID="com.adobe.flexbuilder.packageexplorer" appearance="2" expanded="2">
+<page content="com.adobe.flexbuilder.packageexplorer" label="Package Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="org.eclipse.ui.internal.ViewStack@499ce8f3">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.26409775" ratioLeft="281" ratioRight="783" relationship="2" relative="org.eclipse.ui.internal.ViewStack@499ce8f3"/>
+<info folder="true" part="bottomLayout" ratio="0.74963397" ratioLeft="512" ratioRight="171" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="com.adobe.flexbuilder.dcrad.views.DataServicesView" label="LabelNotFound"/>
+<page content="com.adobe.flexbuilder.monitors.network.view.NetworkMonitorView" label="LabelNotFound"/>
+<page content="com.adobe.flexbuilder.as.editor.asdocviewer" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="outlineHolder" ratio="0.7522625" ratioLeft="665" ratioRight="219" relationship="4" relative="org.eclipse.ui.internal.ViewStack@499ce8f3">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/GotchaSlots.as"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/slots/utils/consts/SlotsConsts.as"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/data/Main.as"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/GotchaSlots.as"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/data/Main.as"/>
+</editors>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4127" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4157" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4076" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4071" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="546" y="70"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="524" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="495" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1164" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="716" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1217" y="71"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1167" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1165" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4071" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4249" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4165" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4078" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1165" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4078" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="3803" y="0"/>
+</item>
+<item historyLabel="GotchaSlots.as" index="0">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="3803" y="0"/>
+</item>
+<item historyLabel="SlotsConsts.as" index="2">
+<position info="not_deleted" x="1165" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="3803" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4048" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4071" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4158" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4250" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4324" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4398" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4417" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="5811" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="5866" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="7339" y="0"/>
+</item>
+<item historyLabel="Main.as" index="3">
+<position info="not_deleted" x="2811" y="0"/>
+</item>
+<item historyLabel="Main.as" index="3">
+<position info="not_deleted" x="2875" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="7339" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="4435" y="0"/>
+</item>
+<item historyLabel="GotchaSlots.as" index="4">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="Main.as" index="5">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="GotchaSlots.as" index="4">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="Main.as" index="5">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="GotchaSlots.as" index="4">
+<position info="not_deleted" x="1830" y="0"/>
+</item>
+<item active="true" historyLabel="ParseHandler.as" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="Main.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/data/Main.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/data/Main.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="SlotsConsts.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/slots/utils/consts/SlotsConsts.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/slots/utils/consts/SlotsConsts.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="ParseHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/parse/ParseHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="LocalNotificationsEvent.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/localNotifications/LocalNotificationsEvent.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/localNotifications/LocalNotificationsEvent.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="ConfirmationDialogEvent.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/confirmationDialog/ConfirmationDialogEvent.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/confirmationDialog/ConfirmationDialogEvent.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="SocialHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/social/SocialHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/social/SocialHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="LocalNotificationsHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/localNotifications/LocalNotificationsHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/localNotifications/LocalNotificationsHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="XServicesHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/XServicesHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/XServicesHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="GotchaSlots.as" tooltip="com.gotchaslots.slots.mobile/src/GotchaSlots.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/GotchaSlots.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="GotchaSlots-app.xml" tooltip="com.gotchaslots.slots.mobile/src/GotchaSlots-app.xml">
+<persistable path="/com.gotchaslots.slots.mobile/src/GotchaSlots-app.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="BaseCoreMobileHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/BaseCoreMobileHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/BaseCoreMobileHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="PickerDialogHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/pickerDialog/PickerDialogHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/pickerDialog/PickerDialogHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="GoogleAnalyticsHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/googleAnalytics/GoogleAnalyticsHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/googleAnalytics/GoogleAnalyticsHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="DeviceIDHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/deviceID/DeviceIDHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/deviceID/DeviceIDHandler.as"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.adobe.flexbuilder.editors.actionscript.ActionScriptEditor" name="ConfirmationDialogHandler.as" tooltip="com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/confirmationDialog/ConfirmationDialogHandler.as">
+<persistable path="/com.gotchaslots.slots.mobile/src/com/gotchaslots/common/utils/xServices/nativeDialogs/confirmationDialog/ConfirmationDialogHandler.as"/>
+</file>
+</mruList>
+</workbench>

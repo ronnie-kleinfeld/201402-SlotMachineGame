@@ -1,0 +1,23 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+    <sdkVersion>8.0</sdkVersion>
+		    <packagedDependencies> 
+        <packagedDependency>GoogleMobileAds.framework</packagedDependency> 
+    </packagedDependencies> 
+    <linkerOptions>
+		<option>-w</option>
+		<option>-ios_version_min 6.1</option>
+        <option>-framework MessageUI</option>
+		<option>-framework StoreKit</option>
+		<option>-framework CoreTelephony</option>
+		<option>-framework SystemConfiguration</option>
+		<option>-framework AudioToolbox</option>
+		<option>-framework AVFoundation</option>
+		<option>-framework CoreGraphics</option>
+		<option>-weak_framework AdSupport</option>
+		<option>-weak_framework EventKit</option>
+		<option>-weak_framework EventKitUI</option>
+		<option>-weak_framework GoogleMobileAds</option>
+		<option>-ObjC</option>
+    </linkerOptions>
+
+</platform>

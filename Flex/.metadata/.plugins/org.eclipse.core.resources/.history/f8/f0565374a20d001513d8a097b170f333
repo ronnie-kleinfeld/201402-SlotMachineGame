@@ -1,0 +1,148 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.event.NativeConfirmationDialogEvent;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.event.NativeCredentialsDialogsEvent;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.event.NativeInputDialogsEvent;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.event.NativeYesNoDialogEvent;
+	import com.milkmangames.nativeextensions.CMDialogDispatcher;
+	import com.milkmangames.nativeextensions.CMPickerDispatcher;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMDialogEvent;
+	import com.milkmangames.nativeextensions.events.CMPickerEvent;
+
+	public class NativeDialogsHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function NativeDialogsHandler()
+		{
+			super();
+		}
+		
+		// confirmation dialog
+		public function ShowConfirmationDialog(title:String, message:String, buttonLabel:String):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalConfirmationDialog(title, message, buttonLabel);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						dispatchEvent(new NativeConfirmationDialogEvent(NativeConfirmationDialogEvent.OK));
+					}
+				);
+			}
+		}
+		
+		// yes/no dialog
+		public function ShowYesNoDialog(title:String, message:String, yesButtonLabel:String, noButtonLabel:String):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalYesNoDialog(title, message, yesButtonLabel, noButtonLabel);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						switch (event.selectedButtonLabel)
+						{
+							case yesButtonLabel:
+								dispatchEvent(new NativeYesNoDialogEvent(NativeYesNoDialogEvent.YES));
+								break;
+							case noButtonLabel:
+								dispatchEvent(new NativeYesNoDialogEvent(NativeYesNoDialogEvent.NO));
+								break;
+							default:
+								dispatchEvent(new NativeYesNoDialogEvent(NativeYesNoDialogEvent.NO));
+								break;
+						}
+					}
+				);
+			}
+		}
+		
+		// input dialog
+		public function ShowInputDialog(title:String, message:String, confirmButtonLabel:String, defaultPrompt:String = "", cancelButtonLabel:String = null, textInputType:int = 0, textInputMaxLength:uint = 1024):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalInputDialog(title, message, confirmButtonLabel, defaultPrompt, cancelButtonLabel, textInputType, textInputMaxLength);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						switch (event.selectedButtonLabel)
+						{
+							case confirmButtonLabel:
+								dispatchEvent(new NativeInputDialogsEvent(NativeInputDialogsEvent.OK, event.modalUserInput));
+								break;
+							case cancelButtonLabel:
+								dispatchEvent(new NativeInputDialogsEvent(NativeInputDialogsEvent.CANCEL, event.modalUserInput));
+								break;
+							default:
+								dispatchEvent(new NativeInputDialogsEvent(NativeInputDialogsEvent.CANCEL, event.modalUserInput));
+								break;
+						}
+					}
+				);
+			}
+		}
+		
+		// login dialog
+		public function ShowCredentialsDialog(title:String, message:String, confirmButtonLabel:String, cancelButtonLabel:String = null, textInputType:int = 0, textInputMaxLength:uint = 1024, passwordMaxLength:uint = 1024):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalCredentialsDialog(title, message, confirmButtonLabel, cancelButtonLabel, textInputType, textInputMaxLength, passwordMaxLength);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						switch (event.selectedButtonLabel)
+						{
+							case confirmButtonLabel:
+								dispatchEvent(new NativeCredentialsDialogsEvent(NativeCredentialsDialogsEvent.OK, event.modalUserName, event.modalPassword));
+								break;
+							case cancelButtonLabel:
+								dispatchEvent(new NativeCredentialsDialogsEvent(NativeCredentialsDialogsEvent.CANCEL, event.modalUserName, event.modalPassword));
+								break;
+							default:
+								dispatchEvent(new NativeCredentialsDialogsEvent(NativeCredentialsDialogsEvent.CANCEL, event.modalUserName, event.modalPassword));
+								break;
+						}
+					}
+				);
+			}
+		}
+		
+		// picker dialog
+		public function ShowSelectionPickerDialog(items:Vector.<String>, selectedIndex:int = 0, doneLabel:String = "Done", cancelLabel:String = "Cancel", popOverX:Number = 320, popOverY:Number = 320):void
+		{
+			if (Init())
+			{
+				//var items:Vector.<String>=new <String>["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eigth", "Ninth", "Tenth", "Eleventh"];
+				// 'items' is the list of items, defined above, to present in the picker
+				// '3' is the default index of the item to pre-select
+				// “Done” and “Cancel” allow you to specify the button labels to use on Android. On iOS it will use the
+				// system default buttons for these functions.
+				//
+				// On iOS iPads, the picker is presented in a popover bubble.
+				// 320, 320 is the location in device POINTS (not pixels!) where the popover will originate from.
+				var dialog:CMPickerDispatcher = CoreMobile.mobile.showPicker(items, selectedIndex, doneLabel, cancelLabel, popOverX, popOverY);
+				dialog.addDismissListener(
+					function(event:CMPickerEvent):void
+					{
+						if (event.wasCanceled)
+						{
+							event.items
+							event.selectedItemIndex
+							//trace("The picker was canceled!");
+						}
+						else
+						{
+							//trace("Selected picker item: "+e.selectedItemIndex);
+							//trace(" (value is "+(e.items[e.selectedItemIndex]));
+						}
+					}
+				);
+			}
+		}
+	}
+}

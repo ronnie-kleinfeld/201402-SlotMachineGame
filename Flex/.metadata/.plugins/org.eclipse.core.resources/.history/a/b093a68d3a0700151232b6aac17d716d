@@ -1,0 +1,34 @@
+package com.gotchaslots.common.mobile.ui.machine.bottomPanel.buttons
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.MachineInfoPageEnum;
+	import com.gotchaslots.common.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	
+	public class PayTableButton extends BaseBottomPanelButton
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelPayTable;
+		}
+		
+		// class
+		public function PayTableButton()
+		{
+			super(100, 100, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Pay_Table));
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			super.OnClick(event);
+			Main.Instance.Sounds.Play(SoundsManager.Machine_BottomPanel_PayTable);
+			NotificationsHandler.Instance.ShowMachineInfoPopup(MachineInfoPageEnum.NormalSymbols, Main.Instance.ActiveMachine.LobbyMachine, null);
+		}
+	}
+}

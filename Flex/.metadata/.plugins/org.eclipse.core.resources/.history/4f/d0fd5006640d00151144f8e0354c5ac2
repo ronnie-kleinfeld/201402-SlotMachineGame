@@ -1,0 +1,18 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+	import com.gotchaslots.common.utils.xServices.ads.base.BaseAdsHandler;
+	
+	public class AdMobHandler extends BaseAdsHandler
+	{
+		// class
+		public function AdMobHandler()
+		{
+			super();
+		}
+		public override function Init():Boolean
+		{
+			throw new MustOverrideError();
+		}
+	}
+}

@@ -1,0 +1,407 @@
+package com.gotchaslots.slots.data.machine.symbol
+{
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseCollectiblesSymbolData;
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseSpecialSymbolData;
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseSymbolData;
+	import com.gotchaslots.slots.data.machine.symbol.base.SymbolTypeEnum;
+	import com.gotchaslots.slots.data.machine.symbol.collectibles.AceSymbolData;
+	import com.gotchaslots.slots.data.machine.symbol.collectibles.GoldSymbolData;
+	import com.gotchaslots.slots.data.machine.symbol.collectibles.KingSymbolData;
+	import com.gotchaslots.common.mobile.utils.ex.EventDispatcherEx;
+	
+	import flash.utils.Dictionary;
+	
+	public class SymbolsData extends EventDispatcherEx
+	{
+		// members
+		private var _symbols:Vector.<BaseSymbolData>;
+		
+		private var _normalSymbols:Vector.<NormalSymbolData>;
+		private var _specialSymbols:Vector.<BaseSpecialSymbolData>;
+		private var _collectiblesSymbols:Vector.<BaseCollectiblesSymbolData>;
+		private var _previewSymbol:NormalSymbolData;
+		private var _serverSymbolFileName:String;
+		
+		private var _wildSymbol:WildSymbolData;
+		
+		private var _bombSymbol:BombSymbolData;
+		private var _miniSpinSymbol:MiniSpinSymbolData;
+		private var _aceSymbol:AceSymbolData;
+		private var _goldSymbol:GoldSymbolData;
+		private var _kingSymbol:KingSymbolData;
+		private var _bonusGameSymbol:BonusGameSymbolData;
+		private var _multiplierSymbol:MultiplierSymbolData;
+		private var _freeSpinsSymbol:FreeSpinsSymbolData;
+		
+		private var _odds:Dictionary;
+		private var _oddsCount:int;
+		
+		private var _minPayout:Number;
+		private var _maxPayout:Number;
+		
+		// properties
+		public function get Symbols():Vector.<BaseSymbolData>
+		{
+			return _symbols;
+		}
+		
+		public function get NormalSymbols():Vector.<NormalSymbolData>
+		{
+			return _normalSymbols;
+		}
+		public function get SpecialSymbols():Vector.<BaseSpecialSymbolData>
+		{
+			return _specialSymbols;
+		}
+		public function get CollectiblesSymbols():Vector.<BaseCollectiblesSymbolData>
+		{
+			return _collectiblesSymbols;
+		}
+		
+		public function get PreviewSymbol():NormalSymbolData
+		{
+			return _previewSymbol;
+		}
+		public function set SetPreviewSymbol(normalSymbolIndex:int):void
+		{
+			if (normalSymbolIndex >= 0 && normalSymbolIndex < NormalSymbols.length)
+			{
+				_previewSymbol = NormalSymbols[normalSymbolIndex];
+			}
+			else
+			{
+				_previewSymbol = NormalSymbols[NormalSymbols.length - 1];
+			}
+		}
+		public function get ServerSymbolFileName():String
+		{
+			return _serverSymbolFileName;
+		}
+		public function set ServerSymbolFileName(value:String):void
+		{
+			_serverSymbolFileName = value;
+		}
+		
+		public function get WildSymbol():WildSymbolData
+		{
+			return _wildSymbol;
+		}
+		
+		public function get BombSymbol():BombSymbolData
+		{
+			return _bombSymbol;
+		}
+		public function get MiniSpinSymbol():MiniSpinSymbolData
+		{
+			return _miniSpinSymbol;
+		}
+		public function get AceSymbol():AceSymbolData
+		{
+			return _aceSymbol;
+		}
+		public function get GoldSymbol():GoldSymbolData
+		{
+			return _goldSymbol;
+		}
+		public function get KingSymbol():KingSymbolData
+		{
+			return _kingSymbol;
+		}
+		public function get BonusGameSymbol():BonusGameSymbolData
+		{
+			return _bonusGameSymbol;
+		}
+		public function get MultiplierSymbol():MultiplierSymbolData
+		{
+			return _multiplierSymbol;
+		}
+		public function get FreeSpinsSymbol():FreeSpinsSymbolData
+		{
+			return _freeSpinsSymbol;
+		}
+		
+		public function get RandomID():int
+		{
+			if (!_odds)
+			{
+				CalculateOdds();
+			}
+			var rnd:int = Math.floor(Math.random() * _oddsCount);
+			return _odds[rnd];
+		}
+		public function get RandomNormalID():int
+		{
+			var rnd:int = Math.floor(Math.random() * NormalSymbols.length);
+			return rnd;
+		}
+		
+		public function get MinPayout():Number
+		{
+			if (isNaN(_minPayout))
+			{
+				_minPayout = Number.MAX_VALUE;
+				for (var i:int = 0; i < _symbols.length; i++)
+				{
+					_minPayout = Math.min(_minPayout , _symbols[i].MinPayout);
+				}
+			}
+			return _minPayout;
+		}
+		public function get MaxPayout():Number
+		{
+			if (isNaN(_maxPayout))
+			{
+				_maxPayout = Number.MIN_VALUE;
+				for (var i:int = 0; i < _symbols.length; i++)
+				{
+					_maxPayout = Math.max(_maxPayout, _symbols[i].MaxPayout);
+				}
+			}
+			return _maxPayout;
+		}
+		
+		// class
+		public function SymbolsData()
+		{
+			super();
+			
+			_symbols = new Vector.<BaseSymbolData>();
+			_normalSymbols = new Vector.<NormalSymbolData>();
+			_specialSymbols = new Vector.<BaseSpecialSymbolData>();
+			_collectiblesSymbols = new Vector.<BaseCollectiblesSymbolData>();
+		}
+		public function InitNormalSymbols(symbols:Vector.<BaseSymbolData>):void
+		{
+			for (var i:int = 0; i < symbols.length; i++)
+			{
+				AddSymbol(symbols[i], false);
+			}
+		}
+		public function Truncate():void
+		{
+			for (var i:int = 0; i < _symbols.length; i++)
+			{
+				_symbols[i].DisposePngs();
+			}
+			
+			if (_odds)
+			{
+				_odds = new Dictionary();
+				_odds = null
+			}
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			var symbol:BaseSymbolData;
+			while (_normalSymbols && _normalSymbols.length > 0)
+			{
+				symbol = _normalSymbols.pop();
+				if (symbol)
+				{
+					symbol.Dispose();
+					symbol = null;
+				}
+			}
+			_normalSymbols = null;
+			
+			while (_specialSymbols && _specialSymbols.length > 0)
+			{
+				symbol = _specialSymbols.pop();
+				if (symbol)
+				{
+					symbol.Dispose();
+					symbol = null;
+				}
+			}
+			_specialSymbols = null;
+			
+			while (_collectiblesSymbols && _collectiblesSymbols.length > 0)
+			{
+				symbol = _collectiblesSymbols.pop();
+				if (symbol)
+				{
+					symbol.Dispose();
+					symbol = null;
+				}
+			}
+			_collectiblesSymbols = null;
+			
+			while (_symbols && _symbols.length > 0)
+			{
+				symbol = _symbols.pop();
+				if (symbol)
+				{
+					symbol.Dispose();
+					symbol = null;
+				}
+			}
+			_symbols = null;
+			
+			if (_previewSymbol)
+			{
+				_previewSymbol.Dispose();
+				_previewSymbol = null;
+			}
+			
+			if (_wildSymbol)
+			{
+				_wildSymbol.Dispose()
+				_wildSymbol = null;
+			}
+			if (_bombSymbol)
+			{
+				_bombSymbol.Dispose()
+				_bombSymbol = null;
+			}
+			if (_miniSpinSymbol)
+			{
+				_miniSpinSymbol.Dispose()
+				_miniSpinSymbol = null;
+			}
+			if (_aceSymbol)
+			{
+				_aceSymbol.Dispose()
+				_aceSymbol = null;
+			}
+			if (_goldSymbol)
+			{
+				_goldSymbol.Dispose()
+				_goldSymbol = null;
+			}
+			if (_kingSymbol)
+			{
+				_kingSymbol.Dispose()
+				_kingSymbol = null;
+			}
+			if (_bonusGameSymbol)
+			{
+				_bonusGameSymbol.Dispose()
+				_bonusGameSymbol = null;
+			}
+			if (_multiplierSymbol)
+			{
+				_multiplierSymbol.Dispose()
+				_multiplierSymbol = null;
+			}
+			if (_freeSpinsSymbol)
+			{
+				_freeSpinsSymbol.Dispose()
+				_freeSpinsSymbol = null;
+			}
+			
+			if (_odds)
+			{
+				_odds = new Dictionary();
+				_odds = null
+			}
+		}
+		
+		// methods
+		public function AddSymbol(symbol:BaseSymbolData, pushAsFirst:Boolean):void
+		{
+			if (pushAsFirst)
+			{
+				Symbols.reverse();
+				Symbols.push(symbol);
+				Symbols.reverse();
+			}
+			else
+			{
+				Symbols.push(symbol);
+			}
+			
+			switch (symbol.SymbolType)
+			{
+				case SymbolTypeEnum.Normal:
+					NormalSymbols.push(NormalSymbolData(symbol));
+					break;
+				
+				case SymbolTypeEnum.Wild:
+					_wildSymbol = WildSymbolData(symbol);
+					SpecialSymbols.push(_wildSymbol);
+					break;
+				case SymbolTypeEnum.Bomb:
+					_bombSymbol = BombSymbolData(symbol);
+					SpecialSymbols.push(_bombSymbol);
+					break;
+				case SymbolTypeEnum.MiniSpin:
+					_miniSpinSymbol = MiniSpinSymbolData(symbol);
+					SpecialSymbols.push(_miniSpinSymbol);
+					break;
+				case SymbolTypeEnum.BonusGame:
+					_bonusGameSymbol = BonusGameSymbolData(symbol);
+					SpecialSymbols.push(_bonusGameSymbol);
+					break;
+				case SymbolTypeEnum.Multiplier:
+					_multiplierSymbol = MultiplierSymbolData(symbol);
+					SpecialSymbols.push(_multiplierSymbol);
+					break;
+				case SymbolTypeEnum.FreeSpins:
+					_freeSpinsSymbol = FreeSpinsSymbolData(symbol);
+					SpecialSymbols.push(_freeSpinsSymbol);
+					break;
+				
+				case SymbolTypeEnum.Ace:
+					_aceSymbol = AceSymbolData(symbol);
+					CollectiblesSymbols.push(_aceSymbol);
+					break;
+				case SymbolTypeEnum.Gold:
+					_goldSymbol = GoldSymbolData(symbol);
+					CollectiblesSymbols.push(_goldSymbol);
+					break;
+				case SymbolTypeEnum.King:
+					_kingSymbol = KingSymbolData(symbol);
+					CollectiblesSymbols.push(_kingSymbol);
+					break;
+			}
+		}
+		public function CalculateOdds():void
+		{
+			var i:int;
+			
+			var normalSum:Number = 0;
+			for (i = 0; i < NormalSymbols.length; i++)
+			{
+				normalSum += NormalSymbols[i].PayoutSum;
+			}
+			
+			_oddsCount = 0;
+			_odds = new Dictionary();
+			for (i = 0; i < NormalSymbols.length; i++)
+			{
+				var length:int = Math.ceil(1 / Math.max(NormalSymbols[i].PayoutSum / normalSum, 0.05)) * 10;
+				for (var j:int = 0; j < length; j++)
+				{
+					_odds[_oddsCount] = NormalSymbols[i].ID;
+					_oddsCount++;
+				}
+			}
+			
+			// add special symbols odds
+			AddOdds(BonusGameSymbol);
+			AddOdds(FreeSpinsSymbol);
+			AddOdds(WildSymbol);
+			
+			// add collectibles symbols odds
+			for (i = 0; i < CollectiblesSymbols.length; i++)
+			{
+				AddOdds(CollectiblesSymbols[i]);
+			}
+		}
+		private function AddOdds(specialSymbol:BaseSpecialSymbolData):void
+		{
+			if (specialSymbol)
+			{
+				var count:int = Math.ceil(_oddsCount * specialSymbol.SpecialOdds);
+				
+				for (var i:int = 0; i < count; i++)
+				{
+					_odds[_oddsCount] = specialSymbol.ID;
+					_oddsCount++;
+				}
+			}
+		}
+	}
+}

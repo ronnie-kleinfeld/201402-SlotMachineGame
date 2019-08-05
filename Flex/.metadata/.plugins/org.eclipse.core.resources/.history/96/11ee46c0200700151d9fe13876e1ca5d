@@ -1,0 +1,64 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.connect
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.slots.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.FacebookConnectButton;
+	import com.gotchaslots.slots.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	public class ConnectPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Welcome_back);
+		}
+		protected override function get AutoCloseTimeout():int
+		{
+			return 60000; 
+		}
+		
+		// class
+		public function ConnectPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Connect_to_Facebook));
+			if (!Main.Instance.Session.Rare.IsFacebookLoginCollected)
+			{
+				AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.and_get));
+				AddComponent(new Spacer(10));
+				AddBlueMessageTextField(W,  FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.FacebookConnectBonusChips, 0) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Chips));
+			}
+			
+			var facebookConnect:FacebookConnectButton = new FacebookConnectButton(OnFacebookClick);
+			facebookConnect.x = (W - facebookConnect.width) / 2;
+			facebookConnect.y = H - facebookConnect.height - 6;
+			addChild(facebookConnect);
+		}
+		
+		// events
+		private function OnFacebookClick(event:Event):void
+		{
+			NotificationsHandler.Instance.ShowConnectingPopup(null);
+			DoRemove();
+		}
+		protected override function OnCloseButtonClick(event:MouseEvent):void
+		{
+			DoRemove();
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package com.gotchaslots.common.utils.debug
+{
+	import com.gotchaslots.common.ui.common.components.SpriteEx;
+	
+	import flash.display.Shape;
+	
+	public class BorderContainer extends SpriteEx
+	{
+		// class
+		public function BorderContainer(x:Number, y:Number, w:Number, h:Number, bgColor:Number = 0x00ff00, lineColor:Number = 0xff0000, thickness:Number = 1)
+		{
+			super();
+			
+			var shape:Shape = new Shape();
+			shape.graphics.lineStyle(thickness, lineColor);
+			shape.graphics.beginFill(bgColor, 0.7);
+			shape.graphics.drawRect(x, y, w, h);
+			shape.graphics.endFill();
+			addChild(shape);
+		}
+	}
+}

@@ -1,0 +1,57 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.machine
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupBlueMessageTextField;
+	
+	import flash.events.Event;
+	
+	public class NoChipsBuyChipsPopup extends BasePopup
+	{
+		// members
+		private var _popupBlueMessage:PopupBlueMessageTextField;
+		
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.No_Chips);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new MainPopupButton("OK", OnBuyChipsClick));
+			return result;
+		}
+		
+		// class
+		public function NoChipsBuyChipsPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_ran_out_of_Chips));
+		}
+		
+		// events
+		private function OnCloseClick(event:Event):void
+		{
+			DoRemove();
+		}
+		private function OnBuyChipsClick(event:Event):void
+		{
+			NotificationsHandler.Instance.ShowBuyChipsPopup(false, null);
+			DoRemove();
+		}
+	}
+}

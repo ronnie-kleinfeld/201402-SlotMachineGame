@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<SMTPSentDataSet xmlns="http://tempuri.org/SMTPSentDataSet.xsd">
+  <T_SENT>
+    <EMS_EMAIL>acheryltaylor@yahoo.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>achim-1969@web.de</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>achitei_mitica@yahoo.it</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>achraf1@hotmail.de</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>achyutapc@gmail.com</EMS_EMAIL>
+  </T_SENT>
+</SMTPSentDataSet>

@@ -1,0 +1,28 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs.event
+{
+	import flash.events.Event;
+
+	public class NativePickerEvent extends Event
+	{
+		// consts
+		public static const SELECTED:String = "SELECTED";
+		public static const CANCELED:String = "CANCELED";
+		
+		// members
+		private var _selectedItemIndex:String;
+		
+		// properties
+		public function get Input():String
+		{
+			return _selectedItemIndex;
+		}
+		
+		// class
+		public function NativePickerEvent(type:String, selectedItemIndex:String)
+		{
+			super(type);
+			
+			_selectedItemIndex = input;
+		}
+	}
+}

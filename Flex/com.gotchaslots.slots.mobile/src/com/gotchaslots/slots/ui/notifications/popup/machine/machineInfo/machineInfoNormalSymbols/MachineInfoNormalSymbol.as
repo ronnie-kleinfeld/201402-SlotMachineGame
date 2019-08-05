@@ -1,0 +1,79 @@
+package com.gotchaslots.slots.ui.notifications.popup.machine.machineInfo.machineInfoNormalSymbols
+{
+	import com.gotchaslots.slots.data.lobby.lobbyMachine.base.SlotsBaseLobbyMachineData;
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseSymbolData;
+	import com.gotchaslots.common.ui.common.components.base.BaseBG;
+	import com.gotchaslots.slots.ui.machine.Symbol;
+	import com.gotchaslots.slots.ui.notifications.popup.machine.machineInfo.machineInfoNormalSymbols.textFields.MachineInfoNormalSymbolPayoutTextField;
+	import com.gotchaslots.common.utils.helpers.FormatterHelper;
+	
+	public class MachineInfoNormalSymbol extends BaseBG
+	{
+		// members
+		private var _lobbyMachine:SlotsBaseLobbyMachineData;
+		
+		// properties
+		protected override function get HasFrame():Boolean
+		{
+			return false;
+		}
+		protected override function get FrameCorner():Number
+		{
+			return 10;
+		}
+		
+		// class
+		public function MachineInfoNormalSymbol(lobbyMachine:SlotsBaseLobbyMachineData, symbol:BaseSymbolData)
+		{
+			_lobbyMachine = lobbyMachine;
+			
+			super(383, 116, 0xffa8cb);
+			
+			var png:Symbol = symbol.GetSymbol(_lobbyMachine.Paylines.Payboxes[0].Rect);
+			png.x = 8;
+			png.y = 8;
+			png.width = 100;
+			png.height = 100;
+			addChild(png);
+			
+			var currentY:int = 8;
+			var machineInfoSymbolPayout:MachineInfoNormalSymbolPayoutTextField;
+			
+			if (_lobbyMachine.Paylines.Paylines[0].ColumnsCount >= 5 && symbol.FiveInARowPayout > 0)
+			{
+				machineInfoSymbolPayout = new MachineInfoNormalSymbolPayoutTextField(275, 20, FormatterHelper.NumberToMoney(5, 0, 0) + " - " + FormatterHelper.NumberToMoney(symbol.FiveInARowPayout, 0, 0) + " Chips");
+				machineInfoSymbolPayout.x = 108;
+				machineInfoSymbolPayout.y = currentY;
+				addChild(machineInfoSymbolPayout);
+				currentY += machineInfoSymbolPayout.height;
+			}
+			
+			if (_lobbyMachine.Paylines.Paylines[0].ColumnsCount >= 4 && symbol.FourInARowPayout > 0)
+			{
+				machineInfoSymbolPayout = new MachineInfoNormalSymbolPayoutTextField(275, 20, FormatterHelper.NumberToMoney(4, 0, 0) + " - " + FormatterHelper.NumberToMoney(symbol.FourInARowPayout, 0, 0) + " Chips");
+				machineInfoSymbolPayout.x = 108;
+				machineInfoSymbolPayout.y = currentY;
+				addChild(machineInfoSymbolPayout);
+				currentY += machineInfoSymbolPayout.height;
+			}
+			
+			if (symbol.ThreeInARowPayout > 0)
+			{
+				machineInfoSymbolPayout = new MachineInfoNormalSymbolPayoutTextField(275, 20, FormatterHelper.NumberToMoney(3, 0, 0) + " - " + FormatterHelper.NumberToMoney(symbol.ThreeInARowPayout, 0, 0) + " Chips");
+				machineInfoSymbolPayout.x = 108;
+				machineInfoSymbolPayout.y = currentY;
+				addChild(machineInfoSymbolPayout);
+				currentY += machineInfoSymbolPayout.height;
+			}
+			
+			if (symbol.TwoInARowPayout > 0)
+			{
+				machineInfoSymbolPayout = new MachineInfoNormalSymbolPayoutTextField(275, 20, FormatterHelper.NumberToMoney(2, 0, 0) + " - " + FormatterHelper.NumberToMoney(symbol.TwoInARowPayout, 0, 0) + " Chips");
+				machineInfoSymbolPayout.x = 108;
+				machineInfoSymbolPayout.y = currentY;
+				addChild(machineInfoSymbolPayout);
+				currentY += machineInfoSymbolPayout.height;
+			}
+		}
+	}
+}

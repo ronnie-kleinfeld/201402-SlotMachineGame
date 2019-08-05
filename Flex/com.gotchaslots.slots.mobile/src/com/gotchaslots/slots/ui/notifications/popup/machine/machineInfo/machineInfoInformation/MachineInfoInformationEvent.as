@@ -1,0 +1,18 @@
+package com.gotchaslots.slots.ui.notifications.popup.machine.machineInfo.machineInfoInformation
+{
+	import flash.events.Event;
+
+	public class MachineInfoInformationEvent extends Event
+	{
+		// events
+		public static const NormalSymbolsClicked:String = "f7f7d0b52be54eaeb97f240bb506ddcc";
+		public static const SpecialSymbolsClicked:String = "57217757271841bcbf4190e2689488fb";
+		public static const MaxPaylinesClicked:String = "8df87fbf8d434638a460c3d3549de458";
+		
+		// class
+		public function MachineInfoInformationEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

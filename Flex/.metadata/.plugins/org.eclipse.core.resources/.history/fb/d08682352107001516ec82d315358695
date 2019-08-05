@@ -1,0 +1,577 @@
+package com.gotchaslots.common.mobile.ui.machine
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.machine.MachineData;
+	import com.gotchaslots.common.mobile.data.machine.valuator.ValuatorsHandler;
+	import com.gotchaslots.common.mobile.data.session.level.LevelData;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	import com.gotchaslots.common.mobile.utils.mvc.BaseMvcController;
+	import com.gotchaslots.common.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.TimerEvent;
+	
+	public class MachineController extends BaseMvcController
+	{
+		// members
+		private var _active:Boolean;
+		private var _activeMachine:MachineData;
+		private var _valuatorsHandler:ValuatorsHandler;
+		
+		// class
+		public function MachineController()
+		{
+			super();
+			
+			_active = true;
+			_activeMachine = Main.Instance.ActiveMachine;
+		}
+		
+		public override function CreateView():void
+		{
+			_view = new MachineView(this);
+		}
+		public override function Init():void
+		{
+			super.Init();
+			
+			Main.Instance.XServices.GoogleAnalytics.TrackMachineView(_activeMachine.LobbyMachine.ID);
+			
+			if (_activeMachine.LobbyMachine.MachineSession.FreeSpinsPendingCount > 0)
+			{
+				MachineView(View).Disable();
+				Main.Instance.Application.Ticker.Stop();
+				Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Starting_Free_Spins), "", true);
+				
+				var pauseTimer:TimerEx = new TimerEx(1500);
+				pauseTimer.addEventListener(TimerEvent.TIMER, OnPauseTimer);
+				pauseTimer.start();
+			}
+			else
+			{
+				DoIdle();
+			}
+		}
+		private function OnPauseTimer(event:TimerEvent):void
+		{
+			var pauseTimer:TimerEx = TimerEx(event.currentTarget);
+			if (pauseTimer)
+			{
+				pauseTimer.Dispose();
+				pauseTimer = null;
+			}
+			
+			DoSpin(false);
+		}
+		
+		// methods
+		public function Deactivate():void
+		{
+			_active = false;
+		}
+		
+		public function MaxBet():void
+		{
+			_activeMachine.SetToMaxTotalBet();
+			DoSpin(true);
+		}
+		
+		// sequence
+		// idle
+		public function DoIdle():void
+		{
+			_activeMachine.IsIdle = true;
+			if (Main.Instance.Session.Rare.PendingLevelUpPopups.length > 0 || Main.Instance.Session.Rare.PendingNewMachinePopups.length > 0)
+			{
+				DoShowPendingPopups();
+			}
+			else
+			{
+				if (_activeMachine.LobbyMachine.MachineSession.FreeSpinsPendingCount == 0)
+				{
+					if (_activeMachine.IsAutoSpin)
+					{
+						DoSpin(false);
+					}
+					else
+					{
+						MachineView(View).Enable();
+						MachineView(View).GetReelsPanel.GetAnimatePaylines.Start(_valuatorsHandler);
+					}
+				}
+				else
+				{
+					DoSpin(Main.Instance.Session.Rare.AdjustTotalBetOnLowChips);
+				}
+			}
+		}
+		private function DoShowPendingPopups():void
+		{
+			MachineView(View).Enable();
+			Main.Instance.Session.Rare.PendingLevelUpPopups.reverse();
+			Main.Instance.Session.Rare.PendingNewMachinePopups.reverse();
+			
+			if (Main.Instance.Session.Rare.PendingNewMachinePopups.length > 0)
+			{
+				while (Main.Instance.Session.Rare.PendingLevelUpPopups.length > 0)
+				{
+					NotificationsHandler.Instance.ShowLevelUpPopup(new LevelData(int(Main.Instance.Session.Rare.PopPendingLevelUpPopups())), null);
+				}
+				
+				while (Main.Instance.Session.Rare.PendingNewMachinePopups.length > 1)
+				{
+					NotificationsHandler.Instance.ShowNewMachinePopup(Main.Instance.GetLobbyMachineByMachineID(Main.Instance.Session.Rare.PopPendingNewMachinePopups()), null);
+				}
+				NotificationsHandler.Instance.ShowNewMachinePopup(Main.Instance.GetLobbyMachineByMachineID(Main.Instance.Session.Rare.PopPendingNewMachinePopups()), DoIdle);
+			}
+			else
+			{
+				while (Main.Instance.Session.Rare.PendingLevelUpPopups.length > 1)
+				{
+					NotificationsHandler.Instance.ShowLevelUpPopup(new LevelData(int(Main.Instance.Session.Rare.PopPendingLevelUpPopups())), null);
+				}
+				NotificationsHandler.Instance.ShowLevelUpPopup(new LevelData(int(Main.Instance.Session.Rare.PopPendingLevelUpPopups())), DoIdle);
+			}
+		}
+		
+		// spin
+		public function DoAutoSpin(hasSetToMaxTotalBet:Boolean):void
+		{
+			if (_activeMachine.IsIdle)
+			{
+				DoSpin(hasSetToMaxTotalBet);
+			}
+		}
+		public function DoSpin(hasSetToMaxTotalBet:Boolean):void
+		{
+			if (_active)
+			{
+				_activeMachine.IsIdle = false;
+				
+				MachineView(View).Disable();
+				MachineView(View).GetReelsPanel.GetAnimatePaylinesBox.Stop();
+				MachineView(View).GetReelsPanel.GetAnimatePaylines.Stop();
+				Main.Instance.Application.Ticker.Stop();
+				Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Spinning), "", true);
+				
+				if (_activeMachine.LobbyMachine.MachineSession.FreeSpinsPendingCount == 0)
+				{
+					if (Main.Instance.Session.Wallet.GetBalance < _activeMachine.GetTotalBets.MinTotalBet.TotalBet)		// balance is less than the minimum avaliable total bet
+					{
+						NotificationsHandler.Instance.ShowNoChipsPopup(DoNoSpin);
+					}
+					else if (Main.Instance.Session.Wallet.GetBalance < _activeMachine.TotalBetChips)					// balance is less than the current total bet
+					{
+						if (hasSetToMaxTotalBet)																		// allready adjusted balance
+						{
+							NotificationsHandler.Instance.ShowNoChipsPopup(DoNoSpin);
+						}
+						else
+						{
+							if (Main.Instance.Session.Rare.AdjustTotalBetOnLowChips)									// is auto adjust
+							{
+								MaxBet();																				// auto adjust
+							}
+							else																		
+							{
+								NotificationsHandler.Instance.ShowLowChipsPopup(DoNoSpin);								// adjust popup
+							}
+						}
+					}
+					else
+					{
+						_activeMachine.GetResultMatrixHandler.GetResultMatrix(_activeMachine.SelectedPaylines, _activeMachine.SelectedBetChips, _activeMachine.TotalBetChips);
+						MachineView(View).GetReelsPanel.GetReels.Start();
+						Main.Instance.Session.Wallet.SpinStarted(_activeMachine.TotalBetChips, _activeMachine.TotalBetChips, false);
+						_activeMachine.Win = 0;
+						_activeMachine.LobbyMachine.MachineSession.FreeSpinsSpinStarted();
+						Main.Instance.Sounds.Play(SoundsManager.Machine_Sequence_Spinning);
+					}
+				}
+				else
+				{
+					_activeMachine.GetResultMatrixHandler.GetResultMatrix(_activeMachine.SelectedPaylines, _activeMachine.SelectedBetChips, _activeMachine.TotalBetChips);
+					MachineView(View).GetReelsPanel.GetReels.Start();
+					Main.Instance.Session.Wallet.SpinStarted(_activeMachine.TotalBetChips, _activeMachine.TotalBetChips, true);
+					_activeMachine.Win = 0;
+					_activeMachine.LobbyMachine.MachineSession.FreeSpinsSpinStarted();
+					Main.Instance.Sounds.Play(SoundsManager.Machine_Sequence_Spinning);
+				}
+			}
+		}
+		private function DoNoSpin():void
+		{
+			if (_active)
+			{
+				_activeMachine.IsAutoSpin = false;
+				MachineView(View).Enable();
+				DoIdle();
+			}
+		}
+		
+		// stopped
+		public function ReelStopped():void
+		{
+			Main.Instance.Sounds.Stop(SoundsManager.Machine_Sequence_Spinning);
+			DoPresentations(true);
+		}
+		
+		// presentations
+		public function DoPresentations(firstPresentationPerSpin:Boolean):void
+		{
+			if (_active)
+			{
+				_valuatorsHandler = Main.Instance.ActiveMachine.GetResultMatrixHandler.ActiveResultMatrix.GetValuatorsHandler;
+				
+				if (_valuatorsHandler.IsValuable)
+				{
+					if (firstPresentationPerSpin)
+					{
+						Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won_Ex), Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won_Ex), true);
+						Main.Instance.Sounds.Play(SoundsManager.Machine_Sequence_Won);
+					}
+					DoBomb();
+				}
+				else
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.No_Win), "", true);
+					Main.Instance.Sounds.Play(SoundsManager.Machine_Sequence_NoWin);
+					
+					var noWinTimer:TimerEx = new TimerEx(1667);
+					noWinTimer.addEventListener(TimerEvent.TIMER, OnNoWinTimer);
+					noWinTimer.start();
+				}
+			}
+		}
+		private function OnNoWinTimer(event:TimerEvent):void
+		{
+			var noWinTimer:TimerEx = TimerEx(event.currentTarget);
+			noWinTimer.removeEventListener(TimerEvent.TIMER, OnNoWinTimer);
+			if (_active)
+			{
+				DoFreeSpins();
+			}
+			else
+			{
+				noWinTimer.stop();
+			}
+			
+			if (noWinTimer)
+			{
+				noWinTimer.Dispose();
+				noWinTimer = null;
+			}
+		}
+		
+		private function DoBomb():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Bomb.IsValuable)
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Boom_Ex), "", true);
+					MachineView(View).GetPresentationBox.ShowBombPresentation(null, OnPostBombPresentation, MachineView(View));
+					Main.Instance.XServices.Social.ShareBomb();
+				}
+				else
+				{
+					DoMiniSpin();
+				}
+			}
+		}
+		private function OnPostBombPresentation():void
+		{
+			if (_active)
+			{
+				var chips:Number = _valuatorsHandler.Chips;
+				_activeMachine.GetResultMatrixHandler.ActiveResultMatrix.ReCalculatePayout(_activeMachine.SelectedPaylines, _activeMachine.SelectedBetChips);
+				DoPresentations(false);
+			}
+		}
+		
+		private function DoMiniSpin():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.MiniSpin.IsValuable)
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Bonus_Spin), "", true);
+					MachineView(View).GetPresentationBox.ShowMiniSpinPresentation(null, OnPostMiniSpinPresentation, MachineView(View));
+					Main.Instance.XServices.Social.ShareMiniSpin();
+				}
+				else
+				{
+					DoCollectibles();
+				}
+			}
+		}
+		private function OnPostMiniSpinPresentation():void
+		{
+			if (_active)
+			{
+				var chips:Number = _valuatorsHandler.Chips;
+				_activeMachine.GetResultMatrixHandler.ActiveResultMatrix.ReCalculatePayout(_activeMachine.SelectedPaylines, _activeMachine.SelectedBetChips);
+				DoPresentations(false);
+			}
+		}
+		
+		private function DoCollectibles():void
+		{
+			if (_active)
+			{
+				//MachineView(View).GetPresentationBox.ShowAceCollectiblesPresentation(DoColumn, MachineView(View));
+				//MachineView(View).GetPresentationBox.ShowGoldCollectiblesPresentation(DoColumn, MachineView(View));
+				//MachineView(View).GetPresentationBox.ShowKingCollectiblesPresentation(DoColumn, MachineView(View));
+				//Main.Instance.XServices.Social.ShareCollectible();
+				DoColumn();
+			}
+		}
+		
+		private function DoColumn():void
+		{
+			if (_active)
+			{
+				if (Main.Instance.ActiveMachine.Win > 0)
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won) + ": +" + FormatterHelper.NumberToMoney(Main.Instance.ActiveMachine.Win), "", true);
+				}
+				else
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won_Ex), "", true);
+				}
+				
+				if (_valuatorsHandler.Column.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowColumnPresentation(OnClickToBonusGame, DoSymetric, MachineView(View));
+				}
+				else
+				{
+					DoSymetric();
+				}
+			}
+		}
+		
+		private function DoSymetric():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Symetric.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowSymetricPresentation(OnClickToBonusGame, DoStrike, MachineView(View));
+				}
+				else
+				{
+					DoStrike();
+				}
+			}
+		}
+		
+		private function DoStrike():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Strike.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowStrikePresentation(OnClickToBonusGame, DoWins, MachineView(View), _activeMachine.SelectedPaylines);
+				}
+				else
+				{
+					DoBonusGame();
+				}
+			}
+		}
+		
+		private function DoWins():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Strike.IsMegaWin)
+				{
+					MachineView(View).GetPresentationBox.ShowMegaWinPresentation(OnClickToBonusGame, DoFiveInARow, MachineView(View));
+					Main.Instance.XServices.Social.ShareMegaWin(_valuatorsHandler.Strike.Chips);
+				}
+				else if (_valuatorsHandler.Strike.IsExtraBigWin)
+				{
+					MachineView(View).GetPresentationBox.ShowExtraBigWinPresentation(OnClickToBonusGame, DoFiveInARow, MachineView(View));
+					Main.Instance.XServices.Social.ShareExtraBigWin(_valuatorsHandler.Strike.Chips);
+				}
+				else if (_valuatorsHandler.Strike.IsBigWin)
+				{
+					MachineView(View).GetPresentationBox.ShowBigWinPresentation(OnClickToBonusGame, DoFiveInARow, MachineView(View));
+					Main.Instance.XServices.Social.ShareBigWin(_valuatorsHandler.Strike.Chips);
+				}
+				else if (_valuatorsHandler.Strike.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowNormalWinPresentation(OnClickToBonusGame, DoFiveInARow, MachineView(View));
+				}
+				else
+				{
+					DoFiveInARow();
+				}
+			}
+		}
+		
+		private function DoFiveInARow():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Strike.IsFiveInARow)
+				{
+					MachineView(View).GetPresentationBox.ShowFiveInARowPresentation(OnClickToBonusGame, DoBonusGame, MachineView(View));
+					Main.Instance.XServices.Social.Share5InARow();
+				}
+				else
+				{
+					DoFourInARow();
+				}
+			}
+		}
+		
+		private function DoFourInARow():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Strike.IsFourInARow)
+				{
+					MachineView(View).GetPresentationBox.ShowFourInARowPresentation(OnClickToBonusGame, DoBonusGame, MachineView(View));
+					Main.Instance.XServices.Social.Share4InARow();
+				}
+				else
+				{
+					DoBonusGame();
+				}
+			}
+		}
+		
+		private function OnClickToBonusGame():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.BonusGame.IsValuable)
+				{
+					DoBonusGame();
+				}
+				else
+				{
+					OnClickToFreeSpins();
+				}
+			}
+		}
+		private function DoBonusGame():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.BonusGame.IsValuable)
+				{
+					DoBonusGamePresentation();
+				}
+				else
+				{
+					DoMultiplier();
+				}
+			}
+		}
+		private function DoBonusGamePresentation():void
+		{
+			MachineView(View).GetPresentationBox.ShowBonusGameIsValuablePresentation(null, DoMultiplier, MachineView(View));
+		}
+		
+		private function DoMultiplier():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.Multiplier.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowMultiplierPresentation(OnClickToFreeSpins, DoFreeSpins, MachineView(View));
+					Main.Instance.XServices.Social.ShareMultiplier(_valuatorsHandler.Multiplier.Chips);
+				}
+				else
+				{
+					DoFreeSpins();
+				}
+			}
+		}
+		
+		private function OnClickToFreeSpins():void
+		{
+			DoFreeSpins();
+		}
+		private function DoFreeSpins():void
+		{
+			if (_active)
+			{
+				if (_valuatorsHandler.FreeSpins.IsValuable)
+				{
+					MachineView(View).GetPresentationBox.ShowFreeSpinsIsValuablePresentation(null, PostDoFreeSpins, MachineView(View));
+				}
+				else
+				{
+					PostDoFreeSpins();
+				}
+			}
+		}
+		private function PostDoFreeSpins():void
+		{
+			DoWinToBalance();
+		}
+		
+		private function DoWinToBalance():void
+		{
+			if (_active)
+			{
+				if (Main.Instance.ActiveMachine.Win > 0)
+				{
+					Main.Instance.Application.Ticker.PushMessage(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won) + ": +" + FormatterHelper.NumberToMoney(_valuatorsHandler.Chips), "", true);
+				}
+				
+				if (_valuatorsHandler.Chips > 0)
+				{
+					MachineView(View).GetPresentationBox.ShowWinToBalanceIsValuablePresentation(null, DoFreeSpinsPendingOrWon, MachineView(View));
+				}
+				else
+				{
+					DoFreeSpinsPendingOrWon();
+				}
+			}
+		}
+		
+		private function DoFreeSpinsPendingOrWon():void
+		{
+			if (_active)
+			{
+				if (_activeMachine.LobbyMachine.MachineSession.FreeSpinsWonCount > 0)
+				{
+					_activeMachine.LobbyMachine.MachineSession.FreeSpinsCollectChips(_valuatorsHandler.Chips);
+					if (_activeMachine.LobbyMachine.MachineSession.FreeSpinsPendingCount == 0)
+					{
+						NotificationsHandler.Instance.ShowFreeSpinsEndPopup(OnShowFreeSpinsEndPopupClose);
+					}
+					else if (Main.Instance.Session.Rare.PendingLevelUpPopups.length > 0 || Main.Instance.Session.Rare.PendingNewMachinePopups.length > 0)
+					{
+						DoShowPendingPopups();
+					}
+					else
+					{
+						DoSpin(false);
+					}
+				}
+				else
+				{
+					DoPostPresentations();
+				}
+			}
+		}
+		private function OnShowFreeSpinsEndPopupClose():void
+		{
+			_activeMachine.LobbyMachine.MachineSession.FreeSpinsEndPopupClosed();
+			DoPostPresentations();
+		}
+		
+		public function DoPostPresentations():void
+		{
+			DoIdle();
+		}		
+	}
+}

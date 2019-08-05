@@ -1,0 +1,16 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	import flash.events.Event;
+
+	public class NativeConfirmationDialogEvent extends Event
+	{
+		// consts
+		public static const OK:String = "OK";
+		
+		// class
+		public function NativeConfirmationDialogEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

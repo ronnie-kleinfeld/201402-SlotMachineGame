@@ -1,0 +1,15 @@
+package com.gotchaslots.common.mobile.utils.helpers
+{
+	public class IntHelper
+	{
+		public static function Sum(vector:Vector.<int>):int
+		{
+			var result:int = 0;
+			for (var i:int = 0; i < vector.length; i++)
+			{
+				result += vector[i];
+			}
+			return result;
+		}
+	}
+}

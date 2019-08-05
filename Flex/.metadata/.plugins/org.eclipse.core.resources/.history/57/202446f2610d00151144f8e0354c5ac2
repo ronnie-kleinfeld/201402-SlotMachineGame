@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	public class BaseAdsHandler
+	{
+		public function BaseAdsHandler()
+		{
+		}
+	}
+}

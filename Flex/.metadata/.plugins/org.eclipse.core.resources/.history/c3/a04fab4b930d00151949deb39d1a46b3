@@ -1,0 +1,22 @@
+package com.gotchaslots.common.utils.xServices
+{
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+	import com.gotchaslots.common.utils.ex.EventDispatcherEx;
+
+	public class BaseCoreMobileHandler extends EventDispatcherEx
+	{// members
+		protected var _initialized:Boolean;
+		
+		// class
+		public function BaseCoreMobileHandler()
+		{
+			super();
+			
+			Init();
+		}
+		protected function Init():Boolean
+		{
+			throw new MustOverrideError();
+		}
+	}
+}

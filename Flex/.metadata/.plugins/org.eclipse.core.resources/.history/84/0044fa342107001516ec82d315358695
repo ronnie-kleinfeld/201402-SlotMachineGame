@@ -1,0 +1,27 @@
+package com.gotchaslots.slots.mobile.utils.xServices.contacts
+{
+	import flash.events.Event;
+	
+	public class ContactsHandlerEvent extends Event
+	{
+		// events
+		public static const Progress:String = "7fa40b6aba4e40b0b31169cdb611657a";
+		
+		// members
+		private var _percent:Number;
+		
+		// properties
+		public function get Percent():Number
+		{
+			return _percent;
+		}
+		
+		// class
+		public function ContactsHandlerEvent(type:String, percent:Number)
+		{
+			super(type, bubbles, cancelable);
+			
+			_percent = percent;
+		}
+	}
+}

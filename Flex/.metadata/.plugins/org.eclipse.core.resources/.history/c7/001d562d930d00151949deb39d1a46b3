@@ -1,0 +1,12 @@
+package com.gotchaslots.common.utils.xServices
+{
+	import com.gotchaslots.common.utils.ex.EventDispatcherEx;
+
+	public class BaseCoreMobileHandler extends EventDispatcherEx
+	{
+		// class
+		public function BaseCoreMobileHandler()
+		{
+		}
+	}
+}

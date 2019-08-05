@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.gotchaslots.slots.assets.payboxes.payboxes3x3.PayboxesEmbed3x3"/>
+    <classEntry path="com.gotchaslots.slots.assets.payboxes.payboxes5x4.PayboxesEmbed5x4"/>
+    <classEntry path="com.gotchaslots.slots.assets.payboxes.payboxes5x5.PayboxesEmbed5x5"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

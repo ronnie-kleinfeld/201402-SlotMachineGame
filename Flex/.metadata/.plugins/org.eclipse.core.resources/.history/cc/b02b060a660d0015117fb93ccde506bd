@@ -1,0 +1,144 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	import com.gotchaslots.common.utils.xServices.ads.base.BaseAdsHandler;
+
+	public class IAdHandler extends BaseAdsHandler
+	{
+		// members
+		private var _autoShowAd:Boolean;
+		
+		// class
+		public function IAdHandler()
+		{
+			super();
+			
+			Init();
+		}
+		protected override function Init():Boolean
+		{
+			trace("InitAdMob");
+			
+			if (!_initialized)
+			{
+				if(IAd.isSupported())
+				{
+					IAd.create();
+					IAd.iAd.addEventListener("BANNER_ACTION_BEGIN", OnBannerActionBegin);
+					IAd.iAd.addEventListener("BANNER_ACTION_FINISHED", OnBannerActionFinished);
+					IAd.iAd.addEventListener("BANNER_AD_FAILED", OnBannerAdFailed);
+					IAd.iAd.addEventListener("BANNER_AD_LOADED", OnBannerAdLoader);
+					IAd.iAd.addEventListener("INTERSTITIAL_ACTION_BEGIN", OnInterstitialActionBegin);
+					IAd.iAd.addEventListener("INTERSTITIAL_ACTION_FINISHED", OnInterstitialActionFinished);
+					IAd.iAd.addEventListener("INTERSTITIAL_AD_FAILED", OnInterstitialAdFailed);
+					IAd.iAd.addEventListener("INTERSTITIAL_AD_LOADED", OnInterstitialAdLoaded);
+					IAd.iAd.addEventListener("INTERSTITIAL_AD_UNLOADED", OnInterstitialAdUnloaded);
+					IAd.iAd.addEventListener("INTERSTITIAL_DISMISSED", OnInterstitialDismissed);
+					IAd.iAd.addEventListener("INTERSTITIAL_SHOWN", OnInterstitialShown);
+					
+					_initialized = true;
+				}
+				else
+				{
+					_initialized = false;
+				}
+			}
+			
+			return _initialized;
+		}
+		
+		// banner
+		public override function ShowBanner():void
+		{
+			if (Init())
+			{
+				IAd.iAd.createBannerAd(IAdBannerAlignment.TOP, IAdContentSize.PORTRAIT_AND_LANDSCAPE);
+			}
+		}
+		public override function RemoveBanner():void
+		{
+			if (Init())
+			{
+				IAd.iAd.destroyBannerAd();
+			}
+		}
+		
+		private function OnBannerActionBegin(event:IAdEvent):void
+		{
+			trace("OnBannerActionBegin");
+		}
+		private function OnBannerActionFinished(event:IAdEvent):void
+		{
+			trace("OnBannerActionFinished");
+		}
+		private function OnBannerAdFailed(event:IAdErrorEvent):void
+		{
+			trace("OnBannerAdFailed");
+		}
+		private function OnBannerAdLoader(event:IAdEvent):void
+		{
+			trace("OnBannerAdLoader");
+		}
+		
+		// interstitial
+		public override function LoadInterstitial():void
+		{
+			if (Init())
+			{
+				_autoShowAd = false;
+				IAd.iAd.loadInterstitial(false);
+			}
+		}
+		public override function ShowInterstitial():void
+		{
+			if (Init())
+			{
+				_autoShowAd = true;
+				
+				if (IAd.iAd.isInterstitialReady())
+				{
+					IAd.iAd.showPendingInterstitial();
+				}
+				else
+				{
+					IAd.iAd.loadInterstitial(true);
+				}
+			}
+		}
+		public override function RemoveInterstitial():void
+		{
+			if (Init())
+			{
+				IAd.iAd.destroyBannerAd();
+			}
+		}
+		
+		private function OnInterstitialActionBegin(event:IAdEvent):void
+		{
+			trace("OnInterstitialActionBegin");
+		}
+		private function OnInterstitialActionFinished(event:IAdEvent):void
+		{
+			trace("OnInterstitialActionFinished");
+		}
+		private function OnInterstitialAdFailed(event:IAdErrorEvent):void
+		{
+			trace("OnInterstitialAdFailed");
+		}
+		private function OnInterstitialAdLoaded(event:IAdEvent):void
+		{
+			trace("OnInterstitialAdLoaded");
+		}
+		private function OnInterstitialAdUnloaded(event:IAdEvent):void
+		{
+			trace("OnInterstitialAdUnloaded");
+		}
+		private function OnInterstitialDismissed(event:IAdEvent):void
+		{
+			trace("OnInterstitialDismissed");
+		}
+		private function OnInterstitialShown(event:IAdEvent):void
+		{
+			trace("OnInterstitialShown");
+		}
+	}
+}

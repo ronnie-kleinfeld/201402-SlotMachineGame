@@ -1,0 +1,67 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.level
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupGroupMessageLeftTextField;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupGroupMessageRightTextField;
+	import com.gotchaslots.slots.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	
+	public class LevelInfoPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.BigPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Level_Info);
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function LevelInfoPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddLevelTextField(0, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.This_Level_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.LevelNumber, 0, 0));
+			AddLevelTextField(1, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.XP_Range_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.MinXP, 0, 0) + "-" + FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.NextMinXP - 1));
+			AddLevelTextField(2, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Level_Up_Bonus_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.LevelReachedBonusChips, 0));
+			AddLevelTextField(3, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Timer_Bonus_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.TimerBonusChips));
+			AddLevelTextField(4, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Max_Bet_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.MaxBetLevelChips.Chips));
+			AddLevelTextField(5.2, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Next_Level_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.LevelNumber + 1, 0, 0));
+			AddLevelTextField(6.2, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.XP_for_Next_Level_Co), FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.NextMinXP));
+		}
+		
+		// methods
+		private function AddLevelTextField(index:Number, label:String, value:String):void
+		{
+			var labelTextField:PopupGroupMessageLeftTextField = new PopupGroupMessageLeftTextField(W * 0.9, label);
+			labelTextField.x = W * 0.05;
+			labelTextField.y = index * 36 + 40;
+			addChild(labelTextField);
+			
+			var valueTextField:PopupGroupMessageRightTextField = new PopupGroupMessageRightTextField(W * 0.9, value);
+			valueTextField.x = W * 0.05;
+			valueTextField.y = index * 36 + 40;
+			addChild(valueTextField);
+		}
+		
+		// events
+		private function OnCloseClick(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}

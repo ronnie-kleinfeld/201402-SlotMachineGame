@@ -1,0 +1,249 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseBG;
+	import com.gotchaslots.common.mobile.ui.common.components.buttons.BackButton;
+	import com.gotchaslots.common.mobile.ui.common.components.buttons.NextButton;
+	import com.gotchaslots.common.mobile.ui.common.components.gradientBG.RadialGradientBG;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BaseMachinePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoInformation.MachineInfoInformation;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoInformation.MachineInfoInformationEvent;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoNormalSymbols.MachineInfoNormalSymbols;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoPaylines.MachineInfoPaylines;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoSpecialSymbols.MachineInfoSpecialSymbols;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.textFields.PopupNavigatorTextField;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	import com.gotchaslots.common.mobile.utils.sounds.SoundsManager;
+	import com.greensock.TweenLite;
+	
+	import flash.display.Shape;
+	import flash.events.Event;
+	import flash.events.TransformGestureEvent;
+	
+	public class MachineInfoPopup extends BaseMachinePopup
+	{
+		// members
+		private var _lobbyMachine:BaseLobbyMachineData;
+		
+		private var _strip:SpriteEx;
+		private var _back:BackButton;
+		private var _next:NextButton;
+		private var _navigatorTextField:PopupNavigatorTextField;
+		private var _machineInfoPage:int;
+		
+		private var _slideTween:TweenLite;
+		
+		// properties
+		public function get MachineInfoPage():int
+		{
+			return _machineInfoPage;
+		}
+		public function set MachineInfoPage(value:int):void
+		{
+			if (_machineInfoPage != value)
+			{
+				_machineInfoPage = value;
+				
+				switch (_machineInfoPage)
+				{
+					case MachineInfoPageEnum.Information:
+						_back.visible = false;
+						_next.visible = true;
+						Slide(_lobbyMachine.MachineName);
+						break;
+					case MachineInfoPageEnum.NormalSymbols:
+						_back.visible = true;
+						_next.visible = true;
+						Slide(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Pay_Table_dash_Symbols));
+						break;
+					case MachineInfoPageEnum.SpecialSymbols:
+						_back.visible = true;
+						_next.visible = true;
+						Slide(FormatterHelper.NumberToMoney(_lobbyMachine.Symbols.SpecialSymbols.length, 0, 0) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Special_Symbols));
+						break;
+					case MachineInfoPageEnum.Paylines:
+						_back.visible = true;
+						_next.visible = false;
+						Slide(FormatterHelper.NumberToMoney(_lobbyMachine.Paylines.Paylines.length, 0, 0) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Paylines));
+						break;
+					default:
+						MachineInfoPage = MachineInfoPageEnum.Information;
+						break;
+				}
+			}
+		}
+		
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		protected override function get Width():int
+		{
+			return 456;
+		}
+		protected override function get Height():int
+		{
+			return 382;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Machine_Info);
+		}
+		
+		protected override function get FrameCorner():Number
+		{
+			return 0;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		protected override function get AutoCloseTimeout():int
+		{
+			return 0;
+		}
+		
+		// class
+		public function MachineInfoPopup(machineInfoPage:int, lobbyMachine:BaseLobbyMachineData, onClose:Function)
+		{
+			_lobbyMachine = lobbyMachine;
+			
+			super(onClose);
+			
+			InitStrip();
+			InitNavigator();
+			
+			_machineInfoPage = -1;
+			MachineInfoPage = machineInfoPage;
+		}
+		private function InitStrip():void
+		{
+			_strip = new SpriteEx();
+			_strip.x = 19;
+			_strip.y = 103;
+			_strip.addEventListener(TransformGestureEvent.GESTURE_SWIPE, OnGestureSwipe);
+			
+			var machineInfoInformation:MachineInfoInformation = new MachineInfoInformation(_lobbyMachine);
+			machineInfoInformation.x = _strip.numChildren * 421;
+			machineInfoInformation.addEventListener(MachineInfoInformationEvent.NormalSymbolsClicked, onNormalSymbolsClicked);
+			machineInfoInformation.addEventListener(MachineInfoInformationEvent.SpecialSymbolsClicked, onSpecialSymbolsClicked);
+			machineInfoInformation.addEventListener(MachineInfoInformationEvent.MaxPaylinesClicked, onMaxPaylinesClicked);
+			_strip.addChild(machineInfoInformation);
+			
+			var machineInfoNormalSymbols:MachineInfoNormalSymbols = new MachineInfoNormalSymbols(_lobbyMachine);
+			machineInfoNormalSymbols.x = _strip.numChildren * 421;
+			_strip.addChild(machineInfoNormalSymbols);
+			
+			var machineInfoSpecialSymbols:MachineInfoSpecialSymbols = new MachineInfoSpecialSymbols(_lobbyMachine);
+			machineInfoSpecialSymbols.x = _strip.numChildren * 421;
+			_strip.addChild(machineInfoSpecialSymbols);
+			
+			var machineInfoPaylines:MachineInfoPaylines = new MachineInfoPaylines(_lobbyMachine);
+			machineInfoPaylines.x = _strip.numChildren * 421;
+			_strip.addChild(machineInfoPaylines);
+			
+			var maskingShape:Shape = new Shape();
+			maskingShape.graphics.beginFill(0x666666, 1);
+			maskingShape.graphics.drawRect(19, 103, 421, 260);
+			maskingShape.graphics.endFill();
+			_strip.mask = maskingShape;
+			addChild(maskingShape);
+			
+			addChild(_strip);
+		}
+		private function InitNavigator():void
+		{
+			var radialGradientBG:RadialGradientBG = new RadialGradientBG(421, 50, 15, 0x53f0fb, 0x00adf9);
+			radialGradientBG.x = 19;
+			radialGradientBG.y = 40;
+			addChild(radialGradientBG);
+			
+			var navigatorBG:BaseBG = new BaseBG(421, 50, 0x8330ba);
+			navigatorBG.x = 19;
+			navigatorBG.y = 40;
+			//addChild(navigatorBG);
+			
+			_navigatorTextField = new PopupNavigatorTextField(navigatorBG.width, "something");
+			_navigatorTextField.x = navigatorBG.x;
+			_navigatorTextField.y = navigatorBG.y + (navigatorBG.height - _navigatorTextField.height) / 2;
+			addChild(_navigatorTextField);
+			
+			_back = new BackButton(OnBackClick);
+			_back.x = navigatorBG.x + 3;
+			_back.y = navigatorBG.y + 3;
+			addChild(_back);
+			
+			_next = new NextButton(OnNextClick);
+			_next.x = navigatorBG.x + navigatorBG.width - 3 - _next.width;
+			_next.y = navigatorBG.y + 3;
+			addChild(_next);
+		}
+		
+		// methods
+		protected override function AddBody():void
+		{
+		}
+		private function Slide(navigatorText:String):void
+		{
+			var targetX:int = -MachineInfoPage * 421 + 19;
+			
+			TweenLite.to(_strip, 0.5, {x:targetX});
+			TweenLite.to(_navigatorTextField, 0.1, {alpha:0, onComplete:OnComplete, onCompleteParams:[navigatorText]});
+		}
+		
+		// events
+		protected function onNormalSymbolsClicked(event:Event):void
+		{
+			MachineInfoPage = MachineInfoPageEnum.NormalSymbols;
+		}
+		protected function onSpecialSymbolsClicked(event:Event):void
+		{
+			MachineInfoPage = MachineInfoPageEnum.SpecialSymbols;
+		}
+		protected function onMaxPaylinesClicked(event:Event):void
+		{
+			MachineInfoPage = MachineInfoPageEnum.Paylines;
+		}
+		
+		protected function OnGestureSwipe(event:TransformGestureEvent):void
+		{
+			if (event.offsetX == 1)
+			{
+				MachineInfoPage--;
+			}
+			else if (event.offsetX == -1)
+			{
+				MachineInfoPage++;
+			}
+		}
+		
+		protected function OnBackClick(event:Event):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Slide);
+			MachineInfoPage--;
+		}
+		protected function OnNextClick(event:Event):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Slide);
+			MachineInfoPage++;
+		}
+		
+		private function OnComplete(navigatorText:String):void
+		{
+			_navigatorTextField.Text = navigatorText;
+			TweenLite.to(_navigatorTextField, 0.4, {alpha:1.4});
+		}
+		
+		private function OnCloseClick(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}

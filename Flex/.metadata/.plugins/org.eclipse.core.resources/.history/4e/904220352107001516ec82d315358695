@@ -1,0 +1,24 @@
+package com.gotchaslots.slots.mobile.data.machine.symbol
+{
+	import com.gotchaslots.common.assets.machine.scatterPayboxes.ScatterPayboxesEmbed;
+	import com.gotchaslots.common.assets.machine.symbols.SymbolsEmbed;
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.data.machine.symbol.base.BaseScatterSymbolData;
+	import com.gotchaslots.slots.mobile.data.machine.symbol.base.SymbolTypeEnum;
+	
+	public class MultiplierSymbolData extends BaseScatterSymbolData
+	{
+		// properties
+		public override function get SpecialOdds():Number
+		{
+			return 0.1 * _factor;
+		}
+		
+		// class
+		public function MultiplierSymbolData(id:int, pngClass:Class, factor:Number)
+		{
+			super(id, SymbolsEmbed.Multiplier, SymbolTypeEnum.Multiplier, factor, 5, 4, 3, 2, 1, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Multiplier), Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Multiplier_Note), ScatterPayboxesEmbed.Multiplier);
+		}
+	}
+}

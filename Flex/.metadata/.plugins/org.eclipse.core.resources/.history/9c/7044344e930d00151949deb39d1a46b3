@@ -1,0 +1,53 @@
+package com.gotchaslots.common.utils.xServices
+{
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+	import com.gotchaslots.common.utils.ex.EventDispatcherEx;
+	import com.gotchaslots.slots.utils.consts.SlotsConsts;
+	import com.milkmangames.nativeextensions.AdMob;
+	import com.milkmangames.nativeextensions.events.AdMobErrorEvent;
+	import com.milkmangames.nativeextensions.events.AdMobEvent;
+
+	public class BaseCoreMobileHandler extends EventDispatcherEx
+	{// members
+		protected var _initialized:Boolean;
+		
+		// class
+		public function BaseCoreMobileHandler()
+		{
+			super();
+			
+			Init();
+		}
+		protected function Init():Boolean
+		{
+			if (!_initialized)
+			{
+				if(AdMob.isSupported)
+				{
+					AdMob.init(SlotsConsts.AD_MOB_BANNER_ANDROID, SlotsConsts.AD_MOB_BANNER_IOS);
+					AdMob.addEventListener(AdMobEvent.LEAVE_APPLICATION, OnLeaveApplication);
+					AdMob.addEventListener(AdMobEvent.RECEIVED_AD, OnReceiveAd);
+					AdMob.addEventListener(AdMobEvent.SCREEN_DISMISSED, OnScreenDismissed);
+					AdMob.addEventListener(AdMobEvent.SCREEN_PRESENTED, OnScreenPresented);
+					AdMob.addEventListener(AdMobErrorEvent.FAILED_TO_RECEIVE_AD, OnFailedToReceiveAd);
+					
+					_initialized = true;
+					
+					CONFIG::DEBUG
+						{
+							// remove this line when you're done testing!
+							//AdMob.enableTestDeviceIDs(AdMob.getCurrentTestDeviceIDs());
+						}
+						
+						AdMob.enableTestDeviceIDs(AdMob.getCurrentTestDeviceIDs());
+				}
+				else
+				{
+					_initialized = false;
+				}
+			}
+			
+			return _initialized;
+		}
+	}
+}

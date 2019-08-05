@@ -1,0 +1,7 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+    <sdkVersion>7.0.0</sdkVersion>
+    <linkerOptions>
+        <option>-framework iAd</option>
+		<option>-w</option>
+    </linkerOptions>
+</platform>

@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="yes"?>
+<SMTPSentDataSet xmlns="http://tempuri.org/SMTPSentDataSet.xsd">
+  <T_SENT>
+    <EMS_EMAIL>abdellatif1907@hotmail.it</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdonmanyauik@hotmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdo.miksi@gmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdulian@azet.sk</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdulrmamdani@gmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdulrasheedrehmani@hotmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdulrazak.ahmad52@yahoo.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdul1167@yahoo.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdurrehmanrehmani@hotmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abd.obidat@yahoo.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>abdulla-gashi@hotmail.com</EMS_EMAIL>
+  </T_SENT>
+</SMTPSentDataSet>

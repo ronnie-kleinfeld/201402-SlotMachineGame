@@ -1,0 +1,119 @@
+package com.gotchaslots.slots.assets
+{
+	import flash.display.Sprite;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	
+	public class TextFieldsHandler
+	{
+		// device font
+		[Embed(source="TextFields.swf", symbol="DeviceFont")]								private var _deviceFont:Class;								public function get DeviceFont():TextField								{return CreateTextField(_deviceFont);}
+		
+		// hud_topPanel
+		[Embed(source="TextFields.swf", symbol="HudTopPanelBalance")]						private var _hudTopPanelBalance:Class;						public function get HudTopPanelBalance():TextField						{return CreateTextField(_hudTopPanelBalance);}
+		[Embed(source="TextFields.swf", symbol="HudTopPanelXP")]							private var _hudTopPanelXP:Class;							public function get HudTopPanelXP():TextField							{return CreateTextField(_hudTopPanelXP);}
+		[Embed(source="TextFields.swf", symbol="HudTopPanelLevel")]							private var _hudTopPanelLevel:Class;						public function get HudTopPanelLevel():TextField						{return CreateTextField(_hudTopPanelLevel);}
+		
+		// hud_jackpot
+		[Embed(source="TextFields.swf", symbol="HudJackpot")]								private var _hudJackpot:Class;								public function get HudJackpot():TextField								{return CreateTextField(_hudJackpot);}
+		
+		// hud_l10n
+		[Embed(source="TextFields.swf", symbol="HudL10NRibbon")]							private var _hudL10NRibbon:Class;							public function get HudL10NRibbon():TextField							{return CreateTextField(_hudL10NRibbon);}
+		[Embed(source="TextFields.swf", symbol="HudL10NButton")]							private var _hudL10NButton:Class;							public function get HudL10NButton():TextField							{return CreateTextField(_hudL10NButton);}
+		
+		// hud_ticker
+		[Embed(source="TextFields.swf", symbol="HudTicker")]								private var _hudTicker:Class;								public function get HudTicker():TextField								{return CreateTextField(_hudTicker);}
+		[Embed(source="TextFields.swf", symbol="HudTickerBubbling")]						private var _hudTickerBubbling:Class;						public function get HudTickerBubbling():TextField						{return CreateTextField(_hudTickerBubbling);}
+		
+		// lobby_machinesList
+		[Embed(source="TextFields.swf", symbol="LobbyMachinePreviewMaxPaylines")]			private var _lobbyMachinePreviewMaxPaylines:Class;			public function get LobbyMachinePreviewMaxPaylines():TextField			{return CreateTextField(_lobbyMachinePreviewMaxPaylines);}
+		[Embed(source="TextFields.swf", symbol="LobbyMachinePreviewSymbolDescription")]		private var _lobbyMachinePreviewSymbolDescription:Class;	public function get LobbyMachinePreviewSymbolDescription():TextField	{return CreateTextField(_lobbyMachinePreviewSymbolDescription);}
+		[Embed(source="TextFields.swf", symbol="LobbyMachinePreviewFreeSpins")]				private var _lobbyMachinePreviewFreeSpins:Class;			public function get LobbyMachinePreviewFreeSpins():TextField			{return CreateTextField(_lobbyMachinePreviewFreeSpins);}
+		[Embed(source="TextFields.swf", symbol="LobbyMachinePreviewBonusGame")]				private var _lobbyMachinePreviewBonusGame:Class;			public function get LobbyMachinePreviewBonusGame():TextField			{return CreateTextField(_lobbyMachinePreviewBonusGame);}
+		[Embed(source="TextFields.swf", symbol="LobbyMachinePreviewLocked")]				private var _lobbyMachinePreviewLocked:Class;				public function get LobbyMachinePreviewLocked():TextField				{return CreateTextField(_lobbyMachinePreviewLocked);}
+		
+		// lobby_promotionPanel_achievements
+		// lobby_promotionPanel_timerBonus
+		[Embed(source="TextFields.swf", symbol="LobbyTimerBonusDisconnected")]				private var _lobbyTimerBonusDisconnected:Class;				public function get LobbyTimerBonusDisconnected():TextField				{return CreateTextField(_lobbyTimerBonusDisconnected);}
+		[Embed(source="TextFields.swf", symbol="LobbyTimerBonusInit")]						private var _lobbyTimerBonusInit:Class;						public function get LobbyTimerBonusInit():TextField						{return CreateTextField(_lobbyTimerBonusInit);}
+		[Embed(source="TextFields.swf", symbol="LobbyTimerBonusCountdown")]					private var _lobbyTimerBonusCountdown:Class;				public function get LobbyTimerBonusCountdown():TextField				{return CreateTextField(_lobbyTimerBonusCountdown);}
+		[Embed(source="TextFields.swf", symbol="LobbyTimerBonusReady")]						private var _lobbyTimerBonusReady:Class;					public function get LobbyTimerBonusReady():TextField					{return CreateTextField(_lobbyTimerBonusReady);}
+		
+		// machine_freeSpins
+		[Embed(source="TextFields.swf", symbol="MachineFreeSpinsRibbon")]					private var _machineFreeSpinsRibbon:Class;					public function get MachineFreeSpinsRibbon():TextField					{return CreateTextField(_machineFreeSpinsRibbon);}
+		[Embed(source="TextFields.swf", symbol="MachineFreeSpinsRibbonBubbling")]			private var _machineFreeSpinsRibbonBubbling:Class;			public function get MachineFreeSpinsRibbonBubbling():TextField			{return CreateTextField(_machineFreeSpinsRibbonBubbling);}
+		
+		// machine_bottomPanel
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelTextFieldValue")]			private var _machineBottomPanelPaylinesValue:Class;			public function get MachineBottomPanelPaylinesValue():TextField			{return CreateTextField(_machineBottomPanelPaylinesValue);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelTextFieldValue")]			private var _machineBottomPanelBetValue:Class;				public function get MachineBottomPanelBetValue():TextField				{return CreateTextField(_machineBottomPanelBetValue);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelTextFieldValue")]			private var _machineBottomPanelTotalBetValue:Class;			public function get MachineBottomPanelTotalBetValue():TextField			{return CreateTextField(_machineBottomPanelTotalBetValue);}
+		
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelHeader")]					private var _machineBottomPanelPaylinesHeader:Class;		public function get MachineBottomPanelPaylinesHeader():TextField		{return CreateTextField(_machineBottomPanelPaylinesHeader);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelHeader")]					private var _machineBottomPanelBetHeader:Class;				public function get MachineBottomPanelBetHeader():TextField				{return CreateTextField(_machineBottomPanelBetHeader);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelHeader")]					private var _machineBottomPanelTotalBetHeader:Class;		public function get MachineBottomPanelTotalBetHeader():TextField		{return CreateTextField(_machineBottomPanelTotalBetHeader);}
+		
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelPayTable:Class;				public function get MachineBottomPanelPayTable():TextField				{return CreateTextField(_machineBottomPanelPayTable);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelPaylinesButton:Class;		public function get MachineBottomPanelPaylinesButton():TextField		{return CreateTextField(_machineBottomPanelPaylinesButton);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelBetButton:Class;				public function get MachineBottomPanelBetButton():TextField				{return CreateTextField(_machineBottomPanelBetButton);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelMaxBet:Class;				public function get MachineBottomPanelMaxBet():TextField				{return CreateTextField(_machineBottomPanelMaxBet);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelAuto:Class;					public function get MachineBottomPanelAuto():TextField					{return CreateTextField(_machineBottomPanelAuto);}
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelButton")]					private var _machineBottomPanelSpeed:Class;					public function get MachineBottomPanelSpeed():TextField					{return CreateTextField(_machineBottomPanelSpeed);}
+		
+		[Embed(source="TextFields.swf", symbol="MachineBottomPanelSpin")]					private var _machineBottomPanelSpin:Class;					public function get MachineBottomPanelSpin():TextField					{return CreateTextField(_machineBottomPanelSpin);}
+		
+		// bonus game
+		[Embed(source="TextFields.swf", symbol="BonusGameHigherLowerNextSpin")]				private var _bonusGameHigherLowerNextSpin:Class;			public function get BonusGameHigherLowerNextSpin():TextField			{return CreateTextField(_bonusGameHigherLowerNextSpin);}
+		[Embed(source="TextFields.swf", symbol="BonusGameHigherLowerSpinner")]				private var _bonusGameHigherLowerSpinner:Class;				public function get BonusGameHigherLowerSpinner():TextField				{return CreateTextField(_bonusGameHigherLowerSpinner);}
+		
+		// notifications
+		[Embed(source="TextFields.swf", symbol="PopupTitle")]								private var _popupTitle:Class;								public function get PopupTitle():TextField								{return CreateTextField(_popupTitle);}
+		[Embed(source="TextFields.swf", symbol="PopupMessageBlue")]							private var _popupMessageBlue:Class;						public function get PopupMessageBlue():TextField						{return CreateTextField(_popupMessageBlue);}
+		[Embed(source="TextFields.swf", symbol="PopupMessagePink")]							private var _popupMessagePink:Class;						public function get PopupMessagePink():TextField						{return CreateTextField(_popupMessagePink);}
+		[Embed(source="TextFields.swf", symbol="PopupButtonMain")]							private var _popupButtonMain:Class;							public function get PopupButtonMain():TextField							{return CreateTextField(_popupButtonMain);}
+		[Embed(source="TextFields.swf", symbol="PopupButtonSecondary")]						private var _popupButtonSecondary:Class;					public function get PopupButtonSecondary():TextField					{return CreateTextField(_popupButtonSecondary);}
+		[Embed(source="TextFields.swf", symbol="PopupGroupMessage")]						private var _popupGroupMessage:Class;						public function get PopupGroupMessage():TextField						{return CreateTextField(_popupGroupMessage);}
+		[Embed(source="TextFields.swf", symbol="PopupNavigator")]							private var _popupNavigator:Class;							public function get PopupNavigator():TextField							{return CreateTextField(_popupNavigator);}
+		[Embed(source="TextFields.swf", symbol="PopupSettings")]							private var _popupSettings:Class;							public function get PopupSettings():TextField							{return CreateTextField(_popupSettings);}
+		[Embed(source="TextFields.swf", symbol="PopupClose")]								private var _popupClose:Class;								public function get PopupClose():TextField								{return CreateTextField(_popupClose);}
+		
+		[Embed(source="TextFields.swf", symbol="BuyChipsChips")]							private var _buyChipsChips:Class;							public function get BuyChipsChips():TextField							{return CreateTextField(_buyChipsChips);}
+		[Embed(source="TextFields.swf", symbol="BuyChipsPrice")]							private var _buyChipsPrice:Class;							public function get BuyChipsPrice():TextField							{return CreateTextField(_buyChipsPrice);}
+		[Embed(source="TextFields.swf", symbol="BuyChipsMessage")]							private var _buyChipsMessage:Class;							public function get BuyChipsMessage():TextField							{return CreateTextField(_buyChipsMessage);}
+		[Embed(source="TextFields.swf", symbol="BuyChipsButton")]							private var _buyChipsButton:Class;							public function get BuyChipsButton():TextField							{return CreateTextField(_buyChipsButton);}
+		
+		[Embed(source="TextFields.swf", symbol="DailyBonusDay")]							private var _dailyBonusDay:Class;							public function get DailyBonusDay():TextField							{return CreateTextField(_dailyBonusDay);}
+		[Embed(source="TextFields.swf", symbol="DailyBonusPrice")]							private var _dailyBonusPrice:Class;							public function get DailyBonusPrice():TextField							{return CreateTextField(_dailyBonusPrice);}
+		[Embed(source="TextFields.swf", symbol="DailyBonusButton")]							private var _dailyBonusButton:Class;						public function get DailyBonusButton():TextField						{return CreateTextField(_dailyBonusButton);}
+		
+		[Embed(source="TextFields.swf", symbol="MachineInfoSymbolDescription")]				private var _machineInfoSymbolDescription:Class;			public function get MachineInfoSymbolDescription():TextField			{return CreateTextField(_machineInfoSymbolDescription);}
+		[Embed(source="TextFields.swf", symbol="MachineInfoNormalSymbolPayout")]			private var _machineInfoNormalSymbolPayout:Class;			public function get MachineInfoNormalSymbolPayout():TextField			{return CreateTextField(_machineInfoNormalSymbolPayout);}
+		[Embed(source="TextFields.swf", symbol="MachineInfoSpecialSymbolPayout")]			private var _machineInfoSpecialSymbolPayout:Class;			public function get MachineInfoSpecialSymbolPayout():TextField			{return CreateTextField(_machineInfoSpecialSymbolPayout);}
+		[Embed(source="TextFields.swf", symbol="MachineInfoPayline")]						private var _machineInfoPayline:Class;						public function get MachineInfoPayline():TextField						{return CreateTextField(_machineInfoPayline);}
+		
+		// splash
+		[Embed(source="TextFields.swf", symbol="SplashTitle")]								private var _splashTitle:Class;								public function get SplashTitle():TextField								{return CreateTextField(_splashTitle);}
+		
+		// methods
+		private function CreateTextField(textFieldClass:Class):TextField
+		{
+			var sprite:Sprite = new textFieldClass();
+			var textField:TextField = sprite["textField"];
+			textField.x = 0;
+			textField.y = 0;
+			return textField;
+		}
+		
+		// class
+		public function TextFieldsHandler()
+		{
+		}
+		
+		// methods
+		public function SetText(textField:TextField, text:String):void
+		{
+			var textFormat:TextFormat = textField.getTextFormat();
+			textField.text = text;
+			textField.setTextFormat(textFormat);
+		}
+	}
+}

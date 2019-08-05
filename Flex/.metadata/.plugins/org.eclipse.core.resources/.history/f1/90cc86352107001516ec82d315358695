@@ -1,0 +1,78 @@
+package com.gotchaslots.common.mobile.ui.lobby.machinesList.machinePreview.components
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.data.session.machines.MachineSessionDataEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseTextField;
+	import com.gotchaslots.common.mobile.ui.common.components.gradientBG.RadialGradientBG;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	import flash.text.TextField;
+	
+	public class FreeSpinsPendingRibbon extends BaseTextField
+	{
+		// members
+		protected var _lobbyMachine:BaseLobbyMachineData;
+		
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.LobbyMachinePreviewFreeSpins;
+		}
+		
+		// class
+		public function FreeSpinsPendingRibbon(lobbyMachine:BaseLobbyMachineData)
+		{
+			_lobbyMachine = lobbyMachine;
+			
+			addChild(new RadialGradientBG(160, 50, 15, 0x53f0fb, 0x00adf9));
+			
+			super(160, 50, "\n");
+			
+			_lobbyMachine.MachineSession.addEventListener(MachineSessionDataEvent.FreeSpinsSpinStarted, OnFreeSpinsSpinStarted);
+			_lobbyMachine.MachineSession.addEventListener(MachineSessionDataEvent.FreeSpinsCollectCount, OnFreeSpinsCollectCount);
+			_lobbyMachine.MachineSession.addEventListener(MachineSessionDataEvent.FreeSpinsEndPopupClosed, OnFreeSpinsEndPopupClosed);
+			
+			Update();
+		}
+		public override function Dispose():void
+		{
+			_lobbyMachine.MachineSession.removeEventListener(MachineSessionDataEvent.FreeSpinsSpinStarted, OnFreeSpinsSpinStarted);
+			_lobbyMachine.MachineSession.removeEventListener(MachineSessionDataEvent.FreeSpinsCollectCount, OnFreeSpinsCollectCount);
+			_lobbyMachine.MachineSession.removeEventListener(MachineSessionDataEvent.FreeSpinsEndPopupClosed, OnFreeSpinsEndPopupClosed);
+			
+			super.Dispose();
+		}
+		
+		// methods
+		private function Update():void
+		{
+			if (_lobbyMachine.MachineSession.FreeSpinsPendingCount > 0)
+			{
+				Text = FormatterHelper.NumberToMoney( _lobbyMachine.MachineSession.FreeSpinsPendingCount, 0, 0) + "\n" + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Free_Spins);
+			}
+			else
+			{
+				Text = "\n";
+			}
+			
+			visible = _lobbyMachine.IsOpen && _lobbyMachine.MachineSession.FreeSpinsPendingCount > 0;
+		}
+		
+		// events
+		protected function OnFreeSpinsSpinStarted(event:Event):void
+		{
+			Update();
+		}
+		protected function OnFreeSpinsCollectCount(event:Event):void
+		{
+			Update();
+		}
+		protected function OnFreeSpinsEndPopupClosed(event:Event):void
+		{
+			Update();
+		}
+	}
+}

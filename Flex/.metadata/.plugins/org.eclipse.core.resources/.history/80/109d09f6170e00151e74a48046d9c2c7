@@ -1,0 +1,27 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	import flash.events.Event;
+
+	public class LocalNotificationsEvent extends Event
+	{
+		// consts
+		public static const LOCAL_NOTIFICATION_RECEIVED:String = "LOCAL_NOTIFICATION_RECEIVED";
+		public static const RESUMED_FROM_LOCAL_NOTIFICATION:String = "RESUMED_FROM_LOCAL_NOTIFICATION";
+
+		// members
+		private var _title:String;
+		private var _message:String;
+		private var _extra:Object;
+		private var _extraJson:String;
+		event.
+		event.
+		event.
+		event.
+
+		// class
+		public function LocalNotificationsEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

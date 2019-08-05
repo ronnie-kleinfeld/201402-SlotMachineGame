@@ -1,0 +1,196 @@
+package com.gotchaslots.slots.mobile.data.session.machines
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.slots.mobile.data.session.base.ISession;
+	import com.gotchaslots.slots.mobile.utils.ex.EventDispatcherEx;
+	
+	public class MachineSessionData extends EventDispatcherEx implements ISession
+	{
+		// members
+		private var _machinesSessionCollection:MachinesSessionCollection;
+		private var _lobbyMachine:BaseLobbyMachineData;
+		
+		private var _id:int;							// serialize
+		private var _isInvite4Unlocked:Boolean;			// serialize
+		
+		private var _newMachine:Boolean;				// serialize
+		
+		private var _freeSpinsWonCount:int;				// serialize
+		private var _freeSpinsPlayedCount:int;			// serialize
+		private var _freeSpinsChipsWon:Number;			// serialize
+		
+		private var _isBonusGamePending:Boolean;		// serialize
+		
+		// properties
+		public function get LobbyMachine():BaseLobbyMachineData
+		{
+			if (!_lobbyMachine)
+			{
+				for (var i:int = 0; i < Main.Instance.Machines.length; i++)
+				{
+					if (Main.Instance.Machines[i].ID == ID)
+					{
+						return Main.Instance.Machines[i];
+					}
+				}
+			}
+			return _lobbyMachine;
+		}
+		
+		public function get ID():int
+		{
+			return _id;
+		}
+		
+		public function get IsInvite4Unlocked():Boolean
+		{
+			return _isInvite4Unlocked;
+		}
+		public function set IsInvite4Unlocked(value:Boolean):void
+		{
+			if (_isInvite4Unlocked != value)
+			{
+				_isInvite4Unlocked = value;
+				dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.IsInvite4Unlocked, this, 0));
+				_machinesSessionCollection.Save();
+			}
+		}
+		
+		public function get NewMachine():Boolean
+		{
+			return _newMachine;
+		}
+		public function set NewMachine(value:Boolean):void
+		{
+			if (_newMachine != value)
+			{
+				_newMachine = value;
+				dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.NewMachineChanged, this, 0));
+				_machinesSessionCollection.Save();
+				
+				if (!_newMachine && LobbyMachine.ID != Main.Instance.Machines[0].ID)
+				{
+					Main.Instance.Session.Rare.AddPendingNewMachinePopups(ID);
+					Main.Instance.XServices.Social.ShareNewMachine(LobbyMachine);
+				}
+			}
+		}
+		
+		public function get FreeSpinsWonCount():int
+		{
+			return _freeSpinsWonCount;
+		}
+		public function get FreeSpinsPlayedCount():int
+		{
+			return _freeSpinsPlayedCount;
+		}
+		public function get FreeSpinsPendingCount():int
+		{
+			if (_freeSpinsWonCount > _freeSpinsPlayedCount)
+			{
+				return _freeSpinsWonCount - _freeSpinsPlayedCount;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		public function get FreeSpinsChipsSum():Number
+		{
+			return _freeSpinsChipsWon;
+		}
+		
+		public function get IsBonusGamePending():Boolean
+		{
+			return _isBonusGamePending;
+		}
+		
+		// class
+		public function MachineSessionData(id:int, machinesSessionCollection:MachinesSessionCollection)
+		{
+			super();
+			
+			_id = id;
+			_machinesSessionCollection = machinesSessionCollection;
+			
+			_isInvite4Unlocked = false;
+			
+			_newMachine = true;
+			
+			_freeSpinsWonCount = 0;
+			_freeSpinsPlayedCount = 0;
+			_freeSpinsChipsWon = 0;
+			
+			_isBonusGamePending = false;
+		}
+		
+		// serialize
+		public function Deserialize(object:Object):void
+		{
+			_id = object.ID;
+			_isInvite4Unlocked = object.IsInvite4Unlocked;
+			_newMachine = object.NewMachine;
+			_freeSpinsWonCount = object._freeSpinsWonCount;
+			_freeSpinsPlayedCount = object._freeSpinsPlayedCount;
+			_freeSpinsChipsWon = object._freeSpinsChipsWon;
+			_isBonusGamePending = object.IsBonusGamePending;
+		}
+		public function Serialize():Object
+		{
+			var result:Object = new Object();
+			result.ID = ID;
+			result.IsInvite4Unlocked = _isInvite4Unlocked;
+			result.NewMachine = _newMachine;
+			result._freeSpinsWonCount = _freeSpinsWonCount;
+			result._freeSpinsPlayedCount = _freeSpinsPlayedCount;
+			result._freeSpinsChipsWon = _freeSpinsChipsWon;
+			result.IsBonusGamePending = _isBonusGamePending;
+			return result;
+		}
+		
+		// free spins
+		public function FreeSpinsSpinStarted():void
+		{
+			if (FreeSpinsPendingCount > 0)
+			{
+				_freeSpinsPlayedCount++;
+				dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.FreeSpinsSpinStarted, this, -1));
+				_machinesSessionCollection.Save();
+			}
+		}
+		public function FreeSpinsCollectCount(wonCount:int):void
+		{
+			_freeSpinsWonCount += wonCount;
+			dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.FreeSpinsCollectCount, this, wonCount));
+			_machinesSessionCollection.Save();
+		}
+		public function FreeSpinsCollectChips(chipsWon:Number):void
+		{
+			_freeSpinsChipsWon += chipsWon;
+			_machinesSessionCollection.Save();
+		}
+		public function FreeSpinsEndPopupClosed():void
+		{
+			_freeSpinsWonCount = 0;
+			_freeSpinsPlayedCount = 0;
+			_freeSpinsChipsWon = 0;
+			dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.FreeSpinsEndPopupClosed, this, 0));
+			_machinesSessionCollection.Save();
+		}
+		
+		// bonus game
+		public function BonusGameWon():void
+		{
+			_isBonusGamePending = true;
+			dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.BonusGameWon, this, 0));
+			dispatchEvent(new MachineSessionDataEvent(MachineSessionDataEvent.BonusGameChanged, this, 0));
+			_machinesSessionCollection.Save();
+		}
+		
+		// fix
+		public function Fix():void
+		{
+		}
+	}
+}

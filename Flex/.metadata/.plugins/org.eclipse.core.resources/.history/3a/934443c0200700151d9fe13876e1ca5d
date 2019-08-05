@@ -1,0 +1,23 @@
+package com.gotchaslots.slots.mobile.ui.machine.bottomPanel.textFields
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class TotalBetHeaderTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelTotalBetHeader;
+		}
+		
+		// class
+		public function TotalBetHeaderTextField()
+		{
+			super(120, 70, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Total_Bet));
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	
+	public class NetworkHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function NetworkHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function Vibrate(duration:Number):void
+		{
+			if (Init())
+			{
+				CoreMobile.mobile.vibrate(duration);
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	
+	public class LocalNotificationsHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function LocalNotificationsHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function Register():void
+		{
+			CoreMobile.mobile.registerForNotifications();
+		}
+		public function ScheduleLocalNotification():void
+		{
+		}
+	}
+}

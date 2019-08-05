@@ -1,0 +1,31 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.settings.buttons
+{
+	import com.gotchaslots.slots.assets.notifications.popup.settings.SettingsEmbed;
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseClickableButton;
+	
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	
+	public class LoginButton extends BaseClickableButton
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.PopupButtonMain;
+		}
+		
+		// class
+		public function LoginButton()
+		{
+			super(36, 36, null, "", new SettingsEmbed.FacebookNormal(), new SettingsEmbed.FacebookSelected(), Number.NaN);
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			super.OnClick(event);
+			Main.Instance.XServices.Social.Login();
+		}
+	}
+}

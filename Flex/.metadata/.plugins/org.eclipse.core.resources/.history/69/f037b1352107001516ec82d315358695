@@ -1,0 +1,59 @@
+package com.gotchaslots.common.mobile.data.machine.bonusGame.curtain
+{
+	import com.gotchaslots.slots.assets.bonusGame.curtain.christmas.ChristmasEmbed;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtain.BaseCurtainData;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtainItem.MotionCurtainItemData;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelData;
+	
+	import flash.geom.Rectangle;
+	
+	public class ChristmasCurtainData extends BaseCurtainData
+	{
+		public override function get StartPopupMessage():String
+		{
+			return "Christmas";
+		}
+		
+		// properties
+		protected override function get BGClass():Class
+		{
+			return null;
+		}
+		
+		// class
+		public function ChristmasCurtainData()
+		{
+			super();
+		}
+		protected override function InitLevelsAndItems():void
+		{
+			super.InitLevelsAndItems();
+			
+			var curtainLevel:CurtainLevelData;
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, ChristmasEmbed.CandleBG, "Christmas", "Select an Candle", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(26, 269, 0, 0), ChristmasEmbed.Candle1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(248, 273, 0, 0), ChristmasEmbed.Candle2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(388, 333, 0, 0), ChristmasEmbed.Candle3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(656, 161, 0, 0), ChristmasEmbed.Candle4, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, ChristmasEmbed.SantaBG, "Christmas", "Select an Santa", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(29, 157, 0, 0), ChristmasEmbed.Santa1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(268, 187, 0, 0), ChristmasEmbed.Santa2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(475, 212, 0, 0), ChristmasEmbed.Santa3, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, ChristmasEmbed.SleighBG, "Christmas", "Select an Sleigh", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(19, 269, 0, 0), ChristmasEmbed.Sleigh1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(239, 280, 0, 0), ChristmasEmbed.Sleigh2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(186, 152, 0, 0), ChristmasEmbed.Sleigh3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(442, 239, 0, 0), ChristmasEmbed.Sleigh4, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+		}
+		protected override function InitMap():void
+		{
+			_mapRect = new Rectangle(590, 10, 200, 100);
+		}
+	}
+}

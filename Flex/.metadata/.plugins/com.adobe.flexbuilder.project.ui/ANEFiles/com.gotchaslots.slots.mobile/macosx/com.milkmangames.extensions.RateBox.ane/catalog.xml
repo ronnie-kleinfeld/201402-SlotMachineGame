@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/milkmangames/nativeextensions/RateBox" mod="1415864070531" signatureChecksum="3375966038" >
+        <def id="com.milkmangames.nativeextensions:RateBox" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions.events:RateBoxEvent" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="flash.desktop:NativeApplication" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/events/RateBoxEvent" mod="1336246677854" signatureChecksum="3471807411" >
+        <def id="com.milkmangames.nativeextensions.events:RateBoxEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:Event" type="i" /> 
+      </script>
+      <script name="_bf503d92237357a8e597cf3e3b75e8395f372d2fb5b31d2de4ff8bca9be1e6e6_flash_display_Sprite" mod="1423120001773" signatureChecksum="1236761571" >
+        <def id="_bf503d92237357a8e597cf3e3b75e8395f372d2fb5b31d2de4ff8bca9be1e6e6_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="ad57ae7e8fe5a196de55fb271fa576373fafd130dc4be13ac45294e87927f73b"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

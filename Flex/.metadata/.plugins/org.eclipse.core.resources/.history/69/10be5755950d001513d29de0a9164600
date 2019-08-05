@@ -1,0 +1,12 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	
+	public class NetworkHandler extends BaseCoreMobileHandler
+	{
+		public function NetworkHandler()
+		{
+			super();
+		}
+	}
+}

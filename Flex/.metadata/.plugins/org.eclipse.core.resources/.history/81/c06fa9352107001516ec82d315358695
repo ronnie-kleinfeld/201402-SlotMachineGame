@@ -1,0 +1,168 @@
+package com.gotchaslots.common.mobile.data.machine.resultMatrix
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.data.machine.MachineData;
+	import com.gotchaslots.common.mobile.data.machine.resultMatrix.base.BaseResultMatirxData;
+	import com.gotchaslots.common.mobile.utils.ex.EventDispatcherEx;
+	
+	public class ResultMatrixHandler extends EventDispatcherEx
+	{
+		// consts
+		private const RESULT_MATRIX_LIMIT:int = 50;
+		
+		// members
+		private var _pool:ResultMatrixPool;
+		private var _activeResultMatrix:BaseResultMatirxData;
+		
+		// properties
+		public function get Pool():ResultMatrixPool
+		{
+			return _pool;
+		}
+		public function get ActiveResultMatrix():BaseResultMatirxData
+		{
+			return _activeResultMatrix;
+		}
+		
+		// class
+		public function ResultMatrixHandler(lobbyMachine:BaseLobbyMachineData, machineData:MachineData)
+		{
+			super();
+			
+			_pool = new ResultMatrixPool(machineData.SelectedPaylines, lobbyMachine.Paylines, lobbyMachine.Symbols);
+		}
+		public function Init():void
+		{
+			_pool.Init();
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_pool)
+			{
+				_pool.Dispose();
+				_pool = null;
+			}
+			
+			if (_activeResultMatrix)
+			{
+				_activeResultMatrix.Dispose();
+				_activeResultMatrix = null;
+			}
+		}
+		
+		// methods
+		public function GetResultMatrix(selectedPaylines:int, selectedBetChips:Number, totalBetChips:Number):void
+		{
+			/*
+			_activeResultMatrix = null;
+			while (_activeResultMatrix == null)
+			{
+			var currentResultMatrix:BaseResultMatirxData = Pool.GetResultMatrix;
+			currentResultMatrix.CalculatePayout(selectedPaylines, totalBetChips);
+			
+			if (currentResultMatrix.GetValuatorsHandler.Multiplier.IsValuable)
+			{
+			_activeResultMatrix = currentResultMatrix;
+			}
+			else
+			{
+			currentResultMatrix.Dispose();
+			currentResultMatrix = null;
+			}
+			}
+			return;
+			*/
+			
+			_activeResultMatrix = null;
+			var probability:int = Math.ceil(Math.random() * 100);
+			
+			var counter:int = 0;
+			
+			while (_activeResultMatrix == null && counter < RESULT_MATRIX_LIMIT)
+			{
+				var currentResultMatrix:BaseResultMatirxData = Pool.GetResultMatrix(selectedPaylines, selectedBetChips);
+				
+				if (probability <= 25)
+				{
+					// 25% - TotalBet to limit
+					if (currentResultMatrix.GetValuatorsHandler.Chips > Math.min(totalBetChips, Main.Instance.Session.Wallet.DiagonalWinLimitChips) &&
+						currentResultMatrix.GetValuatorsHandler.Chips <= Math.max(totalBetChips, Main.Instance.Session.Wallet.DiagonalWinLimitChips))
+					{
+						// over - TotalBet to limit
+						_activeResultMatrix = currentResultMatrix;
+					}
+					else
+					{
+						currentResultMatrix.Dispose();
+						currentResultMatrix = null;
+					}
+				}
+				else if (probability <= 75)
+				{
+					// 75% - 0 to TotalBet
+					if (currentResultMatrix.GetValuatorsHandler.Chips <= totalBetChips)
+					{
+						// Under - 0 to TotalBet
+						_activeResultMatrix = currentResultMatrix;
+					}
+					else
+					{
+						currentResultMatrix.Dispose();
+						currentResultMatrix = null;
+					}
+				}
+				else
+				{
+					// 75% - 0
+					if (currentResultMatrix.GetValuatorsHandler.IsValuable)
+					{
+						currentResultMatrix.Dispose();
+						currentResultMatrix = null;
+					}
+					else
+					{
+						// Lose - 0
+						currentResultMatrix.AddRandomBomb();
+						currentResultMatrix.AddRandomMiniSpins();
+						currentResultMatrix.AddRandomMultiplier();
+						currentResultMatrix.ReCalculatePayout(selectedPaylines, selectedBetChips);
+						_activeResultMatrix = currentResultMatrix;
+					}
+				}
+				counter++;
+			}
+			
+			if (!_activeResultMatrix)
+			{
+				if (currentResultMatrix)
+				{
+					currentResultMatrix.Dispose();
+					currentResultMatrix = null;
+				}
+				while (currentResultMatrix == null && counter < RESULT_MATRIX_LIMIT * 5)
+				{
+					currentResultMatrix = Pool.GetResultMatrix(selectedPaylines, selectedBetChips);
+					if (currentResultMatrix.GetValuatorsHandler.IsValuable)
+					{
+						currentResultMatrix.Dispose();
+						currentResultMatrix = null;
+					}
+					else
+					{
+						_activeResultMatrix = currentResultMatrix;
+					}
+					
+					counter++;
+				}
+			}
+			
+			if (!_activeResultMatrix)
+			{
+				_activeResultMatrix = Pool.GetResultMatrix(selectedPaylines, selectedBetChips);
+			}
+		}
+	}
+}

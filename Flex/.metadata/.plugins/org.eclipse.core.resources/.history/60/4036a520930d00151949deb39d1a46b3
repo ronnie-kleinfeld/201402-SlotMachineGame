@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices
+{
+	public class BaseCoreMobileHandler
+	{
+		public function BaseCoreMobileHandler()
+		{
+		}
+	}
+}

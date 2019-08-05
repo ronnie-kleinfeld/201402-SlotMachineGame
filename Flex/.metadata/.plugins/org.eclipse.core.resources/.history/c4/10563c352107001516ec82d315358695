@@ -1,0 +1,94 @@
+package com.gotchaslots.slots.mobile.ui.lobby.promotionPanel.timerBonus.buttons
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.MainEvent;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.data.machine.spline.SplinesData;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseClickableButton;
+	import com.gotchaslots.slots.mobile.ui.common.components.stardust.moneyTrail.MoneyTrail;
+	import com.gotchaslots.slots.mobile.utils.helpers.DisplayObjectHelper;
+	import com.gotchaslots.slots.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.geom.Point;
+	import flash.text.TextField;
+	
+	public class TimerBonusReadyButton extends BaseClickableButton
+	{
+		// properties
+		protected override function get HasNormalButton():Boolean
+		{
+			return true;
+		}
+		protected override function get NormalButtonColor():Number
+		{
+			return 0x9436ce;
+		}
+		protected override function get NormalButtonFrameColor():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get NormalButtonCorner():Number
+		{
+			return 20;
+		}
+		
+		protected override function get HasSelectedButton():Boolean
+		{
+			return true;
+		}
+		protected override function get SelectedButtonColor():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get SelectedButtonFrameColor():Number
+		{
+			return 0x9436ce;
+		}
+		protected override function get SelectedButtonCorner():Number
+		{
+			return 20;
+		}
+		
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.LobbyTimerBonusReady;
+		}
+		
+		// class
+		public function TimerBonusReadyButton(w:int, h:int)
+		{
+			super(w, h, null, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.TimerBonus_Timer_Bonus_Ready_Collect_Now));
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.TimerBonus_TimerBonus_Collect);
+			
+			removeEventListener(MouseEvent.MOUSE_DOWN, OnMouseDown);
+			removeEventListener(MouseEvent.MOUSE_UP, OnMouseUp);
+			removeEventListener(MouseEvent.ROLL_OUT, OnRollOut);
+			removeEventListener(MouseEvent.CLICK, OnClick);
+			
+			var moneyTrail:MoneyTrail = new MoneyTrail(length, new Point(event.stageX - 587, event.stageY - 316), new Point(-200, -200), new Point(SplinesData.BalancePoint.x - 587, SplinesData.BalancePoint.y - 48 - 316));
+			moneyTrail.addEventListener(Event.COMPLETE, OnMoneyTrailComplete);
+			addChild(moneyTrail);
+		}
+		private function OnMoneyTrailComplete(event:Event):void
+		{
+			var moneyTrail:MoneyTrail = MoneyTrail(event.currentTarget);
+			moneyTrail.removeEventListener(Event.COMPLETE, OnMoneyTrailComplete);
+			DisplayObjectHelper.SafeDisposeChild(this, moneyTrail);
+			
+			Main.Instance.addEventListener(MainEvent.Timer, OnPostTimer);
+		}
+		private function OnPostTimer(event:Event):void
+		{
+			Main.Instance.removeEventListener(MainEvent.Timer, OnPostTimer);
+			
+			Main.Instance.Session.Rare.CollectTimerBonus();
+		}
+	}
+}

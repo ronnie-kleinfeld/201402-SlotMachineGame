@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExportSigningOptions">
+		<list key="provisioning">
+			<item value="/Users/ronniekleinfeld/Dev/as3/GotchaSlots2/Flex/cert/iOS/dev.mobileprovision"/>
+			<item value="/Users/ronniekleinfeld/Dev/as3/GotchaSlots2/Flex/cert/iOS/comgotchaslotsslotsdev.mobileprovision"/>
+			<item value="/Users/ronniekleinfeld/OneDrive/Dev/as3/GotchaSlots2/Flex/cert/iOS/comgotchaslotsslotsdev.mobileprovision"/>
+			<item value=""/>
+			<item value="X:/GotchaSlots2/Flex/cert/iOS/comgotchaslotsslotsprod.mobileprovision"/>
+		</list>
+	</section>
+</section>

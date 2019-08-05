@@ -1,0 +1,33 @@
+package com.gotchaslots.slots.mobile.ui.hud.topPanel.buttons
+{
+	import com.gotchaslots.slots.assets.hud.topPanel.TopPanelEmbed;
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseClickableButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.slots.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.MouseEvent;
+	
+	public class ChipsButton extends BaseClickableButton
+	{
+		// properties
+		protected override function get PngFilters():Array
+		{
+			return null;
+		}
+		
+		// class
+		public function ChipsButton()
+		{
+			super(80, 66, null, null, new TopPanelEmbed.Chips());
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.TopPanel_Click);
+			super.OnClick(event);
+			NotificationsHandler.Instance.ShowBuyChipsPopup(false, null);
+		}
+	}
+}

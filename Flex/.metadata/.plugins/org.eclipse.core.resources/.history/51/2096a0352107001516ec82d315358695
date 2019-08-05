@@ -1,0 +1,7 @@
+package com.gotchaslots.common.mobile.data.session.base
+{
+	public interface ISession
+	{
+		function Fix():void;
+	}
+}

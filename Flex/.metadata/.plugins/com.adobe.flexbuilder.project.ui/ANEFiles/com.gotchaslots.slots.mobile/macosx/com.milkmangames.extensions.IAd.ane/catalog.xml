@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="_9f425dc2cdaf5de9d79bf6ee2322d7cb1360ec09f4485769f61c8d3681a4e72d_flash_display_Sprite" mod="1428003371811" signatureChecksum="1658026887" >
+        <def id="_9f425dc2cdaf5de9d79bf6ee2322d7cb1360ec09f4485769f61c8d3681a4e72d_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/ios/IAdBannerAlignment" mod="1323630681702" signatureChecksum="1737110756" >
+        <def id="com.milkmangames.nativeextensions.ios:IAdBannerAlignment" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/ios/events/IAdErrorEvent" mod="1411515556353" signatureChecksum="3302130467" >
+        <def id="com.milkmangames.nativeextensions.ios.events:IAdErrorEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:Event" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/ios/IAd" mod="1423178961658" signatureChecksum="1789900153" >
+        <def id="com.milkmangames.nativeextensions.ios:IAd" /> 
+        <dep id="com.milkmangames.nativeextensions.ios.events:IAdErrorEvent" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions.ios:IAdBannerAlignment" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions.ios.events:IAdEvent" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions.ios.events:IAdErrorEvent" type="s" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="com.milkmangames.nativeextensions.ios:IAdContentSize" type="s" /> 
+        <dep id="flash.events:StatusEvent" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/ios/events/IAdEvent" mod="1415235662822" signatureChecksum="3979471323" >
+        <def id="com.milkmangames.nativeextensions.ios.events:IAdEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:Event" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/ios/IAdContentSize" mod="1324668710774" signatureChecksum="3127394642" >
+        <def id="com.milkmangames.nativeextensions.ios:IAdContentSize" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="1d6c10377742a5b96a0cfa75414a3e634541cc05c9838c02993eac3b29cb77c6"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

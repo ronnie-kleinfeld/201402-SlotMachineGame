@@ -1,0 +1,12 @@
+package com.gotchaslots.common.utils.xServices.vibtate
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	
+	public class VibrateHandler extends BaseCoreMobileHandler
+	{
+		public function VibrateHandler()
+		{
+			super();
+		}
+	}
+}

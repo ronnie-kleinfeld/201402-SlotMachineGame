@@ -1,0 +1,12 @@
+package com.gotchaslots.common.assets.notifications.popup.buyChips
+{
+	public class BuyChipsEmbed
+	{
+		[Embed(source="PriceBoxABlue.png")] public static var PriceBoxABlue:Class;
+		[Embed(source="PriceBoxACyan.png")] public static var PriceBoxACyan:Class;
+		[Embed(source="PriceBoxAGreen.png")] public static var PriceBoxAGreen:Class;
+		[Embed(source="PriceBoxAMagenta.png")] public static var PriceBoxAMagenta:Class;
+		[Embed(source="PriceBoxARed.png")] public static var PriceBoxARed:Class;
+		[Embed(source="PriceBoxAYellow.png")] public static var PriceBoxAYellow:Class;
+	}
+}

@@ -1,0 +1,87 @@
+package com.gotchaslots.slots.mobile.data.machine.spline
+{
+	import flash.geom.Point;
+	
+	// this class creates a spline (curve line) between 3 points
+	// http://stackoverflow.com/questions/7205832/as3-function-for-extrapolating-points-on-a-spline-curve-or-hermite-curve-similar
+	// Spline (mathematics), a mathematical function used for interpolation or smoothing
+	public class SplineData
+	{
+		// consts
+		private const STEP:Number = 0.05;
+		private const VARIATION:Number = 0.5;
+		
+		// members
+		private var _points:Vector.<Point>;
+		
+		// properties
+		public function get Points():Vector.<Point>
+		{
+			return _points;
+		}
+		
+		// class
+		public function SplineData(point0:Point, point1:Point, point2:Point)
+		{
+			if (!point1)
+			{
+				point1 = RandomP1(point0, point2);
+			}
+			
+			_points = new Vector.<Point>();
+			
+			var t:Number = 0;
+			while (t < 1 + STEP)
+			{
+				var oneMinusTSq:Number = (1 - t) * (1 - t);
+				var TSq:Number = t * t;
+				var point:Point = new Point();
+				point.x = oneMinusTSq * point0.x + 2 * (1 - t) * t * point1.x + TSq * point2.x;
+				point.y = oneMinusTSq * point0.y + 2 * (1 - t) * t * point1.y + TSq * point2.y;
+				_points.push(point);
+				
+				t += STEP;
+			}
+		}
+		public function Dispose():void
+		{
+			while (_points && _points.length > 0)
+			{
+				_points.pop();
+			}
+			_points = null;
+		}
+		
+		// methods
+		private function RandomP1(point0:Point, point2:Point):Point
+		{
+			var diff:Number = Math.max(Math.abs(point0.x - point2.x), Math.abs(point0.y - point2.y));
+			
+			var point1:Point = new Point((point0.x + point2.x) / 2, (point0.y + point2.y) / 2);
+			
+			var x:Number = diff * (Math.random() - 0.5) * VARIATION;
+			point1.x = point1.x + x;
+			if (point1.x < 160)
+			{
+				point1.x = 160;
+			}
+			else if (point1.x > 640)
+			{
+				point1.x = 640;
+			}
+			
+			var y:Number = diff * (Math.random() - 0.5);
+			point1.y = point1.y + y;
+			if (point1.y < 98)
+			{
+				point1.y = 98;
+			}
+			else if (point1.y > 395)
+			{
+				point1.y = 395;
+			}
+			
+			return point1;
+		}
+	}
+}

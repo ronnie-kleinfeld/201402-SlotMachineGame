@@ -1,0 +1,201 @@
+package com.gotchaslots.common.mobile.data.machine.symbol.base
+{
+	import com.gotchaslots.common.mobile.ui.machine.Symbol;
+	import com.gotchaslots.common.mobile.utils.dataType.BaseIDData;
+	
+	import flash.geom.Rectangle;
+	
+	public class BaseSymbolData extends BaseIDData
+	{
+		// members
+		protected var _factor:Number;
+		
+		// members
+		private var _pngClass:Class;
+		private var _symbols:Vector.<Symbol>;
+		private var _size:Rectangle;
+		protected var _symbolType:String;
+		private var _minPayout:Number;
+		private var _maxPayout:Number;
+		protected var _fiveInARowPayout:Number;
+		protected var _fourInARowPayout:Number;
+		protected var _threeInARowPayout:Number;
+		protected var _twoInARowPayout:Number;
+		protected var _oneInARowPayout:Number;
+		protected var _description:String;
+		protected var _note:String;
+		
+		// properties
+		public function get SymbolType():String
+		{
+			return _symbolType;
+		}
+		public function get PayoutSum():Number
+		{
+			var result:Number = OneInARowPayout + TwoInARowPayout + ThreeInARowPayout + FourInARowPayout + FiveInARowPayout;
+			return result < 1 ? 1 : result;	
+		}
+		public function get MinPayout():Number
+		{
+			return _minPayout;
+		}
+		public function get MaxPayout():Number
+		{
+			return _maxPayout;
+		}
+		public function get FiveInARowPayout():Number
+		{
+			return _fiveInARowPayout;
+		}
+		public function get FourInARowPayout():Number
+		{
+			return _fourInARowPayout;
+		}
+		public function get ThreeInARowPayout():Number
+		{
+			return _threeInARowPayout;
+		}
+		public function get TwoInARowPayout():Number
+		{
+			return _twoInARowPayout;
+		}
+		public function get OneInARowPayout():Number
+		{
+			return _oneInARowPayout;
+		}
+		public function get Description():String
+		{
+			return _description;
+		}
+		public function get Note():String
+		{
+			return _note;
+		}
+		public function get MinimumHitsToPayout():int
+		{
+			if (OneInARowPayout > 0)
+			{
+				return 1;
+			}
+			if (TwoInARowPayout > 0)
+			{
+				return 2;
+			}
+			else if (ThreeInARowPayout > 0)
+			{
+				return 3;
+			}
+			else if (FourInARowPayout > 0)
+			{
+				return 4;
+			}
+			else if (FiveInARowPayout > 0)
+			{
+				return 5;
+			}
+			else
+			{
+				return int.MAX_VALUE;
+			}
+		}
+		
+		// class
+		public function BaseSymbolData(id:int, pngClass:Class, symbolType:String, factor:Number, fiveInARowPayout:Number, fourInARowPayout:Number, threeInARowPayout:Number, twoInARowPayout:Number, oneInARowPayout:Number, description:String, note:String)
+		{
+			super(id);
+			
+			_pngClass = pngClass;
+			_symbolType = symbolType;
+			_factor = factor;
+			_fiveInARowPayout = fiveInARowPayout;
+			_fourInARowPayout = fourInARowPayout;
+			_threeInARowPayout = threeInARowPayout;
+			_twoInARowPayout = twoInARowPayout;
+			_oneInARowPayout = oneInARowPayout;
+			_minPayout = Math.min(fiveInARowPayout, Math.min(fourInARowPayout, Math.min(threeInARowPayout, Math.min(twoInARowPayout, Math.min(oneInARowPayout)))));
+			_maxPayout = Math.max(fiveInARowPayout, Math.max(fourInARowPayout, Math.max(threeInARowPayout, Math.max(twoInARowPayout, Math.max(oneInARowPayout)))));
+			_description = description;
+			_note = note;
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			DisposePngs();
+			
+			_size = null;
+		}
+		public function DisposePngs():void
+		{
+			while (_symbols && _symbols.length > 0)
+			{
+				var symbol:Symbol = _symbols.pop();
+				symbol.Dispose();
+				symbol = null;
+			}
+			_symbols = null;
+		}
+		
+		// methods
+		public function PayoutByHits(hits:int):Number
+		{
+			var result:Number = 0;
+			if (hits >= MinimumHitsToPayout)
+			{
+				switch (hits)
+				{
+					case 5:
+						result = FiveInARowPayout;
+						break;
+					case 4:
+						result = FourInARowPayout;
+						break;
+					case 3:
+						result = ThreeInARowPayout;
+						break;
+					case 2:
+						result = TwoInARowPayout;
+						break;
+					case 1:
+						result = OneInARowPayout;
+						break;
+					default:
+						result = FiveInARowPayout;
+						break;
+				}
+			}
+			else
+			{
+				result = 0;
+			}
+			return result;
+		}
+		
+		public function GetSymbol(size:Rectangle):Symbol
+		{
+			if (_size && _size.equals(size))
+			{
+				DisposePngs();
+			}
+			_size = size;
+			
+			if (!_symbols)
+			{
+				_symbols = new Vector.<Symbol>();
+			}
+			
+			if (_symbols.length == 0)
+			{
+				return new Symbol(_size, new _pngClass());
+			}
+			else
+			{
+				return _symbols.pop();
+			}
+		}
+		public function ReturnSymbol(symbol:Symbol):void
+		{
+			_symbols.push(symbol);
+		}
+	}
+}

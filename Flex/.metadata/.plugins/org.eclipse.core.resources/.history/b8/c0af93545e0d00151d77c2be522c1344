@@ -1,0 +1,27 @@
+package com.gotchaslots.common.mobile.utils.dataAdapter.manager
+{
+	import flash.events.Event;
+	
+	public class DataAdapterHandlerEvent extends Event
+	{
+		// events
+		public static const Complete:String = "0ad097575ddf49799b8631d79cc36fc1";
+		
+		// members
+		private var _serverGW:DataAdapterHandler;
+		
+		// properties
+		public function get GetServerGW():DataAdapterHandler
+		{
+			return _serverGW;
+		}
+		
+		// class
+		public function DataAdapterHandlerEvent(type:String, serverGW:DataAdapterHandler, bubbles:Boolean=false, cancelable:Boolean=false)
+		{
+			super(type, bubbles, cancelable);
+			
+			_serverGW = serverGW;
+		}
+	}
+}

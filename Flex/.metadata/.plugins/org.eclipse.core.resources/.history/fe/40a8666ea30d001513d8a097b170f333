@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	public class YesNoDialogHandler
+	{
+		public function YesNoDialogHandler()
+		{
+		}
+	}
+}

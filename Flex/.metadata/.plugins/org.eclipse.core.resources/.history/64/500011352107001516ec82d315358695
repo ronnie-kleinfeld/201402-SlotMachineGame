@@ -1,0 +1,49 @@
+package com.gotchaslots.slots.mobile.utils.helpers
+{
+	import spark.layouts.HorizontalAlign;
+	import spark.layouts.HorizontalLayout;
+	import spark.layouts.TileLayout;
+	import spark.layouts.TileOrientation;
+	import spark.layouts.VerticalAlign;
+	import spark.layouts.VerticalLayout;
+	
+	public class LayoutHelper
+	{
+		public static function CreateHorizontalLayout(padding:int = 5, gap:int = 10, horizontalAlign:String = HorizontalAlign.CENTER, verticalAlign:String = VerticalAlign.MIDDLE):HorizontalLayout
+		{
+			var horizontalLayout:HorizontalLayout = new HorizontalLayout();
+			horizontalLayout.horizontalAlign = horizontalAlign;
+			horizontalLayout.verticalAlign = verticalAlign;
+			horizontalLayout.paddingLeft = padding;
+			horizontalLayout.paddingRight = padding;
+			horizontalLayout.paddingTop = padding;
+			horizontalLayout.paddingBottom = padding;
+			horizontalLayout.gap = gap;
+			return horizontalLayout;
+		}
+		public static function CreateTileLayout(padding:int = 5, horizontalAlign:String = HorizontalAlign.CENTER, verticalAlign:String = VerticalAlign.MIDDLE):TileLayout
+		{
+			var tileLayout:TileLayout = new TileLayout();
+			tileLayout.horizontalAlign = horizontalAlign;
+			tileLayout.verticalAlign = verticalAlign;
+			tileLayout.orientation = TileOrientation.ROWS;
+			tileLayout.paddingLeft = padding;
+			tileLayout.paddingRight = padding;
+			tileLayout.paddingTop = padding;
+			tileLayout.paddingBottom = padding;
+			return tileLayout;
+		}
+		public static function CreateVerticalLayout(padding:int = 5, gap:int = 10, horizontalAlign:String = HorizontalAlign.CENTER, verticalAlign:String = VerticalAlign.MIDDLE):VerticalLayout
+		{
+			var verticalLayout:VerticalLayout = new VerticalLayout();
+			verticalLayout.horizontalAlign = horizontalAlign;
+			verticalLayout.verticalAlign = verticalAlign;
+			verticalLayout.paddingLeft = padding;
+			verticalLayout.paddingRight = padding;
+			verticalLayout.paddingTop = padding;
+			verticalLayout.paddingBottom = padding;
+			verticalLayout.gap = gap;
+			return verticalLayout;
+		}
+	}
+}

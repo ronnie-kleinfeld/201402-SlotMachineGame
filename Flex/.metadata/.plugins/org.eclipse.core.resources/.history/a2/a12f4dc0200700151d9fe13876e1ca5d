@@ -1,0 +1,122 @@
+package com.gotchaslots.slots.mobile.utils.L10N
+{
+	import flash.system.Capabilities;
+	
+	public class ISO639_1
+	{
+		// consts
+		public static const Arabic:String = "ar";
+		public static const Catalan:String = "ca";
+		public static const Czech:String = "cs";
+		public static const Danish:String = "da";
+		public static const Dutch:String = "nl";
+		public static const English:String = "en";
+		public static const Finnish:String = "fi";
+		public static const French:String = "fr";
+		public static const German:String = "de";
+		public static const Greek:String = "el";
+		public static const Hebrew:String = "he";
+		public static const Hungarian:String = "hu";
+		public static const Indonesian:String = "id";
+		public static const Italian:String = "it";
+		public static const Japanese:String = "ja";
+		public static const Korean:String = "ko";
+		public static const Norwegian:String = "no";
+		public static const Polish:String = "pl";
+		public static const Portuguese:String = "pt-PT";
+		public static const PortugueseBrazilian:String = "pt-BR";
+		public static const Romanian:String = "ro";
+		public static const Russian:String = "ru";
+		public static const SimplifiedChinese:String = "zh-CN";
+		public static const Slovak:String = "sk";
+		public static const Spanish:String = "es";
+		public static const Swedish:String = "sv";
+		public static const Thai:String = "th";
+		public static const TraditionalChinese:String = "zh-TW";
+		public static const Turkish:String = "tr";
+		public static const Ukranian:String = "uk";
+		
+		// methods
+		public static function GetDeviceLocale():String
+		{
+			return GetLocale(Capabilities.language);
+		}
+		public static function GetLocale(locale:String):String
+		{
+			switch (locale.toUpperCase())
+			{
+				case "AR":
+					return ISO639_1.Arabic;
+				case "CA":
+					return ISO639_1.Catalan;
+				case "CS":
+					return ISO639_1.Czech;
+				case "DA":
+					return ISO639_1.Danish;
+				case "DE":
+					return ISO639_1.German;
+				case "EL":
+					return ISO639_1.Greek;
+				case "EN":
+					return ISO639_1.English;
+				case "ES":
+					return ISO639_1.Spanish;
+				case "FI":
+					return ISO639_1.Finnish;
+				case "FR":
+					return ISO639_1.French;
+				case "HE":
+					return ISO639_1.Hebrew;
+				case "HU":
+					return ISO639_1.Hungarian;
+				case "ID":
+					return ISO639_1.Indonesian;
+				case "IT":
+					return ISO639_1.Italian;
+				case "JA":
+					return ISO639_1.Japanese;
+				case "KO":
+					return ISO639_1.Korean;
+				case "NL":
+					return ISO639_1.Dutch;
+				case "NO":
+					return ISO639_1.Norwegian;
+				case "PL":
+					return ISO639_1.Polish;
+				case "PT-BR":
+					return ISO639_1.PortugueseBrazilian;
+				case "PT":
+				case "PT-PT":
+					return ISO639_1.Portuguese;
+				case "RO":
+					return ISO639_1.Romanian;
+				case "RU":
+					return ISO639_1.Russian;
+				case "SK":
+					return ISO639_1.Slovak;
+				case "SV":
+					return ISO639_1.Swedish;
+				case "TH":
+					return ISO639_1.Thai;
+				case "TR":
+					return ISO639_1.Turkish;
+				case "UK":
+					return ISO639_1.Ukranian;
+				case "ZH-TW":
+					return ISO639_1.TraditionalChinese;
+				case "ZH":
+				case "ZH-CN":
+					return ISO639_1.SimplifiedChinese;
+				default:
+					if (locale.length == 0)
+					{
+						return ISO639_1.English;
+					}
+					else
+					{
+						return GetLocale(locale.substr(0, locale.length - 1));
+					}
+			}
+		}
+	}
+}

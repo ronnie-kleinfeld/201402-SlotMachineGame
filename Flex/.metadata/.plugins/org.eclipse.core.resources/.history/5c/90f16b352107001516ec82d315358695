@@ -1,0 +1,62 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	
+	import flash.events.Event;
+	
+	public class NoConnectionPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.No_Connection_Ex);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new MainPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Retry), OnRetryClick));
+			return result;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function NoConnectionPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.No_internet));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.connection));
+			AddComponent(new Spacer(6));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Please_check_your));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.internet_connection));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.and_retry));
+		}
+		
+		// events
+		private function OnCloseClick(event:Event):void
+		{
+			DoRemove();
+		}
+		private function OnRetryClick(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}

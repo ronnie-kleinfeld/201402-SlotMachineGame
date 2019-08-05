@@ -1,0 +1,123 @@
+package com.gotchaslots.common.mobile.ui.machine.presentation.base
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.machine.paybox.PayboxData;
+	import com.gotchaslots.common.mobile.data.machine.symbol.base.BaseScatterSymbolData;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.common.mobile.ui.machine.MachineView;
+	import com.gotchaslots.common.mobile.ui.machine.Symbol;
+	import com.gotchaslots.common.mobile.utils.helpers.DisplayObjectHelper;
+	import com.greensock.TweenLite;
+	
+	import flash.display.Bitmap;
+	
+	public class BaseScatterPresentation extends BasePresentation
+	{
+		// members
+		private var _delay:int;
+		private var _count:int;
+		private var _payboxes:Vector.<PayboxData>;
+		private var _scatterSymbol:BaseScatterSymbolData;
+		private var _tweener:SpriteEx;
+		
+		// properties
+		protected function get BlinkSoundKey():String
+		{
+			return null;
+		}
+		
+		// class
+		public function BaseScatterPresentation(h:int, onClick:Function, onClose:Function, view:MachineView)
+		{
+			super(h, onClick, onClose, view);
+		}
+		public override function Dispose():void
+		{
+			TweenLite.killTweensOf(_tweener);
+			
+			super.Dispose();
+		}
+		
+		// methods
+		public function DoBlinkScatter(delay:int, count:int, payboxes:Vector.<PayboxData>, scatterSymbol:BaseScatterSymbolData):void
+		{
+			_delay = delay;
+			_count = count;
+			_payboxes = payboxes;
+			_scatterSymbol = scatterSymbol;
+			
+			try
+			{
+				_tweener = new BaseComponent(800, 306);
+				_tweener.x = _tweener.y = 0;
+				_tweener.alpha = 0;
+				_tweener.y = 48;
+				addChild(_tweener);
+				
+				for (var i:int = 0; i < _payboxes.length; i++)
+				{
+					var payboxPng:Bitmap = _scatterSymbol.PayboxPng;
+					payboxPng.x = _payboxes[i].PngLocation().x;
+					payboxPng.y = _payboxes[i].PngLocation().y;
+					payboxPng.width = _payboxes[i].Rect.width + 3;
+					payboxPng.height = _payboxes[i].Rect.height + 3;
+					payboxPng.alpha = 1;
+					_tweener.addChild(payboxPng);
+					
+					var symbol:Symbol = _scatterSymbol.GetSymbol(_payboxes[i].Rect);
+					symbol.x = payboxPng.x;
+					symbol.y = payboxPng.y;
+					symbol.width = payboxPng.width + 3;
+					symbol.height = payboxPng.height + 3;
+					symbol.alpha = 1;
+					_tweener.addChild(symbol);
+				}
+				
+				DoBlink();
+			}
+			catch (error:Error)
+			{
+				DoPostBlinkScatter();
+			}
+		}
+		private function DoBlink():void
+		{
+			if (_count > 0)
+			{
+				TweenLite.to(_tweener, 0.3, {alpha:1.5, delay:_delay, onUpdate:OnUpdate, onComplete:OnAlphaToFullComplete});
+				_delay = 0;
+				_count--;
+			}
+			else
+			{
+				BlinkDone();
+			}
+		}
+		private function OnAlphaToFullComplete():void
+		{
+			TweenLite.to(_tweener, 0.2, {alpha:0.2, onComplete:OnAlphaToZeroComplete});
+		}
+		private function OnAlphaToZeroComplete():void
+		{
+			DoBlink();
+		}
+		private function OnUpdate():void
+		{
+			if (BlinkSoundKey && (int(_tweener.alpha * 10)) / 10 == 1.0)
+			{
+				Main.Instance.Sounds.Play(BlinkSoundKey);
+			}
+		}
+		private function BlinkDone():void
+		{
+			DisplayObjectHelper.SafeDisposeAllChildrens(_tweener);
+			DisplayObjectHelper.SafeDisposeChild(this, _tweener);
+			
+			DoPostBlinkScatter();
+		}
+		public function DoPostBlinkScatter():void
+		{
+		}
+	}
+}

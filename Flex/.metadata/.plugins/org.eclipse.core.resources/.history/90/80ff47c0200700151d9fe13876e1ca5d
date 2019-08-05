@@ -1,0 +1,67 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.l10n
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseClickableButton;
+	
+	import flash.text.TextField;
+	
+	public class L10NButton extends BaseClickableButton
+	{
+		// members
+		private var _locale:String;
+		
+		// properties
+		protected override function get HasNormalButton():Boolean
+		{
+			return true;
+		}
+		protected override function get NormalButtonColor():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get NormalButtonFrameColor():Number
+		{
+			return 0x8330ba;
+		}
+		
+		protected override function get HasSelectedButton():Boolean
+		{
+			return true;
+		}
+		protected override function get SelectedButtonColor():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get SelectedButtonFrameColor():Number
+		{
+			return 0x8330ba;
+		}
+		
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.HudL10NButton;
+		}
+		protected override function get MaxTextFieldSize():int
+		{
+			return 10;
+		}
+		
+		public function get Locale():String
+		{
+			return _locale;
+		}
+		
+		// class
+		public function L10NButton(locale:String, text:String, onClickDispatch:Function)
+		{
+			super(100, 30, onClickDispatch, text);
+			
+			_locale = locale;
+			
+			if (_locale == Main.Instance.Application.L10N.ActiveLocale.Locale)
+			{
+				SetDisabled();
+			}
+		}
+	}
+}

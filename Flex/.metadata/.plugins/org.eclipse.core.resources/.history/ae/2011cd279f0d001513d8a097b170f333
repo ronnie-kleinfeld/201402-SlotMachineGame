@@ -1,0 +1,17 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	import flash.events.Event;
+
+	public class NativeCredentialsDialogsEvent extends Event
+	{
+		// consts
+		public static const OK:String = "OK";
+		public static const CANCEL:String = "CANCEL";
+		
+		// class
+		public function NativeCredentialsDialogsEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

@@ -1,0 +1,16 @@
+package com.gotchaslots.common.mobile.data.machine.symbol
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.machine.symbol.base.BaseSymbolData;
+	import com.gotchaslots.common.mobile.data.machine.symbol.base.SymbolTypeEnum;
+	
+	public class NormalSymbolData extends BaseSymbolData
+	{
+		// class
+		public function NormalSymbolData(id:int, pngClass:Class, factor:Number, fiveInARowPayout:Number, fourInARowPayout:Number, threeInARowPayout:Number, twoInARowPayout:Number)
+		{
+			super(id, pngClass, SymbolTypeEnum.Normal, factor, fiveInARowPayout, fourInARowPayout, threeInARowPayout, twoInARowPayout, 0, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Normal), "");
+		}
+	}
+}

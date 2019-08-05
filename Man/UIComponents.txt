@@ -1,0 +1,23 @@
+Text
+title
+subTitle
+text
+
+Button
+selectableButton
+switchableButton
+
+options - buyChips
+
+Image
+png
+lobbyMachineData.Png
+
+popupComponent
+text + text
+text + button
+text + png
+
+list - payTable
+symbols - payTable
+paylines - payTable

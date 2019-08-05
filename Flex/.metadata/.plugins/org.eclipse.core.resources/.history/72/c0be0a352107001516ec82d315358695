@@ -1,0 +1,66 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.invite4Chips
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.FacebookInviteButton;
+	import com.gotchaslots.slots.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	public class Invite4ChipsPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Welcome_back);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new FacebookInviteButton(OnInviteClick));
+			return result;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function Invite4ChipsPopup(onClose:Function)
+		{
+			super(onClose);
+			
+			Main.Instance.Session.Rare.IsInviteAsked = true;
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Invite_your_friends));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.and_get));
+			AddBlueMessageTextField(W, FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.LevelReachedBonusChips, 0) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Chips));
+		}
+		
+		// events
+		private function OnInviteClick(event:Event):void
+		{
+			NotificationsHandler.Instance.ShowInviting4ChipsPopup(null);
+			Main.Instance.Session.Rare.IsInviteAsked = true;
+			DoRemove();
+		}
+		protected override function OnCloseButtonClick(event:MouseEvent):void
+		{
+			Main.Instance.Session.Rare.IsInviteAsked = true;
+			DoRemove();
+		}
+	}
+}

@@ -1,0 +1,84 @@
+package com.gotchaslots.slots.ui.machine.bonusGameEngine.curtain.item.base
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.data.machine.bonusGame.curtain.curtainItem.base.BaseCurtainItemData;
+	import com.gotchaslots.slots.data.machine.bonusGame.curtain.curtainItem.base.CurtainItemDataEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseMovieClipClickableButton;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.text.TextField;
+	
+	public class BaseItemBox extends BaseMovieClipClickableButton
+	{
+		// members
+		private var _curtainItem:BaseCurtainItemData;
+		
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.HudTickerBubbling;
+		}
+		protected override function get TextFieldOffsetY():int
+		{
+			return -75;
+		}
+		
+		public function get CurtainItem():BaseCurtainItemData
+		{
+			return _curtainItem;
+		}
+		
+		// class
+		public function BaseItemBox(curtainItem:BaseCurtainItemData)
+		{
+			_curtainItem = curtainItem;
+			
+			super(_curtainItem.GetMC.width, _curtainItem.GetMC.height, null, " ", _curtainItem.GetMC, _curtainItem.GetMC);
+		}
+		
+		// methods
+		public function DoShowScore():void
+		{
+			if (_curtainItem.IsFailure)
+			{
+				Main.Instance.Application.Ticker.PushMessage("Game Over", "", true);
+				Text = "Game Over";
+			}
+			else
+			{
+				Main.Instance.Application.Ticker.PushMessage("You won " + FormatterHelper.NumberToMoney(_curtainItem.Payout * Main.Instance.ActiveMachine.SelectedBetChips) + " Chips", "", true);
+				Text = FormatterHelper.NumberToMoney(_curtainItem.Payout * Main.Instance.ActiveMachine.SelectedBetChips);
+			}
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			_curtainItem.Selected = true;
+			
+			Main.Instance.Sounds.Play(_curtainItem.ClickSound);
+			dispatchEvent(new CurtainItemDataEvent(CurtainItemDataEvent.ItemClick, _curtainItem));
+			
+			DoShowScore();
+			
+			var timer:TimerEx = new TimerEx(2500);
+			timer.addEventListener(TimerEvent.TIMER, onTimer);
+			timer.start();
+		}
+		
+		protected function onTimer(event:TimerEvent):void
+		{
+			var timer:TimerEx = TimerEx(event.currentTarget);
+			timer.removeEventListener(TimerEvent.TIMER, onTimer);
+			timer.Dispose();
+			timer = null;
+			
+			Main.Instance.Sounds.Play(_curtainItem.IsFailure ? _curtainItem.LoseSound : _curtainItem.WinSound);
+			
+			dispatchEvent(new CurtainItemDataEvent(CurtainItemDataEvent.ItemClicked, _curtainItem));
+		}
+	}
+}

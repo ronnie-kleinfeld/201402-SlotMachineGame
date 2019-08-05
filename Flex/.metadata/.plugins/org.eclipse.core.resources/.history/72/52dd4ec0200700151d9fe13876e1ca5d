@@ -1,0 +1,61 @@
+package com.gotchaslots.slots.mobile.utils.helpers
+{
+	import com.adobe.serialization.json.JSONDecoder;
+	import com.demonsters.debugger.MonsterDebugger;
+	
+	import flash.utils.describeType;
+	import flash.utils.getDefinitionByName;
+	
+	public class JsonHelper
+	{
+		public function JsonHelper()
+		{
+		}
+		
+		public static function MapJsonToClass(p_str:String, p_class:Class):Object
+		{
+			var o:Object = new JSONDecoder(p_str, true).getValue();
+			if (o != null)
+			{
+				return (MapToClass(o, p_class));
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+		private static function MapToClass(obj:Object, type:Class):Object
+		{
+			var returnObject:Object = new(type)();
+			var propertyMap:XML = describeType(returnObject);
+			var propertyTypeClass:Class;
+			
+			var property:XML;
+			for each (property in propertyMap.variable)
+			{
+				if ((obj as Object).hasOwnProperty(property.@name))
+				{
+					propertyTypeClass = getDefinitionByName(property.@type) as Class;
+					if (obj[property.@name] is (propertyTypeClass))
+					{
+						returnObject[property.@name] = obj[property.@name];
+					}
+				}
+			}
+			for each (property in propertyMap.accessor)
+			{
+				if ((obj as Object).hasOwnProperty(property.@name))
+				{
+					propertyTypeClass = getDefinitionByName(property.@type) as Class;
+					if (obj[property.@name] is (propertyTypeClass))
+					{
+						returnObject[property.@name] = obj[property.@name];
+					}
+				}
+			}
+			
+			return returnObject;
+		}
+	}
+}

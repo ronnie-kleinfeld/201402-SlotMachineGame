@@ -1,0 +1,38 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.gotchaslots.common.utils.xServices.dialogs.event.NativeConfirmationDialogEvent;
+	import com.gotchaslots.common.utils.xServices.dialogs.event.NativeCredentialsDialogsEvent;
+	import com.gotchaslots.common.utils.xServices.dialogs.event.NativeInputDialogsEvent;
+	import com.gotchaslots.common.utils.xServices.dialogs.event.NativePickerEvent;
+	import com.gotchaslots.common.utils.xServices.dialogs.event.NativeYesNoDialogEvent;
+	import com.milkmangames.nativeextensions.CMDialogDispatcher;
+	import com.milkmangames.nativeextensions.CMPickerDispatcher;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMDialogEvent;
+	import com.milkmangames.nativeextensions.events.CMPickerEvent;
+
+	public class ConfirmationDialog extends BaseCoreMobileHandler
+	{
+		// class
+		public function ConfirmationDialog()
+		{
+			super();
+		}
+		
+		// confirmation dialog
+		public function ShowConfirmationDialog(title:String, message:String, buttonLabel:String):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalConfirmationDialog(title, message, buttonLabel);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						dispatchEvent(new NativeConfirmationDialogEvent(NativeConfirmationDialogEvent.OK));
+					}
+				);
+			}
+		}
+	}
+}

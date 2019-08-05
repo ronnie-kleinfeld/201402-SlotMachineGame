@@ -1,0 +1,7 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	public class NetworkTypeEnum
+	{
+		public static const NONE:String = "None";
+	}
+}

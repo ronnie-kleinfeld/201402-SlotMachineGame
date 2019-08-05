@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.milkmangames.nativeextensions"><apiName>com.milkmangames.nativeextensions</apiName><apiDetail/><apiClassifier id="com.milkmangames.nativeextensions:RateBox"><apiName>RateBox</apiName><shortdesc> RateBox </shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef><apiDesc> RateBox </apiDesc></apiClassifierDetail><adobeApiEvent id="com.milkmangames.nativeextensions:RateBox_com.milkmangames.nativeextensions.events.RateBoxEvent_NETWORK_UNAVAILABLE"><apiName>NETWORK_UNAVAILABLE</apiName><shortdesc> Dispatched when the prompt could not be displayed due to a network connectivity issue (may occur on iOS, where Apple would reject apps that start actions that can't be completed due to no network signal.) </shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><adobeApiEventClassifier>com.milkmangames.nativeextensions.events.RateBoxEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc> Dispatched when the prompt could not be displayed due to a network connectivity issue (may occur on iOS, where Apple would reject apps that start actions that can't be completed due to no network signal.) </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.milkmangames.nativeextensions:RateBox_com.milkmangames.nativeextensions.events.RateBoxEvent_PROMPT_DISPLAYED"><apiName>PROMPT_DISPLAYED</apiName><shortdesc> Dispatched When the Rate prompt has been displayed to the user </shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><adobeApiEventClassifier>com.milkmangames.nativeextensions.events.RateBoxEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc> Dispatched When the Rate prompt has been displayed to the user </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.milkmangames.nativeextensions:RateBox_com.milkmangames.nativeextensions.events.RateBoxEvent_LATER_SELECTED"><apiName>LATER_SELECTED</apiName><shortdesc> Dispatched when the user has selected the 'ask me later' rating button </shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><adobeApiEventClassifier>com.milkmangames.nativeextensions.events.RateBoxEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc> Dispatched when the user has selected the 'ask me later' rating button </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.milkmangames.nativeextensions:RateBox_com.milkmangames.nativeextensions.events.RateBoxEvent_NEVER_SELECTED"><apiName>NEVER_SELECTED</apiName><shortdesc> Dispatched when the user has selected the 'Never Ask Again' rating button </shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><adobeApiEventClassifier>com.milkmangames.nativeextensions.events.RateBoxEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc> Dispatched when the user has selected the 'Never Ask Again' rating button </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.milkmangames.nativeextensions:RateBox_com.milkmangames.nativeextensions.events.RateBoxEvent_RATE_SELECTED"><apiName>RATE_SELECTED</apiName><shortdesc> Dispatched when the user has selected the Rate button to rate the app </shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><adobeApiEventClassifier>com.milkmangames.nativeextensions.events.RateBoxEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc> Dispatched when the user has selected the Rate button to rate the app </apiDesc></adobeApiEventDetail></adobeApiEvent><apiConstructor id="com.milkmangames.nativeextensions:RateBox:RateBox"><apiName>RateBox</apiName><shortdesc>
+	 Do not call this directly; use RateBox.create() to initialize or RateBox.rateBox to get current instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>iosAppId</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>title</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>rateNowLabel</apiItemName><apiType value="String"/><apiData>Rate Now</apiData></apiParam><apiParam><apiItemName>declineLabel</apiItemName><apiType value="String"/><apiData>Not now</apiData></apiParam><apiParam><apiItemName>neverAgainlabel</apiItemName><apiType value="String"/><apiData>Don't ask again</apiData></apiParam><apiParam><apiItemName>minLaunchesTilPrompt</apiItemName><apiType value="int"/><apiData>3</apiData></apiParam><apiParam><apiItemName>minEventsTilPrompt</apiItemName><apiType value="int"/><apiData>0</apiData></apiParam><apiParam><apiItemName>minDaysTilPrompt</apiItemName><apiType value="int"/><apiData>0</apiData></apiParam><apiParam><apiItemName>coolDownDays</apiItemName><apiType value="int"/><apiData>1</apiData></apiParam></apiConstructorDef><apiDesc>
+	 Do not call this directly; use RateBox.create() to initialize or RateBox.rateBox to get current instance.
+	 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.milkmangames.nativeextensions:RateBox:areRatingConditionsMet"><apiName>areRatingConditionsMet</apiName><shortdesc>
+	 Check if the conditions with which the RateBox instance was initialized (minLaunchesTilPrompt, minDaysTilPrompt, and / or minEventsTilPrompt) have been met.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>true if the RateBox dialog display conditions have been met
+	 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+	 Check if the conditions with which the RateBox instance was initialized (minLaunchesTilPrompt, minDaysTilPrompt, and / or minEventsTilPrompt) have been met.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:create"><apiName>create</apiName><shortdesc>
+	 Initializes the RateBox extension.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiException><apiDesc>if RateBox.create() has already been called.
+	 </apiDesc><apiItemName>Error</apiItemName><apiOperationClassifier>Error</apiOperationClassifier></apiException><apiReturn><apiDesc>singleton instance of the RateBox object
+	 </apiDesc><apiOperationClassifier>com.milkmangames.nativeextensions:RateBox</apiOperationClassifier></apiReturn><apiParam><apiItemName>iosAppId</apiItemName><apiType value="String"/><apiDesc>the numeric iOS App ID.  Find this on the app's page in iTunes Connect.  If you're not supporting iOS, you can put an empty string ( "" ).
+	 </apiDesc></apiParam><apiParam><apiItemName>title</apiItemName><apiType value="String"/><apiDesc>the title of the dialog displayed to the user for rating
+	 </apiDesc></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>the message to display to the user in the dialog
+	 </apiDesc></apiParam><apiParam><apiItemName>rateNowLabel</apiItemName><apiType value="String"/><apiData>Rate Now</apiData><apiDesc>label of the button the user pushes to rate the app
+	 </apiDesc></apiParam><apiParam><apiItemName>declineLabel</apiItemName><apiType value="String"/><apiData>Not now</apiData><apiDesc>label of the button the user pushes to decline rating the app at this time
+	 </apiDesc></apiParam><apiParam><apiItemName>neverAgainlabel</apiItemName><apiType value="String"/><apiData>Don't ask again</apiData><apiDesc>label of the button the user pushes to never see the rating prompt again
+	 </apiDesc></apiParam><apiParam><apiItemName>minLaunchesTilPrompt</apiItemName><apiType value="int"/><apiData>3</apiData><apiDesc>the minimum number of times the app must be launched before the rating dialog box can be automatically displayed
+	 </apiDesc></apiParam><apiParam><apiItemName>minEventsTilPrompt</apiItemName><apiType value="int"/><apiData>0</apiData><apiDesc>the minimum number of times a custom event must be triggered before the rating dialog box can be automatically displayed
+	 </apiDesc></apiParam><apiParam><apiItemName>minDaysTilPrompt</apiItemName><apiType value="int"/><apiData>0</apiData><apiDesc>the minimum number of days for which the app must be installed before the rating dialog box can be displayed
+	 </apiDesc></apiParam><apiParam><apiItemName>coolDownDays</apiItemName><apiType value="int"/><apiData>1</apiData><apiDesc>if the user presses 'not now' on a rating prompt dialog, this is the number of days that will pass before the prompt can be shown again.
+	 </apiDesc></apiParam></apiOperationDef><apiDesc>
+	 Initializes the RateBox extension.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:didRateCurrentVersion"><apiName>didRateCurrentVersion</apiName><shortdesc>
+	 Check if the current version of the app has been rated.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>true if the user accepted the rating prompt for this verion of the app
+	 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+	 Check if the current version of the app has been rated.
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:gotoRatingsNow"><apiName>gotoRatingsNow</apiName><shortdesc>
+	 Cause the Ratings page to be displayed to the user immediately.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 Cause the Ratings page to be displayed to the user immediately.
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:incrementEventCount"><apiName>incrementEventCount</apiName><shortdesc>
+	 Increment the custom event count.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>true if the incrementEventCount() call has caused the rating dialog box to be displayed.
+	 
+	 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+	 Increment the custom event count.
+	 
+	 A custom event can be anything you want; such as completing a level in the game.  When the event count has reached
+	 at least the value for minEventsTilLaunch used when initializing the extension, the rating dialog may be displayed.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:isSupported"><apiName>isSupported</apiName><shortdesc>
+	 Check if RateBox is supported on the current platform (iOS or Android.)
+	 </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>true if RateBox supports this platform
+	 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+	 Check if RateBox is supported on the current platform (iOS or Android.)
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:onLaunch"><apiName>onLaunch</apiName><shortdesc>
+	 Call this method when your app is first started, or when it returns from a background state,
+	 to increment the launches counter.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>true if the call to onLaunch() caused the rating dialog box to be displayed
+	 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+	 Call this method when your app is first started, or when it returns from a background state,
+	 to increment the launches counter.  If the the counter has reached at least the value for
+	 minLaunchesTilPrompt with which the RateBox instance was created, the rating dialog box
+	 will be displayed.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:recordCustomLaterButtonPress"><apiName>recordCustomLaterButtonPress</apiName><shortdesc>
+	 If you want to build a completely custom rating dialog and are using setAutoPrompt(false), call this method when your user pressed a custom 'Later' button in your UI.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 If you want to build a completely custom rating dialog and are using setAutoPrompt(false), call this method when your user pressed a custom 'Later' button in your UI.
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:recordCustomNeverButtonPress"><apiName>recordCustomNeverButtonPress</apiName><shortdesc>
+	 If you want to build a completely custom rating dialog and are using setAutoPrompt(false), call this method when your user pressed a custom 'Never ask again' button in your UI.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 If you want to build a completely custom rating dialog and are using setAutoPrompt(false), call this method when your user pressed a custom 'Never ask again' button in your UI.
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:resetConditions"><apiName>resetConditions</apiName><shortdesc>
+	 Resets the rating conditions; the internal count of number of launches, number of events triggered, and days since first launch will be reset to 0.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 Resets the rating conditions; the internal count of number of launches, number of events triggered, and days since first launch will be reset to 0. 
+	 
+	 Also, if the user has previously selected to 'never see the rating dialog again', the preference will be cleared.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:setAutoPrompt"><apiName>setAutoPrompt</apiName><shortdesc>
+	 Sets whether the rating prompt can be automatically displayed as a result of rating conditions changing.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>useAutoPrompt</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>true for rating prompts to display automatically in response to onLaunch() or incrementEventCount(); false otherwise
+	 </apiDesc></apiParam></apiOperationDef><apiDesc>
+	 Sets whether the rating prompt can be automatically displayed as a result of rating conditions changing.
+	 If you want to handle the display of the rating prompt manually, you can call setAutoPrompt(false), and
+	 use areRatingConditionsMet() to determine whether to display the prompt at a given time.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:setUseInlineStoreView"><apiName>setUseInlineStoreView</apiName><shortdesc>
+	 If set to true, and running on iOS 6 or higher, RateBox will attempt to show your product page as a popup window inside your app instead of redirecting to the store.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>useStoreView</apiItemName><apiType value="Boolean"/><apiDesc>whether or not to use the popup storeview for ratings on iOS 
+	 </apiDesc></apiParam></apiOperationDef><apiDesc>
+	 If set to true, and running on iOS 6 or higher, RateBox will attempt to show your product page as a popup window inside your app instead of redirecting to the store.  While this avoids leaving your application, it also means that the user will have to choose the Ratings button on the store view manually instead of being taken directly to the ratings area.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:showRatingPrompt"><apiName>showRatingPrompt</apiName><shortdesc>
+	 Shows the rating prompt dialog box.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>title</apiItemName><apiType value="String"/><apiDesc>the title of the dialog displayed to the user for rating
+	 </apiDesc></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>the message to display to the user in the dialog
+	 </apiDesc></apiParam><apiParam><apiItemName>rateNowLabel</apiItemName><apiType value="String"/><apiData>Rate It Now</apiData><apiDesc>label of the button the user pushes to rate the app
+	 </apiDesc></apiParam><apiParam><apiItemName>declineLabel</apiItemName><apiType value="String"/><apiData>Not now</apiData><apiDesc>label of the button the user pushes to decline rating the app at this time
+	 </apiDesc></apiParam><apiParam><apiItemName>neverAgainLabel</apiItemName><apiType value="String"/><apiData>Don't ask again</apiData><apiDesc>label of the button the user pushes to never see the rating prompt again
+	 </apiDesc></apiParam></apiOperationDef><apiDesc>
+	 Shows the rating prompt dialog box.
+	 
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:useAmazonAppStore"><apiName>useAmazonAppStore</apiName><shortdesc>
+	 If you are deploying to the Amazon App Store, call this method to force the ratings page to load from the Amazon App Store instead of Google Play.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 If you are deploying to the Amazon App Store, call this method to force the ratings page to load from the Amazon App Store instead of Google Play.  (RateBox already uses the Amazon app store automatically when deployed on a Kindle Fire, but this method is useful if you are supporting the Amazon App Store for Google Android as well.)
+	 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.milkmangames.nativeextensions:RateBox:useTestMode"><apiName>useTestMode</apiName><shortdesc>
+	 Call this function to activate test mode when testing the extension prior to app store release.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+	 Call this function to activate test mode when testing the extension prior to app store release.
+	 
+	 In test mode, the user selecting the 'Rate' button will redirect them to an existing sample app
+	 on the app store, instead of your own app ID.
+	 
+	 Be sure to remove calls to useTestMode() before publishing your application.
+	 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.milkmangames.nativeextensions:RateBox:VERSION"><apiName>VERSION</apiName><shortdesc> Version </shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2.3.0</apiData><apiType value="String"/></apiValueDef><apiDesc> Version </apiDesc></apiValueDetail></apiValue><apiValue id="com.milkmangames.nativeextensions:RateBox:rateBox:get"><apiName>rateBox</apiName><shortdesc>
+	 Get the current instance of the RateBox singleton.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiStatic/><apiValueAccess value="read"/><apiValueClassifier>com.milkmangames.nativeextensions:RateBox</apiValueClassifier><apiException><apiDesc>if RateBox.create() has not yet been called.
+	 
+	 </apiDesc><apiItemName>Error</apiItemName><apiOperationClassifier>Error</apiOperationClassifier></apiException></apiValueDef><apiDesc>
+	 Get the current instance of the RateBox singleton.
+	 
+	 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,89 @@
+package com.gotchaslots.common.mobile.ui.common.components.stardust.moneyTrail
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.machine.spline.SplineData;
+	import com.gotchaslots.common.mobile.ui.common.components.stardust.base.BaseStardust;
+	
+	import flash.events.Event;
+	import flash.geom.Point;
+	
+	import idv.cjcat.stardust.common.clocks.SteadyClock;
+	import idv.cjcat.stardust.twoD.handlers.DisplayObjectHandler;
+	import idv.cjcat.stardust.twoD.zones.SinglePoint;
+	
+	public class MoneyTrail extends BaseStardust
+	{
+		// members
+		private var _index:Number;
+		private var _spline:SplineData;
+		private var _point:SinglePoint;
+		private var _step:Number;
+		
+		// class
+		// set point1=null to get a random point between point0 to point2
+		public function MoneyTrail(count:int, point0:Point, point1:Point, point2:Point)
+		{
+			super();
+			
+			_step = 0.4 * count;
+			_spline = Main.Instance.Application.Splines.GetSpline(point0, point1, point2);
+			_index = 0;
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (emitter)
+			{
+				emitter.particleHandler = null;
+			}
+			
+			if (_spline)
+			{
+				_spline.Dispose();
+				_spline = null;
+			}
+			
+			_point = null;
+		}
+		
+		// methods
+		protected override function buildParticleSystem():void
+		{
+			emitter = new MoneyEmitter(new SteadyClock(2));
+			emitter.particleHandler = new DisplayObjectHandler(container);
+		}
+		
+		// events
+		protected override function mainLoop(event:Event):void
+		{
+			if (emitter && _spline && _spline.Points)
+			{
+				if (_index < _spline.Points.length)
+				{
+					MoneyEmitter(emitter).point.x = _spline.Points[int(_index)].x;
+					MoneyEmitter(emitter).point.y = _spline.Points[int(_index)].y;
+					emitter.step();
+					_index = _index + _step;
+				}
+				else
+				{
+					emitter.active = false;
+					MoneyEmitter(emitter).point.x = _spline.Points[int(_spline.Points.length - 1)].x;
+					MoneyEmitter(emitter).point.y = _spline.Points[int(_spline.Points.length - 1)].y;
+					emitter.step();
+					if (emitter.numParticles == 0)
+					{
+						removeEventListener(Event.ENTER_FRAME, mainLoop);
+						dispatchEvent(new Event(Event.COMPLETE));
+					}
+				}
+			}
+			else
+			{
+				removeEventListener(Event.ENTER_FRAME, mainLoop);
+				dispatchEvent(new Event(Event.COMPLETE));
+			}
+		}
+	}
+}

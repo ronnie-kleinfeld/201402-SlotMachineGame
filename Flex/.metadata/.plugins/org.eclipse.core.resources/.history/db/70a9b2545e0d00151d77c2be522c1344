@@ -1,0 +1,50 @@
+package com.gotchaslots.common.mobile.utils.helpers
+{
+	public class NumberHelper
+	{
+		public static function IsInt(val:Number):Boolean
+		{
+			var x:int = val;
+			return x == val;
+		}
+		
+		public static function Min(vector:Vector.<Number>):Number
+		{
+			var min:Number = Number.MAX_VALUE;
+			for (var i:int = 0; i < vector.length; i++)
+			{
+				if (vector[i] < min)
+				{
+					min = vector[i];
+				}
+			}
+			return min;
+		}
+		public static function Max(vector:Vector.<Number>):Number
+		{
+			var max:Number = Number.MIN_VALUE;
+			for (var i:int = 0; i < vector.length; i++)
+			{
+				if (vector[i] > max)
+				{
+					max = vector[i];
+				}
+			}
+			return max;
+		}
+		public static function Average(vector:Vector.<Number>):Number
+		{
+			return (Min(vector) + Max(vector)) / 2;
+		}
+		
+		public static function Sum(vector:Vector.<Number>):Number
+		{
+			var sum:Number = 0;
+			for (var i:int = 0; i < vector.length; i++)
+			{
+				sum += vector[i];
+			}
+			return sum;
+		}
+	}
+}

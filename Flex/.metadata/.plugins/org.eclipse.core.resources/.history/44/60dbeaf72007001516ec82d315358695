@@ -1,0 +1,38 @@
+package com.gotchaslots.slots.mobile.ui.lobby.machinesList.machinePreview.components
+{
+	import com.gotchaslots.slots.assets.lobby.machinesList.MachinesListEmbed;
+	import com.gotchaslots.slots.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.slots.mobile.data.machine.MachineDataEvent;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BasePng;
+	
+	import flash.events.Event;
+	
+	public class PreviewInvitePng extends BasePng
+	{
+		// members
+		private var _lobbyMachine:BaseLobbyMachineData;
+		
+		// class
+		public function PreviewInvitePng(lobbyMachine:BaseLobbyMachineData)
+		{
+			super(60, 60, new MachinesListEmbed.FacebookInvite());
+			
+			_lobbyMachine = lobbyMachine;
+			
+			visible = !_lobbyMachine.IsOpen && !_lobbyMachine.IsCommingSoon;
+			_lobbyMachine.addEventListener(MachineDataEvent.IsOpenChanged, OnIsOpenChanged);
+		}
+		public override function Dispose():void
+		{
+			_lobbyMachine.removeEventListener(MachineDataEvent.IsOpenChanged, OnIsOpenChanged);
+			
+			super.Dispose();
+		}
+		
+		// events
+		protected function OnIsOpenChanged(event:Event):void
+		{
+			visible = !_lobbyMachine.IsOpen && !_lobbyMachine.IsCommingSoon;
+		}
+	}
+}

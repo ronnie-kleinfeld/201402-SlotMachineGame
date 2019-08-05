@@ -1,0 +1,46 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.confirmationDialog.ConfirmationDialogHandler;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.credentialsDialog.CredentialsDialogHandler;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.inputDialog.InputDialogHandler;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.pickerDialog.PickerDialogHandler;
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.yesNoDialog.YesNoDialogHandler;
+
+	public class NativeDialogsHandler
+	{
+		// members
+		private var _confirmationDialog:ConfirmationDialogHandler;
+		private var _confirmationDialog:CredentialsDialogHandler;
+		private var _confirmationDialog:InputDialogHandler;
+		private var _confirmationDialog:PickerDialogHandler;
+		private var _confirmationDialog:YesNoDialogHandler;
+		
+		// properties
+		public function get ConfirmationDialog():ConfirmationDialogHandler
+		{
+			return _confirmationDialog;
+		}
+		public function get CredentialsDialog():CredentialsDialogHandler
+		{
+			return CredentialsDialog;
+		}
+		public function get InputDialog():InputDialogHandler
+		{
+			return InputDialog;
+		}
+		public function get PickerDialog():PickerDialogHandler
+		{
+			return PickerDialog;
+		}
+		public function get YesNoDialog():YesNoDialogHandler
+		{
+			return YesNoDialog;
+		}
+		
+		// class
+		public function NativeDialogsHandler()
+		{
+			_confirmationDialog = new ConfirmationDialogHandler();
+		}
+	}
+}

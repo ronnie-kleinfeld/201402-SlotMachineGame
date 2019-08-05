@@ -1,0 +1,47 @@
+package com.gotchaslots.slots.mobile.ui.machine.reelsPanel
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.MachineDataEvent;
+	import com.gotchaslots.slots.mobile.data.machine.paylines.payline.base.BasePaylineData;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BasePng;
+	import com.gotchaslots.slots.mobile.utils.helpers.DisplayObjectHelper;
+	
+	import flash.events.Event;
+	
+	public class PaylinesBox extends BaseComponent
+	{
+		// class
+		public function PaylinesBox()
+		{
+			super(800, 306);
+			
+			Main.Instance.ActiveMachine.addEventListener(MachineDataEvent.SelectedPaylinesChanged, OnSelectedPaylinesChanged);
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			Main.Instance.ActiveMachine.removeEventListener(MachineDataEvent.SelectedPaylinesChanged, OnSelectedPaylinesChanged);
+		}
+		
+		// methods
+		public function Stop():void
+		{
+			while (numChildren > 1)
+			{
+				DisplayObjectHelper.SafeRemoveChildAt(this, 1);
+			}
+		}
+		
+		// events
+		protected function OnSelectedPaylinesChanged(event:Event):void
+		{
+			DisplayObjectHelper.SafeRemoveChildAt(this, 1);
+			
+			var payline:BasePaylineData = Main.Instance.ActiveMachine.LobbyMachine.Paylines.Paylines[Main.Instance.ActiveMachine.SelectedPaylines - 1];
+			
+			var png:BasePng = new BasePng(800, 306, payline.PaylineReelsPng);
+			addChild(png);
+		}
+	}
+}

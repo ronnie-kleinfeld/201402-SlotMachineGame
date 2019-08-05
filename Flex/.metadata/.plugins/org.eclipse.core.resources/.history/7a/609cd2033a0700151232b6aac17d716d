@@ -1,0 +1,9 @@
+package com.gotchaslots.common.mobile.utils.sounds
+{
+	public class SoundTypeEnum
+	{
+		public function SoundTypeEnum()
+		{
+		}
+	}
+}

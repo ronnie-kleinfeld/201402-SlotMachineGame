@@ -1,0 +1,61 @@
+package com.gotchaslots.slots.mobile.data.application.prices
+{
+	import com.gotchaslots.slots.mobile.data.application.schedulers.scheduler.base.BaseScheduler;
+	import com.gotchaslots.slots.mobile.utils.dataType.BaseIDData;
+	
+	public class PriceOptionsData extends BaseIDData
+	{
+		// memebrs
+		private var _description:String;
+		private var _priceOptions:Vector.<PriceOptionData>;
+		private var _scheduler:BaseScheduler;
+		private var _showTimerRibbon:Boolean;
+		
+		// properties
+		public function get Description():String
+		{
+			return _description;
+		}
+		public function get PriceOptions():Vector.<PriceOptionData>
+		{
+			return _priceOptions;
+		}
+		public function get Scheduler():BaseScheduler
+		{
+			return _scheduler;
+		}
+		public function get ShowTimerRibbon():Boolean
+		{
+			return _showTimerRibbon;
+		}
+		
+		// class
+		public function PriceOptionsData(id:int, description:String, priceOptions:Vector.<PriceOptionData>, scheduler:BaseScheduler, showTimerRibbon:Boolean)
+		{
+			super(id);
+			
+			_description = description;
+			_priceOptions = priceOptions;
+			_scheduler = scheduler;
+			_showTimerRibbon = showTimerRibbon;
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			while (_priceOptions && _priceOptions.length > 0)
+			{
+				var priceOption:PriceOptionData = _priceOptions.pop();
+				priceOption.Dispose();
+				priceOption = null;
+			}
+			_priceOptions = null;
+			
+			if (_scheduler)
+			{
+				_scheduler.Dispose();
+				_scheduler = null;
+			}
+		}
+	}
+}

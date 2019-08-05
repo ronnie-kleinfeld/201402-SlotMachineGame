@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<SMTPSentDataSet xmlns="http://tempuri.org/SMTPSentDataSet.xsd">
+  <T_SENT>
+    <EMS_EMAIL>bear_junior_99_1999@yahoo.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>beaf28meat@hotmail.com</EMS_EMAIL>
+  </T_SENT>
+  <T_SENT>
+    <EMS_EMAIL>beawolf3@gmail.com</EMS_EMAIL>
+  </T_SENT>
+</SMTPSentDataSet>

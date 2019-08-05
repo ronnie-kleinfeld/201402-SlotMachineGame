@@ -1,0 +1,107 @@
+package com.gotchaslots.common.mobile.data.application.locale
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.utils.ex.EventDispatcherEx;
+	
+	import flash.globalization.DateTimeFormatter;
+	import flash.globalization.DateTimeStyle;
+	import flash.globalization.NumberFormatter;
+	import flash.utils.Dictionary;
+	
+	public class LocaleData extends EventDispatcherEx
+	{
+		// members
+		private var _locale:String;
+		private var _nativeName:String;
+		
+		private var _stringsFunction:Function;
+		private var _strings:Dictionary;
+		
+		private var _dateFormatter:DateTimeFormatter;
+		private var _timeFormatter:DateTimeFormatter;
+		private var _numberFormatter:NumberFormatter;
+		
+		// properties
+		public function get Locale():String
+		{
+			return _locale;
+		}
+		public function get NativeName():String
+		{
+			return _nativeName;
+		}
+		
+		public function get GetDateFormatter():DateTimeFormatter
+		{
+			if (!_dateFormatter)
+			{
+				_dateFormatter = new DateTimeFormatter(Locale);
+				_dateFormatter.setDateTimeStyles(DateTimeStyle.SHORT, DateTimeStyle.NONE)
+			}
+			return _dateFormatter;
+		}
+		public function get GetTimeFormatter():DateTimeFormatter
+		{
+			if (!_timeFormatter)
+			{
+				_timeFormatter = new DateTimeFormatter(Locale);
+				_timeFormatter.setDateTimePattern("HH:mm:ss");
+				_timeFormatter.setDateTimeStyles(DateTimeStyle.NONE, DateTimeStyle.CUSTOM)
+			}
+			return _timeFormatter;
+		}
+		public function get GetNumberFormatter():NumberFormatter
+		{
+			if (!_numberFormatter)
+			{
+				var _numberFormatter:NumberFormatter = new NumberFormatter(Locale);
+			}
+			return _numberFormatter;
+		}
+		
+		// class
+		public function LocaleData(locale:String, nativeName:String, stringsFunction:Function)
+		{
+			super();
+			
+			_locale = locale;
+			_nativeName = nativeName;
+			_stringsFunction = stringsFunction;
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			_strings = new Dictionary();
+			_dateFormatter = null;
+			_timeFormatter = null;
+			_numberFormatter = null;
+		}
+		
+		// methods
+		public function GetString(key:String):String
+		{
+			if (!_strings)
+			{
+				_strings = _stringsFunction();
+			}
+			
+			var result:Object = _strings[key];
+			if (result)
+			{
+				return result.toString();
+			}
+			else
+			{
+				if (_locale == Main.Instance.Application.L10N.DefaultLocale.Locale)
+				{
+					return key;
+				}
+				else
+				{
+					return Main.Instance.Application.L10N.DefaultLocale.GetString(key);
+				}
+			}
+		}
+	}
+}

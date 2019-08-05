@@ -1,0 +1,63 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	
+	import flash.events.Event;
+	
+	public class ErrorPopup extends BasePopup
+	{
+		// members
+		private var _errorMessage:String;
+		
+		// properties
+		protected override function get Height():int
+		{
+			return 150;
+		}
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return "Gotcha_Slots";
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function ErrorPopup(errorMessage:String, onClose:Function)
+		{
+			Main.Instance.Session.FixSession();
+			
+			super(onClose);
+			
+			_errorMessage = errorMessage;
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.We_have_a_problem));
+			AddComponent(new Spacer(6));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Please_try_again));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.in_a_few_minutes));
+		}
+		
+		// events
+		private function OnOKClick(event:Event):void
+		{
+			if (_errorMessage != null)
+			{
+				Main.Instance.XServices.GoogleAnalytics.TrackFatalError(_errorMessage);
+				Main.Instance.XServices.GoogleAnalytics.ForseDispatch();
+			}
+		}
+	}
+}

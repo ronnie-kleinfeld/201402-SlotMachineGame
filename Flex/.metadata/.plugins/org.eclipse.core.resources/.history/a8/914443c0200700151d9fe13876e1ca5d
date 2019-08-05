@@ -1,0 +1,27 @@
+package com.gotchaslots.slots.mobile.ui.machine.bottomPanel.textFields
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class PaylinesHeaderTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelPaylinesHeader;
+		}
+		protected override function get TextFieldOffsetY():int
+		{
+			return -5;
+		}
+		
+		// class
+		public function PaylinesHeaderTextField()
+		{
+			super(100, 30, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Lines));
+		}
+	}
+}

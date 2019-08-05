@@ -1,0 +1,119 @@
+package com.gotchaslots.common.mobile.ui.machine.presentation.base
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.machine.resultMatrix.base.BaseResultMatirxData;
+	import com.gotchaslots.common.mobile.data.machine.valuator.ValuatorsHandler;
+	import com.gotchaslots.common.mobile.ui.machine.MachineView;
+	import com.gotchaslots.common.mobile.ui.notifications.base.BaseNotification;
+	import com.gotchaslots.common.mobile.utils.error.MustOverrideError;
+	
+	import flash.events.MouseEvent;
+	
+	public class BasePresentation extends BaseNotification
+	{
+		// members
+		protected var _onClick:Function;
+		protected var _view:MachineView;
+		protected var _activeResultMatrix:BaseResultMatirxData;
+		protected var _valuatorsHandler:ValuatorsHandler;
+		
+		// properties
+		protected function get ValuatorClass():Class
+		{
+			throw new MustOverrideError();
+		}
+		
+		protected function get IsValuable():Boolean
+		{
+			return _valuatorsHandler.GetValuator(ValuatorClass).IsValuable;
+		}
+		protected function get Payout():Number
+		{
+			return _valuatorsHandler.GetValuator(ValuatorClass).Payout;
+		}
+		
+		protected function get EnableBottomPanel():Boolean
+		{
+			return false;
+		}
+		
+		// class
+		public function BasePresentation(h:int, onClick:Function, onClose:Function, view:MachineView):void
+		{
+			_onClick = onClick;
+			
+			super(800, h, onClose);
+			_autoCloseTimer.stop();
+			
+			_view = view;
+			
+			_activeResultMatrix = Main.Instance.ActiveMachine.GetResultMatrixHandler.ActiveResultMatrix;
+			_valuatorsHandler = _activeResultMatrix.GetValuatorsHandler;
+		}
+		
+		// presentation
+		public override function AddedToNotifications():void
+		{
+			DoPresentation();
+		}
+		protected function DoPresentation():void
+		{
+			if (EnableBottomPanel)
+			{
+				_view.Enable();
+			}
+			
+			DoFlipper2();
+		}
+		
+		// flipper2
+		protected function DoFlipper2():void
+		{
+			DoPostFlipper2();
+		}
+		protected function DoPostFlipper2():void
+		{
+			DoParticle();
+		}
+		
+		// particle
+		protected function DoParticle():void
+		{
+			DoPostParticle();
+		}
+		protected function DoPostParticle():void
+		{
+			DoMoneyTrails();
+		}
+		
+		// money trail
+		protected function DoMoneyTrails():void
+		{
+			DoPostMoneyTrails();
+		}
+		protected function DoPostMoneyTrails():void
+		{
+			DoPost();
+		}
+		
+		protected function DoPost():void
+		{
+			DoRemove();
+		}
+		
+		// events
+		protected override final function OnClick(event:MouseEvent):void
+		{
+			try
+			{
+				if (_onClick != null)
+				{
+					dispatchEvent(new PresentationEvent(PresentationEvent.Click, _onClick));
+				}
+			}
+			catch (error:Error)
+			{
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.buyChips
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	
+	import flash.events.Event;
+	
+	public class NoChargePopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Purchase_Cancelled_Ex);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new MainPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.OK), OnOKClick));
+			return result;
+		}
+		
+		// class
+		public function NoChargePopup(onClose:Function)
+		{
+			super(onClose);
+			
+			Main.Instance.XServices.GoogleAnalytics.TrackPurchaseEventShowNoChargePopup();
+		}
+		protected override function AddBody():void
+		{
+			AddComponent(new Spacer(16));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.No_money_was_removed));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.from_your_account));
+		}
+		
+		// events
+		private function OnOKClick(event:Event):void
+		{
+			Main.Instance.XServices.GoogleAnalytics.TrackPurchaseEventOKNoChargePopup(MSSpent);
+			DoRemove();
+		}
+	}
+}

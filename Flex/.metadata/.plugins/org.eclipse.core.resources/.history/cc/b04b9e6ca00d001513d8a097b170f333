@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs.event
+{
+	public class NativeYesNoDialogEvent
+	{
+		public function NativeYesNoDialogEvent()
+		{
+		}
+	}
+}

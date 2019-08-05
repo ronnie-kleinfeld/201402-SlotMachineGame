@@ -1,0 +1,39 @@
+package com.gotchaslots.slots.mobile.ui.machine.bottomPanel.buttons
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	
+	public class BetUpButton extends BaseBottomPanelButton
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelBetButton;
+		}
+		protected override function get TextFieldOffsetX():int
+		{
+			return 1;
+		}
+		protected override function get TextFieldOffsetY():int
+		{
+			return 4;
+		}
+
+		// class
+		public function BetUpButton()
+		{
+			super(40, 40, "+");
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			super.OnClick(event);
+			Main.Instance.Sounds.Play(SoundsManager.Up);
+			Main.Instance.ActiveMachine.SelectedBetIndex++;
+		}
+	}
+}

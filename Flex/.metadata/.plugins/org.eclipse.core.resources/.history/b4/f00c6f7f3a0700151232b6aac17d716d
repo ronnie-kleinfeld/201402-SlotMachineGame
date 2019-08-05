@@ -1,0 +1,71 @@
+package com.gotchaslots.common.mobile.ui.machine.bottomPanel.buttons
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseSwitchableButton;
+	import com.gotchaslots.common.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	
+	public class SpeedSpinButton extends BaseSwitchableButton
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelSpeed;
+		}
+		
+		protected override function get HasNormalButton():Boolean
+		{
+			return true;
+		}
+		protected override function get NormalButtonColor():Number
+		{
+			return 0x0096ff;
+		}
+		protected override function get NormalButtonFrameColor():Number
+		{
+			return 0x00adf9;
+		}
+		protected override function get NormalButtonCorner():Number
+		{
+			return width * .4;
+		}
+		
+		protected override function get HasSelectedButton():Boolean
+		{
+			return true;
+		}
+		protected override function get SelectedButtonColor():Number
+		{
+			return 0x00adf9;
+		}
+		protected override function get SelectedButtonFrameColor():Number
+		{
+			return 0x0096ff;
+		}
+		protected override function get SelectedButtonCorner():Number
+		{
+			return width * .4;
+		}
+		
+		// class
+		public function SpeedSpinButton()
+		{
+			super(90, 60, null, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Fast), Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Slow));
+		}
+		
+		// events
+		protected override function OnNormal(event:MouseEvent):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Machine_BottomPanel_Speed_Fast);
+			Main.Instance.ActiveMachine.IsSpeedSpin = false;
+		}
+		protected override function OnSelected(event:MouseEvent):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Machine_BottomPanel_Speed_Slow);
+			Main.Instance.ActiveMachine.IsSpeedSpin = true;
+		}
+	}
+}

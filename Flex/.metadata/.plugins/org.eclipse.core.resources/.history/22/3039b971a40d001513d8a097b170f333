@@ -1,0 +1,42 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CMDialogDispatcher;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMDialogEvent;
+
+	public class CredentialsDialogHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function CredentialsDialogHandler()
+		{
+			super();
+		}
+		
+		// login dialog
+		public function Show(title:String, message:String, confirmButtonLabel:String, cancelButtonLabel:String = null, textInputType:int = 0, textInputMaxLength:uint = 1024, passwordMaxLength:uint = 1024):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalCredentialsDialog(title, message, confirmButtonLabel, cancelButtonLabel, textInputType, textInputMaxLength, passwordMaxLength);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						switch (event.selectedButtonLabel)
+						{
+							case confirmButtonLabel:
+								dispatchEvent(new CredentialsDialogEvent(CredentialsDialogEvent.OK, event.modalUserName, event.modalPassword));
+								break;
+							case cancelButtonLabel:
+								dispatchEvent(new CredentialsDialogEvent(CredentialsDialogEvent.CANCEL, event.modalUserName, event.modalPassword));
+								break;
+							default:
+								dispatchEvent(new CredentialsDialogEvent(CredentialsDialogEvent.CANCEL, event.modalUserName, event.modalPassword));
+								break;
+						}
+					}
+				);
+			}
+		}
+	}
+}

@@ -1,0 +1,116 @@
+package com.gotchaslots.slots.mobile.data.session.machines
+{
+	import com.gotchaslots.slots.mobile.data.session.base.BaseIOData;
+	import com.gotchaslots.slots.mobile.data.session.base.ISession;
+	
+	public class MachinesSessionCollection extends BaseIOData implements ISession
+	{
+		// consts
+		private const KEY:String = "14a81a2005df47098771b0b98bb07bd9";
+		
+		// members
+		private var _machinesSession:Vector.<MachineSessionData>;	// serialize
+		
+		// properties
+		protected override function get Key():String
+		{
+			return KEY;
+		}
+		
+		public function get MachinesSession():Vector.<MachineSessionData>
+		{
+			return _machinesSession;
+		}
+		public function set MachinesSession(value:Vector.<MachineSessionData>):void
+		{
+			if (_machinesSession != value)
+			{
+				_machinesSession = value;
+				Save();
+			}
+		}
+		
+		// class
+		public function MachinesSessionCollection()
+		{
+			super();
+			
+			_initialized = true;
+		}
+		protected override function Init():void
+		{
+			_machinesSession = new Vector.<MachineSessionData>();
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			while (_machinesSession && _machinesSession.length > 0)
+			{
+				var machineSession:MachineSessionData = _machinesSession.pop();
+				machineSession.Dispose();
+				machineSession = null;
+			}
+			_machinesSession = null;
+		}
+		
+		// serialize
+		public override function Deserialize(object:Object):void
+		{
+			MachinesSession = new Vector.<MachineSessionData>();
+			for (var i:int = 0; i < object.length; i++)
+			{
+				var newMachineSession:MachineSessionData = CreateMachineSession(object.ID);
+				newMachineSession.Deserialize(object[i]);
+				MachinesSession.push(newMachineSession);
+			}
+		}
+		public override function Serialize():Object
+		{
+			var result:Array = new Array();
+			for (var i:int = 0; i < MachinesSession.length; i++)
+			{
+				var machineSession:MachineSessionData = MachinesSession[i];
+				result.push(machineSession.Serialize());
+			}
+			return result;
+		}
+		
+		// methods
+		private function CreateMachineSession(id:int):MachineSessionData
+		{
+			return new MachineSessionData(id, this);
+		}
+		public function AddNewMachineSession(id:int):void
+		{
+			MachinesSession.push(CreateMachineSession(id));
+			Save();
+		}
+		
+		public function MachineSessionByID(id:int):MachineSessionData
+		{
+			var result:MachineSessionData;
+			for (var i:int = 0; i < _machinesSession.length; i++)
+			{
+				var machineSession:MachineSessionData = MachineSessionData(_machinesSession[i]);
+				if (machineSession.ID == id)
+				{
+					result = machineSession;
+					break;
+				}
+			}
+			return result;
+		}
+		
+		// fix
+		public function Fix():void
+		{
+			for (var i:int = 0; i < _machinesSession.length; i++)
+			{
+				var machineSession:MachineSessionData = MachineSessionData(_machinesSession[i]);
+				machineSession.Fix();
+			}
+			Save();
+		}
+	}
+}

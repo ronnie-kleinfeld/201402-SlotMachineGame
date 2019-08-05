@@ -1,0 +1,14 @@
+package com.gotchaslots.slots.mobile.data.machine.valuator.scatter
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.valuator.base.BaseScatterValuatorData;
+	
+	public class MiniSpinValuatorData extends BaseScatterValuatorData
+	{
+		// class
+		public function MiniSpinValuatorData()
+		{
+			super(Main.Instance.ActiveMachine.LobbyMachine.Symbols.MiniSpinSymbol);
+		}
+	}
+}

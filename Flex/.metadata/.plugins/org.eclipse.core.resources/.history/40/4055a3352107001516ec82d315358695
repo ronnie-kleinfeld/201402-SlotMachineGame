@@ -1,0 +1,16 @@
+package com.gotchaslots.common.mobile.data.machine.valuator.column
+{
+	import com.gotchaslots.common.mobile.data.machine.paybox.PayboxData;
+	import com.gotchaslots.common.mobile.data.machine.valuator.base.BaseValuatorData;
+	
+	public class ColumnValuatorData extends BaseValuatorData
+	{
+		// class
+		public function ColumnValuatorData(payboxes:Vector.<PayboxData>)
+		{
+			super();
+			
+			_payboxes = payboxes;
+		}
+	}
+}

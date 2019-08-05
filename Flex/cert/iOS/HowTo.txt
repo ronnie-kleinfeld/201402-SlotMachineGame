@@ -1,0 +1,13 @@
+1. open the command prompt as an Administrator
+2. cd to this path
+3. execute the CreateCertSigningRequest.bat
+   validate there where no error messages
+4. there should be 2 new files in this path - slotsbox.key + slotsbox.certSigningRequest
+5. upload the slotsbox.certSigningRequest as a new certificate to developer.apple.com
+6. download the ios_development.cer from same location and move to this path
+7. execute CreateP12.bat
+   validate there where no error messages
+   you will be prompt for a password - remember this
+8. there sould be 2 new file in this path - slotsbox_ios_development.pem + slotsbox_ios_development.p12
+9. create a provisioning profile with the new certificate on developer.apple.com
+10. download the provisioning profile file from the same location and move to this path

@@ -1,0 +1,33 @@
+package com.gotchaslots.slots.mobile.utils.consts
+{
+	import com.gotchaslots.common.mobile.utils.consts.CommonConsts;
+
+	public class SlotsConsts extends CommonConsts
+	{
+		public static const APP_NAME:String = "GotchaSlots";
+		
+		public static const SERVER_URL:String = "http://www.gotchaslots.com";
+		
+		// apple
+		public static const APPLE_SKU:String = "com.gotchaslots.slots";
+		public static const APPLE_BUNDLE_ID:String = "com.gotchaslots.slots";
+		public static const APPLE_APP_ID:String = "795214708";
+		public static const APPLE_ITUNES_APP_URL:String = "https://itunes.apple.com/us/app/gotchaslots/id795214708?l=iw&ls=1&mt=8";
+		
+		// google
+		public static const GOOGLE_ANALYTICS_TRACKING_ID:String = "UA-43695973-1";
+		
+		public static const GOOGLE_PLAY_LICENSE_KEY:String = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhzuGG8c8CPp7bUleDNGSd5mKC2dwWO9R0brLBl/fyEsXBcxQgqnHwFg9gs4a9lVexdYFQVYmkwxZ4oYtTLkDZR6KSYm4rnl3tJrLTylRNVGeaoKNs7MPq7QYCzdyZULfZjF1qAwyczyhZHaR/hvxoRqLyaZQ5RIiWlYXrH4I1Rj8NaQFWdh198xvElu1y6H6xUH8SlvMqixDR7/vTlJ1kHRJzUycQmhf6iF5imInh8q+Hd6MgwszUjrla3fIav5Prch1vSmHIVGiEb54jgR9HzcSOgX59UXuWQPfQbOU2NtAMMFAbhanz70T07aCHcdHGu/aHHXVsNqUF3D20mvVrQIDAQAB";
+		public static const GOOGLE_PLAY_APP_URL:String = "https://play.google.com/store/apps/details?id=air.com.gotchaslots.slots";
+		
+		// windowsphone
+		//public static const GOOGLE_PLAY_APP_URL:String = "http://www.windowsphone.com/en-us/store/app/accuweather-weather-for-life/92507698-67a2-e011-986b-78e7d1fa76f8";
+		
+		// blackberry
+		//public static const GOOGLE_PLAY_APP_URL:String = "http://appworld.blackberry.com/webstore/content/20143/";
+		
+		// facebook
+		public static const FACEBOOK_APP_ID:String = "1435949483287908";
+		public static const FACEBOOK_APP_PATH:String = "https://apps.facebook.com/gotchaslots/";
+	}
+}

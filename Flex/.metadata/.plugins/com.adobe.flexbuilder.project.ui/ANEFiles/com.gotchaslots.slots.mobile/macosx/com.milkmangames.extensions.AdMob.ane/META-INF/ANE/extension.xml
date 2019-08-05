@@ -1,0 +1,43 @@
+<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+	<id>com.milkmangames.extensions.AdMob</id>
+	<versionNumber>3</versionNumber>
+	<platforms>
+
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>AdMobAPI.jar</nativeLibrary>
+				<initializer>com.milkmangames.extensions.android.admob.AdMobExtension</initializer>
+				<finalizer>com.milkmangames.extensions.android.admob.AdMobExtension</finalizer>
+			</applicationDeployment>
+	    </platform>
+		
+		<platform name="Android-x86">
+			<applicationDeployment>
+				<nativeLibrary>AdMobAPI.jar</nativeLibrary>
+				<initializer>com.milkmangames.extensions.android.admob.AdMobExtension</initializer>
+				<finalizer>com.milkmangames.extensions.android.admob.AdMobExtension</finalizer>
+			</applicationDeployment>
+	    </platform>
+		
+		<platform name="iPhone-ARM">
+	        <applicationDeployment>
+				<nativeLibrary>libAdMobAPI.a</nativeLibrary>
+				<initializer>MmgAmApiExtInitializer</initializer>
+				<finalizer>MmgAmApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	    </platform>	
+		
+		<platform name="iPhone-x86">
+	        <applicationDeployment>
+				<nativeLibrary>libAdMobAPI.a</nativeLibrary>
+				<initializer>MmgAmApiExtInitializer</initializer>
+				<finalizer>MmgAmApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	    </platform>	
+		
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform> 
+	  </platforms>
+	</extension>

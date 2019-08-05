@@ -1,0 +1,26 @@
+package com.gotchaslots.slots.ui.machine.bottomPanel.textFields
+{
+	import com.gotchaslots.common.data.Main;
+	import com.gotchaslots.common.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class PaylinesHeaderTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelPaylinesHeader;
+		}
+		protected override function get TextFieldOffsetY():int
+		{
+			return -5;
+		}
+		
+		// class
+		public function PaylinesHeaderTextField()
+		{
+			super(100, 30, "Lines");
+		}
+	}
+}

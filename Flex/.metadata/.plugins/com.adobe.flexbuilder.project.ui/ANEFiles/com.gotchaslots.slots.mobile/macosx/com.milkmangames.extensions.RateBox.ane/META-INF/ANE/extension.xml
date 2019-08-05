@@ -1,0 +1,43 @@
+	<extension xmlns="http://ns.adobe.com/air/extension/3.5">
+	  <id>com.milkmangames.extensions.RateBox</id>
+	  <versionNumber>2</versionNumber>
+	  <platforms>
+		  
+		<platform name="Android-ARM">
+	      <applicationDeployment>
+	        <nativeLibrary>RateBoxAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.RateBoxExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.RateBoxExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>
+		
+		<platform name="Android-x86">
+	      <applicationDeployment>
+	        <nativeLibrary>RateBoxAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.RateBoxExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.RateBoxExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>
+		
+	<platform name="iPhone-ARM">
+	        <applicationDeployment>
+	          <nativeLibrary>libRateBoxAPI.a</nativeLibrary>
+	          <initializer>MmgRbApiExtInitializer</initializer>
+	          <finalizer>MmgRbApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		  
+	<platform name="iPhone-x86">
+	        <applicationDeployment>
+	          <nativeLibrary>libRateBoxAPI.a</nativeLibrary>
+	          <initializer>MmgRbApiExtInitializer</initializer>
+	          <finalizer>MmgRbApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		  
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform> 
+	  </platforms>
+	</extension>

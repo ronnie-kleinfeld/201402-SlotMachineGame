@@ -1,0 +1,86 @@
+package com.gotchaslots.slots.ui.machine.presentation
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.data.machine.paybox.PayboxData;
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseScatterSymbolData;
+	import com.gotchaslots.slots.data.machine.valuator.scatter.BombValuatorData;
+	import com.gotchaslots.common.mobile.ui.common.components.freeActionScript.explosion.ExplosionEffect;
+	import com.gotchaslots.slots.ui.machine.SlotsMachineView;
+	import com.gotchaslots.slots.ui.machine.presentation.base.BaseScatterPresentation;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	import com.gotchaslots.slots.utils.sounds.SlotsSoundsManager;
+	
+	import flash.events.Event;
+	import flash.events.TimerEvent;
+	
+	public class BombPresentation extends BaseScatterPresentation
+	{
+		// members
+		private var _paybox:PayboxData;
+		private var _randomID:int;
+		
+		// properties
+		protected override function get ValuatorClass():Class
+		{
+			return BombValuatorData;
+		}
+		protected override function get BlinkSoundKey():String
+		{
+			return SlotsSoundsManager.Machine_Sequence_Bomb_Blink;
+		}
+		
+		// class
+		public function BombPresentation(onClick:Function, onClose:Function, view:SlotsMachineView)
+		{
+			super(306, onClick, onClose, view);
+		}
+		
+		// particle
+		protected override function DoParticle():void
+		{
+			DoBlinkScatter(1, 4, _valuatorsHandler.Bomb.Payboxes, BaseScatterSymbolData(_valuatorsHandler.Bomb.Symbol));
+		}
+		public override function DoPostBlinkScatter():void
+		{
+			_paybox = _valuatorsHandler.Bomb.Payboxes[0];
+			_randomID = Main.Instance.ActiveMachine.GetResultMatrixHandler.ActiveResultMatrix.Gravity(_paybox.ID);
+			
+			// bomb is limited in result matrix to 1 per matrix
+			Main.Instance.Sounds.Play(SlotsSoundsManager.Machine_Sequence_Bomb_Boom);
+			var explosionEffect:ExplosionEffect = new ExplosionEffect(_valuatorsHandler.Bomb.Payboxes[0].Center.x, _valuatorsHandler.Bomb.Payboxes[0].Center.y + 48);
+			explosionEffect.addEventListener(Event.COMPLETE, OnBombComplete);
+			addChild(explosionEffect);
+			
+			_view.GetReelsPanel.GetReels.GetReel(_paybox.Column).Disolve(_paybox, _randomID);
+			
+			if (_valuatorsHandler && _valuatorsHandler.Bomb.Payboxes[0])
+			{
+				_view.GetReelsPanel.GetReels.GetReel(_paybox.Column).Gravity(_paybox, _randomID);
+				
+				var postTimer:TimerEx = new TimerEx(1000);
+				postTimer.addEventListener(TimerEvent.TIMER, OnPostTimer);
+				postTimer.start();
+			}
+		}
+		
+		// events
+		protected function OnBombComplete(event:Event):void
+		{
+			var explosionEffect:ExplosionEffect = ExplosionEffect(event.currentTarget);
+			explosionEffect.removeEventListener(Event.COMPLETE, OnBombComplete);
+			explosionEffect.Dispose();
+			explosionEffect = null;
+		}
+		private function OnPostTimer(event:TimerEvent):void
+		{
+			var postTimer:TimerEx = TimerEx(event.currentTarget);
+			if (postTimer)
+			{
+				postTimer.Dispose();
+				postTimer = null;
+			}
+			
+			DoPostParticle();
+		}
+	}
+}

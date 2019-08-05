@@ -1,0 +1,187 @@
+package com.gotchaslots.slots.data.machine.resultMatrix.base
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.data.machine.paybox.PayboxData;
+	import com.gotchaslots.slots.data.machine.paylines.paylines.base.BasePaylinesData;
+	import com.gotchaslots.slots.data.machine.symbol.SymbolsData;
+	import com.gotchaslots.slots.data.machine.symbol.base.BaseSpecialSymbolData;
+	import com.gotchaslots.slots.data.machine.valuator.ValuatorsHandler;
+	import com.gotchaslots.slots.data.machine.valuator.strike.StrikeValuatorData;
+	import com.gotchaslots.common.mobile.utils.error.MustOverrideError;
+	import com.gotchaslots.common.mobile.utils.ex.EventDispatcherEx;
+	
+	import flash.utils.Dictionary;
+	
+	public class BaseResultMatirxData extends EventDispatcherEx
+	{
+		// members
+		protected var _resultMatrix:Dictionary;
+		
+		private var _maxPaylines:int;
+		protected var _symbols:SymbolsData;
+		private var _paylines:BasePaylinesData;
+		
+		private var _valuatorsHandler:ValuatorsHandler;
+		
+		// properties
+		protected function get ResultMatrixLength():int
+		{
+			throw new MustOverrideError();
+		}
+		public function get ResultMatrix():Dictionary
+		{
+			return _resultMatrix;
+		}
+		
+		public function get GetValuatorsHandler():ValuatorsHandler
+		{
+			return _valuatorsHandler;
+		}
+		
+		// class
+		public function BaseResultMatirxData(maxPaylines:int, symbols:SymbolsData, paylines:BasePaylinesData)
+		{
+			super();
+			
+			_maxPaylines = maxPaylines;
+			_symbols = symbols;
+			_paylines = paylines;
+			
+			var counter:int = 0;
+			var hasBomb:Boolean;
+			var add:Boolean;
+			_resultMatrix = new Dictionary();
+			
+			/*
+			// debug - result matrix
+			_resultMatrix[0] = 2;
+			_resultMatrix[1] = 1;
+			_resultMatrix[2] = 2;
+			_resultMatrix[3] = 2;
+			_resultMatrix[4] = 3;
+			
+			_resultMatrix[5] = 1;
+			_resultMatrix[6] = 5;
+			_resultMatrix[7] = 1;
+			_resultMatrix[8] = 7;
+			_resultMatrix[9] = 8;
+			
+			_resultMatrix[10] = 4;
+			_resultMatrix[11] = 5;
+			_resultMatrix[12] = 6;
+			_resultMatrix[13] = 7;
+			_resultMatrix[14] = 8;
+			
+			_valuatorsHandler = new ValuatorsHandler();
+			_valuatorsHandler.Evaluate(this);
+			
+			return;
+			*/
+			
+			var rowsCount:int = Main.Instance.ActiveMachine.LobbyMachine.Paylines.RowsCount;
+			var columnsCount:int = ResultMatrixLength / rowsCount;
+			
+			for (var rowIndex:int = 0; rowIndex < rowsCount; rowIndex++)
+			{
+				var pivotRandomID:int = _symbols.RandomID;
+				for (var columnIndex:int = 0; columnIndex < columnsCount; columnIndex++)
+				{
+					var randomID:int;
+					var probability:int = Math.random() * 100;
+					if (columnIndex == 0 || probability <= 50 * (columnsCount - columnIndex) / columnsCount)
+					{
+						randomID = pivotRandomID;
+					}
+					else
+					{
+						randomID = _symbols.RandomID;
+					}
+					
+					if (_symbols.BombSymbol && randomID == _symbols.BombSymbol.ID && hasBomb)
+					{
+						randomID = _symbols.RandomNormalID;
+					}
+					if (pivotRandomID == _symbols.FreeSpinsSymbol.ID)
+					{
+						randomID = _symbols.RandomID;
+					}
+					
+					_resultMatrix[counter] = randomID;
+					counter++;
+				}
+			}
+			
+			_valuatorsHandler = new ValuatorsHandler();
+			_valuatorsHandler.Evaluate(this);
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_resultMatrix)
+			{
+				_resultMatrix = new Dictionary();
+				_resultMatrix = null;
+			}
+			
+			if (_valuatorsHandler)
+			{
+				_valuatorsHandler.Dispose();
+				_valuatorsHandler = null;
+			}
+		}
+		
+		// methods
+		public function CalculatePayout(selectedPaylines:int, selectedBetChips:Number):void
+		{
+			_valuatorsHandler.CalculatePaylinesPayout(selectedPaylines, selectedBetChips);
+		}
+		public function ReCalculatePayout(selectedPaylines:int, selectedBetChips:Number):void
+		{
+			_valuatorsHandler.Evaluate(this);
+			_valuatorsHandler.CalculatePaylinesPayout(selectedPaylines, selectedBetChips);
+		}
+		
+		public function AddRandomBomb():void
+		{
+			AddRandomSymbol(_symbols.BombSymbol);
+		}
+		public function AddRandomMiniSpins():void
+		{
+			for (var i:int = 0; i < 5; i++)
+			{
+				AddRandomSymbol(_symbols.MiniSpinSymbol);
+			}
+		}
+		public function AddRandomMultiplier():void
+		{
+			AddRandomSymbol(_symbols.MultiplierSymbol);
+		}
+		private function AddRandomSymbol(specialSymbol:BaseSpecialSymbolData):void
+		{
+			if (specialSymbol && specialSymbol.IsRandomOdds)
+			{
+				_resultMatrix[Math.floor(Math.random() * ResultMatrixLength)] = specialSymbol.ID;
+			}
+		}
+		
+		public function IsFiveInARow(strikeValuators:Vector.<StrikeValuatorData>):Boolean
+		{
+			throw new MustOverrideError();
+		}
+		public function IsFourInARow(strikeValuators:Vector.<StrikeValuatorData>):Boolean
+		{
+			throw new MustOverrideError();
+		}
+		
+		public function IsColumnValuable(columnID:int):Vector.<PayboxData>
+		{
+			throw new MustOverrideError();
+		}
+		
+		public function Gravity(payboxID:int):int
+		{
+			throw new MustOverrideError();
+		}
+	}
+}

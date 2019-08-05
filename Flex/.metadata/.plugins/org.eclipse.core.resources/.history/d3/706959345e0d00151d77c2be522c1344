@@ -1,0 +1,65 @@
+package com.gotchaslots.slots.mobile.ui.machine.presentation.miniSpin
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.paybox.PayboxData;
+	import com.gotchaslots.slots.mobile.data.machine.valuator.scatter.MiniSpinValuatorData;
+	import com.gotchaslots.slots.mobile.ui.machine.SlotsMachineView;
+	import com.gotchaslots.slots.mobile.ui.machine.presentation.base.BaseScatterPresentation;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	
+	import flash.events.Event;
+	import flash.events.TimerEvent;
+	
+	public class MiniSpinPresentation extends BaseScatterPresentation
+	{
+		// properties
+		protected override function get ValuatorClass():Class
+		{
+			return MiniSpinValuatorData;
+		}
+		
+		// class
+		public function MiniSpinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView)
+		{
+			super(306, onClick, onClose, view);
+		}
+		
+		// methods
+		protected override function DoParticle():void
+		{
+			for (var i:int = 0; i < _valuatorsHandler.MiniSpin.Payboxes.length; i++)
+			{
+				var paybox:PayboxData = _valuatorsHandler.MiniSpin.Payboxes[i];
+				
+				var miniSpinReel:MiniSpinReel = new MiniSpinReel(paybox);
+				miniSpinReel.x = paybox.Rect.x;
+				miniSpinReel.y = paybox.Rect.y + 48;
+				miniSpinReel.addEventListener(Event.COMPLETE, OnMiniSpinReelComplete);
+				miniSpinReel.Start(i);
+				addChild(miniSpinReel);
+				
+				_view.GetReelsPanel.GetReels.GetReel(paybox.Column).Hide(paybox);
+			}
+		}
+		protected function OnMiniSpinReelComplete(event:MiniSpinEvent):void
+		{
+			Main.Instance.ActiveMachine.GetResultMatrixHandler.ActiveResultMatrix.ResultMatrix[event.Paybox.ID] = event.SymbolID;
+			_view.GetReelsPanel.GetReels.GetReel(event.Paybox.Column).ChangeToMiniSpinSymbol(event.Paybox, event.SymbolID);
+			
+			var postTimer:TimerEx = new TimerEx(2000);
+			postTimer.addEventListener(TimerEvent.TIMER, OnPostTimer);
+			postTimer.start();
+		}
+		private function OnPostTimer(event:TimerEvent):void
+		{
+			var postTimer:TimerEx = TimerEx(event.currentTarget);
+			if (postTimer)
+			{
+				postTimer.Dispose();
+				postTimer = null;
+			}
+			
+			DoPostParticle();
+		}
+	}
+}

@@ -1,0 +1,155 @@
+You've opened a new machine
+Click Play to start playing the new Slots Machine
+You finished the Bonus Game
+You Won 100 Chips
+You've won a Bonus Game
+Purchase Complete
+No money was removed from your account
+Connect to Facebook and get 100 Chips
+Your login bonus is 100 Chips
+Pick your daily bonus
+Invite your friends and get 100 Chips
+You have invited 3 new friends
+Collect 100 Chips
+Invite your friends to unlock this slot machine
+The slot machine is unlocked
+You finished 10 Free Spins
+You Won 10 Chips
+You don't have enough Chips for this spin
+Buy Chips or Adjust your bet
+You ran out of Chips
+Your timer bonus is ready
+Your starting bonus is 100 Chips
+You pressed the Quit button!
+No internet connection
+Please check your internet connection and retry
+Keep playing to Increase your chance
+We have a problem
+Please try again in a few minutes
+Ace
+Collect this symbol to win some free Chips
+Adjust
+Auto
+Bet
+Big Win
+Bomb
+The symbol explodes and the symbols will keep falling
+Win a bonus game
+Bonus Spin
+Boom!
+Buy
+Buy Chips
+Chips
+Chips Bought
+Collect
+Collect in
+Column
+Coming soon
+Congratulations!
+Connecting..
+Daily Bonus!
+Day
+Do Not Share
+Don't ask again
+Extra Big Win
+Failed to connect to Google Billing services comma try again in a few minutes
+Fast
+Free Spins
+Gold
+Collect this symbol to win some free Chips
+If you like this app, please rate it 5 stars!
+Invitation Sent!
+Invite Friends
+Inviting..
+Jackpot
+Jackpot Value
+King
+Collect this symbol to win some free Chips
+Translation
+Level Info
+Level Up Bonus:
+Lines
+Login
+Logout
+Machine Info
+Opens on\nLevel
+Max Bet:
+Max\nBet
+Max Paylines:
+Max Payout:
+Mega Win
+Multiplier
+Get your total bet multiplied by the count of symbols
+Next\nDay
+Next Level:
+No Chips
+No Connection!
+No Win
+Normal
+Normal Win
+Not enough Chips
+Not now
+OK
+Opens on Level:
+Pay\nTable
+Pay Table - Symbols
+Paylines
+Pick your chips package
+Play
+Purchase Cancelled!
+Quit
+Rate Now
+Ready
+Retry
+Settings
+Share
+Slow
+something
+Sound Is Off
+Sound Is On
+Sound Off
+Sound On
+Special Symbols
+Spin
+Spinable
+The symbol will spin for a second chance to win
+Spinning...
+Starting Free Spins...
+Stop\nAuto
+Symbols:
+Symetric Row
+This Level:
+Addictive Slot Action
+Auto Spins
+Awesome Payouts
+Bet Big Win Big
+Fantastic Boosts
+Fast Paced Reel
+Free to Play
+Fun Mini Games
+Get Lucky
+Godzilla Slots
+Gotcha Slots
+Grab some Slots
+Lots of Fun
+Progressive Jackpot
+Special Achievements
+Spin your luck
+Timer Bonuses
+Today is your day
+Unique and Fun
+Win Free Spins
+Timer Bonus:
+Checking your\nTimer Bonus\nStatus
+Internet\nconnection\nis required\nfor\nTimer Bonus
+Timer Bonus\nCountdown
+Timer Bonus\nReady\nCollect Now
+Total\nBet
+Unlock
+Welcome
+Welcome back
+Wild
+XP for Next Level:
+XP Range:
+You reached level:
+You Won!

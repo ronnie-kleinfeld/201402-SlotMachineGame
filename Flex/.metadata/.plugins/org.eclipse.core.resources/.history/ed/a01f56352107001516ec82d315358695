@@ -1,0 +1,10 @@
+package com.gotchaslots.common.mobile.utils.dataAdapter.manager
+{
+	public class DataAdapterHandlerErrorActionEnum
+	{
+		public static const IGNORE:int = 1;
+		public static const SILENCE:int = 2;
+		public static const ERROR_POPUP:int = 3;
+		public static const BUBBLE:int = 4;
+	}
+}

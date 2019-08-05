@@ -1,0 +1,192 @@
+package com.gotchaslots.slots.mobile.ui.lobby.machinesList
+{
+	import com.gotchaslots.common.assets.common.fountain.FountainEmbed;
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.slots.mobile.data.lobby.pages.PageData;
+	import com.gotchaslots.slots.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseBG;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.slots.mobile.ui.common.components.buttons.BackButton;
+	import com.gotchaslots.slots.mobile.ui.common.components.buttons.NextButton;
+	import com.gotchaslots.slots.mobile.ui.common.components.freeActionScript.fountain.Fountains;
+	import com.gotchaslots.slots.mobile.ui.lobby.machinesList.machinePreview.MachinePreview;
+	import com.gotchaslots.slots.mobile.ui.lobby.machinesList.machinePreview.components.MachineInfoButton;
+	import com.gotchaslots.slots.mobile.utils.sounds.SoundsManager;
+	import com.greensock.TweenLite;
+	
+	import flash.display.Shape;
+	import flash.events.Event;
+	import flash.events.TransformGestureEvent;
+	
+	public class MachinesList extends BaseBG
+	{
+		// members
+		private var _strip:SpriteEx;
+		private var _back:BackButton;
+		private var _next:NextButton;
+		private var _pageIndex:int;
+		
+		private var _slideTween:TweenLite;
+		
+		private var _fountains:Fountains;
+		
+		// properties
+		public function get PageIndex():int
+		{
+			return _pageIndex;
+		}
+		public function set PageIndex(value:int):void
+		{
+			if (_pageIndex != value)
+			{
+				_pageIndex = value;
+				_pageIndex = _pageIndex < 1 ? 1 : _pageIndex;
+				_pageIndex = _pageIndex > Main.Instance.Pages.length ? Main.Instance.Pages.length : _pageIndex;
+				
+				if (Main.Instance.Pages.length == 1)
+				{
+					_back.visible = false;
+					_next.visible = false;
+				}
+				else if (_pageIndex == 1)
+				{
+					_back.visible = false;
+					_next.visible = true;
+				}
+				else if (_pageIndex == Main.Instance.Pages.length)
+				{
+					_back.visible = true;
+					_next.visible = false;
+				}
+				else
+				{
+					_back.visible = true;
+					_next.visible = true;
+				}
+				
+				Main.Instance.Session.Rare.RecentPageIndex = _pageIndex;
+				
+				Slide();
+			}
+		}
+		
+		// class
+		public function MachinesList()
+		{
+			super(800, 306, 0xed9ffe);
+			
+			_fountains = new Fountains(5, Main.Instance.Application.FountainsLimit, FountainEmbed.Bubble);
+			addChild(_fountains);
+			
+			InitStrip();
+			InitButtons();
+			
+			PageIndex = Main.Instance.Session.Rare.RecentPageIndex;
+			Slide();
+			
+			Start();
+		}
+		private function InitStrip():void
+		{
+			_strip = new SpriteEx();
+			_strip.addEventListener(TransformGestureEvent.GESTURE_SWIPE, OnGestureSwipe);
+			
+			for each (var page:PageData in Main.Instance.Pages)
+			{
+				var pageComponent:BaseComponent = new BaseComponent(800, 306);
+				pageComponent.x = _strip.numChildren * 800;
+				
+				for (var i:int = 0; i < page.LobbyMachines.length; i++)
+				{
+					var lobbyMachine:BaseLobbyMachineData = page.LobbyMachines[i];
+					
+					var machinePreview:MachinePreview = new MachinePreview(lobbyMachine);
+					machinePreview.x = (800 - machinePreview.width * page.LobbyMachines.length) / 2 + machinePreview.width * i + 6;
+					machinePreview.y = 53;
+					pageComponent.addChild(machinePreview);
+					
+					var machineInfoButton:MachineInfoButton = new MachineInfoButton(lobbyMachine);
+					machineInfoButton.visible = !lobbyMachine.IsCommingSoon;
+					machineInfoButton.x = machinePreview.x + machinePreview.width - 65;
+					machineInfoButton.y = machinePreview.y - 27;
+					pageComponent.addChild(machineInfoButton);
+				}
+				
+				_strip.addChild(pageComponent);
+			}
+			
+			var maskingShape:Shape = new Shape();
+			maskingShape.graphics.beginFill(0x666666, 0);
+			maskingShape.graphics.drawRect(0, 0, 800, 306);
+			maskingShape.graphics.endFill();
+			_strip.mask = maskingShape;
+			addChild(maskingShape);
+			
+			addChild(_strip);
+		}
+		private function InitButtons():void
+		{
+			_back = new BackButton(OnBackClick);
+			_back.x = 5;
+			_back.y = (306 - _back.height) / 2;
+			addChild(_back);
+			
+			_next = new NextButton(OnNextClick);
+			_next.x = 800 - 5 - _back.width;
+			_next.y = (306 - _next.height) / 2;
+			addChild(_next);
+		}
+		public override function Dispose():void
+		{
+			if (_slideTween)
+			{
+				_slideTween.kill();
+				_slideTween = null;
+			}
+			
+			super.Dispose();
+		}
+		
+		// methods
+		private function Slide():void
+		{
+			var targetX:int = -(PageIndex - 1) * 800;
+			
+			TweenLite.to(_strip, 0.5, {x:targetX});
+		}
+		
+		public function Start():void
+		{
+			_fountains.Play();
+		}
+		public function Stop():void
+		{
+			_fountains.Stop();
+		}
+		
+		// events
+		protected function OnGestureSwipe(event:TransformGestureEvent):void
+		{
+			if (event.offsetX == 1)
+			{
+				PageIndex--;
+			}
+			else if (event.offsetX == -1)
+			{
+				PageIndex++;
+			}
+		}
+		
+		protected function OnBackClick(event:Event):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Slide);
+			PageIndex--;
+		}
+		protected function OnNextClick(event:Event):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Slide);
+			PageIndex++;
+		}
+	}
+}

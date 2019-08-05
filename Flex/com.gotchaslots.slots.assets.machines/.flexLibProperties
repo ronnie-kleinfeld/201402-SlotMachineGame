@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.gotchaslots.slots.assets.machines.machine5x5.Machine5x5Embed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.machine5x4.Machine5x4Embed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.machine5x3.Machine5x3Embed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.machine5x1.Machine5x1Embed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.chef.ComingSoonEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.bigApple.BigAppleEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.classic.ClassicEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.croupier.CroupierEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.park.ParkEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.sodom.SodomEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.vegas.VegasEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.airplane.AirplaneEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.beach.BeachEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.cheese.CheeseEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.chinese.ChineseEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.christmas.ChristmasEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.cosmetic.CosmeticEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.diving.DivingEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.easter.EasterEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.flags.FlagsEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.food.FoodEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.medical.MedicalEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.valentine.ValentineEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.tourism.TourismEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.space.SpaceEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.smiley.SmileyEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.recycle.RecycleEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.meow.MeowEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.sports.SportsEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.weather.WeatherEmbed"/>
+    <classEntry path="com.gotchaslots.slots.assets.machines.cars.CarsEmbed"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

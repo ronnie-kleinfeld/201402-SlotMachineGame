@@ -1,0 +1,72 @@
+package com.gotchaslots.slots.data.machine.bonusGame.curtain
+{
+	import com.gotchaslots.slots.assets.bonusGame.curtain.holiday.HolidayEmbed;
+	import com.gotchaslots.slots.data.machine.bonusGame.curtain.curtain.BaseCurtainData;
+	import com.gotchaslots.slots.data.machine.bonusGame.curtain.curtainItem.MotionCurtainItemData;
+	import com.gotchaslots.slots.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelData;
+	
+	import flash.geom.Rectangle;
+	
+	public class HolidayCurtainData extends BaseCurtainData
+	{
+		public override function get StartPopupMessage():String
+		{
+			return "Holiday";
+		}
+		
+		// properties
+		protected override function get BGClass():Class
+		{
+			return null;
+		}
+		
+		// class
+		public function HolidayCurtainData()
+		{
+			super();
+		}
+		protected override function InitLevelsAndItems():void
+		{
+			super.InitLevelsAndItems();
+			
+			var curtainLevel:CurtainLevelData;
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, HolidayEmbed.ChineseBG, "Holiday", "Select an Chinese", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(128, 313, 0, 0), HolidayEmbed.Chinese1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(186, 205, 0, 0), HolidayEmbed.Chinese2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(275, 65, 0, 0), HolidayEmbed.Chinese3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(369, 268, 0, 0), HolidayEmbed.Chinese4, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(540, 273, 0, 0), HolidayEmbed.Chinese5, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, HolidayEmbed.FourOfJulyBG, "Holiday", "Select an FourOfJuly", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(100, 52, 0, 0), HolidayEmbed.FourOfJuly1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(252, 76, 0, 0), HolidayEmbed.FourOfJuly2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(121, 213, 0, 0), HolidayEmbed.FourOfJuly3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(275, 304, 0, 0), HolidayEmbed.FourOfJuly4, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(403, 276, 0, 0), HolidayEmbed.FourOfJuly5, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(704, 259, 0, 0), HolidayEmbed.FourOfJuly6, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, HolidayEmbed.HanukkahBG, "Holiday", "Select an Hanukkah", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(171, 45, 0, 0), HolidayEmbed.Hanukkah1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(295, 56, 0, 0), HolidayEmbed.Hanukkah2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(486, 62, 0, 0), HolidayEmbed.Hanukkah3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(128, 252, 0, 0), HolidayEmbed.Hanukkah4, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(290, 236, 0, 0), HolidayEmbed.Hanukkah5, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(481, 223, 0, 0), HolidayEmbed.Hanukkah6, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, HolidayEmbed.ThanksGivingBG, "Holiday", "Select an ThanksGiving", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(41, 220, 0, 0), HolidayEmbed.ThanksGiving1, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(160, 264, 0, 0), HolidayEmbed.ThanksGiving2, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(304, 258, 0, 0), HolidayEmbed.ThanksGiving3, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(459, 201, 0, 0), HolidayEmbed.ThanksGiving4, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+		}
+		protected override function InitMap():void
+		{
+			_mapRect = new Rectangle(590, 10, 200, 100);
+		}
+	}
+}

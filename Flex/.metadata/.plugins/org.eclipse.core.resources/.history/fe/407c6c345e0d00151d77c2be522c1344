@@ -1,0 +1,139 @@
+package com.gotchaslots.slots.mobile.ui.machine.presentation.strike
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.valuator.strike.StrikeValuatorData;
+	import com.gotchaslots.slots.mobile.data.machine.valuator.strike.StrikeValuatorsData;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.ui.machine.SlotsMachineView;
+	import com.gotchaslots.slots.mobile.ui.machine.Symbol;
+	import com.gotchaslots.slots.mobile.ui.machine.presentation.base.BasePresentation;
+	import com.gotchaslots.common.mobile.utils.helpers.DisplayObjectHelper;
+	import com.gotchaslots.slots.mobile.utils.sounds.SlotsSoundsManager;
+	import com.greensock.TweenLite;
+	
+	import flash.display.Bitmap;
+	
+	public class StrikePresentation extends BasePresentation
+	{
+		// members
+		private var _tweener:SpriteEx;
+		private var _selectedPaylines:int;
+		
+		// properties
+		protected override function get ValuatorClass():Class
+		{
+			return StrikeValuatorsData;
+		}
+		
+		// class
+		public function StrikePresentation(onClick:Function, onClose:Function, view:SlotsMachineView, selectedPaylines:int)
+		{
+			super(306, onClick, onClose, view);
+			
+			_selectedPaylines = selectedPaylines;
+		}
+		public override function Dispose():void
+		{
+			TweenLite.killTweensOf(_tweener);
+			
+			super.Dispose();
+		}
+		
+		// particle
+		protected override function DoParticle():void
+		{
+			TweenPayline(0);
+		}
+		private function TweenPayline(index:int):void
+		{
+			try
+			{
+				if (index < _selectedPaylines)
+				{
+					var strikeValuator:StrikeValuatorData = _valuatorsHandler.Strike.StrikeValuators[index];
+					if (strikeValuator.IsValuable)
+					{
+						_tweener = new SpriteEx();
+						_tweener.alpha = 0;
+						_tweener.y = 48;
+						
+						var payline:Bitmap = strikeValuator.Payline.PaylineReelsPng;
+						payline.alpha = 1;
+						_tweener.addChild(payline);
+						
+						for (var i:int = 0; i < strikeValuator.Payboxes.length; i++)
+						{
+							var payboxPng:Bitmap = strikeValuator.Payline.PayboxPng;
+							payboxPng.x = strikeValuator.Payboxes[i].PngLocation().x;
+							payboxPng.y = strikeValuator.Payboxes[i].PngLocation().y;
+							payboxPng.alpha = 1;
+							_tweener.addChild(payboxPng);
+							
+							var symbol:Symbol = strikeValuator.Symbols[i].GetSymbol(strikeValuator.Payboxes[i].Rect);
+							symbol.x = payboxPng.x;
+							symbol.y = payboxPng.y;
+							symbol.alpha = 1;
+							symbol.width = payboxPng.width;
+							symbol.height = payboxPng.height;
+							_tweener.addChild(symbol);
+						}
+						
+						addChild(_tweener);
+						TweenLite.to(_tweener, 0.3, {alpha:1.5, onUpdate:OnUpdate, onComplete:OnAlphaToFull1Complete, onCompleteParams:[index, strikeValuator]});
+					}
+					else
+					{
+						index++;
+						TweenPayline(index);
+					}
+				}
+				else
+				{
+					DoPostParticle();
+				}
+			}
+			catch (error:Error)
+			{
+			}
+		}
+		private function OnAlphaToFull1Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			TweenLite.to(_tweener, 0.1, {alpha:0.2, onComplete:OnAlphaToZero1Complete, onCompleteParams:[index, strikeValuator]});
+		}
+		private function OnAlphaToZero1Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			TweenLite.to(_tweener, 0.3, {alpha:1.5, onUpdate:OnUpdate, onComplete:OnAlphaToFull2Complete, onCompleteParams:[index, strikeValuator]});
+		}
+		private function OnAlphaToFull2Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			TweenLite.to(_tweener, 0.1, {alpha:0.2, onComplete:OnAlphaToZero2Complete, onCompleteParams:[index, strikeValuator]});
+		}
+		private function OnAlphaToZero2Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			TweenLite.to(_tweener, 0.3, {alpha:1.5, onUpdate:OnUpdate, onComplete:OnAlphaToFull3Complete, onCompleteParams:[index, strikeValuator]});
+		}
+		private function OnAlphaToFull3Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			TweenLite.to(_tweener, 0.1, {alpha:0, onComplete:OnAlphaToZero3Complete, onCompleteParams:[index, strikeValuator]});
+		}
+		private function OnAlphaToZero3Complete(index:int, strikeValuator:StrikeValuatorData):void
+		{
+			if (_valuatorsHandler)
+			{
+				DisplayObjectHelper.SafeDisposeAllChildrens(_tweener);
+				DisplayObjectHelper.SafeDisposeChild(this, _tweener);
+				
+				index++;
+				TweenPayline(index);
+			}
+		}
+		
+		private function OnUpdate():void
+		{
+			if ((int(_tweener.alpha * 10)) / 10 == 1.0)
+			{
+				Main.Instance.Sounds.Play(SlotsSoundsManager.Machine_Sequence_Strike_Blink);
+			}
+		}
+	}
+}

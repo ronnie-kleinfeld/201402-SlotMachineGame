@@ -1,0 +1,47 @@
+package com.gotchaslots.slots.mobile.ui.lobby.promotionPanel.timerBonus.textFields
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.data.session.SessionDataEvent;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.events.Event;
+	import flash.text.TextField;
+	
+	public class TimerBonusCountdownTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.LobbyTimerBonusCountdown;
+		}
+		private function get GetText():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.TimerBonus_Timer_Bonus_Countdown) + "\n" + Main.Instance.Session.Rare.TimerBonusLeft;
+		}
+		
+		// class
+		public function TimerBonusCountdownTextField(w:int, h:int)
+		{
+			super(w, h, GetText);
+			
+			Main.Instance.Session.Rare.addEventListener(SessionDataEvent.TimerBonusChanged, OnTimerBonusChanged);
+		}
+		
+		// methods
+		public function Start():void
+		{
+			Main.Instance.Session.Rare.addEventListener(SessionDataEvent.TimerBonusChanged, OnTimerBonusChanged);
+		}
+		public function Stop():void
+		{
+			Main.Instance.Session.Rare.removeEventListener(SessionDataEvent.TimerBonusChanged, OnTimerBonusChanged);
+		}
+		
+		// events
+		protected function OnTimerBonusChanged(event:Event):void
+		{
+			Text = GetText; 
+		}
+	}
+}

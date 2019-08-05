@@ -1,0 +1,10 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	public class IAdHandler extends BaseAdsHandler
+	{
+		public function IAdHandler()
+		{
+			super();
+		}
+	}
+}

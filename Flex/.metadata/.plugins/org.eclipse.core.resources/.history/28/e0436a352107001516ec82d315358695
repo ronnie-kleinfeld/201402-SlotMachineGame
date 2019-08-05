@@ -1,0 +1,56 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.MouseEvent;
+	
+	public class WelcomePopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Welcome);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new MainPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Play), OnPlayClick));
+			return result;
+		}
+		
+		protected override function get AutoCloseTimeout():int
+		{
+			return 0;
+		}
+		
+		// class
+		public function WelcomePopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Your_starting_bonus));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.isis) + " " + FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetLevel.WelcomeBonusChips, 0) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Chips));
+		}
+		
+		// events
+		protected function OnPlayClick(event:MouseEvent):void
+		{
+			Main.Instance.Session.Wallet.CollectWelcomeBonus();
+			Main.Instance.Session.Rare.IsWelcomeCollected = true;
+			DoRemove();
+		}
+	}
+}

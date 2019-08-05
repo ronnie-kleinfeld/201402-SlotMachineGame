@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="_34a49cc641482bed2fcbb628a15355f2d16da908a102d52dbe74e8183f4e8138_flash_display_Sprite" mod="1429569459427" signatureChecksum="1318746659" >
+        <def id="_34a49cc641482bed2fcbb628a15355f2d16da908a102d52dbe74e8183f4e8138_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/GoogleServices" mod="1400983488363" signatureChecksum="2590910071" >
+        <def id="com.milkmangames.nativeextensions:GoogleServices" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="9782d24e6376617a961a787ce3d2aea26952bedbfa2b3fa42f4f89b1e21e401c"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

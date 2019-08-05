@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs.event
+{
+	public class NativePickerEvent
+	{
+		public function NativePickerEvent()
+		{
+		}
+	}
+}

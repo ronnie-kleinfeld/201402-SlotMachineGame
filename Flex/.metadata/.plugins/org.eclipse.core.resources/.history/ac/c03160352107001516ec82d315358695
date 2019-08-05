@@ -1,0 +1,68 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.machine
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.SecondaryPopupButton;
+	
+	import flash.events.Event;
+	
+	public class LowChipsPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Not_enough_Chips);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new SecondaryPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Buy), OnBuyChipsClick));
+			result.push(new MainPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Adjust), OnAdjustBetClick));
+			return result;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function LowChipsPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_don_t_have));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.enough_Chips_for));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.this_spin));
+			AddComponent(new Spacer(6));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Buy_Chips_or));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Adjust_your_bet));
+		}
+		
+		// events
+		private function OnBuyChipsClick(event:Event):void
+		{
+			NotificationsHandler.Instance.ShowBuyChipsPopup(false, null);
+			DoRemove();
+		}
+		private function OnAdjustBetClick(event:Event):void
+		{
+			Main.Instance.Session.Rare.AdjustTotalBetOnLowChips = true;
+			Main.Instance.ActiveMachine.SetToMaxTotalBet();
+			DoRemove();
+		}
+	}
+}

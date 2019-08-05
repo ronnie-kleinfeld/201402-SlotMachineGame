@@ -1,0 +1,67 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.machine
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.ui.notifications.SlotsNotificationsHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.SecondaryPopupButton;
+	
+	import flash.events.Event;
+	
+	public class LowChipsPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return "Not enough Chips";
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new SecondaryPopupButton("Buy", OnBuyChipsClick));
+			result.push(new MainPopupButton("Adjust", OnAdjustBetClick));
+			return result;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function LowChipsPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, "You don't have");
+			AddBlueMessageTextField(W, "enough Chips for");
+			AddBlueMessageTextField(W, "this spin");
+			AddComponent(new Spacer(6));
+			AddBlueMessageTextField(W, "Buy Chips or");
+			AddBlueMessageTextField(W, "Adjust your bet");
+		}
+		
+		// events
+		private function OnBuyChipsClick(event:Event):void
+		{
+			SlotsNotificationsHandler.Instance.ShowBuyChipsPopup(false, null);
+			DoRemove();
+		}
+		private function OnAdjustBetClick(event:Event):void
+		{
+			Main.Instance.Session.Rare.AdjustTotalBetOnLowChips = true;
+			Main.Instance.ActiveMachine.SetToMaxTotalBet();
+			DoRemove();
+		}
+	}
+}

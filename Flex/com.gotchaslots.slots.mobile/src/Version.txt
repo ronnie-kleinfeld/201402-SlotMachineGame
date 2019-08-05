@@ -1,0 +1,34 @@
+Version 2.0.9
+-------------
+* remove contacts
+
+Version x.x.8
+-------------
+* fix upload issue
+
+Version x.x.7
+-------------
+* new graphic design for all symbols
+* new graphic design for all special symbols
+* add curtains bonus game
+* bug fixes
+
+Version x.x.6
+-------------
+* Less facebook shares
+* New Bonus game - Higher or Lower?
+
+Version 1.0.5
+-------------
+* Robust Free spins
+* New machine open indication
+* Design improvments
+
+Version 2.0.5
+-------------
+* Design improvments
+
+Version 2.0.4
+-------------
+* Robust Free spins
+* New machine open indication

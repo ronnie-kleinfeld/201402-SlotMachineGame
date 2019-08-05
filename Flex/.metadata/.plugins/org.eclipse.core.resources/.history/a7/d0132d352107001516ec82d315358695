@@ -1,0 +1,138 @@
+package com.gotchaslots.slots.mobile.ui.common.progressBar
+{
+	import com.gotchaslots.common.assets.hud.topPanel.TopPanelEmbed;
+	import com.gotchaslots.slots.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	import com.gotchaslots.slots.mobile.ui.common.components.gradientBG.ProgressBarGradientBG;
+	import com.greensock.TweenLite;
+	import com.greensock.easing.Linear;
+	
+	import flash.display.Bitmap;
+	import flash.display.Shape;
+	import flash.filters.BevelFilter;
+	import flash.filters.DropShadowFilter;
+	import flash.filters.GlowFilter;
+	import flash.geom.Matrix;
+	
+	public class ProgressBar extends BaseTextField
+	{
+		// members
+		private var _duration:Number;
+		private var _percent:Number;
+		private var _sprite:SpriteEx;
+		private var _mask:Shape;
+		private var _spark:Bitmap;
+		
+		// percent
+		public function get Percent():Number
+		{
+			return _percent;
+		}
+		public function set Percent(value:Number):void
+		{
+			value = value < 0 ? 0 : value;
+			value = value > 1 ? 1 : value;
+			_percent = value;
+		}
+		
+		public function PercentToZero():void
+		{
+			PercentTo = 0;
+		}
+		public function set PercentTo(value:Number):void
+		{
+			value = value < 0 ? 0 : value;
+			value = value < 0.1 ? 0.1 : value;
+			value = value > 1 ? 1 : value;
+			
+			if (value < Percent)
+			{
+				TweenLite.to(_sprite, _duration / 2, {alpha:1, ease:Linear.easeNone, onUpdate:OnUpdate, onComplete:OnSmallerToFullComplete, onCompleteParams:[value]});
+			}
+			else if (value > Percent)
+			{
+				_sprite.alpha = Percent;
+				TweenLite.to(_sprite, _duration, {alpha:value, ease:Linear.easeNone, onUpdate:OnUpdate, onComplete:OnHigherComplete});
+			}
+		}
+		public function PercentToFull():void
+		{
+			PercentTo = 1;
+		}
+		
+		// class
+		public function ProgressBar(w:int, h:int, duration:Number)
+		{
+			super(w, h, "");
+			
+			_duration = duration;
+			_percent = 0;
+			_sprite = new SpriteEx();
+			
+			var bg:Shape = new Shape();
+			bg.graphics.beginFill(0x2d4867, 1);
+			bg.graphics.drawRoundRect(0, 0, W, H, H, H);
+			bg.graphics.endFill();
+			bg.filters = [new DropShadowFilter(2, 45, 0), new BevelFilter(2, 45, 0xe7c0f7, 1, 0)];
+			addChild(bg);
+			
+			_mask = new Shape();
+			
+			var matrix:Matrix = new Matrix();
+			matrix.createGradientBox(W, H, Math.PI / 2, 0, 0);
+			
+			var shape:SpriteEx = new ProgressBarGradientBG(W, H);
+			shape.mask = _mask;
+			addChild(shape);
+			
+			addChild(_mask);
+			
+			_spark = new TopPanelEmbed.Spark();
+			_spark.alpha = 0;
+			_spark.x = 5 + _mask.width - _spark.width / 2;
+			_spark.y = 1 + _mask.height / 2 - _spark.height / 2;
+			addChild(_spark);
+		}
+		
+		// events
+		private function OnUpdate():void
+		{
+			Percent = _sprite.alpha;
+			_mask.graphics.clear();
+			_mask.graphics.beginFill(0x151515, 0);
+			_mask.graphics.drawRoundRect(4, 4, (W - 6) * Percent, H - 6, H, H);
+			_mask.graphics.endFill();
+			
+			_spark.alpha = 1;
+			_spark.x = 5 + _mask.width - _spark.width / 2;
+			_spark.y = 4 + _mask.height / 2 - _spark.height / 2;
+			_spark.filters = [new GlowFilter(0xffffff, 1 * Math.random(), 10, 10)];
+		}
+		
+		private function OnSmallerToFullComplete(value:Number):void
+		{
+			TweenLite.to(_sprite, 0.2, {alpha:0, ease:Linear.easeNone, onUpdate:OnUpdate, onComplete:OnSmallerToZeroComplete, onCompleteParams:[value]});
+		}
+		private function OnSmallerToZeroComplete(value:Number):void
+		{
+			PercentTo = value;
+		}
+		
+		private function OnHigherComplete():void
+		{
+			if (Percent == 0)
+			{
+				dispatchEvent(new ProgressBarEvent(ProgressBarEvent.ZeroReached, 0));
+			}
+			else if (Percent == 1)
+			{
+				dispatchEvent(new ProgressBarEvent(ProgressBarEvent.FullReached, 1));
+			}
+			else
+			{
+				dispatchEvent(new ProgressBarEvent(ProgressBarEvent.ValueReached, _percent));
+			}
+			TweenLite.to(_spark, _duration / 2, {alpha:0});
+		}
+	}
+}

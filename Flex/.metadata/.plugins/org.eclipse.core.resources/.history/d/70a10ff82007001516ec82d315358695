@@ -1,0 +1,17 @@
+package com.gotchaslots.common.assets.notifications.animation.columnFrames
+{
+	public class ColumnFramesEmebed
+	{
+		[Embed(source="ColumnFrame3x3a.png")] public static const ColumnFrame3x3a:Class;
+		[Embed(source="ColumnFrame3x3b.png")] public static const ColumnFrame3x3b:Class;
+		
+		[Embed(source="ColumnFrame5x3a.png")] public static const ColumnFrame5x3a:Class;
+		[Embed(source="ColumnFrame5x3b.png")] public static const ColumnFrame5x3b:Class;
+		
+		[Embed(source="ColumnFrame5x4a.png")] public static const ColumnFrame5x4a:Class;
+		[Embed(source="ColumnFrame5x4b.png")] public static const ColumnFrame5x4b:Class;
+		
+		[Embed(source="ColumnFrame5x5a.png")] public static const ColumnFrame5x5a:Class;
+		[Embed(source="ColumnFrame5x5b.png")] public static const ColumnFrame5x5b:Class;
+	}
+}

@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	public class CredentialsDialogHandler
+	{
+		public function CredentialsDialogHandler()
+		{
+		}
+	}
+}

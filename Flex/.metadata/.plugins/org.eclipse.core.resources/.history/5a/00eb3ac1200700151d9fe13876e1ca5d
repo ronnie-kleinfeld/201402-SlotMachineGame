@@ -1,0 +1,392 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Windows" versionInfo="Saved by Adobe Flash Windows 12.0 build 537" majorVersion="12" buildNumber="537" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
+     <media>
+          <DOMSoundItem name="App_Load.mp3" itemID="52e8f7d7-0000040d" linkageExportForAS="true" linkageIdentifier="Load.mp3" linkageClassName="App_Load" sourceExternalFilepath="./LIBRARY/App_Load.mp3" sourceLastImported="1390999515" externalFileCRC32="3316418937" externalFileSize="41828" href="App_Load.mp3" soundDataHRef="M 3 1390925261.dat" format="22kHz 16bit Mono" sampleCount="56448" exportFormat="1" exportBits="7" dataLength="40960" exportNative="true" cachedSampleCount="14112"/>
+          <DOMSoundItem name="Click.mp3" itemID="531709e0-00000202" linkageExportForAS="true" linkageClassName="Click" sourceExternalFilepath="./LIBRARY/Click.mp3" sourceLastImported="1394018789" externalFileCRC32="496704991" externalFileSize="5248" href="Click.mp3" soundDataHRef="M 46 1394018784.dat" format="44kHz 16bit Mono" sampleCount="16128" exportFormat="1" exportBits="7" dataLength="2860" exportNative="true" cachedSampleCount="2016"/>
+          <DOMSoundItem name="Down.mp3" itemID="531705b6-00000202" linkageExportForAS="true" linkageIdentifier="Machine_BottomPanel_BetDown.mp3" linkageClassName="Down" sourceExternalFilepath="./LIBRARY/Down.mp3" sourceLastImported="1394017749" externalFileCRC32="2267431506" externalFileSize="14659" href="Down.mp3" soundDataHRef="M 6 1390925262.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Machine_BonusGame_HigherLower_Spin.wav" itemID="53170ad7-00000207" linkageExportForAS="true" linkageClassName="Machine_BonusGame_HigherLower_Spin" sourceExternalFilepath="./LIBRARY/Machine_BonusGame_HigherLower_Spin.wav" sourceLastImported="1394019038" externalFileCRC32="1535150741" externalFileSize="4654" href="Machine_BonusGame_HigherLower_Spin.wav" soundDataHRef="M 47 1394019031.dat" format="44kHz 16bit Mono" sampleCount="2304"/>
+          <DOMSoundItem name="Machine_BottomPanel_Auto_Off.mp3" itemID="52e8f6ba-0000040a" linkageExportForAS="true" linkageIdentifier="Machine_BottomPanel_Auto_On.mp3" linkageClassName="Machine_BottomPanel_Auto_Off" sourceExternalFilepath="./LIBRARY/Machine_BottomPanel_Auto_Off.mp3" sourceLastImported="1390999236" externalFileCRC32="2267431506" externalFileSize="14659" href="Machine_BottomPanel_Auto_Off.mp3" soundDataHRef="M 5 1390925262.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Machine_BottomPanel_Auto_On.mp3" itemID="52e8f6be-0000040b" linkageExportForAS="true" linkageIdentifier="Machine_BottomPanel_Auto_Off.mp3" linkageClassName="Machine_BottomPanel_Auto_On" sourceExternalFilepath="./LIBRARY/Machine_BottomPanel_Auto_On.mp3" sourceLastImported="1390999241" externalFileCRC32="3638008852" externalFileSize="14659" href="Machine_BottomPanel_Auto_On.mp3" soundDataHRef="M 4 1390925262.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Machine_BottomPanel_PayTable.mp3" itemID="52e8dc62-00000362" linkageExportForAS="true" linkageClassName="Machine_BottomPanel_PayTable" sourceExternalFilepath="./LIBRARY/Machine_BottomPanel_PayTable.mp3" sourceLastImported="1390992488" href="Machine_BottomPanel_PayTable.mp3" soundDataHRef="M 60 1390992470.dat" format="44kHz 16bit Mono" sampleCount="16128" exportFormat="1" exportBits="7" dataLength="2860" exportNative="true" cachedSampleCount="2016"/>
+          <DOMSoundItem name="Machine_BottomPanel_Speed_Fast.mp3" itemID="52e8dd4b-000003a5" linkageExportForAS="true" linkageClassName="Machine_BottomPanel_Speed_Fast" sourceExternalFilepath="./LIBRARY/Machine_BottomPanel_Speed_Fast.mp3" sourceLastImported="1390992721" externalFileCRC32="3638008852" externalFileSize="14659" href="Machine_BottomPanel_Speed_Fast.mp3" soundDataHRef="M 60 1390992715.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Machine_BottomPanel_Speed_Slow.mp3" itemID="52e8dd4b-000003a9" linkageExportForAS="true" linkageClassName="Machine_BottomPanel_Speed_Slow" sourceExternalFilepath="./LIBRARY/Machine_BottomPanel_Speed_Slow.mp3" sourceLastImported="1390992725" externalFileCRC32="2267431506" externalFileSize="14659" href="Machine_BottomPanel_Speed_Slow.mp3" soundDataHRef="M 61 1390992715.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Machine_Sequence_BigWin_Animation.mp3" itemID="52e7d5fe-00000216" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_BigWin_Animation.mp3" linkageClassName="Machine_Sequence_BigWin_Animation" sourceExternalFilepath="./LIBRARY/Machine_Sequence_BigWin_Animation.mp3" sourceLastImported="1390928806" externalFileCRC32="3547533022" externalFileSize="33437" href="Machine_Sequence_BigWin_Animation.mp3" soundDataHRef="M 16 1390925310.dat" format="22kHz 16bit Stereo" sampleCount="92160" exportFormat="1" exportBits="7" dataLength="33437" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="23040"/>
+          <DOMSoundItem name="Machine_Sequence_Bomb_Blink.mp3" itemID="52e7d5ff-0000021e" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Bomb_Blink.mp3" linkageClassName="Machine_Sequence_Bomb_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Bomb_Blink.mp3" sourceLastImported="1390925841" externalFileCRC32="2742589036" externalFileSize="10694" href="Machine_Sequence_Bomb_Blink.mp3" soundDataHRef="M 18 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_Bomb_Boom.mp3" itemID="52e7d5ff-00000222" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Bomb_Boom.mp3" linkageClassName="Machine_Sequence_Bomb_Boom" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Bomb_Boom.mp3" sourceLastImported="1390925843" externalFileCRC32="1794174146" externalFileSize="284457" href="Machine_Sequence_Bomb_Boom.mp3" soundDataHRef="M 19 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="309888"/>
+          <DOMSoundItem name="Machine_Sequence_BonusGame_Blink.mp3" itemID="52e7d5ff-00000226" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_BonusGame_Blink.mp3" linkageClassName="Machine_Sequence_BonusGame_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_BonusGame_Blink.mp3" sourceLastImported="1390925845" externalFileCRC32="4256284427" externalFileSize="20850" href="Machine_Sequence_BonusGame_Blink.mp3" soundDataHRef="M 20 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Machine_Sequence_BonusGame_Popup_End.mp3" itemID="52e7d5ff-0000022a" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_BonusGame_Popup_End.mp3" linkageClassName="Machine_Sequence_BonusGame_Popup_End" sourceExternalFilepath="./LIBRARY/Machine_Sequence_BonusGame_Popup_End.mp3" sourceLastImported="1390925846" externalFileCRC32="4256284427" externalFileSize="20850" href="Machine_Sequence_BonusGame_Popup_End.mp3" soundDataHRef="M 21 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Machine_Sequence_BonusGame_Popup_Start.mp3" itemID="52e7d5ff-0000022e" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_BonusGame_Popup_Start.mp3" linkageClassName="Machine_Sequence_BonusGame_Popup_Start" sourceExternalFilepath="./LIBRARY/Machine_Sequence_BonusGame_Popup_Start.mp3" sourceLastImported="1390925848" externalFileCRC32="4256284427" externalFileSize="20850" href="Machine_Sequence_BonusGame_Popup_Start.mp3" soundDataHRef="M 22 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Machine_Sequence_Collectibles_Blink.mp3" itemID="52e7d5ff-00000232" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Collectibles_Blink.mp3" linkageClassName="Machine_Sequence_Collectibles_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Collectibles_Blink.mp3" sourceLastImported="1390925850" externalFileCRC32="2742589036" externalFileSize="10694" href="Machine_Sequence_Collectibles_Blink.mp3" soundDataHRef="M 23 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_Collectibles_SymbolToCollectibles.mp3" itemID="52e7d5ff-00000236" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Collectibles_SymbolToCollectibles.mp3" linkageClassName="Machine_Sequence_Collectibles_SymbolToCollectibles" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Collectibles_SymbolToCollectibles.mp3" sourceLastImported="1390925900" externalFileCRC32="4256284427" externalFileSize="20850" href="Machine_Sequence_Collectibles_SymbolToCollectibles.mp3" soundDataHRef="M 24 1390925311.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Machine_Sequence_Column_Flipper2.wav" itemID="52e7e326-000002f1" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Column_Flipper2.wav" linkageClassName="Machine_Sequence_Column_Flipper2" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Column_Flipper2.wav" sourceLastImported="1390928739" externalFileCRC32="1973286677" externalFileSize="147502" href="Machine_Sequence_Column_Flipper2.wav" soundDataHRef="M 55 1390928678.dat" format="44kHz 16bit Mono" sampleCount="73728"/>
+          <DOMSoundItem name="Machine_Sequence_ExtraBigWin_Animation.mp3" itemID="52e7d601-0000023f" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_ExtraBigWin_Animation.mp3" linkageClassName="Machine_Sequence_ExtraBigWin_Animation" sourceExternalFilepath="./LIBRARY/Machine_Sequence_ExtraBigWin_Animation.mp3" sourceLastImported="1390925856" externalFileCRC32="2710713462" externalFileSize="18560" href="Machine_Sequence_ExtraBigWin_Animation.mp3" soundDataHRef="M 26 1390925313.dat" format="44kHz 16bit Mono" sampleCount="66816" exportFormat="1" exportBits="7" dataLength="17932" exportNative="true" cachedSampleCount="8352"/>
+          <DOMSoundItem name="Machine_Sequence_FiveInARow_Animation.mp3" itemID="52e7d601-00000247" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_FiveInARow_Animation.mp3" linkageClassName="Machine_Sequence_FiveInARow_Animation" sourceExternalFilepath="./LIBRARY/Machine_Sequence_FiveInARow_Animation.mp3" sourceLastImported="1390925859" externalFileCRC32="1290950837" externalFileSize="28086" href="Machine_Sequence_FiveInARow_Animation.mp3" soundDataHRef="M 28 1390925313.dat" format="44kHz 16bit Mono" sampleCount="130176" exportFormat="1" exportBits="7" dataLength="28086" exportNative="true" cachedSampleCount="16272"/>
+          <DOMSoundItem name="Machine_Sequence_FourInARow_Animation.mp3" itemID="52e7d601-0000024b" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_FourInARow_Animation.mp3" linkageClassName="Machine_Sequence_FourInARow_Animation" sourceExternalFilepath="./LIBRARY/Machine_Sequence_FourInARow_Animation.mp3" sourceLastImported="1390925863" externalFileCRC32="314418319" externalFileSize="8832" href="Machine_Sequence_FourInARow_Animation.mp3" soundDataHRef="M 29 1390925313.dat" format="44kHz 16bit Mono" sampleCount="35712" exportFormat="1" exportBits="7" dataLength="8332" exportNative="true" cachedSampleCount="4464"/>
+          <DOMSoundItem name="Machine_Sequence_FreeSpins_Blink.mp3" itemID="52e7d602-0000024f" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_FreeSpins_Blink.mp3" linkageClassName="Machine_Sequence_FreeSpins_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_FreeSpins_Blink.mp3" sourceLastImported="1390925865" externalFileCRC32="2742589036" externalFileSize="10694" href="Machine_Sequence_FreeSpins_Blink.mp3" soundDataHRef="M 30 1390925314.dat" format="44kHz 16bit Stereo" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon.mp3" itemID="52e9264d-0000026b" linkageExportForAS="true" linkageClassName="Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon" sourceExternalFilepath="./LIBRARY/Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon.mp3" sourceLastImported="1391011411" externalFileCRC32="4025559556" externalFileSize="19720" href="Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon.mp3" soundDataHRef="M 58 1391011405.dat" format="44kHz 16bit Stereo" sampleCount="51840"/>
+          <DOMSoundItem name="Machine_Sequence_MegaWin_Animation.mp3" itemID="52e7d602-00000257" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_MegaWin_Animation.mp3" linkageClassName="Machine_Sequence_MegaWin_Animation" sourceExternalFilepath="./LIBRARY/Machine_Sequence_MegaWin_Animation.mp3" sourceLastImported="1390925867" externalFileCRC32="29990736" externalFileSize="31707" href="Machine_Sequence_MegaWin_Animation.mp3" soundDataHRef="M 32 1390925314.dat" format="44kHz 16bit Stereo" sampleCount="52992" exportFormat="1" exportBits="7" dataLength="31707" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="6624"/>
+          <DOMSoundItem name="Machine_Sequence_Multiplier_Blink.mp3" itemID="52e7d602-0000025f" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Multiplier_Blink.mp3" linkageClassName="Machine_Sequence_Multiplier_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Multiplier_Blink.mp3" sourceLastImported="1390925870" externalFileCRC32="2742589036" externalFileSize="10694" href="Machine_Sequence_Multiplier_Blink.mp3" soundDataHRef="M 34 1390925314.dat" format="44kHz 16bit Stereo" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_NoWin.mp3" itemID="52e8f9b9-00000414" linkageExportForAS="true" linkageClassName="Machine_Sequence_NoWin" sourceExternalFilepath="./LIBRARY/Machine_Sequence_NoWin.mp3" sourceLastImported="1390999997" href="Machine_Sequence_NoWin.mp3" soundDataHRef="M 59 1390999977.dat" format="44kHz 16bit Stereo" sampleCount="192384" exportFormat="1" exportBits="7" dataLength="69926" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="24048"/>
+          <DOMSoundItem name="Machine_Sequence_Reel_Stop.wav" itemID="52e7e327-000002f9" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Reel_Stop.wav" linkageClassName="Machine_Sequence_Reel_Stop" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Reel_Stop.wav" sourceLastImported="1390928730" externalFileCRC32="2004051582" externalFileSize="16174" href="Machine_Sequence_Reel_Stop.wav" soundDataHRef="M 57 1390928679.dat" format="44kHz 16bit Mono" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_Spinable_Spin.wav" itemID="52e7e327-000002fd" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Spinable_Spin.wav" linkageClassName="Machine_Sequence_Spinable_Spin" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Spinable_Spin.wav" sourceLastImported="1390928734" externalFileCRC32="1535150741" externalFileSize="4654" href="Machine_Sequence_Spinable_Spin.wav" soundDataHRef="M 58 1390928679.dat" format="44kHz 16bit Mono" sampleCount="2304"/>
+          <DOMSoundItem name="Machine_Sequence_Spinable_Stop.wav" itemID="52e7e327-00000301" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Spinable_Stop.wav" linkageClassName="Machine_Sequence_Spinable_Stop" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Spinable_Stop.wav" sourceLastImported="1390928736" externalFileCRC32="2853997697" externalFileSize="11566" href="Machine_Sequence_Spinable_Stop.wav" soundDataHRef="M 59 1390928679.dat" format="44kHz 16bit Mono" sampleCount="5760"/>
+          <DOMSoundItem name="Machine_Sequence_Spinning.mp3" itemID="52e96ff2-00000206" linkageExportForAS="true" linkageClassName="Machine_Sequence_Spinning" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Spinning.mp3" sourceLastImported="1391030265" externalFileCRC32="480950801" externalFileSize="79535" href="Machine_Sequence_Spinning.mp3" soundDataHRef="M 61 1391004846.dat" format="44kHz 16bit Stereo" sampleCount="137088"/>
+          <DOMSoundItem name="Machine_Sequence_Strike_Blink.mp3" itemID="52e7d606-00000273" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Strike_Blink.mp3" linkageClassName="Machine_Sequence_Strike_Blink" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Strike_Blink.mp3" sourceLastImported="1390925877" externalFileCRC32="2742589036" externalFileSize="10694" href="Machine_Sequence_Strike_Blink.mp3" soundDataHRef="M 38 1390925318.dat" format="44kHz 16bit Stereo" sampleCount="8064"/>
+          <DOMSoundItem name="Machine_Sequence_Symetric_Flipper2.mp3" itemID="52e7d606-00000277" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Symetric_Flipper2.mp3" linkageClassName="Machine_Sequence_Symetric_Flipper2" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Symetric_Flipper2.mp3" sourceLastImported="1390925878" externalFileCRC32="3419456920" externalFileSize="18560" href="Machine_Sequence_Symetric_Flipper2.mp3" soundDataHRef="M 39 1390925318.dat" format="44kHz 16bit Mono" sampleCount="69120" exportFormat="1" exportBits="7" dataLength="15284" exportNative="true" cachedSampleCount="8640"/>
+          <DOMSoundItem name="Machine_Sequence_ToWin.mp3" itemID="52e91e1d-0000025c" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Won2.mp3" linkageClassName="Machine_Sequence_ToWin" sourceExternalFilepath="./LIBRARY/Machine_Sequence_ToWin.mp3" sourceLastImported="1391009311" externalFileCRC32="1073428281" externalFileSize="17536" href="Machine_Sequence_ToWin.mp3" soundDataHRef="M 43 1390925318.dat" format="44kHz 16bit Stereo" sampleCount="47232" exportFormat="1" exportBits="7" dataLength="16972" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="5904"/>
+          <DOMSoundItem name="Machine_Sequence_WinToBalance.mp3" itemID="52e7d606-0000027f" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_WinToBalance.mp3" linkageClassName="Machine_Sequence_WinToBalance" sourceExternalFilepath="./LIBRARY/Machine_Sequence_WinToBalance.mp3" sourceLastImported="1391008714" externalFileCRC32="4256284427" externalFileSize="20850" href="Machine_Sequence_WinToBalance.mp3" soundDataHRef="M 41 1390925318.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Machine_Sequence_Won.mp3" itemID="52e7d606-00000283" linkageExportForAS="true" linkageIdentifier="Machine_Sequence_Won.mp3" linkageClassName="Machine_Sequence_Won" sourceExternalFilepath="./LIBRARY/Machine_Sequence_Won.mp3" sourceLastImported="1391009495" externalFileCRC32="1017277331" externalFileSize="11392" href="Machine_Sequence_Won.mp3" soundDataHRef="M 42 1390925318.dat" format="44kHz 16bit Mono" sampleCount="46080" exportFormat="1" exportBits="7" dataLength="9688" exportNative="true" cachedSampleCount="5760"/>
+          <DOMSoundItem name="MachinePreview_Click.wav" itemID="52e7e328-00000305" linkageExportForAS="true" linkageIdentifier="MachinePreview_Click.wav" linkageClassName="MachinePreview_Click" sourceExternalFilepath="./LIBRARY/MachinePreview_Click.wav" sourceLastImported="1390928724" externalFileCRC32="4132031219" externalFileSize="46126" href="MachinePreview_Click.wav" soundDataHRef="M 60 1390928680.dat" format="44kHz 16bit Mono" sampleCount="23040"/>
+          <DOMSoundItem name="MachinePreview_MachineInfoButton_Click.mp3" itemID="52e7d607-00000290" linkageExportForAS="true" linkageIdentifier="MachinePreview_MachineInfoButton_Click.mp3" linkageClassName="MachinePreview_MachineInfoButton_Click" sourceExternalFilepath="./LIBRARY/MachinePreview_MachineInfoButton_Click.mp3" sourceLastImported="1390925906" externalFileCRC32="496704991" externalFileSize="5248" href="MachinePreview_MachineInfoButton_Click.mp3" soundDataHRef="M 45 1390925319.dat" format="44kHz 16bit Mono" sampleCount="16128" exportFormat="1" exportBits="7" dataLength="2860" exportNative="true" cachedSampleCount="2016"/>
+          <DOMSoundItem name="NoWin.mp3" itemID="531ed0e9-0000020a" linkageExportForAS="true" linkageClassName="NoWin" sourceExternalFilepath="./LIBRARY/NoWin.mp3" sourceLastImported="1394528483" externalFileSize="11392" href="NoWin.mp3" soundDataHRef="M 48 1394528473.dat" format="44kHz 16bit Mono" sampleCount="46080" exportFormat="1" exportBits="7" dataLength="9688" exportNative="true" cachedSampleCount="5760"/>
+          <DOMSoundItem name="Popup_Collect_WinToBalance.mp3" itemID="52e7d607-00000294" linkageExportForAS="true" linkageIdentifier="Popup_Collect_WinToBalance.mp3" linkageClassName="Popup_Collect_WinToBalance" sourceExternalFilepath="./LIBRARY/Popup_Collect_WinToBalance.mp3" sourceLastImported="1390925908" externalFileCRC32="4256284427" externalFileSize="20850" href="Popup_Collect_WinToBalance.mp3" soundDataHRef="M 46 1390925319.dat" format="44kHz 16bit Stereo" sampleCount="57600" exportFormat="1" exportBits="7" dataLength="20850" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="7200"/>
+          <DOMSoundItem name="Popup_LevelUp_Shown.mp3" itemID="52e7d607-000002a0" linkageExportForAS="true" linkageIdentifier="Popup_LevelUp_Shown.mp3" linkageClassName="Popup_LevelUp_Shown" sourceExternalFilepath="./LIBRARY/Popup_LevelUp_Shown.mp3" sourceLastImported="1390925913" externalFileCRC32="2690181958" externalFileSize="32018" href="Popup_LevelUp_Shown.mp3" soundDataHRef="M 49 1390925319.dat" format="22kHz 16bit Stereo" sampleCount="76608" exportFormat="1" exportBits="7" dataLength="27922" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="19152"/>
+          <DOMSoundItem name="Popup_NewMachine_Shown.mp3" itemID="52e7d607-000002a8" linkageExportForAS="true" linkageIdentifier="Popup_NewMachine_Shown.mp3" linkageClassName="Popup_NewMachine_Shown" sourceExternalFilepath="./LIBRARY/Popup_NewMachine_Shown.mp3" sourceLastImported="1390925916" externalFileCRC32="4070995450" externalFileSize="17536" href="Popup_NewMachine_Shown.mp3" soundDataHRef="M 51 1390925319.dat" format="44kHz 16bit Mono" sampleCount="67968" exportFormat="1" exportBits="7" dataLength="15024" exportNative="true" cachedSampleCount="8496"/>
+          <DOMSoundItem name="Slide.mp3" itemID="52e8f5a8-00000405" linkageExportForAS="true" linkageClassName="Slide" sourceExternalFilepath="./LIBRARY/Slide.mp3" sourceLastImported="1390998957" href="Slide.mp3" soundDataHRef="M 58 1390998941.dat" format="44kHz 16bit Stereo" sampleCount="14976" exportFormat="1" exportBits="7" dataLength="5186" exportNative="true" cacheFormat="5kHz 8bit Stereo" cachedSampleCount="1872"/>
+          <DOMSoundItem name="SoundOff.mp3" itemID="52e8f291-000003bf" linkageExportForAS="true" linkageIdentifier="Hud_SoundOff.mp3" linkageClassName="SoundOff" sourceExternalFilepath="./LIBRARY/SoundOff.mp3" sourceLastImported="1390998170" externalFileCRC32="2267431506" externalFileSize="14659" href="SoundOff.mp3" soundDataHRef="M 1 1390925261.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="SoundOn.mp3" itemID="52e8f2a6-000003c0" linkageExportForAS="true" linkageIdentifier="Hud_SoundOn.mp3" linkageClassName="SoundOn" sourceExternalFilepath="./LIBRARY/SoundOn.mp3" sourceLastImported="1390998190" externalFileCRC32="3638008852" externalFileSize="14659" href="SoundOn.mp3" soundDataHRef="M 2 1390925261.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="TimerBonus_TimerBonus_Collect.mp3" itemID="52e7d5fe-0000020e" linkageExportForAS="true" linkageIdentifier="TimerBonus_TimerBonus_Collect.mp3" linkageClassName="TimerBonus_TimerBonus_Collect" sourceExternalFilepath="./LIBRARY/TimerBonus_TimerBonus_Collect.mp3" sourceLastImported="1390925920" externalFileCRC32="3930858876" externalFileSize="21120" href="TimerBonus_TimerBonus_Collect.mp3" soundDataHRef="M 14 1390925310.dat" format="44kHz 16bit Mono" sampleCount="84096" exportFormat="1" exportBits="7" dataLength="20600" exportNative="true" cachedSampleCount="10512"/>
+          <DOMSoundItem name="TimerBonus_TimerBonus_Ready.mp3" itemID="52e7d5fe-00000212" linkageExportForAS="true" linkageIdentifier="TimerBonus_TimerBonus_Ready.mp3" linkageClassName="TimerBonus_TimerBonus_Ready" sourceExternalFilepath="./LIBRARY/TimerBonus_TimerBonus_Ready.mp3" sourceLastImported="1390925921" externalFileCRC32="3709811869" externalFileSize="12416" href="TimerBonus_TimerBonus_Ready.mp3" soundDataHRef="M 15 1390925310.dat" format="44kHz 16bit Mono" sampleCount="56448" exportFormat="1" exportBits="7" dataLength="12212" exportNative="true" cachedSampleCount="7056"/>
+          <DOMSoundItem name="TopPanel_Click.mp3" itemID="52e8f278-000003be" linkageExportForAS="true" linkageClassName="TopPanel_Click" sourceExternalFilepath="./LIBRARY/TopPanel_Click.mp3" sourceLastImported="1390998144" externalFileCRC32="496704991" externalFileSize="5248" href="TopPanel_Click.mp3" soundDataHRef="M 62 1390992837.dat" format="44kHz 16bit Mono" sampleCount="16128" exportFormat="1" exportBits="7" dataLength="2860" exportNative="true" cachedSampleCount="2016"/>
+          <DOMSoundItem name="Up.mp3" itemID="531705bc-00000203" linkageExportForAS="true" linkageIdentifier="Machine_BottomPanel_BetUp.mp3" linkageClassName="Up" sourceExternalFilepath="./LIBRARY/Up.mp3" sourceLastImported="1394017743" externalFileCRC32="3638008852" externalFileSize="14659" href="Up.mp3" soundDataHRef="M 7 1390925262.dat" format="44kHz 16bit Stereo" sampleCount="19043"/>
+          <DOMSoundItem name="Won.mp3" itemID="531ed0e9-0000020b" linkageExportForAS="true" linkageClassName="Won" sourceExternalFilepath="./LIBRARY/Won.mp3" sourceLastImported="1394528488" externalFileSize="11392" href="Won.mp3" soundDataHRef="M 49 1394528473.dat" format="44kHz 16bit Mono" sampleCount="46080" exportFormat="1" exportBits="7" dataLength="9688" exportNative="true" cachedSampleCount="5760"/>
+     </media>
+     <symbols/>
+     <timelines>
+          <DOMTimeline name="Scene 1">
+               <layers>
+                    <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <swatchLists>
+          <swatchList>
+               <swatches>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#003300" hue="80" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#006600" hue="80" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#009900" hue="80" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#00CC00" hue="80" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00FF00" hue="80" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#330000" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#333300" hue="40" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#336600" hue="60" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#339900" hue="67" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#33CC00" hue="70" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#33FF00" hue="72" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#660000" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#663300" hue="20" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#666600" hue="40" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#669900" hue="53" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#66CC00" hue="60" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#66FF00" hue="64" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#333333" brightness="48"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#000033" hue="160" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#003333" hue="120" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#006633" hue="100" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#009933" hue="93" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#00CC33" hue="90" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00FF33" hue="88" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#330033" hue="200" saturation="239" brightness="24"/>
+                    <SolidSwatchItem color="#333333" brightness="48"/>
+                    <SolidSwatchItem color="#336633" hue="80" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#339933" hue="80" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#33CC33" hue="80" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#33FF33" hue="80" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#660033" hue="220" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#663333" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#666633" hue="40" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#669933" hue="60" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#66CC33" hue="67" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#66FF33" hue="70" saturation="239" brightness="144"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#666666" brightness="96"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#000066" hue="160" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#003366" hue="140" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#006666" hue="120" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#009966" hue="107" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#00CC66" hue="100" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00FF66" hue="96" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#330066" hue="180" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#333366" hue="160" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#336666" hue="120" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#339966" hue="100" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#33CC66" hue="93" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#33FF66" hue="90" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#660066" hue="200" saturation="239" brightness="48"/>
+                    <SolidSwatchItem color="#663366" hue="200" saturation="80" brightness="72"/>
+                    <SolidSwatchItem color="#666666" brightness="96"/>
+                    <SolidSwatchItem color="#669966" hue="80" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#66CC66" hue="80" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#66FF66" hue="80" saturation="239" brightness="168"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#999999" brightness="144"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#000099" hue="160" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#003399" hue="147" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#006699" hue="133" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#009999" hue="120" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#00CC99" hue="110" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00FF99" hue="104" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#330099" hue="173" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#333399" hue="160" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#336699" hue="140" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#339999" hue="120" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#33CC99" hue="107" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#33FF99" hue="100" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#660099" hue="187" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#663399" hue="180" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#666699" hue="160" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#669999" hue="120" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#66CC99" hue="100" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#66FF99" hue="93" saturation="239" brightness="168"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#CCCCCC" brightness="192"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#0000CC" hue="160" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#0033CC" hue="150" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#0066CC" hue="140" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#0099CC" hue="130" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00CCCC" hue="120" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#00FFCC" hue="112" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#3300CC" hue="170" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#3333CC" hue="160" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#3366CC" hue="147" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#3399CC" hue="133" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#33CCCC" hue="120" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#33FFCC" hue="110" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#6600CC" hue="180" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#6633CC" hue="173" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#6666CC" hue="160" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#6699CC" hue="140" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#66CCCC" hue="120" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#66FFCC" hue="107" saturation="239" brightness="168"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#FFFFFF" brightness="240"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#0000FF" hue="160" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#0033FF" hue="152" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#0066FF" hue="144" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#0099FF" hue="136" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#00CCFF" hue="128" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#00FFFF" hue="120" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#3300FF" hue="168" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#3333FF" hue="160" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#3366FF" hue="150" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#3399FF" hue="140" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#33CCFF" hue="130" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#33FFFF" hue="120" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#6600FF" hue="176" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#6633FF" hue="170" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#6666FF" hue="160" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#6699FF" hue="147" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#66CCFF" hue="133" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#66FFFF" hue="120" saturation="239" brightness="168"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#FF0000" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#990000" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#993300" hue="13" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#996600" hue="27" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#999900" hue="40" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#99CC00" hue="50" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#99FF00" hue="56" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#CC0000" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC3300" hue="10" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC6600" hue="20" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC9900" hue="30" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CCCC00" hue="40" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CCFF00" hue="48" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF0000" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF3300" hue="8" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF6600" hue="16" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF9900" hue="24" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FFCC00" hue="32" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FFFF00" hue="40" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#00FF00" hue="80" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#990033" hue="227" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#993333" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#996633" hue="20" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#999933" hue="40" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#99CC33" hue="53" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#99FF33" hue="60" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#CC0033" hue="230" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC3333" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CC6633" hue="13" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CC9933" hue="27" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CCCC33" hue="40" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CCFF33" hue="50" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF0033" hue="232" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF3333" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF6633" hue="10" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF9933" hue="20" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FFCC33" hue="30" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FFFF33" hue="40" saturation="239" brightness="144"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#0000FF" hue="160" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#990066" hue="213" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#993366" hue="220" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#996666" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#999966" hue="40" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#99CC66" hue="60" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#99FF66" hue="67" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#CC0066" hue="220" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC3366" hue="227" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CC6666" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#CC9966" hue="20" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#CCCC66" hue="40" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#CCFF66" hue="53" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FF0066" hue="224" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF3366" hue="230" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF6666" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FF9966" hue="13" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FFCC66" hue="27" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FFFF66" hue="40" saturation="239" brightness="168"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#FFFF00" hue="40" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#990099" hue="200" saturation="239" brightness="72"/>
+                    <SolidSwatchItem color="#993399" hue="200" saturation="120" brightness="96"/>
+                    <SolidSwatchItem color="#996699" hue="200" saturation="48" brightness="120"/>
+                    <SolidSwatchItem color="#999999" brightness="144"/>
+                    <SolidSwatchItem color="#99CC99" hue="80" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#99FF99" hue="80" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#CC0099" hue="210" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC3399" hue="213" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CC6699" hue="220" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#CC9999" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#CCCC99" hue="40" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#CCFF99" hue="60" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#FF0099" hue="216" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF3399" hue="220" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF6699" hue="227" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FF9999" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#FFCC99" hue="20" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#FFFF99" hue="40" saturation="239" brightness="192"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#00FFFF" hue="120" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#9900CC" hue="190" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#9933CC" hue="187" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#9966CC" hue="180" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#9999CC" hue="160" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#99CCCC" hue="120" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#99FFCC" hue="100" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#CC00CC" hue="200" saturation="239" brightness="96"/>
+                    <SolidSwatchItem color="#CC33CC" hue="200" saturation="144" brightness="120"/>
+                    <SolidSwatchItem color="#CC66CC" hue="200" saturation="120" brightness="144"/>
+                    <SolidSwatchItem color="#CC99CC" hue="200" saturation="80" brightness="168"/>
+                    <SolidSwatchItem color="#CCCCCC" brightness="192"/>
+                    <SolidSwatchItem color="#CCFFCC" hue="80" saturation="239" brightness="216"/>
+                    <SolidSwatchItem color="#FF00CC" hue="208" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF33CC" hue="210" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF66CC" hue="213" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FF99CC" hue="220" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#FFCCCC" saturation="239" brightness="216"/>
+                    <SolidSwatchItem color="#FFFFCC" hue="40" saturation="239" brightness="216"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#FF00FF" hue="200" saturation="239" brightness="120"/>
+                    <SolidSwatchItem/>
+                    <SolidSwatchItem color="#9900FF" hue="184" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#9933FF" hue="180" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#9966FF" hue="173" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#9999FF" hue="160" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#99CCFF" hue="140" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#99FFFF" hue="120" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#CC00FF" hue="192" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#CC33FF" hue="190" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#CC66FF" hue="187" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#CC99FF" hue="180" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#CCCCFF" hue="160" saturation="239" brightness="216"/>
+                    <SolidSwatchItem color="#CCFFFF" hue="120" saturation="239" brightness="216"/>
+                    <SolidSwatchItem color="#FF00FF" hue="200" saturation="239" brightness="120"/>
+                    <SolidSwatchItem color="#FF33FF" hue="200" saturation="239" brightness="144"/>
+                    <SolidSwatchItem color="#FF66FF" hue="200" saturation="239" brightness="168"/>
+                    <SolidSwatchItem color="#FF99FF" hue="200" saturation="239" brightness="192"/>
+                    <SolidSwatchItem color="#FFCCFF" hue="200" saturation="239" brightness="216"/>
+                    <SolidSwatchItem color="#FFFFFF" brightness="240"/>
+                    <SolidSwatchItem/>
+               </swatches>
+          </swatchList>
+     </swatchLists>
+     <extendedSwatchLists>
+          <swatchList>
+               <swatches>
+                    <LinearGradientSwatchItem>
+                         <GradientEntry color="#FFFFFF" ratio="0"/>
+                         <GradientEntry ratio="1"/>
+                    </LinearGradientSwatchItem>
+                    <RadialGradientSwatchItem>
+                         <GradientEntry color="#FFFFFF" ratio="0"/>
+                         <GradientEntry ratio="1"/>
+                    </RadialGradientSwatchItem>
+                    <RadialGradientSwatchItem>
+                         <GradientEntry color="#FF0000" ratio="0"/>
+                         <GradientEntry ratio="1"/>
+                    </RadialGradientSwatchItem>
+                    <RadialGradientSwatchItem>
+                         <GradientEntry color="#00FF00" ratio="0"/>
+                         <GradientEntry ratio="1"/>
+                    </RadialGradientSwatchItem>
+                    <RadialGradientSwatchItem>
+                         <GradientEntry color="#0000FF" ratio="0"/>
+                         <GradientEntry ratio="1"/>
+                    </RadialGradientSwatchItem>
+                    <LinearGradientSwatchItem>
+                         <GradientEntry color="#0066FD" ratio="0"/>
+                         <GradientEntry color="#FFFFFF" ratio="0.376470588235294"/>
+                         <GradientEntry color="#FFFFFF" ratio="0.47843137254902"/>
+                         <GradientEntry color="#996600" ratio="0.501960784313725"/>
+                         <GradientEntry color="#FFCC00" ratio="0.666666666666667"/>
+                         <GradientEntry color="#FFFFFF" ratio="1"/>
+                    </LinearGradientSwatchItem>
+                    <LinearGradientSwatchItem>
+                         <GradientEntry color="#FF0000" ratio="0"/>
+                         <GradientEntry color="#FFFF00" ratio="0.164705882352941"/>
+                         <GradientEntry color="#00FF00" ratio="0.364705882352941"/>
+                         <GradientEntry color="#00FFFF" ratio="0.498039215686275"/>
+                         <GradientEntry color="#0000FF" ratio="0.666666666666667"/>
+                         <GradientEntry color="#FF00FF" ratio="0.831372549019608"/>
+                         <GradientEntry color="#FF0000" ratio="1"/>
+                    </LinearGradientSwatchItem>
+               </swatches>
+          </swatchList>
+     </extendedSwatchLists>
+     <PrinterSettings/>
+     <publishHistory>
+          <PublishItem publishSize="445795" publishTime="1394018793"/>
+          <PublishItem publishSize="466443" publishTime="1391011221"/>
+          <PublishItem publishSize="464319" publishTime="1391010883"/>
+          <PublishItem publishSize="483060" publishTime="1391010406"/>
+          <PublishItem publishSize="483059" publishTime="1391009313"/>
+          <PublishItem publishSize="485564" publishTime="1391008966"/>
+          <PublishItem publishSize="500991" publishTime="1391008719"/>
+          <PublishItem publishSize="529592" publishTime="1391005487"/>
+          <PublishItem publishSize="488753" publishTime="1391005342"/>
+          <PublishItem publishSize="492652" publishTime="1391005200"/>
+          <PublishItem publishSize="492482" publishTime="1391004944"/>
+          <PublishItem publishSize="509382" publishTime="1391004854"/>
+          <PublishItem publishSize="508660" publishTime="1391003312"/>
+          <PublishItem publishSize="508659" publishTime="1391003248"/>
+          <PublishItem publishSize="492053" publishTime="1391003060"/>
+          <PublishItem publishSize="553083" publishTime="1391002776"/>
+          <PublishItem publishSize="553322" publishTime="1391000003"/>
+          <PublishItem publishSize="466407" publishTime="1390999518"/>
+          <PublishItem publishSize="466400" publishTime="1390999244"/>
+          <PublishItem publishSize="466398" publishTime="1390998979"/>
+     </publishHistory>
+</DOMDocument>

@@ -1,0 +1,242 @@
+package com.gotchaslots.slots.mobile.ui.common.components.freeActionScript.explosion
+{
+	import com.gotchaslots.slots.assets.common.explosion.ExplosionEmbed;
+	import com.gotchaslots.slots.mobile.ui.common.components.SpriteEx;
+	import com.greensock.TweenLite;
+	
+	import flash.events.Event;
+	import flash.filters.BitmapFilterQuality;
+	import flash.filters.BitmapFilterType;
+	import flash.filters.BlurFilter;
+	import flash.filters.GradientGlowFilter;
+	
+	public class ExplosionEffect extends SpriteEx
+	{
+		// members
+		protected var _numberOfFireballs:Number;
+		protected var _explosionRange:Number;
+		protected var _growScale:Number;
+		protected var _growSpeed:Number;
+		protected var _growAlpha:Number;
+		protected var _fadeSpeed:Number;
+		protected var _speedY:Number;
+		protected var _speedX:Number;
+		protected var _randomRangeX:Number;
+		protected var _randomRangeY:Number;
+		protected var _randomNumber:Number;
+		protected var _randomBlur:Number;
+		
+		protected var _tempParticle:Particle;
+		protected var _particles:Array = [];
+		
+		protected var _blurFilter:BlurFilter;
+		protected var _gradientGlowFilter:GradientGlowFilter;
+		
+		// class
+		function ExplosionEffect(targetX:Number, targetY:Number) 
+		{
+			SetStats();
+			
+			addEventListener(Event.ENTER_FRAME, OnEnterFrame);
+			
+			CreateBurnMark(targetX, targetY);
+			
+			CreateFireballBase(targetX, targetY);
+			
+			for (var i:int = 0; i < _numberOfFireballs; i++)
+			{
+				CreateFireball(targetX, targetY);
+			}
+			
+			CreateLight(targetX, targetY);
+		}
+		public override function Dispose():void
+		{
+			while (_particles && _particles.length)
+			{
+				var o:Object = _particles.pop();
+				if (o is Particle)
+				{
+					var particle:Particle = Particle(o);
+					particle.Dispose();
+					particle = null;
+				}
+			}
+			_particles = null;
+			
+			if (_tempParticle)
+			{
+				_tempParticle.Dispose();
+				_tempParticle = null;
+			}
+			
+			_blurFilter = null;
+			
+			_gradientGlowFilter = null;
+			
+			super.Dispose();
+		}
+		
+		// methods
+		public function Update():void
+		{
+			if (_particles)
+			{
+				for (var i:int = 0; i < _particles.length; i++)
+				{
+					_tempParticle = _particles[i] as Particle;
+					
+					_tempParticle.scaleX += _tempParticle.GrowSpeed;
+					_tempParticle.scaleY += _tempParticle.GrowSpeed;
+					_tempParticle.alpha -= _tempParticle.FadeSpeed;
+					_tempParticle.x -= _tempParticle.VX;
+					_tempParticle.y -= _tempParticle.VY;
+					
+					if (_tempParticle.alpha <= 0)
+					{
+						DestroyParticle(_tempParticle);
+						
+						TweenLite.to(this, 0.1, {alpha:0, delay:0.5, onComplete:onAlphaComplete});
+					}
+				}
+			}
+		}
+		protected function SetStats():void
+		{
+			_numberOfFireballs = 10;
+			_explosionRange = 50;
+			_growScale = Math.random() * 2;
+			_growSpeed = .1
+			_growAlpha = Math.random() * 2;
+			_fadeSpeed = .1
+			_randomRangeX = Math.random() * _explosionRange - _explosionRange;
+			_randomRangeY = Math.random() * _explosionRange - _explosionRange;
+			_randomNumber = Math.round(Math.random() * 1);
+			_speedX = 0;
+			_speedY = 0;
+			_randomBlur = Math.random() * 3 + 3;
+		}
+		private function CreateFireball(targetX:Number, targetY:Number):void
+		{
+			_tempParticle = new Particle(new ExplosionEmbed.Fireball());
+			
+			SetStats();
+			
+			_tempParticle.x = targetX + _randomRangeX;
+			_tempParticle.y = targetY + _randomRangeY;
+			_tempParticle.scaleX = _growScale;
+			_tempParticle.scaleY = _growScale;
+			_tempParticle.alpha = _growAlpha;
+			_tempParticle.GrowSpeed = _growSpeed;
+			_tempParticle.FadeSpeed = _fadeSpeed;
+			_tempParticle.VX = _speedX;
+			_tempParticle.VY = _speedY;
+			
+			if (_randomNumber == 1)
+			{
+				SetupFilters();
+				_tempParticle.filters = [_blurFilter, _gradientGlowFilter];
+			}
+			
+			addChild(_tempParticle);
+			
+			_particles.push(_tempParticle);
+		}
+		protected function CreateLight(targetX:Number, targetY:Number):void
+		{
+			_tempParticle = new Particle(new ExplosionEmbed.Light());
+			
+			_tempParticle.x = targetX;
+			_tempParticle.y = targetY;
+			_tempParticle.scaleX = 3.5;
+			_tempParticle.scaleY = 3.5;
+			_tempParticle.alpha = .5;
+			_tempParticle.GrowSpeed = .5;
+			_tempParticle.FadeSpeed = .1;
+			_tempParticle.VX = 0;
+			_tempParticle.VY = 0;
+			
+			addChild(_tempParticle);
+			
+			_particles.push(_tempParticle);
+		}
+		protected function CreateFireballBase(targetX:Number, targetY:Number):void
+		{
+			_tempParticle = new Particle(new ExplosionEmbed.Fireball());
+			
+			_tempParticle.x = targetX;
+			_tempParticle.y = targetY;
+			_tempParticle.scaleX = 2;
+			_tempParticle.scaleY = 2;
+			_tempParticle.alpha = 1;
+			_tempParticle.GrowSpeed = .2;
+			_tempParticle.FadeSpeed = .1;
+			_tempParticle.VX = 0;
+			_tempParticle.VY = 0;
+			
+			addChild(_tempParticle);
+			
+			_particles.push(_tempParticle);
+		}
+		protected function CreateBurnMark(targetX:Number, targetY:Number):void
+		{
+			_tempParticle = new Particle(new ExplosionEmbed.BurnMark());
+			
+			_tempParticle.x = targetX;
+			_tempParticle.y = targetY;
+			_tempParticle.scaleX = 2;
+			_tempParticle.scaleY = 2;
+			_tempParticle.alpha = 1;
+			_tempParticle.GrowSpeed = 0;
+			_tempParticle.FadeSpeed = 0;
+			_tempParticle.VX = 0;
+			_tempParticle.VY = 0;
+			_tempParticle.rotation = Math.random() * 360;
+			
+			addChild(_tempParticle);
+		}
+		protected function SetupFilters():void
+		{
+			_blurFilter = new BlurFilter(); 
+			_blurFilter.blurX = _randomBlur;
+			_blurFilter.blurY = _randomBlur;
+			_blurFilter.quality = BitmapFilterQuality.MEDIUM; 
+			
+			_gradientGlowFilter = new GradientGlowFilter();			
+			_gradientGlowFilter.distance = 0; 
+			_gradientGlowFilter.angle = 45; 
+			_gradientGlowFilter.colors = [0x000000, 0xFF0000]; 
+			_gradientGlowFilter.alphas = [0, 1]; 
+			_gradientGlowFilter.ratios = [0, 255]; 
+			_gradientGlowFilter.blurX = _randomBlur;
+			_gradientGlowFilter.blurY = _randomBlur;
+			_gradientGlowFilter.strength = 2; 
+			_gradientGlowFilter.quality = BitmapFilterQuality.LOW; 
+			_gradientGlowFilter.type = BitmapFilterType.OUTER; 
+		}
+		private function DestroyParticle(particle:Particle):void
+		{
+			for (var i:int = 0; i < _particles.length; i++)
+			{
+				_tempParticle = _particles[i] as Particle;
+				
+				if (_tempParticle == particle)
+				{
+					_particles.splice(i, 1);
+					removeChild(particle);
+				}
+			}
+		}
+		
+		// events
+		protected function OnEnterFrame(event:Event):void
+		{
+			Update();
+		}
+		protected function onAlphaComplete():void
+		{
+			removeEventListener(Event.ENTER_FRAME, OnEnterFrame);
+			dispatchEvent(new Event(Event.COMPLETE));
+		}
+	}
+}

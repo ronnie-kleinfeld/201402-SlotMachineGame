@@ -1,0 +1,36 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.settings.groups
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.settings.buttons.InviteFriendsButton;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.settings.textField.PopupSettingsTextField;
+	
+	import flash.events.MouseEvent;
+	
+	public class InviteFriendsGroup extends BaseSettingsGroup
+	{
+		// class
+		public function InviteFriendsGroup(w:int, h:int)
+		{
+			super(w, h);
+			
+			var inviteFriendsButton:InviteFriendsButton = new InviteFriendsButton();
+			inviteFriendsButton.x = 3;
+			inviteFriendsButton.y = 3;
+			addChild(inviteFriendsButton);
+			
+			var sound:PopupSettingsTextField = new PopupSettingsTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Invite_Friends));
+			sound.x = W * 0.05;
+			sound.y = 3;
+			addChild(sound);
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			super.OnClick(event);
+			
+			Main.Instance.XServices.Social.Invite();
+		}
+	}
+}

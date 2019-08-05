@@ -1,0 +1,28 @@
+package com.gotchaslots.common.utils.animation
+{
+	public class AnimationSequenceData
+	{
+		// members
+		public var _key:String;
+		public var _frames:Array;
+		public var _loop:Boolean;
+		public var _delay:Number;
+		
+		// class
+		public function AnimationSequenceData(key:String, frames:Array, loop:Boolean = true, frameRate:Number = 0)
+		{
+			_key = key;
+			_frames = frames;
+			_loop = loop;
+			_delay = 0;
+			if(frameRate > 0)
+			{
+				_delay = 1.0 / frameRate;
+			}
+		}
+		private function Dispose():void
+		{
+			_frames= null;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package com.gotchaslots.common.utils.xServices.deviceID
+{
+	import com.distriqt.extension.application.Application;
+	import com.distriqt.extension.application.Device;
+	
+	public class DeviceIDHandler
+	{
+		// consts
+		private const DEV_KEY:String = "ab031e40325fc62aa27976d9054ca893082f0cfeFTRZbjqtKo+Ihd1wV+J8xLhmmwpAz+sKnKwzHbO0OVJ7IroGWYvlGcM3ZzR5Wq1iQtK31GDj+R68TOxTAs+Dcg==";
+		
+		// properties
+		public function get DeviceID():String
+		{
+			return int(Math.random() * 100000000).toString();
+		}
+		
+		// clss
+		public function DeviceIDHandler()
+		{
+			Application.init(DEV_KEY);
+		}
+	}
+}

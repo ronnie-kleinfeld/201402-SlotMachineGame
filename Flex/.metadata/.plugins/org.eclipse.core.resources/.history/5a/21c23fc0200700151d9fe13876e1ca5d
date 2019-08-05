@@ -1,0 +1,69 @@
+package com.gotchaslots.slots.mobile.ui.hud.l10n
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseTextField;
+	import com.gotchaslots.slots.mobile.ui.notifications.NotificationsHandler;
+	
+	import flash.events.MouseEvent;
+	import flash.filters.BevelFilter;
+	import flash.filters.GlowFilter;
+	import flash.text.TextField;
+	
+	public class L10NRibbon extends BaseTextField
+	{
+		// properties
+		protected override function get HasFrame():Boolean
+		{
+			return true;
+		}
+		protected override function get FrameColorHigh():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get FrameColorLow():Number
+		{
+			return 0x8330ba;
+		}
+		protected override function get FrameFilters():Array
+		{
+			return [new BevelFilter(4, 45, 0x8330ba, 1, 0)];
+		}
+		protected override function get FrameCorner():Number
+		{
+			return 30;
+		}
+		
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.HudL10NRibbon;
+		}
+		protected override function get TextFieldOffsetY():int
+		{
+			return 2;
+		}
+		protected override function get MaxTextFieldSize():int
+		{
+			return 60;
+		}
+		private function get GetText():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.NativeName;
+		}
+		
+		// class
+		public function L10NRibbon()
+		{
+			super(70, 40, GetText, null, 0xfdeaf4);
+			
+			filters = [new GlowFilter(0xEC9EFE, 1, 5, 5)];
+			
+			addEventListener(MouseEvent.CLICK, OnClick);
+		}
+		
+		// events
+		protected function OnClick(event:MouseEvent):void
+		{
+			NotificationsHandler.Instance.ShowL10NPopupPopup(null);
+		}
+	}
+}

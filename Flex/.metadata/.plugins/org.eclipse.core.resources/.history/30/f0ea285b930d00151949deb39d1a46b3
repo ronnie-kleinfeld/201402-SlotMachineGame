@@ -1,0 +1,37 @@
+package com.gotchaslots.common.utils.xServices
+{
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+	import com.gotchaslots.common.utils.ex.EventDispatcherEx;
+	import com.gotchaslots.slots.utils.consts.SlotsConsts;
+	import com.milkmangames.nativeextensions.AdMob;
+	import com.milkmangames.nativeextensions.events.AdMobErrorEvent;
+	import com.milkmangames.nativeextensions.events.AdMobEvent;
+
+	public class BaseCoreMobileHandler extends EventDispatcherEx
+	{// members
+		protected var _initialized:Boolean;
+		
+		// class
+		public function BaseCoreMobileHandler()
+		{
+			super();
+			
+			Init();
+		}
+		protected function Init():Boolean
+		{
+			if (!_initialized)
+			{
+				if(AdMob.isSupported)
+				{
+				}
+				else
+				{
+					_initialized = false;
+				}
+			}
+			
+			return _initialized;
+		}
+	}
+}

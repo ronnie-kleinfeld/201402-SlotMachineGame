@@ -1,0 +1,67 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.session.SessionDataEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.textFields.PopupBlueMessageTextField;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	
+	public class JackpotInfoPopup extends BasePopup
+	{
+		// members
+		private var _chips:PopupBlueMessageTextField;
+		
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		protected override function get Y():int
+		{
+			return 88;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Jackpot);
+		}
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function JackpotInfoPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			_chips = new PopupBlueMessageTextField(W, FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetJackpot, 0));
+			Main.Instance.Session.Wallet.addEventListener(SessionDataEvent.JackpotChanged, OnJackpotChanged);
+			AddComponent(new Spacer(10));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Jackpot_Value));
+			AddComponent(_chips);
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Chips));
+			AddComponent(new Spacer(10));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Keep_playing_to));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Increase_your_chance));
+		}
+		
+		// events
+		protected function OnJackpotChanged(event:Event):void
+		{
+			_chips.Text = FormatterHelper.NumberToMoney(Main.Instance.Session.Wallet.GetJackpot, 0);
+		}
+		
+		private function OnCloseClick(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/milkmangames/nativeextensions/GAHitType" mod="1405728205685" signatureChecksum="742745851" >
+        <def id="com.milkmangames.nativeextensions:GAHitType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/GAnalytics" mod="1423115739606" signatureChecksum="1952663692" >
+        <def id="com.milkmangames.nativeextensions:GAnalytics" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions:GATracker" type="e" /> 
+        <dep id="flash.system:Capabilities" type="e" /> 
+        <dep id="flash.utils:getDefinitionByName" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions:GATracker" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/GAFields" mod="1405804636581" signatureChecksum="2408898500" >
+        <def id="com.milkmangames.nativeextensions:GAFields" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="_cebc215764b9fb7123588d8a03edd6a0f7ab857a4dadbe4de9a6ee7ab760fca0_flash_display_Sprite" mod="1429569400107" signatureChecksum="2236644747" >
+        <def id="_cebc215764b9fb7123588d8a03edd6a0f7ab857a4dadbe4de9a6ee7ab760fca0_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/milkmangames/nativeextensions/GATracker" mod="1423115305962" signatureChecksum="3475440084" >
+        <def id="com.milkmangames.nativeextensions:GATracker" /> 
+        <dep id="com.milkmangames.nativeextensions:GAnalytics" type="e" /> 
+        <dep id="JSON" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions:GAFields" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions:GAHitType" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.milkmangames.nativeextensions:GAnalytics" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="c93f536c86066529b30d89da2332ee3b207b1eedeccf338abe8905e213b1d9c3"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

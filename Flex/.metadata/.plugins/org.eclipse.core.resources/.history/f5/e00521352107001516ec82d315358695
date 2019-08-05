@@ -1,0 +1,39 @@
+package com.gotchaslots.slots.mobile.ui.lobby.machinesList.machinePreview.components
+{
+	import com.gotchaslots.common.assets.machinesList.MachinesListEmbed;
+	import com.gotchaslots.slots.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.slots.mobile.data.session.machines.MachineSessionDataEvent;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BasePng;
+	
+	import flash.events.Event;
+	
+	public class NewPreviewPng extends BasePng
+	{
+		// members
+		protected var _lobbyMachine:BaseLobbyMachineData;
+		
+		// class
+		public function NewPreviewPng(lobbyMachine:BaseLobbyMachineData)
+		{
+			super(85, 75, new MachinesListEmbed.NewPreview());
+			
+			_lobbyMachine = lobbyMachine;
+			
+			visible = !_lobbyMachine.IsCommingSoon && _lobbyMachine.MachineSession.NewMachine && _lobbyMachine.IsOpen;
+			
+			_lobbyMachine.MachineSession.addEventListener(MachineSessionDataEvent.NewMachineChanged, OnNewMachineChanged);
+		}
+		public override function Dispose():void
+		{
+			_lobbyMachine.MachineSession.removeEventListener(MachineSessionDataEvent.NewMachineChanged, OnNewMachineChanged);
+			
+			super.Dispose();
+		}
+		
+		// events
+		protected function OnNewMachineChanged(event:Event):void
+		{
+			visible = !_lobbyMachine.IsCommingSoon && _lobbyMachine.MachineSession.NewMachine && _lobbyMachine.IsOpen;
+		}
+	}
+}

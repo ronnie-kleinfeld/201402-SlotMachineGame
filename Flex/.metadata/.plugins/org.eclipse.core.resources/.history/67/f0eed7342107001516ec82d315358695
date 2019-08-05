@@ -1,0 +1,46 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.settings.groups
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.settings.buttons.AllowShareButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.settings.textField.PopupSettingsTextField;
+	
+	import flash.events.MouseEvent;
+	
+	public class AllowShareGroup extends BaseSettingsGroup
+	{
+		// members
+		private var _share:PopupSettingsTextField;
+		
+		// properties
+		private function get GetText():String
+		{
+			return Main.Instance.Session.Rare.AllowShare ? Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Share) : Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Do_Not_Share);
+		}
+		
+		// class
+		public function AllowShareGroup(w:int, h:int)
+		{
+			super(w, h);
+			
+			var allowShare:AllowShareButton = new AllowShareButton();
+			allowShare.x = 3;
+			allowShare.y = 3;
+			addChild(allowShare);
+			
+			_share = new PopupSettingsTextField(W, GetText);
+			_share.x = W * 0.05;
+			addChild(_share);
+			
+			addEventListener(MouseEvent.CLICK, OnClick);
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			Main.Instance.Session.Rare.AllowShare = !Main.Instance.Session.Rare.AllowShare;
+			
+			_share.Text = GetText;
+		}
+	}
+}

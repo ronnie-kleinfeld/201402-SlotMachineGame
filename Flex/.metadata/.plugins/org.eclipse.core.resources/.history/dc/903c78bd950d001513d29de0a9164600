@@ -1,0 +1,29 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.gotchaslots.common.utils.xServices.social.SocialEvent;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMNetworkEvent;
+	
+	public class NetworkHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function NetworkHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function MonitorNetworkChanges():void
+		{
+			if (Init())
+			{
+				CoreMobile.mobile.addEventListener(CMNetworkEvent.NETWORK_REACHABILITY_CHANGED, onNetworkRechabilityChanged);
+			}
+		}
+		private function onNetworkRechabilityChanged(event:CMNetworkEvent):void
+		{
+			dispatchEvent(new NetworkEvent(NetworkEvent.NetworkChanged));
+		}
+	}
+}

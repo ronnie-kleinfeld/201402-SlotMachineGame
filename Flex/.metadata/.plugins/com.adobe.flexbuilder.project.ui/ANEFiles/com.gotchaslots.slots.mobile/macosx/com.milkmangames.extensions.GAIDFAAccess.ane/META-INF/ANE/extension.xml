@@ -1,0 +1,24 @@
+	<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+	   <id>com.milkmangames.extensions.GAIDFAAccess</id>
+	  <versionNumber>1</versionNumber>
+	  <platforms>
+	<platform name="iPhone-ARM">
+	        <applicationDeployment>
+	          <nativeLibrary>libGAIDFAAccessAPI.a</nativeLibrary>
+	          <initializer>MmgGAIDFAAccessApiExtInitializer</initializer>
+	          <finalizer>MmgGAIDFAAccessApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		  	<platform name="iPhone-x86">
+	        <applicationDeployment>
+	          <nativeLibrary>libGAIDFAAccessAPI.a</nativeLibrary>
+	          <initializer>MmgGAIDFAAApicessApiExtInitializer</initializer>
+	          <finalizer>MmgGAIDFAAApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform>
+	  </platforms>
+	</extension>

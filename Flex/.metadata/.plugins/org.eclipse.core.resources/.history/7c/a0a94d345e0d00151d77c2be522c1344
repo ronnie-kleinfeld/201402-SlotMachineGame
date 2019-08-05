@@ -1,0 +1,81 @@
+package com.gotchaslots.slots.mobile.data.machine.bonusGame.higherLower
+{
+	import com.gotchaslots.slots.assets.bonusGame.higherLower.HigherLowerEmbed;
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.base.BaseBonusGameData;
+	import com.gotchaslots.slots.mobile.ui.machine.bonusGameEngine.higherLower.HigherLowerEngine;
+	
+	public class HigherLowerData extends BaseBonusGameData
+	{
+		// members
+		private var _higherLowerPayouts:Vector.<HigherLowerPayoutData>;
+		private var _currentIndex:int;
+		
+		// properties
+		public override function get StartPopupMessage():String
+		{
+			return "Higher or Lower what do you think?";
+		}
+		public override function get BonusGameEngineClass():Class
+		{
+			return HigherLowerEngine;
+		}
+		protected override function get BGClass():Class
+		{
+			return HigherLowerEmbed.BG;
+		}
+		
+		public function get CurrentIndex():int
+		{
+			return _currentIndex;
+		}
+		public function set CurrentIndex(value:int):void
+		{
+			_currentIndex = value;
+		}
+		
+		// class
+		public function HigherLowerData()
+		{
+			super();
+			
+			InitHigherLowerPayouts();
+		}
+		protected function InitHigherLowerPayouts():void
+		{
+			_higherLowerPayouts = new Vector.<HigherLowerPayoutData>();
+			_higherLowerPayouts.push(new HigherLowerPayoutData(0, 1));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(1, 2));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(2, 3));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(3, 5));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(4, 7));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(5, 10));
+			_higherLowerPayouts.push(new HigherLowerPayoutData(6, 15));
+			
+			_higherLowerPayouts[0].Random = 5;
+			_higherLowerPayouts[0].IsWon = true;
+		}
+		
+		// methods
+		public function CurrentHigherLowerPayout():HigherLowerPayoutData
+		{
+			return _higherLowerPayouts[_currentIndex];
+		}
+		public function HigherLowerPayout(index:int):HigherLowerPayoutData
+		{
+			return _higherLowerPayouts[index];
+		}
+		
+		public override function CalculateChipsWon():void
+		{
+			Chips = 0;
+			for (var i:int = 0; i < _higherLowerPayouts.length; i++)
+			{
+				if (_higherLowerPayouts[i].IsWon)
+				{
+					Chips = Main.Instance.ActiveMachine.SelectedBetChips * _higherLowerPayouts[i].Ratio;
+				}
+			}
+		}
+	}
+}

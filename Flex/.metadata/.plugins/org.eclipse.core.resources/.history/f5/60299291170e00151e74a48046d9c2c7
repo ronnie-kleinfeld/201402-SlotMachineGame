@@ -1,0 +1,16 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	import flash.events.Event;
+
+	public class LocalNotificationsEvent extends Event
+	{
+		// consts
+		public static const OK:String = "OK";
+		
+		// class
+		public function LocalNotificationsEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

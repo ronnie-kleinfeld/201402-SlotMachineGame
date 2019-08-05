@@ -1,0 +1,10 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+    <sdkVersion>6.1</sdkVersion>
+	    <packagedDependencies> 
+    </packagedDependencies> 
+    <linkerOptions>
+		<option>-w</option>
+		<option>-weak_framework CoreData</option>
+		<option>-framework SystemConfiguration</option>
+    </linkerOptions>
+</platform>

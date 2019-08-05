@@ -1,0 +1,152 @@
+package com.gotchaslots.common.mobile.data.application
+{
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.application.prices.PricesData;
+	import com.gotchaslots.common.mobile.data.application.schedulers.SchedulersData;
+	import com.gotchaslots.common.mobile.data.application.ticker.TickerData;
+	import com.gotchaslots.common.mobile.data.machine.spline.SplinesData;
+	
+	public class ApplicationData
+	{
+		// members
+		private var _l10n:L10NHandler;
+		private var _prices:PricesData;
+		private var _allowedBetsChips:Vector.<Number>;
+		private var _ticker:TickerData;
+		private var _schedulers:SchedulersData;
+		private var _splines:SplinesData;
+		
+		// properties
+		public function get L10N():L10NHandler
+		{
+			return _l10n;
+		}
+		public function get Prices():PricesData
+		{
+			return _prices;
+		}
+		public function get AllowedBetsChips():Vector.<Number>
+		{
+			return _allowedBetsChips;
+		}
+		public function get Ticker():TickerData
+		{
+			return _ticker;
+		}
+		public function get Schedulers():SchedulersData
+		{
+			return _schedulers;
+		}
+		public function get Splines():SplinesData
+		{
+			return _splines;
+		}
+		
+		public function get EnableJackpot():Boolean
+		{
+			return true;
+		}
+		public function get EnableTicker():Boolean
+		{
+			return true;
+		}
+		public function get FountainsLimit():int
+		{
+			return 30;
+		}
+		public function get EnableSpinButtonBit():Boolean
+		{
+			return true;
+		}
+		public function get FetchEMails():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function ApplicationData()
+		{
+			_l10n = new L10NHandler();
+			_prices = new PricesData();
+			InitAllowedBetChips();
+			_ticker = new TickerData();
+			_schedulers = new SchedulersData();
+			_splines = new SplinesData();
+		}
+		private function InitAllowedBetChips():void
+		{
+			_allowedBetsChips = new Vector.<Number>();
+			_allowedBetsChips.push(0.1);
+			_allowedBetsChips.push(0.25);
+			_allowedBetsChips.push(0.5);
+			_allowedBetsChips.push(1);
+			_allowedBetsChips.push(2);
+			_allowedBetsChips.push(5);
+			_allowedBetsChips.push(10);
+			_allowedBetsChips.push(20);
+			_allowedBetsChips.push(50);
+			_allowedBetsChips.push(100);
+			_allowedBetsChips.push(200);
+			_allowedBetsChips.push(500);
+			_allowedBetsChips.push(1000);
+			_allowedBetsChips.push(2000);
+			_allowedBetsChips.push(5000);
+			_allowedBetsChips.push(10000);
+			_allowedBetsChips.push(20000);
+			_allowedBetsChips.push(50000);
+			_allowedBetsChips.push(100000);
+		}
+		public function Dispose():void
+		{
+			if (_l10n)
+			{
+				_l10n.Dispose();
+				_l10n = null;
+			}
+			
+			if (_prices)
+			{
+				_prices.Dispose();
+				_prices = null;
+			}
+			
+			while (_allowedBetsChips && _allowedBetsChips.length > 0)
+			{
+				_allowedBetsChips.pop();
+			}
+			_allowedBetsChips = null;
+			
+			if (_ticker)
+			{
+				_ticker.Dispose();
+				_ticker = null;
+			}
+			
+			if (_schedulers)
+			{
+				_schedulers.Dispose();
+				_schedulers = null;
+			}
+			
+			if (_splines)
+			{
+				_splines.Dispose();
+				_splines = null;
+			}
+		}
+		
+		// methods
+		public function GetBetIndexByBetChips(betChips:Number):int
+		{
+			for (var i:int = 0; i < _allowedBetsChips.length; i++)
+			{
+				if (_allowedBetsChips[i] == betChips)
+				{
+					return i;
+				}
+			}
+			
+			return 0;
+		}
+	}
+}

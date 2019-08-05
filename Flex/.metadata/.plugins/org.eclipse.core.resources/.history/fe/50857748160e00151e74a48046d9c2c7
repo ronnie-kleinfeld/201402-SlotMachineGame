@@ -1,0 +1,26 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	
+	public class LocalNotificationsHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function LocalNotificationsHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function Register():void
+		{
+			CoreMobile.mobile.registerForNotifications();
+		}
+		
+		public function ScheduleLocalNotification(id:int, timeSeconds:Number, title:String, message:String, alertLabel:String = null, extraData:Object = null, badgeNumber:uint = 1, soundName:String = null, bigPictureUri:String = null, largeIconUri:String = null):void
+		{
+			//CoreMobile.mobile.scheduleLocalNotification(1, 3600, "Come back!", "Hey, you should come play some more.", "Play now", {coins:50, name:"Bob",type:"OneHour"});
+			CoreMobile.mobile.scheduleLocalNotification(id, timeSeconds, title, message, alertLabel, extraData, badgeNumber, soundName, bigPictureUri, largeIconUri);
+		}
+	}
+}

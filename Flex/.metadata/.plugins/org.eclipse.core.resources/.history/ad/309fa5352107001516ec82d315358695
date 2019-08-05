@@ -1,0 +1,18 @@
+package com.gotchaslots.common.mobile.data.machine.symbol.collectibles
+{
+	import com.gotchaslots.common.assets.machine.scatterPayboxes.ScatterPayboxesEmbed;
+	import com.gotchaslots.common.assets.machine.symbols.SymbolsEmbed;
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.machine.symbol.base.BaseCollectiblesSymbolData;
+	import com.gotchaslots.common.mobile.data.machine.symbol.base.SymbolTypeEnum;
+	
+	public class GoldSymbolData extends BaseCollectiblesSymbolData
+	{
+		// class
+		public function GoldSymbolData(id:int, pngClass:Class, factor:Number)
+		{
+			super(id, SymbolsEmbed.Gold, SymbolTypeEnum.Gold, factor, 1, 1, 1, 1, 1, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Gold), Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Gold_Note), ScatterPayboxesEmbed.Gold);
+		}
+	}
+}

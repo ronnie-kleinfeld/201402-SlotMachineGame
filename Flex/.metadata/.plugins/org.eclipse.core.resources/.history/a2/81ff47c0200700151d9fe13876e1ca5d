@@ -1,0 +1,69 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.l10n
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.data.application.locale.LocaleData;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	
+	import flash.events.Event;
+	
+	public class L10NPopup extends BasePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.BigPopup;
+		}
+		protected override function get Height():int
+		{
+			return 340;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Language);
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function L10NPopup(onClose:Function)
+		{
+			super(onClose);
+			
+			var locales:Vector.<LocaleData> = Main.Instance.Application.L10N.Locales;
+			
+			for (var i:int = 0; i < locales.length; i++)
+			{
+				AddL10NButton(i, locales);
+			}
+		}
+		protected override function AddBody():void
+		{
+		}
+		
+		// methods
+		private function AddL10NButton(index:int, locales:Vector.<LocaleData>):void
+		{
+			var row:int = int(index / 4);
+			var column:int = index - row * 4;
+			
+			var button:L10NButton = new L10NButton(locales[index].Locale, locales[index].NativeName, OnLanguageClick);
+			button.x = (W - button.width * 4 - 6 * 3) / 2 + column * (button.width + 6);
+			button.y = 50 + row * (button.height + 6);
+			addChild(button);
+		}
+		
+		// events
+		private function OnLanguageClick(event:Event):void
+		{
+			var button:L10NButton = L10NButton(event.currentTarget);
+			Main.Instance.Session.Rare.Locale = button.Locale;
+			DoRemove();
+		}
+	}
+}

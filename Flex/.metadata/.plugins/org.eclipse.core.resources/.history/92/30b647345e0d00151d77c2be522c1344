@@ -1,0 +1,84 @@
+package com.gotchaslots.slots.mobile.ui.machine.bonusGameEngine.curtain
+{
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtain.BaseCurtainData;
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelDataEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.ui.machine.bonusGameEngine.base.BaseBonusGameEngine;
+	import com.gotchaslots.common.mobile.utils.helpers.DisplayObjectHelper;
+	
+	import flash.display.Bitmap;
+	import flash.events.Event;
+	
+	public class CurtainEngine extends BaseBonusGameEngine
+	{
+		// members
+		private var _curtainsLayer:SpriteEx;
+		
+		// properties
+		public function get Curtain():BaseCurtainData
+		{
+			return BaseCurtainData(BonusGameData);
+		}
+		
+		// class
+		public function CurtainEngine(curtain:BaseCurtainData)
+		{
+			super(curtain);
+			
+			var bg:Bitmap = curtain.BG;
+			addChild(bg);
+			
+			_curtainsLayer = new SpriteEx();
+			addChild(_curtainsLayer);
+			
+			var mapBox:MapBox = new MapBox(Curtain);
+			mapBox.x = Curtain.MapRect.x;
+			mapBox.y = Curtain.MapRect.y;
+			addChild(mapBox);
+			
+			InitLevel();
+		}
+		
+		// methods
+		private function InitLevel():void
+		{
+			var levelBox:LevelBox = new LevelBox(Curtain.CurrentCurtainLevel);
+			levelBox.addEventListener(CurtainLevelDataEvent.LevelClicked, onLevelClicked);
+			levelBox.addEventListener(CurtainLevelDataEvent.LevelSuccess, onLevelSuccess);
+			levelBox.addEventListener(CurtainLevelDataEvent.LevelFailed, onLevelFailed);
+			_curtainsLayer.addChild(levelBox);
+		}
+		private function DoCurtainComplete():void
+		{
+			DoBonusGameComplete();
+			Dispose();
+		}
+		
+		// events
+		protected function onLevelClicked(event:Event):void
+		{
+			_bonusGameData.CalculateChipsWon();
+		}
+		protected function onLevelSuccess(event:Event):void
+		{
+			if (Curtain.CurrentCurtainLevel.DisposeLevelOnComplete)
+			{
+				DisplayObjectHelper.SafeDisposeAllChildrens(_curtainsLayer);
+			}
+			
+			Curtain.CurrentLevelIndex++;
+			if (Curtain.CurrentLevelIndex >= Curtain.CurtainLevels.length)
+			{
+				DoCurtainComplete();
+			}
+			else
+			{
+				InitLevel();
+			}
+		}
+		protected function onLevelFailed(event:Event):void
+		{
+			DoCurtainComplete();
+		}
+	}
+}

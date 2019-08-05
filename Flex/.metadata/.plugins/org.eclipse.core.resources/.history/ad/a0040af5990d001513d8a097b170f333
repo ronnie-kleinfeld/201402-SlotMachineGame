@@ -1,0 +1,16 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	import flash.events.Event;
+
+	public class NativeDialogsEvent extends Event
+	{
+		// consts
+		public static const NetworkChanged:String = "fd4ba5a82cbe47f5a30cf596d660f9e0";
+		
+		// class
+		public function NativeDialogsEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

@@ -1,0 +1,43 @@
+package com.gotchaslots.common.mobile.data.session.machines
+{
+	import flash.events.Event;
+	
+	public class MachineSessionDataEvent extends Event
+	{
+		// events
+		public static const IsInvite4Unlocked:String = "0c01c6c559fa46dc96bdd4ffb2118ecf";
+		
+		public static const NewMachineChanged:String = "2bf3f94a10dc4eedb2970ee673ba9bfc";
+		
+		public static const FreeSpinsSpinStarted:String = "5d5049db74a1440d804756611cfe1dc7";
+		public static const FreeSpinsCollectCount:String = "4ca911922c6647029c206519879bfcc1";
+		public static const FreeSpinsEndPopupClosed:String = "cb890e91a8814aa9ad9b0c300fa49ec4";
+		
+		public static const BonusGameChanged:String = "37bf2dd385014abb8626b5c0130e9573";
+		public static const BonusGameWon:String = "06633e7d21204238907a5d3b1cc186b8";
+		public static const BonusGameFinished:String = "4973cba29d1d40a4986a291d89090e38";
+		
+		// members
+		private var _machineState:MachineSessionData;
+		private var _freeSpinsDiffCount:int;
+		
+		// properties
+		public function get MachineState():MachineSessionData
+		{
+			return _machineState;
+		}
+		public function get FreeSpinsDiffCount():int
+		{
+			return _freeSpinsDiffCount;
+		}
+		
+		// class
+		public function MachineSessionDataEvent(type:String, machineState:MachineSessionData, freeSpinsDiffCount:int)
+		{
+			super(type, false, false);
+			
+			_machineState = machineState;
+			_freeSpinsDiffCount = freeSpinsDiffCount;
+		}
+	}
+}

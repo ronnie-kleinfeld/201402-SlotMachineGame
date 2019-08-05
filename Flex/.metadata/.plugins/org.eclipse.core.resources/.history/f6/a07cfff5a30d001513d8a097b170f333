@@ -1,0 +1,42 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CMDialogDispatcher;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	import com.milkmangames.nativeextensions.events.CMDialogEvent;
+
+	public class InputDialogHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function InputDialogHandler()
+		{
+			super();
+		}
+		
+		// input dialog
+		public function ShowInputDialog(title:String, message:String, confirmButtonLabel:String, defaultPrompt:String = "", cancelButtonLabel:String = null, textInputType:int = 0, textInputMaxLength:uint = 1024):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalInputDialog(title, message, confirmButtonLabel, defaultPrompt, cancelButtonLabel, textInputType, textInputMaxLength);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						switch (event.selectedButtonLabel)
+						{
+							case confirmButtonLabel:
+								dispatchEvent(new InputDialogEvent(InputDialogEvent.OK, event.modalUserInput));
+								break;
+							case cancelButtonLabel:
+								dispatchEvent(new InputDialogEvent(InputDialogEvent.CANCEL, event.modalUserInput));
+								break;
+							default:
+								dispatchEvent(new InputDialogEvent(InputDialogEvent.CANCEL, event.modalUserInput));
+								break;
+						}
+					}
+				);
+			}
+		}
+	}
+}

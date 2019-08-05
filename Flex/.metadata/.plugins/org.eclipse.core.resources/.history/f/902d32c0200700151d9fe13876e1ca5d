@@ -1,0 +1,196 @@
+package com.gotchaslots.slots.mobile.data.application.ticker
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.utils.ex.EventDispatcherEx;
+	import com.gotchaslots.slots.mobile.utils.ex.TimerEx;
+	import com.greensock.TweenLite;
+	
+	import flash.events.Event;
+	import flash.events.TimerEvent;
+	
+	public class TickerData extends EventDispatcherEx
+	{
+		// members
+		private var _tickerStateEnum:String;
+		private var _messages:Vector.<String>;
+		private var _randomMessages:Vector.<String>;
+		private var _timer:TimerEx;
+		
+		// properties
+		public function get TickerStateEnum():String
+		{
+			return _tickerStateEnum;
+		}
+		public function set TickerStateEnum(value:String):void
+		{
+			if (_tickerStateEnum != value)
+			{
+				_tickerStateEnum = value;
+				switch (_tickerStateEnum)
+				{
+					case TickerStateEnumType.Lobby:
+						dispatchEvent(new TickerDataEvent(TickerDataEvent.StateLobby, "", ""));
+						break;
+					case TickerStateEnumType.Machine:
+						dispatchEvent(new TickerDataEvent(TickerDataEvent.StateMachine, "", ""));
+						break;
+					case TickerStateEnumType.BonusGame:
+						dispatchEvent(new TickerDataEvent(TickerDataEvent.StateBonusGame, "", ""));
+						break;
+					default:
+						dispatchEvent(new TickerDataEvent(TickerDataEvent.StateLobby, "", ""));
+						break;
+				}
+			}
+		}
+		
+		public function get Message():String
+		{
+			var result:String;
+			
+			if (_messages && _messages.length > 0)
+			{
+				result = _messages[0];
+				_messages.splice(0, 1);
+			}
+			else
+			{
+				result = Main.Instance.Application.L10N.ActiveLocale.GetString(_randomMessages[Math.floor(Math.random() * _randomMessages.length)]);
+			}
+			
+			return result;
+		}
+		
+		// class
+		public function TickerData()
+		{
+			TickerStateEnum = TickerStateEnumType.Lobby;
+			
+			_messages = new Vector.<String>();
+			
+			InitRandomMessages();
+			
+			_timer = new TimerEx(3000);
+			_timer.addEventListener(TimerEvent.TIMER, OnTimer);
+			_timer.stop();
+		}
+		private function InitRandomMessages():void
+		{
+			_randomMessages = new Vector.<String>();
+			_randomMessages.push(L10NHandler.Ticker_Addictive_Slot_Action);
+			_randomMessages.push(L10NHandler.Ticker_Fast_Paced_Reel);
+			_randomMessages.push(L10NHandler.Ticker_Godzilla_Slots);
+			_randomMessages.push(L10NHandler.Ticker_Gotcha_Slots);
+			_randomMessages.push(L10NHandler.Ticker_Spin_your_luck);
+			_randomMessages.push(L10NHandler.Ticker_Lots_of_Fun);
+			_randomMessages.push(L10NHandler.Ticker_Progressive_Jackpot);
+			_randomMessages.push(L10NHandler.Ticker_Awesome_Payouts);
+			_randomMessages.push(L10NHandler.Ticker_Fun_Mini_Games);
+			_randomMessages.push(L10NHandler.Ticker_Fantastic_Boosts);
+			_randomMessages.push(L10NHandler.Ticker_Unique_and_Fun);
+			_randomMessages.push(L10NHandler.Ticker_Win_Free_Spins);
+			_randomMessages.push(L10NHandler.Ticker_Free_to_Play);
+			_randomMessages.push(L10NHandler.Ticker_Timer_Bonuses);
+			_randomMessages.push(L10NHandler.Ticker_Today_is_your_day);
+			_randomMessages.push(L10NHandler.Ticker_Special_Achievements);
+			_randomMessages.push(L10NHandler.Ticker_Bet_Big_Win_Big);
+			_randomMessages.push(L10NHandler.Ticker_Grab_some_Slots);
+			_randomMessages.push(L10NHandler.Ticker_Get_Lucky);
+			_randomMessages.push(L10NHandler.Ticker_Auto_Spins);
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_timer)
+			{
+				_timer.Dispose();
+				_timer = null;
+			}
+			
+			DisposeMessages();
+			
+			while (_randomMessages && _randomMessages.length > 0)
+			{
+				_randomMessages.pop();
+			}
+			_randomMessages = null;
+		}
+		private function DisposeMessages():void
+		{
+			while (_messages && _messages.length > 0)
+			{
+				_messages.pop();
+			}
+			_messages = null;
+		}
+		
+		// methods
+		public function Start():void
+		{
+			if (_timer && !_timer.running && Main.Instance.Application && Main.Instance.Application.EnableTicker)
+			{
+				_timer.start();
+				Show(Message, "");
+			}
+		}
+		public function Stop():void
+		{
+			if (_timer)
+			{
+				_timer.stop();
+			}
+			DisposeMessages();
+		}
+		public function PushMessage(message:String, bubble:String, showNow:Boolean, wait:int = 0):void
+		{
+			if (message != "")
+			{
+				if (showNow)
+				{
+					ShowLater(message, bubble, wait);
+				}
+				else
+				{
+					if (_messages)
+					{
+						_messages.push(message);
+					}
+					else
+					{
+						ShowLater(message, bubble, wait);
+					}
+				}
+			}
+		}
+		private function ShowLater(message:String, bubble:String, wait:int):void
+		{
+			if (wait > 0)
+			{
+				var sprite:SpriteEx = new SpriteEx();
+				TweenLite.to(sprite, wait / 1000, {x:100, onComplete:OnShowLaterComplete, onCompleteParams:[message, bubble]});
+			}
+			else
+			{
+				Show(message, bubble);
+			}
+		}
+		private function OnShowLaterComplete(message:String, bubble:String):void
+		{
+			Show(message, bubble);
+		}
+		
+		private function Show(message:String, bubble:String):void
+		{
+			dispatchEvent(new TickerDataEvent(TickerDataEvent.TextChanged, message, bubble));
+		}
+		
+		// events
+		protected function OnTimer(event:Event):void
+		{
+			Show(Message, "");
+		}
+	}
+}

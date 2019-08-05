@@ -1,0 +1,101 @@
+package com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtain
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.base.BaseBonusGameData;
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelData;
+	import com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelDataEvent;
+	import com.gotchaslots.slots.mobile.ui.machine.bonusGameEngine.curtain.CurtainEngine;
+	import com.gotchaslots.common.mobile.utils.error.MustOverrideError;
+	
+	import flash.geom.Rectangle;
+	
+	public class BaseCurtainData extends BaseBonusGameData
+	{
+		// members
+		protected var _mapRect:Rectangle;
+		
+		protected var _curtainLevels:Vector.<CurtainLevelData>;
+		private var _currentLevelIndex:int;
+		
+		// properties
+		public override function get BonusGameEngineClass():Class
+		{
+			return CurtainEngine;
+		}
+		
+		public function get CurtainLevels():Vector.<CurtainLevelData>
+		{
+			return _curtainLevels;
+		}
+		public function set CurtainLevels(value:Vector.<CurtainLevelData>):void
+		{
+			_curtainLevels = value;
+		}
+		public function get CurrentCurtainLevel():CurtainLevelData
+		{
+			var result:CurtainLevelData;
+			try
+			{
+				result = _curtainLevels[_currentLevelIndex];
+			}
+			catch (error:Error)
+			{
+				result = _curtainLevels[CurtainLevels.length - 1];
+			}
+			return result;
+		}
+		public function get CurrentLevelIndex():int
+		{
+			return _currentLevelIndex;
+		}
+		public function set CurrentLevelIndex(value:int):void
+		{
+			if (_currentLevelIndex != value)
+			{
+				_currentLevelIndex = value;
+				dispatchEvent(new CurtainLevelDataEvent(CurtainLevelDataEvent.CurrentLevelChanged, CurrentCurtainLevel));
+			}
+		}
+		
+		public function get MapRect():Rectangle
+		{
+			return _mapRect;
+		}
+		
+		// class
+		public function BaseCurtainData()
+		{
+			super();
+			
+			InitLevelsAndItems();
+			InitMap();
+		}
+		protected function InitLevelsAndItems():void
+		{
+			_curtainLevels = new Vector.<CurtainLevelData>();
+		}
+		protected function InitMap():void
+		{
+			throw new MustOverrideError();
+		}
+		
+		// methods
+		public override function CalculateChipsWon():void
+		{
+			var chips:Number = 0;
+			
+			for (var i:int = 0; i < CurtainLevels.length; i++)
+			{
+				for (var j:int = 0; j < CurtainLevels[i].CurtainItems.length; j++)
+				{
+					if (CurtainLevels[i].CurtainItems[j].Selected && !CurtainLevels[i].CurtainItems[j].IsFailure)
+					{
+						chips += CurtainLevels[i].CurtainItems[j].Payout * Main.Instance.ActiveMachine.SelectedBetChips;
+					}
+				}
+			}
+			
+			Chips = chips;
+		}
+	}
+}

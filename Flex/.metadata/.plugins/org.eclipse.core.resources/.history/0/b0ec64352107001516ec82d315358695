@@ -1,0 +1,137 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem.views.ClickableDailyBonusItem;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem.views.ClickedDailyBonusItem;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem.views.ClosedDailyBonusItem;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem.views.DailyBonusItemEvent;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.dailyBonus.dailyBonusItem.views.TooSoonDailyBonusItem;
+	import com.gotchaslots.common.mobile.utils.helpers.DisplayObjectHelper;
+	
+	public class DailyBonusItemView extends BaseComponent
+	{
+		// members
+		private var _index:int;
+		private var _clickedDailyBonusItem:ClickedDailyBonusItem;
+		private var _clickableDailyBonusItem:ClickableDailyBonusItem;
+		private var _tooSoonDailyBonusItem:TooSoonDailyBonusItem;
+		private var _closedDailyBonusItem:ClosedDailyBonusItem;
+		
+		// properties
+		public function get Index():int
+		{
+			return _index;
+		}
+		
+		public function get GetClickedDailyBonusItem():ClickedDailyBonusItem
+		{
+			if (!_clickedDailyBonusItem)
+			{
+				_clickedDailyBonusItem = new ClickedDailyBonusItem(_index);
+			}
+			return _clickedDailyBonusItem;
+		}
+		public function get GetClickableDailyBonusItem():ClickableDailyBonusItem
+		{
+			if (!_clickableDailyBonusItem)
+			{
+				_clickableDailyBonusItem = new ClickableDailyBonusItem(_index);
+				_clickableDailyBonusItem.addEventListener(DailyBonusItemEvent.Clickable2Clicked, OnClickable2Clicked);
+			}
+			return _clickableDailyBonusItem;
+		}
+		public function get GetTooSoonDailyBonusItem():TooSoonDailyBonusItem
+		{
+			if (!_tooSoonDailyBonusItem)
+			{
+				_tooSoonDailyBonusItem = new TooSoonDailyBonusItem(_index);
+				_tooSoonDailyBonusItem.addEventListener(DailyBonusItemEvent.TooSoon2Clickable, OnTooSoon2Clickable);
+			}
+			return _tooSoonDailyBonusItem;
+		}
+		public function get GetClosedDailyBonusItem():ClosedDailyBonusItem
+		{
+			if (!_closedDailyBonusItem)
+			{
+				_closedDailyBonusItem = new ClosedDailyBonusItem(_index);
+			}
+			return _closedDailyBonusItem;
+		}
+		
+		// class
+		public function DailyBonusItemView(index:int)
+		{
+			super(119, 198);
+			
+			_index = index;
+			
+			if (index <= Main.Instance.Session.Rare.DailyBonusRecentCollectedIndex)
+			{
+				// green V + white Glow
+				addChild(GetClickedDailyBonusItem);
+			}
+			else if (index == Main.Instance.Session.Rare.DailyBonusRecentCollectedIndex + 1)
+			{
+				if (Main.Instance.Session.Rare.DailyBonusMSLeftToCellect <= 0)
+				{
+					addChild(GetClickableDailyBonusItem);
+					// Collect to Balance chips particle
+				}
+				else
+				{
+					addChild(GetTooSoonDailyBonusItem);
+				} 
+			}
+			else if (index > Main.Instance.Session.Rare.DailyBonusRecentCollectedIndex + 1)
+			{
+				addChild(GetClosedDailyBonusItem);
+			}
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_clickedDailyBonusItem)
+			{
+				_clickedDailyBonusItem.Dispose();
+				_clickedDailyBonusItem = null;
+			}
+			if (_clickableDailyBonusItem)
+			{
+				_clickableDailyBonusItem.Dispose();
+				_clickableDailyBonusItem = null;
+			}
+			if (_tooSoonDailyBonusItem)
+			{
+				_tooSoonDailyBonusItem.Dispose();
+				_tooSoonDailyBonusItem = null;
+			}
+			if (_closedDailyBonusItem)
+			{
+				_closedDailyBonusItem.Dispose();
+				_closedDailyBonusItem = null;
+			}
+		}
+		
+		// methods
+		public function SetTooSoonDailyBonusItem():void
+		{
+			addChild(GetTooSoonDailyBonusItem);
+		}
+		
+		// events
+		protected function OnClickable2Clicked(event:DailyBonusItemEvent):void
+		{
+			DisplayObjectHelper.SafeRemoveChild(this, GetClickableDailyBonusItem);
+			addChild(GetClickedDailyBonusItem);
+			dispatchEvent(new DailyBonusItemEvent(DailyBonusItemEvent.Clickable2Clicked, _index, event.StageX, event.StageY));
+		}
+		protected function OnTooSoon2Clickable(event:DailyBonusItemEvent):void
+		{
+			DisplayObjectHelper.SafeRemoveChild(this, GetTooSoonDailyBonusItem);
+			addChild(GetClickableDailyBonusItem);
+			dispatchEvent(new DailyBonusItemEvent(DailyBonusItemEvent.Close2TooSoon, _index, event.StageX, event.StageY));
+		}
+	}
+}

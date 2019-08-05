@@ -1,0 +1,27 @@
+package com.gotchaslots.common.mobile.ui.hud.topPanel.buttons
+{
+	import com.gotchaslots.common.assets.hud.topPanel.TopPanelEmbed;
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseClickableButton;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.common.mobile.utils.sounds.BaseSoundsManager;
+	
+	import flash.events.MouseEvent;
+	
+	public class BuyChipsButton extends BaseClickableButton
+	{
+		// class
+		public function BuyChipsButton()
+		{
+			super(36, 36, null, null, new TopPanelEmbed.BuyChipsNormal(), new TopPanelEmbed.BuyChipsSelected());
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			Main.Instance.Sounds.Play(BaseSoundsManager.TopPanel_Click);
+			super.OnClick(event);
+			NotificationsHandler.Instance.ShowBuyChipsPopup(false, null);
+		}
+	}
+}

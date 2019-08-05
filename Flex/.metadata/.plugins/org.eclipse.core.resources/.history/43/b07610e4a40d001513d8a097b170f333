@@ -1,0 +1,10 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	public class NativeDialogsHandler
+	{
+		// class
+		public function NativeDialogsHandler()
+		{
+		}
+	}
+}

@@ -1,0 +1,12 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	
+	public class LocalNotificationsHandler extends BaseCoreMobileHandler
+	{
+		public function LocalNotificationsHandler()
+		{
+			super();
+		}
+	}
+}

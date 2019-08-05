@@ -1,0 +1,142 @@
+package com.gotchaslots.common.mobile.utils.sounds
+{
+	import com.gotchaslots.common.assets.sounds.SoundsEmbed;
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.session.SessionDataEvent;
+	import com.gotchaslots.common.mobile.utils.consts.Consts;
+	
+	import flash.events.Event;
+	import flash.media.AudioPlaybackMode;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	import flash.media.SoundMixer;
+	import flash.media.SoundTransform;
+	import flash.utils.Dictionary;
+	
+	public class SoundsManager
+	{
+		// members
+		private var _soundsEmbed:Dictionary;
+		private var _soundChannels:Dictionary;
+		
+		// class
+		public function SoundsManager()
+		{
+			InitSounds();
+			_soundChannels = new Dictionary();
+			
+			SoundMixer.soundTransform = new SoundTransform(Consts.DEFAULT_VOLUME);
+			SoundMixer.audioPlaybackMode = AudioPlaybackMode.AMBIENT;
+			Main.Instance.Session.Rare.addEventListener(SessionDataEvent.VolumeChanged, OnVolumeChanged);
+		}
+		private function InitSounds():void
+		{
+			_soundsEmbed = new Dictionary();
+			_soundsEmbed[Click] = SoundsEmbed.Click;
+			_soundsEmbed[Machine_BonusGame_HigherLower_Spin] = SoundsEmbed.Machine_BonusGame_HigherLower_Spin;
+			_soundsEmbed[TopPanel_Click] = SoundsEmbed.TopPanel_Click;
+			_soundsEmbed[App_Load] = SoundsEmbed.App_Load;
+			_soundsEmbed[TimerBonus_TimerBonus_Ready] = SoundsEmbed.TimerBonus_TimerBonus_Ready;
+			_soundsEmbed[TimerBonus_TimerBonus_Collect] = SoundsEmbed.TimerBonus_TimerBonus_Collect;
+			_soundsEmbed[SoundOn] = SoundsEmbed.SoundOn;
+			_soundsEmbed[SoundOff] = SoundsEmbed.SoundOff;
+			_soundsEmbed[Popup_LevelUp_Shown] = SoundsEmbed.Popup_LevelUp_Shown;
+			_soundsEmbed[Popup_NewMachine_Shown] = SoundsEmbed.Popup_NewMachine_Shown;
+			_soundsEmbed[Popup_Collect_WinToBalance] = SoundsEmbed.Popup_Collect_WinToBalance;
+			_soundsEmbed[Slide] = SoundsEmbed.Slide;
+			_soundsEmbed[MachinePreview_MachineInfoButton_Click] = SoundsEmbed.MachinePreview_MachineInfoButton_Click;
+			_soundsEmbed[MachinePreview_Click] = SoundsEmbed.MachinePreview_Click;
+			_soundsEmbed[Up] = SoundsEmbed.Up;
+			_soundsEmbed[Down] = SoundsEmbed.Down;
+			_soundsEmbed[Machine_BottomPanel_PayTable] = SoundsEmbed.Machine_BottomPanel_PayTable;
+			_soundsEmbed[Machine_BottomPanel_Auto_On] = SoundsEmbed.Machine_BottomPanel_Auto_On;
+			_soundsEmbed[Machine_BottomPanel_Auto_Off] = SoundsEmbed.Machine_BottomPanel_Auto_Off;
+			_soundsEmbed[Machine_BottomPanel_Speed_Fast] = SoundsEmbed.Machine_BottomPanel_Speed_Fast;
+			_soundsEmbed[Machine_BottomPanel_Speed_Slow] = SoundsEmbed.Machine_BottomPanel_Speed_Slow;
+			_soundsEmbed[Machine_Sequence_Spinning] = SoundsEmbed.Machine_Sequence_Spinning;
+			_soundsEmbed[Machine_Sequence_Reel_Stop] = SoundsEmbed.Machine_Sequence_Reel_Stop;
+			_soundsEmbed[Machine_Sequence_Won] = SoundsEmbed.Machine_Sequence_Won;
+			_soundsEmbed[Machine_Sequence_NoWin] = SoundsEmbed.Machine_Sequence_NoWin;
+			_soundsEmbed[Machine_Sequence_Bomb_Blink] = SoundsEmbed.Machine_Sequence_Bomb_Blink;
+			_soundsEmbed[Machine_Sequence_Bomb_Boom] = SoundsEmbed.Machine_Sequence_Bomb_Boom;
+			_soundsEmbed[Machine_Sequence_MiniSpin_Spin] = SoundsEmbed.Machine_Sequence_MiniSpin_Spin;
+			_soundsEmbed[Machine_Sequence_MiniSpin_Stop] = SoundsEmbed.Machine_Sequence_MiniSpin_Stop;
+			_soundsEmbed[Machine_Sequence_Collectibles_Blink] = SoundsEmbed.Machine_Sequence_Collectibles_Blink;
+			_soundsEmbed[Machine_Sequence_Collectibles_SymbolToCollectibles] = SoundsEmbed.Machine_Sequence_Collectibles_SymbolToCollectibles;
+			_soundsEmbed[Machine_Sequence_Column_Flipper2] = SoundsEmbed.Machine_Sequence_Column_Flipper2;
+			_soundsEmbed[Machine_Sequence_Symetric_Flipper2] = SoundsEmbed.Machine_Sequence_Symetric_Flipper2;
+			_soundsEmbed[Machine_Sequence_Strike_Blink] = SoundsEmbed.Machine_Sequence_Strike_Blink;
+			_soundsEmbed[Machine_Sequence_MegaWin_Animation] = SoundsEmbed.Machine_Sequence_MegaWin_Animation;
+			_soundsEmbed[Machine_Sequence_ExtraBigWin_Animation] = SoundsEmbed.Machine_Sequence_ExtraBigWin_Animation;
+			_soundsEmbed[Machine_Sequence_BigWin_Animation] = SoundsEmbed.Machine_Sequence_BigWin_Animation;
+			_soundsEmbed[Machine_Sequence_ToWin] = SoundsEmbed.Machine_Sequence_ToWin;
+			_soundsEmbed[Machine_Sequence_FiveInARow_Animation] = SoundsEmbed.Machine_Sequence_FiveInARow_Animation;
+			_soundsEmbed[Machine_Sequence_FourInARow_Animation] = SoundsEmbed.Machine_Sequence_FourInARow_Animation;
+			_soundsEmbed[Machine_Sequence_BonusGame_Blink] = SoundsEmbed.Machine_Sequence_BonusGame_Blink;
+			_soundsEmbed[Machine_Sequence_BonusGame_Popup_Start] = SoundsEmbed.Machine_Sequence_BonusGame_Popup_Start;
+			_soundsEmbed[Machine_Sequence_BonusGame_Popup_End] = SoundsEmbed.Machine_Sequence_BonusGame_Popup_End;
+			_soundsEmbed[Machine_Sequence_Multiplier_Blink] = SoundsEmbed.Machine_Sequence_Multiplier_Blink;
+			_soundsEmbed[Machine_Sequence_FreeSpins_Blink] = SoundsEmbed.Machine_Sequence_FreeSpins_Blink;
+			_soundsEmbed[Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon] = SoundsEmbed.Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon;
+			_soundsEmbed[Machine_Sequence_WinToBalance] = SoundsEmbed.Machine_Sequence_WinToBalance;
+			_soundsEmbed[Won] = SoundsEmbed.Won;
+			_soundsEmbed[NoWin] = SoundsEmbed.NoWin;
+		}
+		public function Dispose():void
+		{
+			StopAll();
+			_soundsEmbed = new Dictionary();
+			_soundChannels = new Dictionary();
+		}
+		
+		// methods
+		public function Play(key:String, repeat:Boolean = false):void
+		{
+			try
+			{
+				if (Main.Instance.Session.Rare.Volume)
+				{
+					var sound:Sound;
+					var soundChannel:SoundChannel = new SoundChannel();
+					
+					if (_soundChannels[key] == null)
+					{
+						sound = new _soundsEmbed[key]()
+					}
+					else
+					{
+						sound = _soundChannels[key];
+					}
+					
+					if (sound != null)
+					{
+						soundChannel = sound.play(0, repeat ? 9999 : 0);
+					}
+				}
+			}
+			catch (error:Error)
+			{
+			}
+		}
+		public function Stop(key:String):void
+		{
+			if (_soundChannels[key])
+			{
+				SoundChannel(_soundChannels[key]).stop();
+			}
+		}
+		public function StopAll():void
+		{
+			for (var key:String in _soundChannels)
+			{
+				SoundChannel(_soundChannels[key]).stop();
+			}
+		}
+		
+		// events
+		protected function OnVolumeChanged(event:Event):void
+		{
+			StopAll();
+		}
+	}
+}

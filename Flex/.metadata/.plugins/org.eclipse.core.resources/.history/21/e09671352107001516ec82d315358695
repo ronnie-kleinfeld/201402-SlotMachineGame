@@ -1,0 +1,20 @@
+package com.gotchaslots.common.mobile.ui.main
+{
+	import com.gotchaslots.common.assets.common.CommonEmbed;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BasePng;
+	
+	public class SplashBG extends BasePng
+	{
+		// properties
+		protected override function get PngFilters():Array
+		{
+			return null;
+		}
+		
+		// class
+		public function SplashBG()
+		{
+			super(800, 494, new CommonEmbed.Splash800x494(), 0);
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package com.gotchaslots.slots.mobile.ui.common.components.gradientBG
+{
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseComponent;
+	
+	import flash.display.GradientType;
+	import flash.geom.Matrix;
+	
+	public class RadialGradientBG extends BaseComponent
+	{
+		// class
+		public function RadialGradientBG(w:int, h:int, corner:Number, color1:Number, color2:Number)
+		{
+			super(w, h);
+			
+			var matrix:Matrix = new Matrix();
+			matrix.createGradientBox(W, H, 0, 0);
+			
+			this.graphics.beginGradientFill(GradientType.RADIAL, [color1, color2], [1, 1], [0, 255], matrix);        
+			this.graphics.drawRoundRect(0, 0, W, H, corner);
+		}
+	}
+}

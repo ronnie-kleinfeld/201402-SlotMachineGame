@@ -1,0 +1,62 @@
+package com.gotchaslots.slots.data.lobby.lobbyMachine.sample
+{
+	import com.gotchaslots.slots.assets.machines.machine3x3.Machine3x3Embed;
+	import com.gotchaslots.slots.data.lobby.lobbyMachine.LobbyMachine3x3Data;
+	import com.gotchaslots.slots.data.machine.symbol.NormalSymbolData;
+	import com.gotchaslots.common.mobile.data.session.level.LevelData;
+	
+	public final class LobbyMachine3x3Data extends LobbyMachine3x3Data
+	{
+		// properties
+		public override function get MachineName():String
+		{
+			return "Machine 3x3";
+		}
+		protected override function get Factor():Number
+		{
+			return 1.3;
+		}
+		public override function get MaxPaylines():int
+		{
+			return 27;
+		}
+		public override function get OpensOnLevel():LevelData
+		{
+			return new LevelData(1);
+		}
+		protected override function get ReelsBGPngClass():Class
+		{
+			return Machine3x3Embed.ReelsBG;
+		}
+		protected override function get FramePngClass():Class
+		{
+			return Machine3x3Embed.FrameBG;
+		}
+		public override function get IsCommingSoon():Boolean
+		{
+			return false;
+		}
+		
+		// class
+		public function LobbyMachine3x3Data(id:int)
+		{
+			super(id);
+		}
+		protected override function InitNormalSymbols():void
+		{
+			super.InitNormalSymbols();
+			
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_00, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_01, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_02, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_03, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_04, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_05, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_06, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_07, 5, 3, 2, 2));
+			AddNormalSymbol(new NormalSymbolData(Symbols.Symbols.length, Machine3x3Embed.Symbol_08, 5, 3, 2, 2));
+			
+			Symbols.SetPreviewSymbol = 8;
+		}
+	}
+}

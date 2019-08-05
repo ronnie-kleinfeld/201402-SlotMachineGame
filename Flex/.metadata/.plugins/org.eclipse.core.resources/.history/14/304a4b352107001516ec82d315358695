@@ -1,0 +1,60 @@
+package com.gotchaslots.common.mobile.utils.numberTimer
+{
+	import com.gotchaslots.common.mobile.utils.ex.EventDispatcherEx;
+	import com.gotchaslots.common.mobile.utils.percentTimer.PercentTimer;
+	import com.gotchaslots.common.mobile.utils.percentTimer.PercentTimerEvent;
+	
+	import flash.events.Event;
+	
+	public class NumberTimer extends EventDispatcherEx
+	{
+		// members
+		private var _percentTimer:PercentTimer;
+		private var _from:Number;
+		private var _to:Number;
+		private var _diff:Number;
+		
+		// class
+		public function NumberTimer(timeForTimerMilliseconds:int = 2500)
+		{
+			_percentTimer = new PercentTimer(timeForTimerMilliseconds);
+			_percentTimer.addEventListener(PercentTimerEvent.Changed, OnPercentTimerChanged);
+			_percentTimer.addEventListener(PercentTimerEvent.FullReached, OnPercentTimerFullReached);
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_percentTimer)
+			{
+				_percentTimer.Percent = _percentTimer.Percent;
+				_percentTimer.removeEventListener(PercentTimerEvent.Changed, OnPercentTimerChanged);
+				_percentTimer.removeEventListener(PercentTimerEvent.FullReached, OnPercentTimerFullReached);
+				_percentTimer.Dispose();
+				_percentTimer = null;
+			}
+		}
+		
+		// methods
+		public function NumberTo(from:Number, to:Number):void
+		{
+			_percentTimer.Percent = 0;
+			
+			_from = from;
+			_to = to;
+			_diff = _to - _from;
+			
+			_percentTimer.PercentTo = 1;
+		}
+		
+		// events
+		protected function OnPercentTimerChanged(event:PercentTimerEvent):void
+		{
+			dispatchEvent(new NumberTimerEvent(NumberTimerEvent.Changed, _from + _diff * event.Percent));
+		}
+		protected function OnPercentTimerFullReached(event:Event):void
+		{
+			dispatchEvent(new NumberTimerEvent(NumberTimerEvent.FullReached, _to));
+		}
+	}
+}

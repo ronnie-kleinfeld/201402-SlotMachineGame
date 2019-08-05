@@ -1,0 +1,151 @@
+package com.gotchaslots.slots.ui.machine.presentation.base
+{
+	import com.gotchaslots.common.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.ui.machine.SlotsMachineView;
+	import com.gotchaslots.slots.ui.machine.presentation.BombPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.BonusGamePresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.ColumnPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.FiveInARowPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.FourInARowPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.FreeSpinsPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.MultiplierPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.SymetricPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.WinToBalancePresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.collectibles.AceCollectiblesPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.collectibles.GoldCollectiblesPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.collectibles.KingCollectiblesPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.miniSpin.MiniSpinPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.strike.BigWinPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.strike.ExtraBigWinPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.strike.MegaWinPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.strike.NormalWinPresentation;
+	import com.gotchaslots.slots.ui.machine.presentation.strike.StrikePresentation;
+	import com.gotchaslots.common.utils.helpers.DisplayObjectHelper;
+	
+	import flash.events.Event;
+	
+	public class PresentationBox extends SpriteEx
+	{
+		// class
+		public function PresentationBox()
+		{
+		}
+		
+		// methods
+		public function ShowBonusGameIsValuablePresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new BonusGamePresentation(onClick, onClose, view));
+		}
+		public function ShowAceCollectiblesPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new AceCollectiblesPresentation(onClick, onClose, view));
+		}
+		public function ShowGoldCollectiblesPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new GoldCollectiblesPresentation(onClick, onClose, view));
+		}
+		public function ShowKingCollectiblesPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new KingCollectiblesPresentation(onClick, onClose, view));
+		}
+		public function ShowFreeSpinsIsValuablePresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new FreeSpinsPresentation(onClick, onClose, view));
+		}
+		public function ShowBigWinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new BigWinPresentation(onClick, onClose, view));
+		}
+		public function ShowExtraBigWinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new ExtraBigWinPresentation(onClick, onClose, view));
+		}
+		public function ShowFiveInARowPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new FiveInARowPresentation(onClick, onClose, view));
+		}
+		public function ShowFourInARowPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new FourInARowPresentation(onClick, onClose, view));
+		}
+		public function ShowMegaWinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new MegaWinPresentation(onClick, onClose, view));
+		}
+		public function ShowNormalWinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new NormalWinPresentation(onClick, onClose, view));
+		}
+		public function ShowStrikePresentation(onClick:Function, onClose:Function, view:SlotsMachineView, selectedPaylines:int):void
+		{
+			Show(new StrikePresentation(onClick, onClose, view, selectedPaylines));
+		}
+		public function ShowBombPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new BombPresentation(onClick, onClose, view));
+		}
+		public function ShowMiniSpinPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new MiniSpinPresentation(onClick, onClose, view));
+		}
+		public function ShowColumnPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new ColumnPresentation(onClick, onClose, view));
+		}
+		public function ShowMultiplierPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new MultiplierPresentation(onClick, onClose, view));
+		}
+		public function ShowSymetricPresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new SymetricPresentation(onClick, onClose, view));
+		}
+		public function ShowWinToBalanceIsValuablePresentation(onClick:Function, onClose:Function, view:SlotsMachineView):void
+		{
+			Show(new WinToBalancePresentation(onClick, onClose, view));
+		}
+		
+		private function Show(basePresentation:BasePresentation):void
+		{
+			basePresentation.addEventListener(PresentationEvent.Click, OnPresentationClick);
+			basePresentation.addEventListener(Event.CLOSE, OnPresentationClose);
+			addChild(basePresentation);
+			basePresentation.AddedToNotifications();
+		}
+		public function RemovePresentations(doRemoved:Boolean):void
+		{
+			if (numChildren > 0)
+			{
+				var basePresentation:BasePresentation = BasePresentation(getChildAt(0));
+				basePresentation.removeEventListener(PresentationEvent.Click, OnPresentationClick);
+				basePresentation.removeEventListener(Event.CLOSE, OnPresentationClose);
+				removeChild(basePresentation);
+				if (doRemoved)
+				{
+					basePresentation.DoRemoved();
+				}
+				else
+				{
+					DisplayObjectHelper.SafeRemoveChild(this, basePresentation);
+					basePresentation.Dispose();
+				}
+			}
+		}
+		
+		// events
+		private function OnPresentationClick(event:PresentationEvent):void
+		{
+			if (event.OnClick != null)
+			{
+				RemovePresentations(false);
+				event.OnClick();
+			}
+		}
+		private function OnPresentationClose(event:Event):void
+		{
+			var basePresentation:BasePresentation = BasePresentation(event.currentTarget);
+			basePresentation.removeEventListener(Event.CLOSE, OnPresentationClose);
+			RemovePresentations(true);
+		}
+	}
+}

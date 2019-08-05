@@ -1,0 +1,56 @@
+package com.gotchaslots.common.mobile.data.machine.bonusGame.curtain
+{
+	import com.gotchaslots.slots.assets.bonusGame.curtain.weather.WeatherEmbed;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtain.BaseCurtainData;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtainItem.MotionCurtainItemData;
+	import com.gotchaslots.common.mobile.data.machine.bonusGame.curtain.curtainLevel.CurtainLevelData;
+	
+	import flash.geom.Rectangle;
+	
+	public class WeatherCurtainData extends BaseCurtainData
+	{
+		public override function get StartPopupMessage():String
+		{
+			return "Weather";
+		}
+		
+		// properties
+		protected override function get BGClass():Class
+		{
+			return null;
+		}
+		
+		// class
+		public function WeatherCurtainData()
+		{
+			super();
+		}
+		protected override function InitLevelsAndItems():void
+		{
+			super.InitLevelsAndItems();
+			
+			var curtainLevel:CurtainLevelData;
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, WeatherEmbed.SunBG, "Sun", "Select a Sun", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(25, 117, 108, 102), WeatherEmbed.BrightOrangeHappy_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(351, 51, 125, 125), WeatherEmbed.ShiningSunWinks_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(476, 176, 128, 101), WeatherEmbed.SillySmilingSun_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(163, 186, 222, 200), WeatherEmbed.SleepySun_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(168, 71, 90, 80), WeatherEmbed.SunBehindClouds_Motion, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+			
+			curtainLevel = new CurtainLevelData(_curtainLevels.length, WeatherEmbed.WinterBG, "Winter", "It's winter", 1, true);
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(351, 53, 80, 83), WeatherEmbed.Cloud_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(447, 246, 123, 111), WeatherEmbed.Rain_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(647, 288, 122, 100), WeatherEmbed.RainWoman_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(124, 67, 56, 85), WeatherEmbed.Snow_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(410, 160, 80, 80), WeatherEmbed.SnowFlake_Motion, "", "", ""));
+			curtainLevel.CurtainItems.push(new MotionCurtainItemData(curtainLevel.CurtainItems.length, new Rectangle(0, 195, 141, 98), WeatherEmbed.TreeSnow_Motion, "", "", ""));
+			_curtainLevels.push(curtainLevel);
+		}
+		protected override function InitMap():void
+		{
+			_mapRect = new Rectangle(590, 10, 200, 100);
+		}
+	}
+}

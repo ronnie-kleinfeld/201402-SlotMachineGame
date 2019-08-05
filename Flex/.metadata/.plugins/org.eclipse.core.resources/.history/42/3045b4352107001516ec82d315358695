@@ -1,0 +1,42 @@
+package com.gotchaslots.common.mobile.data.lobby.pages
+{
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.utils.dataType.BaseIDData;
+	
+	public class PageData extends BaseIDData
+	{
+		// members
+		private var _description:String;
+		private var _machines:Vector.<BaseLobbyMachineData>;
+		
+		// properties
+		public function get Description():String
+		{
+			return _description;
+		}
+		public function get LobbyMachines():Vector.<BaseLobbyMachineData>
+		{
+			return _machines;
+		}
+		
+		// class
+		public function PageData(description:String)
+		{
+			super(-1);
+			
+			_description = description;
+			
+			_machines = new Vector.<BaseLobbyMachineData>();
+		}
+		
+		// methods
+		public function AddLobbyMachine(lobbyMachine:BaseLobbyMachineData):void
+		{
+			_machines.push(lobbyMachine);
+			if (_machines.length > 4)
+			{
+				throw new Error("There are more than 4 LobbyMachine in Page " + _description);
+			}
+		}
+	}
+}

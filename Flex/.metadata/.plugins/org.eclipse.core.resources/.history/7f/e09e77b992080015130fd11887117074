@@ -1,0 +1,55 @@
+package com.gotchaslots.common.assets.sounds
+{
+	public class SoundsEmbed
+	
+		[Embed(source="Sounds.swf", symbol="Click")] public static const Click:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BonusGame_HigherLower_Spin")] public static const Machine_BonusGame_HigherLower_Spin:Class;
+		[Embed(source="Sounds.swf", symbol="TopPanel_Click")] public static const TopPanel_Click:Class;
+		[Embed(source="Sounds.swf", symbol="SoundOff")] public static const SoundOff:Class;
+		[Embed(source="Sounds.swf", symbol="SoundOn")] public static const SoundOn:Class;
+		[Embed(source="Sounds.swf", symbol="App_Load")] public static const App_Load:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BottomPanel_Auto_Off")] public static const Machine_BottomPanel_Auto_Off:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BottomPanel_Auto_On")] public static const Machine_BottomPanel_Auto_On:Class;
+		[Embed(source="Sounds.swf", symbol="Down")] public static const Down:Class;
+		[Embed(source="Sounds.swf", symbol="Up")] public static const Up:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BottomPanel_PayTable")] public static const Machine_BottomPanel_PayTable:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BottomPanel_Speed_Fast")] public static const Machine_BottomPanel_Speed_Fast:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_BottomPanel_Speed_Slow")] public static const Machine_BottomPanel_Speed_Slow:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_BigWin_Animation")] public static const Machine_Sequence_BigWin_Animation:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_ToWin")] public static const Machine_Sequence_ToWin:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Bomb_Blink")] public static const Machine_Sequence_Bomb_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Bomb_Boom")] public static const Machine_Sequence_Bomb_Boom:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_BonusGame_Blink")] public static const Machine_Sequence_BonusGame_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_BonusGame_Popup_End")] public static const Machine_Sequence_BonusGame_Popup_End:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_BonusGame_Popup_Start")] public static const Machine_Sequence_BonusGame_Popup_Start:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Collectibles_Blink")] public static const Machine_Sequence_Collectibles_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Collectibles_SymbolToCollectibles")] public static const Machine_Sequence_Collectibles_SymbolToCollectibles:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Column_Flipper2")] public static const Machine_Sequence_Column_Flipper2:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_ExtraBigWin_Animation")] public static const Machine_Sequence_ExtraBigWin_Animation:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_FiveInARow_Animation")] public static const Machine_Sequence_FiveInARow_Animation:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_FourInARow_Animation")] public static const Machine_Sequence_FourInARow_Animation:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_FreeSpins_Blink")] public static const Machine_Sequence_FreeSpins_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon")] public static const Machine_Sequence_FreeSpins_SymbolToFreeSpinsRibbon:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_MegaWin_Animation")] public static const Machine_Sequence_MegaWin_Animation:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Multiplier_Blink")] public static const Machine_Sequence_Multiplier_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_NoWin")] public static const Machine_Sequence_NoWin:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Reel_Stop")] public static const Machine_Sequence_Reel_Stop:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_MiniSpin_Spin")] public static const Machine_Sequence_MiniSpin_Spin:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_MiniSpin_Stop")] public static const Machine_Sequence_MiniSpin_Stop:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Spinning")] public static const Machine_Sequence_Spinning:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Strike_Blink")] public static const Machine_Sequence_Strike_Blink:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Symetric_Flipper2")] public static const Machine_Sequence_Symetric_Flipper2:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_WinToBalance")] public static const Machine_Sequence_WinToBalance:Class;
+		[Embed(source="Sounds.swf", symbol="Machine_Sequence_Won")] public static const Machine_Sequence_Won:Class;
+		[Embed(source="Sounds.swf", symbol="MachinePreview_Click")] public static const MachinePreview_Click:Class;
+		[Embed(source="Sounds.swf", symbol="MachinePreview_MachineInfoButton_Click")] public static const MachinePreview_MachineInfoButton_Click:Class;
+		[Embed(source="Sounds.swf", symbol="Popup_Collect_WinToBalance")] public static const Popup_Collect_WinToBalance:Class;
+		[Embed(source="Sounds.swf", symbol="Popup_LevelUp_Shown")] public static const Popup_LevelUp_Shown:Class;
+		[Embed(source="Sounds.swf", symbol="Slide")] public static const Slide:Class;
+		[Embed(source="Sounds.swf", symbol="Popup_NewMachine_Shown")] public static const Popup_NewMachine_Shown:Class;
+		[Embed(source="Sounds.swf", symbol="TimerBonus_TimerBonus_Collect")] public static const TimerBonus_TimerBonus_Collect:Class;
+		[Embed(source="Sounds.swf", symbol="TimerBonus_TimerBonus_Ready")] public static const TimerBonus_TimerBonus_Ready:Class;
+		[Embed(source="Sounds.swf", symbol="NoWin")] public static const NoWin:Class;
+		[Embed(source="Sounds.swf", symbol="Won")] public static const Won:Class;
+	}
+}

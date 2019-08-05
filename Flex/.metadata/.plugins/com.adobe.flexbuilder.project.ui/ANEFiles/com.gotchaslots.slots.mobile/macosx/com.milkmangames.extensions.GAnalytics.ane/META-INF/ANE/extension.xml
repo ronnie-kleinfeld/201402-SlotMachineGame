@@ -1,0 +1,41 @@
+	<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+	  <id>com.milkmangames.extensions.GAnalytics</id>
+	  <versionNumber>1</versionNumber>
+	  <platforms>
+
+	<platform name="iPhone-ARM">
+	        <applicationDeployment>
+	          <nativeLibrary>libGAnalyticsAPI.a</nativeLibrary>
+	          <initializer>MmgGaApiExtInitializer</initializer>
+	          <finalizer>MmgGaApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		<platform name="Android-ARM">
+	      <applicationDeployment>
+	        <nativeLibrary>GAnalyticsAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.ganalytics.GAnalyticsExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.ganalytics.GAnalyticsExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>		
+		
+	<platform name="iPhone-x86">
+	        <applicationDeployment>
+	          <nativeLibrary>libGAnalyticsAPI.a</nativeLibrary>
+	          <initializer>MmgGaApiExtInitializer</initializer>
+	          <finalizer>MmgGaApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		<platform name="Android-x86">
+	      <applicationDeployment>
+	        <nativeLibrary>GAnalyticsAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.ganalytics.GAnalyticsExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.ganalytics.GAnalyticsExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>			
+		
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform> 
+	  </platforms>
+	</extension>

@@ -1,0 +1,21 @@
+package com.gotchaslots.slots.mobile.data.application.schedulers.scheduler
+{
+	import com.gotchaslots.common.assets.hud.frame.HudFrameEmbed;
+	import com.gotchaslots.slots.mobile.data.application.schedulers.ScheduleData;
+	import com.gotchaslots.slots.mobile.data.application.schedulers.scheduler.base.BaseScheduler;
+	
+	public class FirstDayOfSpring extends BaseScheduler
+	{
+		// properties
+		public override function get FrameClass():Class
+		{
+			return HudFrameEmbed.FirstDayOfSpring;
+		}
+		
+		// class
+		public function FirstDayOfSpring()
+		{
+			super(new ScheduleData(Number.NaN, 3, 20), new ScheduleData(Number.NaN, 3, 20));
+		}
+	}
+}

@@ -1,0 +1,43 @@
+	<extension xmlns="http://ns.adobe.com/air/extension/3.5">
+	  <id>com.milkmangames.extensions.CoreMobile</id>
+	  <versionNumber>2</versionNumber>
+	  <platforms>
+
+	<platform name="iPhone-ARM">
+	        <applicationDeployment>
+	          <nativeLibrary>libCoreMobileAPI.a</nativeLibrary>
+	          <initializer>MmgCmApiExtInitializer</initializer>
+	          <finalizer>MmgCmApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		  
+	<platform name="iPhone-x86">
+	        <applicationDeployment>
+	          <nativeLibrary>libCoreMobileAPI.a</nativeLibrary>
+	          <initializer>MmgCmApiExtInitializer</initializer>
+	          <finalizer>MmgCmApiExtFinalizer</finalizer>
+	        </applicationDeployment>
+	      </platform>
+		  
+		<platform name="Android-ARM">
+	      <applicationDeployment>
+	        <nativeLibrary>CoreMobileAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.coremobile.CoreMobileExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.andriod.coremobile.CoreMobileExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>	
+		
+		<platform name="Android-x86">
+	      <applicationDeployment>
+	        <nativeLibrary>CoreMobileAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.coremobile.CoreMobileExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.andriod.coremobile.CoreMobileExtension</finalizer>
+	      </applicationDeployment>
+	    </platform>	
+		
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform> 
+	  </platforms>
+	</extension>

@@ -1,0 +1,60 @@
+package com.gotchaslots.common.mobile.ui.machine
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.utils.error.MustOverrideError;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	import com.gotchaslots.common.mobile.utils.mvc.BaseMvcController;
+	import com.gotchaslots.slots.mobile.data.machine.SlotsMachineData;
+	import com.gotchaslots.slots.mobile.ui.machine.SlotsMachineView;
+	
+	import flash.events.TimerEvent;
+
+	public class CommonMachineController extends BaseMvcController
+	{
+		// members
+		protected var _active:Boolean;
+		protected var _activeMachine:SlotsMachineData;
+		
+		// class
+		public function CommonMachineController()
+		{
+			super();
+			
+			_active = true;
+			_activeMachine = Main.Instance.ActiveMachine;
+		}
+		
+		public override function CreateView():void
+		{
+			_view = new SlotsMachineView(this);
+		}
+		public override function Init():void
+		{
+			super.Init();
+			
+			Main.Instance.XServices.GoogleAnalytics.TrackMachineView(_activeMachine.LobbyMachine.ID);
+		}
+		protected function OnPauseTimer(event:TimerEvent):void
+		{
+			var pauseTimer:TimerEx = TimerEx(event.currentTarget);
+			if (pauseTimer)
+			{
+				pauseTimer.Dispose();
+				pauseTimer = null;
+			}
+			
+			DoSpin(false);
+		}
+		
+		// methods
+		public function Deactivate():void
+		{
+			_active = false;
+		}
+		
+		public function DoSpin(hasSetToMaxTotalBet:Boolean):void
+		{
+			throw new MustOverrideError();
+		}
+	}
+}

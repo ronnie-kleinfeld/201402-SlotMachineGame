@@ -1,0 +1,26 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	public class CredentialsDialogHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function ConfirmationDialogHandler()
+		{
+			super();
+		}
+		
+		// confirmation dialog
+		public function Show(title:String, message:String, buttonLabel:String):void
+		{
+			if (Init())
+			{
+				var dialog:CMDialogDispatcher = CoreMobile.mobile.showModalConfirmationDialog(title, message, buttonLabel);
+				dialog.addDismissListener(
+					function(event:CMDialogEvent):void
+					{
+						dispatchEvent(new ConfirmationDialogEvent(ConfirmationDialogEvent.OK));
+					}
+				);
+			}
+		}
+	}
+}

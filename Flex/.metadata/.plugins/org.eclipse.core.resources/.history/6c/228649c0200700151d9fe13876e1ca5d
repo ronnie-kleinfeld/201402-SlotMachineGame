@@ -1,0 +1,47 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.settings.groups
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.settings.buttons.VolumeSettingsButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.settings.textField.PopupSettingsTextField;
+	
+	import flash.events.MouseEvent;
+	
+	public class VolumeSettingsGroup extends BaseSettingsGroup
+	{
+		// members
+		private var _sound:PopupSettingsTextField;
+		
+		// properties
+		private function get GetText():String
+		{
+			return Main.Instance.Session.Rare.Volume ? Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Sound_On) : Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Sound_Off);
+		}
+		
+		// class
+		public function VolumeSettingsGroup(w:int, h:int)
+		{
+			super(w, h);
+			
+			var settingsPopupVolume:VolumeSettingsButton = new VolumeSettingsButton();
+			settingsPopupVolume.x = 3;
+			settingsPopupVolume.y = 3;
+			addChild(settingsPopupVolume);
+			
+			_sound = new PopupSettingsTextField(W, GetText);
+			_sound.x = W * 0.05;
+			_sound.y = 3;
+			addChild(_sound);
+			
+			addEventListener(MouseEvent.CLICK, OnClick);
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			Main.Instance.Session.Rare.Volume = !Main.Instance.Session.Rare.Volume;
+			
+			_sound.Text = GetText;
+		}
+	}
+}

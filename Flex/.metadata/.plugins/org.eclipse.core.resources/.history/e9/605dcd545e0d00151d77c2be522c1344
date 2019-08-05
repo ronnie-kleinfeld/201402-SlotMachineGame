@@ -1,0 +1,385 @@
+package com.gotchaslots.slots.data.session.wallet
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.MainEvent;
+	import com.gotchaslots.common.mobile.data.session.SessionDataEvent;
+	import com.gotchaslots.common.mobile.data.session.base.BaseIOData;
+	import com.gotchaslots.common.mobile.data.session.base.ISession;
+	import com.gotchaslots.common.mobile.data.session.level.LevelData;
+	import com.gotchaslots.common.mobile.utils.ex.TimerEx;
+	import com.gotchaslots.common.mobile.utils.numberTimer.NumberTimer;
+	import com.gotchaslots.common.mobile.utils.numberTimer.NumberTimerEvent;
+	
+	import flash.events.Event;
+	import flash.events.TimerEvent;
+	
+	public class WalletSessionData extends BaseIOData implements ISession
+	{
+		// consts
+		private const KEY:String = "a14682eba2434aaab775238f807a99d2";
+		
+		// members
+		private var _balance:Number;							// serialize
+		private var _balanceNumberTimer:NumberTimer;
+		private var _diagonalValue:Number;						// serialize				// base on Diagonal.xlsx excel
+		private var _xp:Number;									// serialize
+		private var _level:LevelData;							// calculated by XP			// base on Levels.xlsx excel
+		private var _jackpot:int;								// serialize
+		private var _jackpotTimer:TimerEx;						// init
+		private var _saveTimer:TimerEx;							// init
+		
+		// properties
+		protected override function get Key():String
+		{
+			return KEY;
+		}
+		
+		public function get GetBalance():Number
+		{
+			return Balance;
+		}
+		
+		private function get Balance():Number
+		{
+			return _balance;
+		}
+		private function set Balance(value:Number):void
+		{
+			if (isNaN(_balance) || isNaN(value))
+			{
+				_balance = 0;
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.BalanceChanged, this, null, _balance));
+				Save();
+			}
+			else if (_balance < value)
+			{
+				_balanceNumberTimer.NumberTo(_balance, value);
+				_balance = value;
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.BalanceIncreased, this, null, _balance));
+				Save();
+			}
+			else if (_balance > value)
+			{
+				_balance = value;
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.BalanceChanged, this, null, _balance));
+				Save();
+			}
+		}
+		protected function OnBalacneNumberTimerChanged(event:NumberTimerEvent):void
+		{
+			dispatchEvent(new SessionDataEvent(SessionDataEvent.BalanceChanged, this, null, event.Value));
+		}
+		
+		public function get GetDiagonalValue():Number
+		{
+			return DiagonalValue;
+		}
+		private function get DiagonalValue():Number
+		{
+			if (isNaN(_diagonalValue) || _diagonalValue < 0)
+			{
+				_diagonalValue = GetBalance;
+			}
+			return _diagonalValue;
+		}
+		private function set DiagonalValue(value:Number):void
+		{
+			if (_diagonalValue != value)
+			{
+				_diagonalValue = value;
+				Save();
+			}
+		}
+		public function get DiagonalWinLimitChips():Number
+		{
+			return DiagonalValue * Main.Instance.ActiveMachine.LobbyMachine.Symbols.MaxPayout / Main.Instance.ActiveMachine.LobbyMachine.Paylines.Paylines.length;
+		}
+		
+		public function get GetXP():Number
+		{
+			return XP;
+		}
+		private function get XP():Number
+		{
+			return _xp;
+		}
+		private function set XP(value:Number):void
+		{
+			if (isNaN(_xp) || isNaN(value))
+			{
+				_xp = 0;
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.XPChanged, this, null, _xp));
+				Save();
+			}
+			else if (_xp != value)
+			{
+				var fromXP:Number = _xp;
+				_xp = value;
+				if (XP >= Level.NextMinXP)
+				{
+					var calculatedLevel:int = LevelData.GetLevelNumberByXP(XP);
+					
+					if (Level == null || Level.LevelNumber != calculatedLevel)
+					{
+						Level = new LevelData(calculatedLevel);
+					}
+					
+					Main.Instance.Session.Rare.AddPendingLevelUpPopups(calculatedLevel);
+				}
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.XPChanged, this, null, fromXP));
+				
+				Save();
+			}
+		}
+		public function get XPPercent():Number
+		{
+			return (XP - Level.MinXP)/(Level.NextMinXP - Level.MinXP);
+		}
+		
+		public function get GetLevel():LevelData
+		{
+			return Level;
+		}
+		private function get Level():LevelData
+		{
+			if (!_level)
+			{
+				_level = new LevelData(1);
+			}
+			return _level;
+		}
+		private function set Level(value:LevelData):void
+		{
+			if (_level != value)
+			{
+				_level = value;
+				if (_level.LevelNumber > 1)
+				{
+					dispatchEvent(new SessionDataEvent(SessionDataEvent.LevelIncreased, this, null, _level.LevelNumber));
+					
+					if (_level.LevelNumber / 10 == int (_level.LevelNumber / 10))
+					{
+						Main.Instance.XServices.Social.ShareLevelUp();
+						Main.Instance.XServices.Rate.IncrementEventCount();
+					}
+				}
+				Save();
+			}
+		}
+		
+		public function get GetJackpot():int
+		{
+			return _jackpot;
+		}
+		
+		// class
+		public function WalletSessionData()
+		{
+			super();
+			
+			_initialized = false;
+			
+			_balanceNumberTimer = new NumberTimer();
+			_balanceNumberTimer.addEventListener(NumberTimerEvent.Changed, OnBalacneNumberTimerChanged);
+			
+			_jackpotTimer = new TimerEx(200);
+			_jackpotTimer.addEventListener(TimerEvent.TIMER, OnJackpotTickerTimer);
+			_jackpotTimer.stop();
+			
+			_saveTimer = new TimerEx(5000);
+			_saveTimer.addEventListener(TimerEvent.TIMER, OnSaveTimer);
+			_saveTimer.stop();
+			
+			Init();
+		}
+		protected override function Init():void
+		{
+			Balance = 0;
+			_xp = 0;
+			_level = new LevelData(LevelData.GetLevelNumberByXP(_xp));
+			
+			InitJackpot();
+			
+			_initialized = true;
+		}
+		private function InitJackpot():void
+		{
+			// init the jackpot to a random 5 digits number - 77,777.77 
+			// 0.12345 * 100,000 = 12,345
+			_jackpot = int(Math.random() * 100000);
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			if (_balanceNumberTimer)
+			{
+				_balanceNumberTimer.Dispose();
+				_balanceNumberTimer = null;
+			}
+			
+			if (_level)
+			{
+				_level.Dispose();
+				_level = null;
+			}
+			
+			if (_jackpotTimer)
+			{
+				_jackpotTimer.Dispose();
+				_jackpotTimer = null;
+			}
+		}
+		
+		// serialize
+		public override function Deserialize(object:Object):void
+		{
+			Balance = object.Balance;
+			DiagonalValue = object.DiagonalValue;
+			_xp = object.XP;
+			_jackpot = object._jackpot;
+			_level = new LevelData(LevelData.GetLevelNumberByXP(_xp));
+		}
+		public override function Serialize():Object
+		{
+			var result:Object = new Object();
+			result.Balance = Balance;
+			result.DiagonalValue = DiagonalValue;
+			result.XP = XP;
+			result._jackpot = _jackpot;
+			return result;
+		}
+		
+		// spin
+		public function SpinStarted(chips:Number, xp:Number, isFreeSpins:Boolean):void
+		{
+			if (!isFreeSpins)
+			{
+				Balance -= chips;
+				Main.Instance.ActiveMachine.ChipsSpent += chips;
+				Main.Instance.ActiveMachine.FreeSpinsCount++;
+			}
+			XP += xp;
+			DepreciateDiagonal();
+			Main.Instance.ActiveMachine.SpinsCount++;
+		}
+		public function WinToBalance(chips:Number):void
+		{
+			Balance += chips;
+		}
+		
+		// collects
+		public function CollectChipsBought(chips:Number):void
+		{
+			Balance += chips;
+			AdjustDiagonal(chips);
+		}
+		public function CollectDailyBonus(dayIndex:int):void
+		{
+			Balance += GetLevel.LevelReachedBonusChips * dayIndex;
+		}
+		public function CollectInvited4Chips(newInviteesCount:int):void
+		{
+			Balance += GetLevel.LevelReachedBonusChips * newInviteesCount;
+			AdjustDiagonal(GetLevel.LevelReachedBonusChips * newInviteesCount);
+		}
+		public function CollectFacebookConnectBonus():void
+		{
+			Balance += GetLevel.FacebookConnectBonusChips;
+			AdjustDiagonal(GetLevel.FacebookConnectBonusChips);
+			Main.Instance.Session.Rare.IsFacebookLoginCollected = true;
+		}
+		public function CollectBonusGameEnd(chips:Number):void
+		{
+			Balance += chips;
+		}
+		public function CollectLevelUpBonus(levelReachedBonusChips:Number):void
+		{
+			Balance += levelReachedBonusChips;
+		}
+		public function CollectTimerBonus():void
+		{
+			Balance += GetLevel.TimerBonusChips;
+		}
+		public function CollectWelcomeBonus():void
+		{
+			Balance += GetLevel.WelcomeBonusChips;
+			AdjustDiagonal(GetLevel.WelcomeBonusChips);
+		}
+		
+		// diagonal
+		private function DepreciateDiagonal():void
+		{
+			DiagonalValue = DiagonalValue * Main.Instance.ActiveMachine.LobbyMachine.DepreciationRatio;
+		}
+		private function AdjustDiagonal(diff:Number):void
+		{
+			DiagonalValue += diff;
+		}
+		
+		// jackpot
+		public function StartJackpot():void
+		{
+			if (Main.Instance.Application.EnableJackpot)
+			{
+				_jackpotTimer.start();
+			}
+		}
+		protected function OnJackpotTickerTimer(event:Event):void
+		{
+			_jackpot += 1;
+			dispatchEvent(new SessionDataEvent(SessionDataEvent.JackpotChanged, this, null, _jackpot));
+			
+			if (_jackpot == int(Math.random() * 100000))
+			{
+				_jackpotTimer.stop();
+				dispatchEvent(new SessionDataEvent(SessionDataEvent.JackpotWon, this, null, _jackpot));
+				Main.Instance.XServices.Social.ShareJackpot(_jackpot);
+			}
+		}
+		public function CollectJackpot():void
+		{
+			Balance += _jackpot;
+			AdjustDiagonal(_jackpot);
+			InitJackpot();
+			StartJackpot();
+			
+			Main.Instance.XServices.Rate.IncrementEventCount();
+		}
+		
+		// fix
+		public function Fix():void
+		{
+			if (isNaN(_balance) || _balance < 0)
+			{
+				_balance = 0;
+			}
+			
+			if (isNaN(_xp) || _xp < 0)
+			{
+				_xp = 0;
+			}
+			
+			if (isNaN(_diagonalValue) || _diagonalValue < 0)
+			{
+				_diagonalValue = GetBalance;
+			}
+			
+			var calculatedLevel:int = LevelData.GetLevelNumberByXP(XP);
+			_level = new LevelData(calculatedLevel);
+			
+			if (isNaN(_jackpot) || _jackpot < 0)
+			{
+				_jackpot = 0;
+			}
+			
+			Save();
+		}
+		
+		// events
+		protected function OnSaveTimer(event:MainEvent):void
+		{
+			Save();
+		}
+	}
+}

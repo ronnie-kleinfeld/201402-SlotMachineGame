@@ -1,0 +1,41 @@
+<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+	<id>com.milkmangames.extensions.GoogleServices</id>
+	<versionNumber>1</versionNumber>
+	<platforms>
+
+		<platform name="Android-ARM">
+	      <applicationDeployment>
+	       <nativeLibrary>GoogleServicesAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.googleservices.GoogleServicesExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.googleservices.GoogleServicesExtension</finalizer>
+			
+	      </applicationDeployment>
+	    </platform>
+		
+		<platform name="Android-x86">
+	      <applicationDeployment>
+	       <nativeLibrary>GoogleServicesAPI.jar</nativeLibrary>
+	        <initializer>com.milkmangames.extensions.android.googleservices.GoogleServicesExtension</initializer>
+	        <finalizer>com.milkmangames.extensions.android.googleservices.GoogleServicesExtension</finalizer>
+			
+	      </applicationDeployment>
+	    </platform>
+		
+		<platform name="iPhone-ARM">
+	      <applicationDeployment>
+
+	      </applicationDeployment>
+	    </platform>
+		
+		<platform name="iPhone-x86">
+	      <applicationDeployment>
+
+	      </applicationDeployment>
+	    </platform>
+	  
+		<platform name="default"> 
+	      <applicationDeployment>
+	      </applicationDeployment>
+		</platform> 
+	  </platforms>
+	</extension>

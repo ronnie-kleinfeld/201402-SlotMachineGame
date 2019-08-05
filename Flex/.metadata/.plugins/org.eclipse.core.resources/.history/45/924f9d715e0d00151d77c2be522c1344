@@ -1,0 +1,2 @@
+The text at the center is drawn into a BitmapData object, which is in turn used by a BitmapZone object.
+This BitmapZone object is used by the Position initializer to set newly spawned particles' positions to the non-transparent region of the BitmapData object.

@@ -1,0 +1,22 @@
+package com.gotchaslots.slots.ui.machine.bottomPanel.textFields
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class TotalBetHeaderTextField extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.MachineBottomPanelTotalBetHeader;
+		}
+		
+		// class
+		public function TotalBetHeaderTextField()
+		{
+			super(120, 70, "Total\NBet");
+		}
+	}
+}

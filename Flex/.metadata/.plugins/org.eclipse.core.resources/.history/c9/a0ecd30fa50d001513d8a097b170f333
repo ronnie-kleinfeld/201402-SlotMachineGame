@@ -1,0 +1,16 @@
+package com.gotchaslots.common.utils.xServices.nativeDialogs
+{
+	import com.gotchaslots.common.utils.xServices.nativeDialogs.confirmationDialog.ConfirmationDialogHandler;
+
+	public class NativeDialogsHandler
+	{
+		// members
+		private var _confirmationDialog:ConfirmationDialogHandler;
+		
+		// class
+		public function NativeDialogsHandler()
+		{
+			_confirmationDialog = new ConfirmationDialogHandler();
+		}
+	}
+}

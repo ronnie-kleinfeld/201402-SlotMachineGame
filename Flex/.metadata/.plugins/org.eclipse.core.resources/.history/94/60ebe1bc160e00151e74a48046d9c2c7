@@ -1,0 +1,9 @@
+package com.gotchaslots.common.utils.xServices.localNotifications
+{
+	public class LocalNotificationsEvent
+	{
+		public function LocalNotificationsEvent()
+		{
+		}
+	}
+}

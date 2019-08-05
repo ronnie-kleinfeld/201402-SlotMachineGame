@@ -1,0 +1,27 @@
+package com.gotchaslots.common.utils.xServices.Network
+{
+	import flash.events.Event;
+
+	public class NetworkEvent extends Event
+	{
+		// consts
+		public static const NetworkChanged:String = "7e38b79a2aef4e608e245314504a209e";
+		
+		// members
+		private var _ids:Vector.<String>;
+		
+		// properties
+		public function get IDs():Vector.<String>
+		{
+			return _ids;
+		}
+		
+		// class
+		public function SocialEvent(type:String, ids:Vector.<String> = null)
+		{
+			super(type);
+			
+			_ids = ids;
+		}
+	}
+}

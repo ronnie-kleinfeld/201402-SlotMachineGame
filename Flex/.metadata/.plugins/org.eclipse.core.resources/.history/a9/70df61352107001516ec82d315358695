@@ -1,0 +1,67 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.invite4Unlock
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsHandler;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.BasePopup;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.buttons.FacebookInviteButton;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	public class Invite4UnlockPopup extends BasePopup
+	{
+		// members
+		private var _lobbyMachine:BaseLobbyMachineData;
+		
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Unlock);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new FacebookInviteButton(OnInviteClick));
+			return result;
+		}
+		
+		protected override function get HasCloseButton():Boolean
+		{
+			return true;
+		}
+		
+		// class
+		public function Invite4UnlockPopup(lobbyMachine:BaseLobbyMachineData, onClose:Function)
+		{
+			super(onClose);
+			
+			_lobbyMachine = lobbyMachine;
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Invite_your_friends));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.to_unlock_this));
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.slot_machine));
+		}
+		
+		// events
+		private function OnInviteClick(event:Event):void
+		{
+			NotificationsHandler.Instance.ShowInviting4UnlockPopup(_lobbyMachine, null);
+			DoRemove();
+		}
+		protected override function OnCloseButtonClick(event:MouseEvent):void
+		{
+			DoRemove();
+		}
+	}
+}

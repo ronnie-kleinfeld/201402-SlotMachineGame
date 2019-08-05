@@ -1,0 +1,29 @@
+package com.gotchaslots.slots.mobile.data.machine.bonusGame.curtain.curtainItem.base
+{
+	import flash.events.Event;
+	
+	public class CurtainItemDataEvent extends Event
+	{
+		// events
+		public static const CurrentItemChanged:String = "b2ac75b3a83c4c52ba44b09cd2fbb142";
+		public static const ItemClick:String = "eb09e1700715470b8dd56c9bb6db5d39";
+		public static const ItemClicked:String = "434cabb5a3bd46bf9caec24019d0c527";
+		
+		// members
+		private var _curtainItem:BaseCurtainItemData;
+		
+		// properties
+		public function get CurtainItem():BaseCurtainItemData
+		{
+			return _curtainItem;
+		}
+		
+		// class
+		public function CurtainItemDataEvent(type:String, curtainItem:BaseCurtainItemData)
+		{
+			super(type);
+			
+			_curtainItem = curtainItem;
+		}
+	}
+}

@@ -1,0 +1,147 @@
+package com.gotchaslots.common.ui.notifications.base
+{
+	import com.gotchaslots.common.data.Main;
+	import com.gotchaslots.common.data.MainEvent;
+	import com.gotchaslots.common.ui.common.components.base.BaseBG;
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+	import com.gotchaslots.common.utils.ex.TimerEx;
+	import com.greensock.TweenLite;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.geom.Point;
+	
+	public class BaseNotification extends BaseBG
+	{
+		// members
+		protected var _onClose:Function;
+		protected var _autoCloseTimer:TimerEx;
+		
+		// properties
+		protected function get X():int
+		{
+			throw new MustOverrideError();
+		}
+		protected function get Y():int
+		{
+			throw new MustOverrideError();
+		}
+		protected function get Center():Point
+		{
+			return new Point((width - x) / 2, (height - y) / 2);
+		}
+		protected function get SizeType():String
+		{
+			throw new MustOverrideError();
+		}
+		// 2000 - auto close in 2 seconds
+		// 0 - never auto close
+		protected function get AutoCloseTimeout():int
+		{
+			return 15000; 
+		}
+		protected function get RemoveByTween():Boolean
+		{
+			return false;
+		}
+		
+		public function get ShowSoundKey():String
+		{
+			return null;
+		}
+		public function get HideSoundKey():String
+		{
+			return null;
+		}
+		
+		// class
+		public function BaseNotification(w:int, h:int, onClose:Function)
+		{
+			super(w, h, Number.NaN);
+			
+			_onClose = onClose;
+			
+			addEventListener(MouseEvent.CLICK, OnClick);
+			InitAutoCloseTimer(AutoCloseTimeout);
+			
+			Main.Instance.addEventListener(MainEvent.Timer, OnTimer);
+		}
+		protected function InitAutoCloseTimer(autoCloseTimeout:int):void
+		{
+			DisposeAutoCloseTimer();
+			
+			if (autoCloseTimeout > 0)
+			{
+				_autoCloseTimer = new TimerEx(autoCloseTimeout, 1);
+				_autoCloseTimer.addEventListener(TimerEvent.TIMER, OnAutoCloseTimer);
+				_autoCloseTimer.start();
+			}
+		}
+		public override function Dispose():void
+		{
+			DisposeAutoCloseTimer();
+			
+			super.Dispose();
+		}
+		protected function DisposeAutoCloseTimer():void
+		{
+			if (_autoCloseTimer)
+			{
+				_autoCloseTimer.Dispose();
+				_autoCloseTimer = null;
+			}
+		}
+		
+		// life cycle
+		public function AddedToNotifications():void
+		{
+			// override to start any animation on the notification when it's visible in NotificationsView
+		}
+		
+		public function DoRemove():void
+		{
+			if (RemoveByTween)
+			{
+				TweenLite.to(this, 0.5, {alpha:0, onComplete:OnComplete});
+			}
+			else
+			{
+				dispatchEvent(new Event(Event.CLOSE));
+				Dispose();
+			}
+		}
+		private function OnComplete():void
+		{
+			dispatchEvent(new Event(Event.CLOSE));
+			Dispose();
+		}
+		public function DoRemoved():void
+		{
+			try
+			{
+				_onClose();
+			}
+			catch (error:Error)
+			{
+			}
+			Dispose();
+		}
+		
+		// events
+		protected function OnTimer(event:Event):void
+		{
+			if (width == 0 || height == 0)
+			{
+				DoRemove();
+			}
+		}
+		protected function OnClick(event:MouseEvent):void
+		{
+		}
+		protected function OnAutoCloseTimer(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}

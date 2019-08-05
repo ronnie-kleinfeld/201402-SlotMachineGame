@@ -1,0 +1,17 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	import com.gotchaslots.common.utils.xServices.ads.base.BaseAdsHandler;
+	
+	public class AdMobHandler extends BaseAdsHandler
+	{
+		// class
+		public function AdMobHandler()
+		{
+			super();
+		}
+		protected override function Init():Boolean
+		{
+			return true;
+		}
+	}
+}

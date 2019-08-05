@@ -1,0 +1,17 @@
+package com.gotchaslots.common.utils.xServices.dialogs
+{
+	import flash.events.Event;
+
+	public class YesNoDialogEvent extends Event
+	{
+		// consts
+		public static const YES:String = "YES";
+		public static const NO:String = "NO";
+		
+		// class
+		public function YesNoDialogEvent(type:String)
+		{
+			super(type);
+		}
+	}
+}

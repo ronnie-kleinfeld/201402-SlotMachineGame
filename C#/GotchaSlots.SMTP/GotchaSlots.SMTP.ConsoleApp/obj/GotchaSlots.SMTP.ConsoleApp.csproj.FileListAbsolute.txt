@@ -1,0 +1,10 @@
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\Res\AvaliableOnAppStore.jpg
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\Res\AvaliableOnGooglePlay.jpg
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\Res\GotchaSlots.jpg
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\Res\GotchaSlotsHeader.jpg
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\Res\GotchaSlotsIcon.jpg
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\GotchaSlots.SMTP.ConsoleApp.exe
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\bin\Debug\GotchaSlots.SMTP.ConsoleApp.pdb
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\obj\Debug\ResolveAssemblyReference.cache
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\obj\Debug\GotchaSlots.SMTP.ConsoleApp.exe
+X:\GotchaSlots2\C#\GotchaSlots.SMTP\GotchaSlots.SMTP.ConsoleApp\obj\Debug\GotchaSlots.SMTP.ConsoleApp.pdb

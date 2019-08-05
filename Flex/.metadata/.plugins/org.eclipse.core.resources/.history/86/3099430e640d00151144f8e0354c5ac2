@@ -1,0 +1,17 @@
+package com.gotchaslots.common.utils.xServices.ads
+{
+	import com.gotchaslots.common.utils.xServices.ads.base.BaseAdsHandler;
+	import com.gotchaslots.common.utils.error.MustOverrideError;
+
+	public class IAdHandler extends BaseAdsHandler
+	{
+		// class
+		public function IAdHandler()
+		{
+			super();
+		}
+		public override function Init():Boolean
+		{
+		}
+	}
+}

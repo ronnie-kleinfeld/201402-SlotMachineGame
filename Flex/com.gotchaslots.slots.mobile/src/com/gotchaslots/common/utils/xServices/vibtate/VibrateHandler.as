@@ -1,0 +1,23 @@
+package com.gotchaslots.common.utils.xServices.vibtate
+{
+	import com.gotchaslots.common.utils.xServices.BaseCoreMobileHandler;
+	import com.milkmangames.nativeextensions.CoreMobile;
+	
+	public class VibrateHandler extends BaseCoreMobileHandler
+	{
+		// class
+		public function VibrateHandler()
+		{
+			super();
+		}
+		
+		// methods
+		public function Vibrate(duration:Number):void
+		{
+			if (Init())
+			{
+				CoreMobile.mobile.vibrate(duration);
+			}
+		}
+	}
+}

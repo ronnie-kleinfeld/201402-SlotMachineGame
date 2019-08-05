@@ -1,0 +1,23 @@
+package com.gotchaslots.common.mobile.ui.lobby.promotionPanel.timerBonus.buttons
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseTextField;
+	
+	import flash.text.TextField;
+	
+	public class TimerBonusDisconnectedButton extends BaseTextField
+	{
+		// properties
+		protected override function get XFLTextField():TextField
+		{
+			return Main.Instance.TextFields.LobbyTimerBonusDisconnected;
+		}
+		
+		// class
+		public function TimerBonusDisconnectedButton(w:int, h:int)
+		{
+			super(w, h, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.TimerBonus_Internet_connection_is_required_for_Timer_Bonus));
+		}
+	}
+}

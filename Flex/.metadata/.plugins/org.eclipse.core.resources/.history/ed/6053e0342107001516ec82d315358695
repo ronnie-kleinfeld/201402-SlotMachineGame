@@ -1,0 +1,254 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.base
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseBG;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.slots.mobile.ui.common.components.stardust.moneyTrail.MoneyTrail;
+	import com.gotchaslots.slots.mobile.ui.notifications.base.BaseNotification;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.CloseButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.shape.PopupBG;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupBlueMessageTextField;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupPinkMessageTextField;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.textFields.PopupTitleTextField;
+	import com.gotchaslots.slots.mobile.utils.debug.FrameRateHandler;
+	import com.gotchaslots.slots.mobile.utils.error.MustOverrideError;
+	import com.gotchaslots.slots.mobile.utils.sounds.SoundsManager;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.geom.Point;
+	
+	public class BasePopup extends BaseNotification
+	{
+		// members
+		private var _bgShape:BaseBG;
+		private var _currentY:int;
+		
+		// properties
+		protected override function get X():int
+		{
+			return (800 - Width) / 2;
+		}
+		protected override function get Y():int
+		{
+			return (494 - Height) / 2;
+		}
+		protected function get Width():int
+		{
+			var result:int;
+			switch (SizeType)
+			{
+				case PopupSizeTypeEnum.BigPopup:
+					result = 494;
+					break;
+				case PopupSizeTypeEnum.MediumPopup:
+					result = 400;
+					break;
+				case PopupSizeTypeEnum.SmallPopup:
+					result = 306;
+					break;
+			}
+			return result;
+		}
+		protected function get Height():int
+		{
+			var result:int;
+			switch (SizeType)
+			{
+				case PopupSizeTypeEnum.BigPopup:
+					result = 306;
+					break;
+				case PopupSizeTypeEnum.MediumPopup:
+					result = 247;
+					break;
+				case PopupSizeTypeEnum.SmallPopup:
+					result = 188;
+					break;
+			}
+			return result;
+		}
+		
+		protected function get Title():String
+		{
+			throw new MustOverrideError();
+		}
+		protected function get Buttons():Vector.<BaseButton>
+		{
+			return null;
+		}
+		
+		protected function get HasCloseButton():Boolean
+		{
+			return false;
+		}
+		
+		// class
+		public function BasePopup(onClose:Function)
+		{
+			super(Width, Height, onClose);
+			
+			this.x = X;
+			this.y = Y;
+			
+			AddShape();
+			
+			AddBG();
+			_currentY = 0;
+			AddSep();
+			AddTitle();
+			AddSep();
+			AddSep();
+			AddBody();
+			AddSep();
+			AddButtons();
+			
+			AddCloseButton();
+		}
+		
+		// methods+
+		protected function AddShape():void
+		{
+			_bgShape = new BaseBG(Main.Instance.Device.DesignRectangle.width, Main.Instance.Device.DesignRectangle.height, 0xcecece);
+			_bgShape.x = -X;
+			_bgShape.y = -Y;
+			_bgShape.addEventListener(MouseEvent.ROLL_OVER, OnRollOver);
+			_bgShape.addEventListener(MouseEvent.ROLL_OUT, OnRollOut);
+			_bgShape.alpha = 0;
+			addChild(_bgShape);
+		}
+		protected function AddBG():void
+		{
+			AddComponent(new PopupBG(0, 0, W, H));
+		}
+		protected function AddTitle():void
+		{
+			if (Title != "")
+			{
+				AddComponent(new PopupTitleTextField(W, Title));
+			}
+		}
+		protected function AddBody():void
+		{
+			throw new MustOverrideError();
+		}
+		protected function AddBlueMessageTextField(width:int, text:String):void
+		{
+			AddComponent(new PopupBlueMessageTextField(width, text));
+		}
+		protected function AddPinkMessageTextField(width:int, text:String):void
+		{
+			AddComponent(new PopupPinkMessageTextField(width, text));
+		}
+		protected function AddButtons():void
+		{
+			if (Buttons)
+			{
+				var currentX:int = 0;
+				var buttons:SpriteEx = new SpriteEx();
+				for (var i:int = 0; i < Buttons.length; i++)
+				{
+					if (currentX > 0)
+					{
+						currentX += 6;
+					}
+					var button:BaseButton = Buttons[i];
+					button.addEventListener(MouseEvent.CLICK, OnClick);
+					button.x = currentX;
+					buttons.addChild(button);
+					
+					currentX = buttons.width;
+				}
+				
+				buttons.x = (Width - buttons.width) / 2;
+				buttons.y = Height - 50 - 6;
+				addChild(buttons);
+			}
+		}
+		protected function DisableButtons():void
+		{
+			if (Buttons)
+			{
+				for (var i:int = 0; i < Buttons.length; i++)
+				{
+					var button:BaseButton = Buttons[i];
+					button.SetDisabled();
+				}
+			}
+		}
+		
+		protected function AddSep():void
+		{
+			_currentY += 6;
+		}
+		protected function AddComponent(component:BaseComponent):void
+		{
+			component.y = _currentY;
+			addChild(component);
+			_currentY += component.height;
+		}
+		
+		private function AddCloseButton():void
+		{
+			if (HasCloseButton)
+			{
+				var close:CloseButton = new CloseButton(OnCloseButtonClick);
+				close.x = W - close.width / 2;
+				close.y = -close.height / 2;
+				addChild(close);
+			}
+		}
+		
+		// money trail
+		protected function DoMoneyTrails(from:Point, to:Point):void
+		{
+			if (Main.Instance.Device.FrameRate.ActualFrameRate > FrameRateHandler.MAX_RATE_FOR_ANIMATION)
+			{
+				var moneyTrail:MoneyTrail = new MoneyTrail(length, from, null, to);
+				moneyTrail.addEventListener(Event.COMPLETE, OnMoneyTrailsComplete);
+				addChild(moneyTrail);
+			}
+			else
+			{
+				OnMoneyTrailsComplete(null);
+			}
+		}
+		private function OnMoneyTrailsComplete(event:Event):void
+		{
+			Main.Instance.Sounds.Play(SoundsManager.Popup_Collect_WinToBalance);
+			if (event && event.currentTarget)
+			{
+				var moneyTrail:MoneyTrail = MoneyTrail(event.currentTarget);
+				moneyTrail.removeEventListener(Event.COMPLETE, OnMoneyTrailsComplete);
+				DoPostMoneyTrails();
+			}
+		}
+		protected function DoPostMoneyTrails():void
+		{
+		}
+		
+		// events
+		protected override function OnClick(event:MouseEvent):void
+		{
+			DisableButtons();
+		}
+		
+		protected function OnCloseButtonClick(event:MouseEvent):void
+		{
+			DoRemove();
+		}
+		
+		protected function OnRollOver(event:MouseEvent):void
+		{
+			DisposeAutoCloseTimer();
+		}
+		protected function OnRollOut(event:MouseEvent):void
+		{
+			if (_autoCloseTimer)
+			{
+				InitAutoCloseTimer(30000);
+			}
+		}
+	}
+}

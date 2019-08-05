@@ -1,0 +1,44 @@
+package com.gotchaslots.slots.mobile.data.machine.bonusGame.higherLower
+{
+	import com.gotchaslots.slots.mobile.utils.dataType.BaseIDData;
+	
+	public class HigherLowerPayoutData extends BaseIDData
+	{
+		// members
+		private var _ratio:Number;
+		private var _random:int;
+		private var _isWon:Boolean;
+		
+		// properties
+		public function get Ratio():Number
+		{
+			return _ratio;
+		}
+		
+		public function get Random():int
+		{
+			return _random;
+		}
+		public function set Random(value:int):void
+		{
+			_random = value;
+		}
+		
+		public function get IsWon():Boolean
+		{
+			return _isWon;
+		}
+		public function set IsWon(value:Boolean):void
+		{
+			_isWon = value;
+		}
+		
+		// class
+		public function HigherLowerPayoutData(id:int, ratio:Number)
+		{
+			super(id);
+			
+			_ratio = ratio;
+		}
+	}
+}

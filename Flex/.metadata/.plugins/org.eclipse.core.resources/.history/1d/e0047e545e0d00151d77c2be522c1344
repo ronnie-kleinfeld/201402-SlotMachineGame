@@ -1,0 +1,91 @@
+package com.gotchaslots.common.mobile.utils.xServices.inAppPurchase
+{
+	import com.gotchaslots.common.mobile.data.application.prices.ProductID;
+	import com.gotchaslots.common.mobile.utils.xServices.inAppPurchase.base.BaseInAppPurchaseHandler;
+	import com.gotchaslots.common.mobile.utils.xServices.inAppPurchase.base.InAppPurchaseHandlerEvent;
+	import com.milkmangames.nativeextensions.ios.StoreKit;
+	import com.milkmangames.nativeextensions.ios.events.StoreKitErrorEvent;
+	import com.milkmangames.nativeextensions.ios.events.StoreKitEvent;
+	
+	import flash.events.Event;
+	
+	public class AppStoreInAppPurchaseHandler extends BaseInAppPurchaseHandler
+	{
+		// class
+		public function AppStoreInAppPurchaseHandler()
+		{
+			super();
+		}
+		public override function Init():Boolean
+		{
+			if (!_initialized)
+			{
+				if (StoreKit.isSupported())
+				{
+					StoreKit.create();
+					StoreKit.storeKit.addEventListener(StoreKitEvent.PURCHASE_SUCCEEDED, OnPurchaseSucceeded);
+					StoreKit.storeKit.addEventListener(StoreKitEvent.PURCHASE_CANCELLED, OnPurchaseCancelled);
+					StoreKit.storeKit.addEventListener(StoreKitErrorEvent.PURCHASE_FAILED, OnPurchaseFailed);
+					StoreKit.storeKit.addEventListener(StoreKitEvent.PRODUCT_DETAILS_LOADED, OnProductDetailsLoaded);
+					StoreKit.storeKit.addEventListener(StoreKitErrorEvent.PRODUCT_DETAILS_FAILED, OnProductDetailsFailed);
+					
+					if (StoreKit.storeKit.isStoreKitAvailable())
+					{
+						StoreKit.storeKit.loadProductDetails(ProductID.ItemIDs);
+						
+						_initialized = true;
+					}
+					else
+					{
+						Failed();
+					}
+				}
+				else
+				{
+					Failed();
+				}
+			}
+			
+			return _initialized;
+		}
+		
+		// methods
+		public override function Purchase(productID:String):void
+		{
+			if (Init())
+			{
+				StoreKit.storeKit.purchaseProduct(productID);
+			}
+		}
+		
+		// events
+		protected function OnPurchaseSucceeded(event:StoreKitEvent):void
+		{
+			if (event.productId)
+			{
+				dispatchEvent(new InAppPurchaseHandlerEvent(InAppPurchaseHandlerEvent.PurchaseSuccessed));
+			}
+			else
+			{
+				dispatchEvent(new InAppPurchaseHandlerEvent(InAppPurchaseHandlerEvent.PurchaseCanceled));
+			}
+		}
+		protected function OnPurchaseCancelled(event:Event):void
+		{
+			Failed();
+		}
+		protected function OnPurchaseFailed(event:StoreKitErrorEvent):void
+		{
+			Failed();
+		}
+		
+		protected function OnProductDetailsLoaded(event:StoreKitEvent):void
+		{
+			_initialized = true;
+		}
+		protected function OnProductDetailsFailed(event:StoreKitErrorEvent):void
+		{
+			_initialized = false;
+		}
+	}
+}

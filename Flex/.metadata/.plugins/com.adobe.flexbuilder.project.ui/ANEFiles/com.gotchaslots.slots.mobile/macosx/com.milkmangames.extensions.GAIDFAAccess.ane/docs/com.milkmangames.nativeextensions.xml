@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.milkmangames.nativeextensions"><apiName>com.milkmangames.nativeextensions</apiName><apiDetail/><apiClassifier id="com.milkmangames.nativeextensions:GAIDFAAccess"><apiName>GAIDFAAccess</apiName><shortdesc> Ad Access Extension </shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc> Ad Access Extension </apiDesc></apiClassifierDetail><apiValue id="com.milkmangames.nativeextensions:GAIDFAAccess:VERSION"><apiName>VERSION</apiName><shortdesc>
+	 Current API Version
+	 </shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2.1.0</apiData><apiType value="String"/></apiValueDef><apiDesc>
+	 Current API Version
+	 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,276 @@
+package com.gotchaslots.common.mobile.ui.main
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.MainEvent;
+	import com.gotchaslots.common.mobile.data.application.ticker.TickerStateEnumType;
+	import com.gotchaslots.common.mobile.data.session.SessionDataEvent;
+	import com.gotchaslots.common.mobile.ui.common.components.SpriteEx;
+	import com.gotchaslots.common.mobile.ui.common.progressBar.ProgressBar;
+	import com.gotchaslots.common.mobile.ui.common.progressBar.ProgressBarEvent;
+	import com.gotchaslots.common.mobile.ui.hud.HudPanel;
+	import com.gotchaslots.common.mobile.ui.lobby.LobbyPanel;
+	import com.gotchaslots.slots.ui.machine.SlotsMachineController;
+	import com.gotchaslots.common.mobile.ui.machine.MachineEvent;
+	import com.gotchaslots.slots.ui.machine.SlotsMachineView;
+	import com.gotchaslots.common.mobile.ui.notifications.NotificationsPanel;
+	import com.gotchaslots.common.mobile.utils.helpers.CaptureHelper;
+	import com.gotchaslots.common.mobile.utils.helpers.DisplayObjectHelper;
+	import com.gotchaslots.slots.data.lobby.lobbyMachine.base.SlotsBaseLobbyMachineData;
+	import com.gotchaslots.slots.utils.sounds.SlotsSoundsManager;
+	import com.greensock.TweenLite;
+	
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.system.System;
+	import flash.utils.getTimer;
+	
+	public class MainPanel extends SpriteEx
+	{
+		// members
+		private var _lobbyLayer:SpriteEx;
+		private var _machineLayer:SpriteEx;
+		private var _hudLayer:SpriteEx;
+		private var _notificationsLayer:SpriteEx;
+		private var _splashLayer:SpriteEx;
+		
+		private var _lobbyPanel:LobbyPanel;
+		private var _machineController:SlotsMachineController;
+		private var _progressBar:ProgressBar;
+		
+		// class
+		public function MainPanel()
+		{
+			super();
+			
+			Init();
+			
+			Main.Instance.Session.Rare.addEventListener(SessionDataEvent.LocaleChanged, onLocaleChanged);
+		}
+		public function Init():void
+		{
+			Main.Instance.Sounds.Play(SlotsSoundsManager.App_Load);
+			InitLayers();
+			
+			InitSplash();
+			_progressBar.PercentTo = 0.1;
+			
+			InitHud();
+			_progressBar.PercentTo = 0.2;
+			
+			InitNotifications();
+			_progressBar.PercentTo = 0.3;
+			
+			InitLobby();
+			_progressBar.PercentTo = 0.5;
+			
+			if (Main.Instance.Session.Rare.RegisteredOnParse)
+			{
+				StartApp();
+			}
+			else
+			{
+				RegisterDevice();
+			}
+			
+			addEventListener(MouseEvent.CLICK, onClick);
+		}
+		protected function onClick(event:MouseEvent):void
+		{
+			if (event.altKey && event.controlKey && event.shiftKey)
+			{
+				var t:Number = getTimer();
+				CaptureHelper.Capture(this, "Main_" + t, 800, 494);
+				if (_machineController)
+				{
+					if (SlotsMachineView(_machineController.View).GetReelsPanel)
+					{
+						CaptureHelper.Capture(SlotsMachineView(_machineController.View).GetReelsPanel, "Reels_" + t, 800, 306);
+						if (SlotsMachineView(_machineController.View).GetReelsPanel.GetReels)
+						{
+							CaptureHelper.Capture(SlotsMachineView(_machineController.View).GetReelsPanel.GetReels, "ReelsPanel_" + t, 800, 306);
+						}
+					}
+				}
+			}
+		}
+		private function InitLayers():void
+		{
+			this.scaleX = Main.Instance.Device.ScaleX;
+			this.scaleY = Main.Instance.Device.ScaleY;
+			
+			this.x = Main.Instance.Device.GoldenRectangle.x;
+			this.y = Main.Instance.Device.GoldenRectangle.y;
+			
+			_lobbyLayer = new SpriteEx();
+			addChild(_lobbyLayer);
+			
+			_machineLayer = new SpriteEx();
+			addChild(_machineLayer);
+			
+			_hudLayer = new SpriteEx();
+			addChild(_hudLayer);
+			
+			_notificationsLayer = new SpriteEx();
+			addChild(_notificationsLayer);
+			
+			_splashLayer = new SpriteEx();
+			addChild(_splashLayer);
+		}
+		
+		// register device
+		private function RegisterDevice():void
+		{
+			Main.Instance.XServices.Parse.RegisterDevice(OnRegisterDeviceSuccess, OnRegisterDeviceError);
+		}
+		private function OnRegisterDeviceSuccess(data:Object):void
+		{
+			try
+			{
+				Main.Instance.Session.Rare.ParseObjectId = data.objectId;
+				StartApp();
+			}
+			catch (error:Error)
+			{
+				StartApp();
+			}
+		}
+		private function OnRegisterDeviceError(event:Event):void
+		{
+			StartApp();
+		}
+		
+		// start
+		private function StartApp():void
+		{
+			_progressBar.PercentToFull();
+			
+			InitMachine();
+			ShowRecentMachine();
+		}
+		
+		// lobby
+		private function InitLobby():void
+		{
+			_lobbyPanel = new LobbyPanel();
+			AddLobby();
+		}
+		private function AddLobby():void
+		{
+			_lobbyLayer.addChild(_lobbyPanel);
+			Main.Instance.Application.Ticker.TickerStateEnum = TickerStateEnumType.Lobby;
+		}
+		private function RemoveLobby():void
+		{
+			DisplayObjectHelper.SafeRemoveAllChildrens(_lobbyLayer);
+		}
+		
+		// machine
+		private function InitMachine():void
+		{
+			Main.Instance.addEventListener(MainEvent.ActiveMachineDataCreated, onActiveMachineDataCreated)
+			Main.Instance.addEventListener(MainEvent.RemoveActiveMachineView, onRemoveActiveMachineView)
+		}
+		protected function onActiveMachineDataCreated(event:Event):void
+		{
+			_machineController = new SlotsMachineController();
+			_machineController.Init();
+			_machineLayer.addChild(_machineController.View);
+			_machineController.View.addEventListener(MachineEvent.Shown, onShown);
+			SlotsMachineView(_machineController.View).Show();
+			Main.Instance.Application.Ticker.TickerStateEnum = TickerStateEnumType.Machine;
+		}
+		protected function onShown(event:Event):void
+		{
+			_machineController.View.removeEventListener(MachineEvent.Shown, onShown);
+			RemoveLobby();
+		}
+		
+		protected function onRemoveActiveMachineView(event:Event):void
+		{
+			AddLobby();
+			_machineController.View.addEventListener(MachineEvent.Hidden, onHidden);
+			SlotsMachineView(_machineController.View).Hide();
+			Main.Instance.Application.Ticker.Start();
+		}
+		protected function onHidden(event:Event):void
+		{
+			Main.Instance.Application.Ticker.TickerStateEnum = TickerStateEnumType.Lobby;
+			_machineController.View.addEventListener(MachineEvent.Hidden, onHidden);
+			_machineController.Deactivate();
+			DisplayObjectHelper.SafeDisposeAllChildrens(_machineLayer);
+			Main.Instance.ActiveMachine.Dispose();
+			Main.Instance.ActiveMachine = null;
+			Main.Instance.Session.Rare.RecentActiveMachineID = -1;
+			System.gc();
+		}
+		
+		private function ShowRecentMachine():void
+		{
+			var recentActiveMachineID:int = Main.Instance.Session.Rare.RecentActiveMachineID;
+			
+			if (recentActiveMachineID >= 0)
+			{
+				var lobbyMachine:SlotsBaseLobbyMachineData;
+				for (var i:int = 0; i < Main.Instance.Machines.length; i++)
+				{
+					if (Main.Instance.Machines[i].ID == recentActiveMachineID)
+					{
+						lobbyMachine = Main.Instance.Machines[i];
+						break;
+					}
+				}
+				
+				if (lobbyMachine)
+				{
+					Main.Instance.CreateActiveMachine(lobbyMachine);
+				}
+				else
+				{
+					Main.Instance.Session.Rare.RecentActiveMachineID = -1;
+				}
+			}
+		}
+		
+		// hud
+		private function InitHud():void
+		{
+			var hudPanel:HudPanel = new HudPanel();
+			_hudLayer.addChild(hudPanel);
+		}
+		
+		// notifications
+		private function InitNotifications():void
+		{
+			var notificationsPanel:NotificationsPanel = new NotificationsPanel();
+			_notificationsLayer.addChild(notificationsPanel);
+		}
+		
+		// splash
+		private function InitSplash():void
+		{
+			var splash:SplashBG = new SplashBG();
+			_splashLayer.addChild(splash);
+			
+			_progressBar = new ProgressBar(306, 30.6, 0.5);
+			_progressBar.addEventListener(ProgressBarEvent.FullReached, OnProgressBarFullReached);
+			_progressBar.x = (Main.Instance.Device.DesignRectangle.width - _progressBar.width) / 2;
+			_progressBar.y = 420;
+			_splashLayer.addChild(_progressBar);
+		}
+		protected function OnProgressBarFullReached(event:Event):void
+		{
+			DisplayObjectHelper.SafeDisposeAllChildrens(_splashLayer);
+		}
+		
+		// events
+		protected function onLocaleChanged(event:Event):void
+		{
+			Init();
+			TweenLite.to(this, 0.2, {alpha:0, onComplete:onAlphaComplete});
+		}
+		private function onAlphaComplete():void
+		{
+			TweenLite.to(this, 0.2, {alpha:1});
+		}
+	}
+}

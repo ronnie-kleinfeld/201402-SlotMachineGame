@@ -1,0 +1,84 @@
+package com.gotchaslots.common.mobile.ui.notifications.popup.machine.machineInfo.machineInfoInformation
+{
+	import com.gotchaslots.common.mobile.data.Main;
+	import com.gotchaslots.common.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.common.mobile.data.lobby.lobbyMachine.base.BaseLobbyMachineData;
+	import com.gotchaslots.common.mobile.ui.common.components.base.BaseComponent;
+	import com.gotchaslots.common.mobile.ui.machine.Symbol;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.textFields.PopupGroupMessageLeftTextField;
+	import com.gotchaslots.common.mobile.ui.notifications.popup.textFields.PopupGroupMessageRightTextField;
+	import com.gotchaslots.common.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.display.Bitmap;
+	import flash.events.MouseEvent;
+	import flash.geom.Rectangle;
+	
+	public class MachineInfoInformation extends BaseComponent
+	{
+		// members
+		private var _lobbyMachine:BaseLobbyMachineData;
+		
+		// class
+		public function MachineInfoInformation(lobbyMachine:BaseLobbyMachineData)
+		{
+			_lobbyMachine = lobbyMachine;
+			
+			super(421, 260);
+			
+			var preview:Symbol = lobbyMachine.Symbols.PreviewSymbol.GetSymbol(new Rectangle(0, 0, 95, 95));
+			addChild(preview);
+			
+			var matrixPreview:Bitmap = _lobbyMachine.MatrixPreviewPng;
+			matrixPreview.x = 98;
+			matrixPreview.width = 323;
+			matrixPreview.height = 95;
+			addChild(matrixPreview);
+			
+			AddInfoTextField(0, 421, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Max_Paylines_Co), FormatterHelper.NumberToMoney(_lobbyMachine.Paylines.Paylines.length, 0, 0), onMaxPaylinesClick);
+			AddInfoTextField(1, 421, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Opens_on_Level_Co), FormatterHelper.NumberToMoney(_lobbyMachine.OpensOnLevel.LevelNumber, 0, 0), null);
+			AddInfoTextField(2, 421, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Symbols_Co), FormatterHelper.NumberToMoney(_lobbyMachine.Symbols.NormalSymbols.length, 0, 0), onNormalSymbolsClick);
+			AddInfoTextField(3, 421, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Special_Symbols), FormatterHelper.NumberToMoney(_lobbyMachine.Symbols.SpecialSymbols.length, 0, 0), onSpecialSymbolsClick);
+			AddInfoTextField(4, 421, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Max_Payout_Co), FormatterHelper.NumberToMoney(_lobbyMachine.Symbols.MaxPayout), null);
+		}
+		
+		// methods
+		private function AddInfoTextField(index:int, w:int, label:String, value:String, onClick:Function):void
+		{
+			var labelTextField:PopupGroupMessageLeftTextField = new PopupGroupMessageLeftTextField(w, label);
+			labelTextField.y = 98 + index * 33;
+			try
+			{
+				labelTextField.addEventListener(MouseEvent.CLICK, onClick);
+			}
+			catch (error:Error)
+			{
+			}
+			addChild(labelTextField);
+			
+			var valueTextField:PopupGroupMessageRightTextField = new PopupGroupMessageRightTextField(w, value);
+			valueTextField.y = 98 + index * 33;
+			try
+			{
+				valueTextField.addEventListener(MouseEvent.CLICK, onClick);
+			}
+			catch (error:Error)
+			{
+			}
+			addChild(valueTextField);
+		}
+		
+		// events
+		protected function onMaxPaylinesClick(event:MouseEvent):void
+		{
+			dispatchEvent(new MachineInfoInformationEvent(MachineInfoInformationEvent.MaxPaylinesClicked));
+		}
+		protected function onNormalSymbolsClick(event:MouseEvent):void
+		{
+			dispatchEvent(new MachineInfoInformationEvent(MachineInfoInformationEvent.NormalSymbolsClicked));
+		}
+		protected function onSpecialSymbolsClick(event:MouseEvent):void
+		{
+			dispatchEvent(new MachineInfoInformationEvent(MachineInfoInformationEvent.SpecialSymbolsClicked));
+		}
+	}
+}

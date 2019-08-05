@@ -1,0 +1,135 @@
+package com.gotchaslots.slots.mobile.data.machine.paylines.payline.base
+{
+	import com.gotchaslots.slots.mobile.data.machine.paybox.PayboxData;
+	import com.gotchaslots.slots.mobile.data.machine.symbol.base.BaseSymbolData;
+	import com.gotchaslots.slots.mobile.utils.dataType.BaseIDData;
+	import com.gotchaslots.slots.mobile.utils.dataType.Location;
+	import com.gotchaslots.slots.mobile.utils.error.MustOverrideError;
+	
+	import flash.display.Bitmap;
+	import flash.utils.Dictionary;
+	
+	public class BasePaylineData extends BaseIDData
+	{
+		// members
+		private var _paylinePngClass:Class;
+		private var _paylineMachineInfoPng:Bitmap;
+		private var _paylineReelsPng:Bitmap;
+		private var _payboxPngClass:Class;
+		private var _payboxesPng:Vector.<Bitmap>;
+		private var _color:int;
+		
+		protected var _payboxes:Vector.<PayboxData>;
+		protected var _waypoints:Vector.<Location>;
+		
+		// properties
+		public function get ColumnsCount():int
+		{
+			throw new MustOverrideError();
+		}
+		public function get PaylineMachineInfoPng():Bitmap
+		{
+			if (!_paylineMachineInfoPng)
+			{
+				_paylineMachineInfoPng = new _paylinePngClass();
+				_paylineMachineInfoPng.x = _paylineMachineInfoPng.y = 0;
+				_paylineMachineInfoPng.width = 333;
+				_paylineMachineInfoPng.height = 116;
+			}
+			return _paylineMachineInfoPng;
+		}
+		public function get PaylineReelsPng():Bitmap
+		{
+			if (!_paylineReelsPng)
+			{
+				_paylineReelsPng = new _paylinePngClass();
+				_paylineReelsPng.x = _paylineReelsPng.y = 0;
+				_paylineReelsPng.width = 800;
+				_paylineReelsPng.height = 306;
+			}
+			return _paylineReelsPng;
+		}
+		public function get PayboxPng():Bitmap
+		{
+			if (!_payboxesPng)
+			{
+				_payboxesPng = new Vector.<Bitmap>();
+			}
+			if (_payboxesPng.length == 0)
+			{
+				_payboxesPng.push(new _payboxPngClass());
+			}
+			return _payboxesPng.pop();
+		}
+		public function get Color():int
+		{
+			return _color;
+		}
+		public function get Payboxes():Vector.<PayboxData>
+		{
+			return _payboxes;
+		}
+		public function get Waypoints():Vector.<Location>
+		{
+			if (!_waypoints)
+			{
+				_waypoints = new Vector.<Location>();
+				_waypoints.push(new Location(_payboxes[0].LeftCenter.x, _payboxes[0].LeftCenter.y));
+				for (var i:int = 0; i < _payboxes.length; i++)
+				{
+					_waypoints.push(new Location(_payboxes[i].Center.x, _payboxes[i].Center.y));
+				}
+				_waypoints.push(new Location(_payboxes[_payboxes.length -1].RightCenter.x, _payboxes[_payboxes.length -1].RightCenter.y));
+			}
+			return _waypoints;
+		}
+		
+		// class
+		public function BasePaylineData(id:int, paylinePngClass:Class, payboxPngClass:Class, color:int, payboxes:Vector.<PayboxData>)
+		{
+			super(id);
+			
+			_paylinePngClass = paylinePngClass;
+			_payboxPngClass = payboxPngClass;
+			_color = color;
+			//_payboxes = payboxes; initilized in inheriting class
+		}
+		public override function Dispose():void
+		{
+			super.Dispose();
+			
+			_paylineMachineInfoPng = null;
+			_paylineReelsPng  = null;
+			_payboxPngClass = null;
+			
+			while (_payboxes && _payboxes.length > 0)
+			{
+				var paybox:PayboxData = _payboxes.pop();
+				paybox.Dispose();
+				paybox = null;
+			}
+			_payboxes = null;
+			
+			while (_waypoints && _waypoints.length > 0)
+			{
+				_waypoints.pop();
+			}
+			_waypoints = null;
+		}
+		
+		// methods
+		public function CenterSymbol(resultMatrix:Dictionary):BaseSymbolData
+		{
+			throw new MustOverrideError();
+		}
+		public function IsSymetricValuable(resultMatrix:Dictionary):Boolean
+		{
+			throw new MustOverrideError();
+		}
+		
+		public function ReturnPayboxPng(bitmap:Bitmap):void
+		{
+			_payboxesPng.push(bitmap);
+		}
+	}
+}

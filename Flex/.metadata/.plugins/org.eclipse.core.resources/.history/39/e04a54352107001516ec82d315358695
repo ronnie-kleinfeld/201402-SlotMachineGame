@@ -1,0 +1,10 @@
+package com.gotchaslots.common.mobile.utils.error
+{
+	public class MustOverrideError extends Error
+	{
+		public function MustOverrideError()
+		{
+			super();
+		}
+	}
+}

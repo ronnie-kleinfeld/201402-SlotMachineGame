@@ -1,0 +1,14 @@
+package com.gotchaslots.slots.mobile.data.application.schedulers.scheduler
+{
+	import com.gotchaslots.slots.mobile.data.application.schedulers.ScheduleData;
+	import com.gotchaslots.slots.mobile.data.application.schedulers.scheduler.base.BaseScheduler;
+	
+	public class EveryMondayScheduler extends BaseScheduler
+	{
+		// class
+		public function EveryMondayScheduler()
+		{
+			super(new ScheduleData(Number.NaN, Number.NaN, Number.NaN, 2), new ScheduleData(Number.NaN, Number.NaN, Number.NaN, 2));
+		}
+	}
+}

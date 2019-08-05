@@ -1,0 +1,100 @@
+package com.gotchaslots.common.utils.animation
+{
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	
+	import com.gotchaslots.common.utils.json.JSONDecoder;
+	
+	public class SpriteSheetJson
+	{
+		// members
+		private var _spriteSheet:Bitmap;
+		private var _rectangles:Vector.<Rectangle>;
+		private var _points:Vector.<Point>;
+		private var _maxRectangle:Rectangle;
+		
+		// properties
+		public function get MaxRectangle():Rectangle
+		{
+			return _maxRectangle;
+		}
+		public function get Length():int
+		{
+			return _rectangles.length;
+		}
+		
+		// class
+		public function SpriteSheetJson()
+		{
+			_rectangles = new Vector.<Rectangle>();
+			_maxRectangle = new Rectangle();
+			_points = new Vector.<Point>();
+		}
+		public function Init(spriteSheet:Bitmap, sheetData:String):void
+		{
+			var jsonDecoder:Object = new JSONDecoder(sheetData, true).getValue();
+			var jsonData:Array = new Array();
+			
+			var entry:Object;
+			var jsonItemData:Object;
+			for(var keyName:String in jsonDecoder.frames)
+			{
+				entry = jsonDecoder.frames[keyName];
+				
+				jsonItemData = entry.frame;
+				jsonItemData.id = keyName.substring(0, keyName.lastIndexOf(".png"));
+				
+				jsonItemData.offX = 0;
+				jsonItemData.offY = 0;
+				if (entry.trimmed)
+				{
+					jsonItemData.offX = entry.spriteSourceSize.x;
+					jsonItemData.offY = entry.spriteSourceSize.y;
+				}
+				
+				jsonData.push(jsonItemData);
+			}
+			jsonData.sortOn("id");
+			
+			_spriteSheet = spriteSheet;
+			
+			var rectangle:Rectangle;
+			var point:Point;
+			
+			for (var i:int = 0; i < jsonData.length; i++)
+			{
+				rectangle = new Rectangle();
+				rectangle.x = jsonData[i].x;
+				rectangle.y = jsonData[i].y;
+				rectangle.width = jsonData[i].w;
+				rectangle.height = jsonData[i].h;
+				_rectangles.push(rectangle);
+				
+				point = new Point();
+				point.x = jsonData[i].offX;
+				point.y = jsonData[i].offY;
+				_points.push(point);
+				
+				_maxRectangle.width = Math.max(_maxRectangle.width, rectangle.width + point.x); 
+				_maxRectangle.height = Math.max(_maxRectangle.height, rectangle.height + point.y); 
+			}
+		}
+		
+		// methods
+		public function GetFrameWidth(index:int):Number
+		{
+			return (_rectangles[index].width + _points[index].x);
+		}
+		public function GetFrameHeight(index:int):Number
+		{
+			return (_rectangles[index].height + _points[index].y);
+		}
+		
+		public function DrawBitmap(index:int, output:BitmapData):void
+		{
+			output.copyPixels(_spriteSheet.bitmapData, _rectangles[index], _points[index]);
+		}
+	}
+}

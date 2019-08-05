@@ -1,0 +1,23 @@
+package com.gotchaslots.common.utils.xServices.deviceID
+{
+	import com.distriqt.extension.application.Application;
+	import com.distriqt.extension.application.Device;
+	
+	public class DeviceIDHandler
+	{
+		// properties
+		public function get DeviceID():String
+		{
+			var result:String;
+			
+			result = result.length == 0 ? int(Math.random() * 100000000).toString() : result;
+			return result;
+		}
+		
+		// clss
+		public function DeviceIDHandler()
+		{
+			Application.init(DEV_KEY);
+		}
+	}
+}

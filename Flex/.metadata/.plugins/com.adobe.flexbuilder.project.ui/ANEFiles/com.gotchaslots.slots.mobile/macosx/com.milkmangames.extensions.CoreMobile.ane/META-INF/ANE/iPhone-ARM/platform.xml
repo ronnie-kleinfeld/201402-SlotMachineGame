@@ -1,0 +1,10 @@
+<platform xmlns="http://ns.adobe.com/air/extension/3.5">
+    <!--sdkVersion>8.0</sdkVersion-->
+	    <packagedDependencies> 
+    </packagedDependencies> 
+    <linkerOptions>
+		<option>-w</option>
+		<option>-framework CoreMotion</option>
+		<option>-framework UIKit</option>
+    </linkerOptions>
+</platform>

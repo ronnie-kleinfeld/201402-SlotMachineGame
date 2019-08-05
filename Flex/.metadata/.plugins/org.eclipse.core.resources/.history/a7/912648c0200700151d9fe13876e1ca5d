@@ -1,0 +1,56 @@
+package com.gotchaslots.slots.mobile.ui.notifications.popup.machine
+{
+	import com.gotchaslots.slots.mobile.data.Main;
+	import com.gotchaslots.slots.mobile.data.application.locale.L10NHandler;
+	import com.gotchaslots.slots.mobile.ui.common.components.Spacer;
+	import com.gotchaslots.slots.mobile.ui.common.components.base.BaseButton;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.BaseMachinePopup;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.base.PopupSizeTypeEnum;
+	import com.gotchaslots.slots.mobile.ui.notifications.popup.buttons.MainPopupButton;
+	import com.gotchaslots.slots.mobile.utils.helpers.FormatterHelper;
+	
+	import flash.events.Event;
+	
+	public class FreeSpinsEndPopup extends BaseMachinePopup
+	{
+		// properties
+		protected override function get SizeType():String
+		{
+			return PopupSizeTypeEnum.MediumPopup;
+		}
+		
+		protected override function get Title():String
+		{
+			return Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Congratulations_Co);
+		}
+		protected override function get Buttons():Vector.<BaseButton>
+		{
+			var result:Vector.<BaseButton> = new Vector.<BaseButton>();
+			result.push(new MainPopupButton(Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.OK), OnBackToGameClick));
+			return result;
+		}
+		
+		// class
+		public function FreeSpinsEndPopup(onClose:Function)
+		{
+			super(onClose);
+		}
+		protected override function AddBody():void
+		{
+			AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_finished));
+			AddBlueMessageTextField(W, Main.Instance.ActiveMachine.LobbyMachine.MachineSession.FreeSpinsWonCount.toString() + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Free_Spins));
+			AddComponent(new Spacer(16));
+			if (Main.Instance.ActiveMachine.LobbyMachine.MachineSession.FreeSpinsChipsSum > 0)
+			{
+				AddBlueMessageTextField(W, Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.You_Won));
+				AddBlueMessageTextField(W, FormatterHelper.NumberToMoney(Main.Instance.ActiveMachine.LobbyMachine.MachineSession.FreeSpinsChipsSum) + " " + Main.Instance.Application.L10N.ActiveLocale.GetString(L10NHandler.Chips));
+			}
+		}
+		
+		// events
+		private function OnBackToGameClick(event:Event):void
+		{
+			DoRemove();
+		}
+	}
+}
