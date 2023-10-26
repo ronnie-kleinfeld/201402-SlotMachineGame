@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.gotchaslots.starling.SSpriteEx"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.Particle"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.ParticleDesignerPS"/>
+    <classEntry path="com.gotchaslots.starling.extensions.StarlingPool"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.ParticleSystem"/>
+    <classEntry path="com.gotchaslots.starling.extensions.ClippedSprite"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.ColorArgb"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.PDParticleSystem"/>
+    <classEntry path="com.gotchaslots.starling.extensions.particleSystem.PDParticle"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
