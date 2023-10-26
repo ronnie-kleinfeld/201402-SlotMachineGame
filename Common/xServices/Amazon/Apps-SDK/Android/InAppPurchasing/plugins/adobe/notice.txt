@@ -1,0 +1,2 @@
+Amazon Plug-Ins for Adobe AIR
+Copyright 2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.

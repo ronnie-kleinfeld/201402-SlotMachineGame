@@ -1,0 +1,35 @@
+v2.0.3
+-batches queries for item details into groups of 20 to workaround undocumented google api restriction on queries exceeding 20 items
+-fixes an issue where an attempt to consume an item after purchasing it would fail if loadInventory was not called in between
+v2.0.2
+-fix loss of purchase context on some devices when pressing the home button during a transaction while the transaction window is still open, then returning to the app from the springboard
+-populate the (legacy) jsonData property of the AndroidBillingEvent with the same values found in the AndroidBillingEvent.purchases object for events with a single AndroidPurchase contained therein.  These properties may be deprecated in the next release and you should switch to use event.purchases instead.
+-updated GettingStarted.pdf to indicate that you must initialize AndroidIAB in the document class constructor (refer to '5. Set the API and Connect to the Billing Service)
+-simplified application.xml manifest requirements
+-updated documentation to indicate google's new policy of no longer charging your credit card to test your own items (finally)
+-various documentation improvements
+-reduced file size
+v2.0.1
+-fix potential issue with loading multiple unpurchased item details as part of load inventory or details request
+v2.0.0
+-update to use Android Billing Service v3
+-fixes edge cases where background service could die unexpectedly
+-simplified event structure: each request has one AndroidBillingEvent success and one AndroidBillingErrorEvent fail callback.  Read the .errorID property agains the AndroidErrorID constants to get the specific api error condition.
+-restoreManagedTransactions() removed.  Use loadPlayerInventory() instead
+-adds the ability to query price, title, and description information with the loadItemDetails() method
+-player inventory is locally cached and loads must faster.  you no longer need to manage item purchase state yourself.  inventory is persisted across all the user's devices.  call loadPlayerInventory() to get the latest state of owned items.
+-transaction state changes like refunds and cancellations no longer need to be tracked manually.  use loadPlayerInventory() any time to get the latest persisted server state
+-adds consumeItem() function.  Handles tracking of consuming items, managed by Google
+-the manifestAddition requirements have changed.  Review GettingStarted.pdf for details on all API changes.
+
+v1.0.3
+-add support for GooglePlay Subscriptions:
+---check if they're available on the device with AndroidIAB.androidIAB.androidIAB.areSubscriptionsSupported()
+---purchase a subscription item with AndroidIAB.androidIAB.purchaseSubscriptionItem(itemId);
+-adds new properties to AndroidBillingEvent: quantity, purchaseTime, and purchaseToken
+v1.0.2
+-adds AndroidBillEvent.signature and AndroidBillingEvent.jsonData - for checking purchases against your own server
+v1.0.1
+-resolves issue of handler not being dismissed when AIR calls Application exit
+v1.0.0
+- initial release.

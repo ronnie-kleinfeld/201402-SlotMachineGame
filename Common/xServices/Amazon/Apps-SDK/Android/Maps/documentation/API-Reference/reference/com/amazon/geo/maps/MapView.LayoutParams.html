@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>
+
+  MapView.LayoutParams - Amazon Maps API
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../../reference/com/amazon/geo/maps/package-summary.html">com.amazon.geo.maps</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html">Overlay.Snappable</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Projection.html">Projection</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html">ItemizedOverlay</a>&lt;Item&nbsp;extends&nbsp;<a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a>&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapActivity.html">MapActivity</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html">MapController</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html">MapView.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MyLocationOverlay.html">MyLocationOverlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">Overlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/TrackballGestureDetector.html">TrackballGestureDetector</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.ReticleDrawMode.html">MapView.ReticleDrawMode</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+   
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+  &#124; <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
+
+
+  &#124; <a href="#inhfields">Inherited Fields</a>
+  
+
+
+  &#124; <a href="#pubctors">Constructors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+    static 
+     
+    
+    class
+<h1>MapView.LayoutParams</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">android.view.ViewGroup.LayoutParams</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.amazon.geo.maps.MapView.LayoutParams</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p></p>
+
+<p>Inheriting from <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a></code> the MapView.LayoutParams contain additional
+ layout information specific to aligning child views on a map.
+
+ Depending on the mode, a child view can be positioned relative to the view (MODE_VIEW) or
+ relative to the underlying map (MODE_MAP).
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#BOTTOM">BOTTOM</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant: Align horizontally using the bottom edge of the child view.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#BOTTOM_CENTER">BOTTOM_CENTER</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align using the center point of the bottom edge of the child view.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#CENTER">CENTER</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align using the center point of the child view.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#CENTER_HORIZONTAL">CENTER_HORIZONTAL</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align horizontally to the center of the child view.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#CENTER_VERTICAL">CENTER_VERTICAL</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align vertically to the center of the child view.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#LEFT">LEFT</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align horizontally to the left of the child view.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MODE_MAP">MODE_MAP</a></td>
+        <td class="jd-descrcol" width="100%">Layout mode constant:  Aligns the child view to a point on the map.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MODE_VIEW">MODE_VIEW</a></td>
+        <td class="jd-descrcol" width="100%">Layout mode constant:  Aligns the child view statically within the view.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#RIGHT">RIGHT</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align horizontally to the right of the child view.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#TOP">TOP</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align vertically to the top of the child view.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#TOP_LEFT">TOP_LEFT</a></td>
+        <td class="jd-descrcol" width="100%">alignment constant:  Align using the top left corner of the child view.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-android.view.ViewGroup.LayoutParams" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-android.view.ViewGroup.LayoutParams-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+android.view.ViewGroup.LayoutParams
+<div id="inherited-constants-android.view.ViewGroup.LayoutParams">
+  <div id="inherited-constants-android.view.ViewGroup.LayoutParams-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-android.view.ViewGroup.LayoutParams-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">FILL_PARENT</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">MATCH_PARENT</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">WRAP_CONTENT</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></td>
+          <td class="jd-descrcol" width="100%">The alignment field specifies which point on the child view will be aligned to either
+ the underlying map or to the view.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#mode">mode</a></td>
+          <td class="jd-descrcol" width="100%">The layout mode.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></td>
+          <td class="jd-descrcol" width="100%">The location on the underlying map that the child view will align to.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#x">x</a></td>
+          <td class="jd-descrcol" width="100%">The x offset for alignment.</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#y">y</a></td>
+          <td class="jd-descrcol" width="100%">The y offset for alignment.</td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-android.view.ViewGroup.LayoutParams" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-android.view.ViewGroup.LayoutParams-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+android.view.ViewGroup.LayoutParams
+<div id="inherited-fields-android.view.ViewGroup.LayoutParams">
+  <div id="inherited-fields-android.view.ViewGroup.LayoutParams-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-android.view.ViewGroup.LayoutParams-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol">height</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          <a href="http://developer.android.com/reference/android/view/animation/LayoutAnimationController.AnimationParameters.html">LayoutAnimationController.AnimationParameters</a></nobr></td>
+          <td class="jd-linkcol">layoutAnimationParameters</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol">width</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MapView.LayoutParams(android.content.Context, android.util.AttributeSet)">MapView.LayoutParams</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> c, <a href="http://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet</a> attrs)</nobr>
+        
+        <div class="jd-descrdiv">This is an inherited constructor, used to create a set of Layout Parameters from a
+ set of XML attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MapView.LayoutParams(int, int, com.amazon.geo.maps.GeoPoint, int)">MapView.LayoutParams</a></span>(int width, int height, <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, int alignment)</nobr>
+        
+        <div class="jd-descrdiv">This creates a new set of Mapvew.LayoutParams.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MapView.LayoutParams(int, int, com.amazon.geo.maps.GeoPoint, int, int, int)">MapView.LayoutParams</a></span>(int width, int height, <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, int x, int y, int alignment)</nobr>
+        
+        <div class="jd-descrdiv">This creates a new set of Mapvew.LayoutParams.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MapView.LayoutParams(int, int, int, int, int)">MapView.LayoutParams</a></span>(int width, int height, int x, int y, int alignment)</nobr>
+        
+        <div class="jd-descrdiv">This creates MapView.LayoutParams similar to an AbsoluteLayout.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#MapView.LayoutParams(android.view.ViewGroup.LayoutParams)">MapView.LayoutParams</a></span>(<a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a> source)</nobr>
+        
+        <div class="jd-descrdiv">Copy Constructor
+ Copies ViewGroup parameters for height and width, and sets the mode to MODE_VIEW and alignment to TOP_LEFT.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#debug(java.lang.String)">debug</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> output)</nobr>
+        
+        <div class="jd-descrdiv">Adds the state information from these LayoutParams to the end of the output string and returns it.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.view.ViewGroup.LayoutParams" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.view.ViewGroup.LayoutParams-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">android.view.ViewGroup.LayoutParams</a>
+
+<div id="inherited-methods-android.view.ViewGroup.LayoutParams">
+  <div id="inherited-methods-android.view.ViewGroup.LayoutParams-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.view.ViewGroup.LayoutParams-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">setBaseAttributes</span>(<a href="http://developer.android.com/reference/android/content/res/TypedArray.html">TypedArray</a> arg0, int arg1, int arg2)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://developer.android.com/reference/java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="BOTTOM"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        BOTTOM
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant: Align horizontally using the bottom edge of the child view.
+ This constant should be ORed with a vertical alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                80
+                (0x00000050)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="BOTTOM_CENTER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        BOTTOM_CENTER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align using the center point of the bottom edge of the child view.
+ This aligns both horizontally and vertically, do not OR this with other constants.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                81
+                (0x00000051)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="CENTER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        CENTER
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align using the center point of the child view.
+ This aligns both horizontally and vertically, do not OR this with other constants.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                17
+                (0x00000011)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="CENTER_HORIZONTAL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        CENTER_HORIZONTAL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align horizontally to the center of the child view.
+ This constant should be ORed with a vertical alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="CENTER_VERTICAL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        CENTER_VERTICAL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align vertically to the center of the child view.
+ This constant should be ORed with a horizontal alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                16
+                (0x00000010)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="LEFT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        LEFT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align horizontally to the left of the child view.
+ This constant should be ORed with a vertical alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MODE_MAP"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MODE_MAP
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Layout mode constant:  Aligns the child view to a point on the map.  As the map position
+ changes, the placement of the child view will change along with it.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MODE_VIEW"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MODE_VIEW
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Layout mode constant:  Aligns the child view statically within the view.  This is similar to
+ alignment within an absolute layout.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="RIGHT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RIGHT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align horizontally to the right of the child view.
+ This constant should be ORed with a vertical alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                5
+                (0x00000005)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TOP"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        TOP
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align vertically to the top of the child view.
+ This constant should be ORed with a horizontal alignment constant.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                48
+                (0x00000030)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="TOP_LEFT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        TOP_LEFT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>alignment constant:  Align using the top left corner of the child view.
+ This aligns both horizontally and vertically, do not OR this with other constants.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                51
+                (0x00000033)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="alignment"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        alignment
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The alignment field specifies which point on the child view will be aligned to either
+ the underlying map or to the view.  The low order byte is the horizontal alignment and
+ the higher is vertical.  A vertical and horizontal alignment constant can be or'ed together
+ But do not or together more than one of each.  CENTER, BOTTOM_CENTER and TOP_LEFT represent
+ alignments in both directions.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="mode"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        mode
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The layout mode.  Set to either MODE_VIEW or MODE_MAP
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="point"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a>
+      </span>
+        point
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The location on the underlying map that the child view will align to.
+ This is used when mode is set to MODE_MAP.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="x"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        x
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The x offset for alignment.  In MODE_VIEW this represents the horizontal distance in pixels
+ between the top left corner of the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> and the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point on the child view.
+ In MODE_MAP, this is the horizontal distance in pixels from the specified <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code> on the map
+ and the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point on the child view.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="y"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        y
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The y offset for alignment.  In MODE_VIEW this represents the vertical distance in pixels
+ between the top left corner of the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> and the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point on the child view.
+ In MODE_MAP, this is the vertical distance in pixels from the specified <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code> on the map
+ and the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point on the child view.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="MapView.LayoutParams(android.content.Context, android.util.AttributeSet)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MapView.LayoutParams</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> c, <a href="http://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet</a> attrs)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This is an inherited constructor, used to create a set of Layout Parameters from a
+ set of XML attributes.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>c</td>
+          <td>the Context</td>
+        </tr>
+        <tr>
+          <th>attrs</td>
+          <td>the XML Attribute Set.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="MapView.LayoutParams(int, int, com.amazon.geo.maps.GeoPoint, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MapView.LayoutParams</span>
+      <span class="normal">(int width, int height, <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, int alignment)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This creates a new set of Mapvew.LayoutParams.  This specifies alignment in MODE_MAP and will place
+ the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point exactly onto the specified GeoPoint <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>width</td>
+          <td>The width of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>height</td>
+          <td>The height of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>point</td>
+          <td>The point on the map to place the alignment point on.</td>
+        </tr>
+        <tr>
+          <th>alignment</td>
+          <td>The point on the child view to place on the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code>.  See <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="MapView.LayoutParams(int, int, com.amazon.geo.maps.GeoPoint, int, int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MapView.LayoutParams</span>
+      <span class="normal">(int width, int height, <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, int x, int y, int alignment)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This creates a new set of Mapvew.LayoutParams.  This specifies alignment in MODE_MAP and will place
+ the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point x pixels below and y pixels to the right of the specified GeoPoint <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>width</td>
+          <td>The width of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>height</td>
+          <td>The height of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>point</td>
+          <td>The point on the map that the layout will start from.</td>
+        </tr>
+        <tr>
+          <th>x</td>
+          <td>The horizontal offset in pixels from point to alignment.</td>
+        </tr>
+        <tr>
+          <th>y</td>
+          <td>The vertical offset in pixels from point to alignment.</td>
+        </tr>
+        <tr>
+          <th>alignment</td>
+          <td>The position on the child view that will be placed (x,y) away from <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#point">point</a></code>.  See <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="MapView.LayoutParams(int, int, int, int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MapView.LayoutParams</span>
+      <span class="normal">(int width, int height, int x, int y, int alignment)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This creates MapView.LayoutParams similar to an AbsoluteLayout.  The only difference is that it is the
+ <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code> point of the child view that is placed at offset (x,y)in the parent rather than simply the TOP_LEFT.
+ This sets <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#mode">mode</a></code> to MODE_VIEW.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>width</td>
+          <td>The width of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>height</td>
+          <td>The height of the child view.  Set to <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#FILL_PARENT">FILL_PARENT</a></code>,
+  <code><a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></code> or an exact size in pixels.</td>
+        </tr>
+        <tr>
+          <th>x</td>
+          <td>The horizontal offset in pixels from the top left of the MapView to alignment.</td>
+        </tr>
+        <tr>
+          <th>y</td>
+          <td>The vertical offset in pixels from the top left of the MapView to alignment.</td>
+        </tr>
+        <tr>
+          <th>alignment</td>
+          <td>The position on the child view that will be placed at (x,y) in the MapView.  See <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html#alignment">alignment</a></code>
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="MapView.LayoutParams(android.view.ViewGroup.LayoutParams)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MapView.LayoutParams</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a> source)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Copy Constructor
+ Copies ViewGroup parameters for height and width, and sets the mode to MODE_VIEW and alignment to TOP_LEFT.
+ This will place the child view in the top left corner of the MapView.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>source</td>
+          <td>ViewGroup.LayoutParams to copy.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="debug(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">debug</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> output)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds the state information from these LayoutParams to the end of the output string and returns it.
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+<p class="Footer">
+
+Copyright &copy; 2012, Amazon Digital Services, Inc. or its affiliates. All rights reserved.
+ 
+</p>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+</script>
+
+</body>
+</html>

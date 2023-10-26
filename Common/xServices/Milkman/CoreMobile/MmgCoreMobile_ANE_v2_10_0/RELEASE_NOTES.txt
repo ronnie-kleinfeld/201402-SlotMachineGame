@@ -1,0 +1,77 @@
+v2.10.0
+* adds the properties textInputMaxLength to showModalInputDialog, and textInputMaxLength and passwordMaxLength to showModalCredentialsDialog
+* adds the largeIconUri parameter to scheduleLocalNotification- allows you to set a custom large icon for Android notifications from your application bundle 
+* adds the convenience method localDateToSeconds()- useful for setting notification times when you want to use an absolute instead of relative date
+* adds the method setAndroidTheme(), which lets you set the Android UI theme for native UI to either CMAndroidTheme.THEME_DARK or CMAndroidTheme.THEME_LIGHT
+* works around a case where listeners could be garbage collected when using the new actionscript compiler in some cases
+* fix some typos in GettingStarted.pdf
+
+v2.9.0
+* fix for intercepted push notification registration events when used with push notifications extension init in a certain order on ios8. If you are also using EasyPush 2.6, and using Local Notifications, there is no need to call CoreMobile.mobile.registerForNotifications() as the registration can be handled by EasyPush instead.
+
+v2.8.0
+* Use modern Theme styling where available on Android dialogs
+* Adds the methods showPicker() and cancelPicker() for creating a multiple choice selection dialog
+* Fixes a bug on Android where dialogs dispatchers would report the affirmative label as no instead of yes
+* Adds the method canOpenUrl()
+
+v2.7.0
+* Fix a bug on android where repeating notifications of short length may not be rescheduled after a reboot
+
+v2.6.0
+* adds support for ios 64 bit (universal) binaries
+* adds support for 'big picture' style android notifications.  you can now set the optional parameter bigPictureUri in scheduleLocalNotification(), as an http or https url pointing to the location of the image to display.
+* resolves a rare exception when the application is restarted on some android devices
+
+v2.5.0
+* fix error in CMLocalNotificationEvent.toString()
+* adds the ability to set custom sounds for notifications with the soundName argument of scheduleLocalNotification().  This value must be the name of a wav file included in your package contents at the root level
+* adds the ability to set the badge number that will appear on iOS when the notification is received via the badgeNumber property of scheduleLocalNotification()
+* refactor android notification view setup (will support big picture style in next release)
+
+v2.4.0
+-adds method registerForNotifications() which displays the iOS 8 prompt asking for permission to show notifications
+-adds method isRegisteredForNotifications() which returns true if the app is previously registered to receive notifications on iOS
+-adds setNotificationBadgeNumber(number:uint) method which allows you to set the icon badge number on iOS
+-adds support for Android-x86
+-adds support for the iOS Simulator
+-fixes known bug on some Samsung Android device's implementation of Android where gyroscope values could be unavailable or cause an exception
+
+v2.3.0
+-add workaround for reported bug in some manufacturer's implementations of SensorManager on Android when calculating quaternion values 
+
+v2.2.0
+-adds CoreMobile.mobile.getNetworkType() that returns CMNetworkType.NONE, CMNetworkType.MOBILE or CMNetworkType.WIFI
+-adds networkType property to CMNetworkEvent
+-adds quaternion data to DeviceMotionData (qw, qx, qy, qz)
+
+v2.1.0
+-fixes a bug introduced in 2.0.0 with displaying buttons-only dialogs on some systems
+-improves soft keyboard handling on older android devices
+-for parity with iOS, credentials dialogs on android now show the login/password prompt hints inside their fields
+-removes an erroneous debug exception printed to the trace console
+
+v2.0.0
+-Repeating local notifications are now available via CoreMobile.mobile.scheduleRepeatingLocalNotification
+-You can now set the keyboard type of modal dialogs via the textInputType parameter of showModalInputDialog() or showModalCredentialsDialog().  Accepted values are CMInputType.TEXT, CMInputType.NUMBER, or CMInputType.EMAIL
+
+v1.0.6
+-Fixes an issue that may prevent odd numbered network events from being dispatched on Android 4 if the network status is not checked directly in between
+
+v1.0.5
+-Fix parsing of modal input text responses when running on iOS 5 devices
+
+v1.0.4
+-CoreMobile is now compatible to iOS versions down to 5.1
+
+v1.0.3
+-fix an issue in Android 4 where pending notifications  events with short durations may be fired twice on reboot with the boot permission enabled
+
+v1.0.2
+-optionally, allow android to reinstate pending notifications after a reboot by adding extra permissions.  See GettingStarted.pdf "Update Your Application Descriptor" for the application.xml changes required to use this feature.
+
+v1.0.1
+-fix a potential namespace conflict at compile time
+
+v1.0.0
+-initial release

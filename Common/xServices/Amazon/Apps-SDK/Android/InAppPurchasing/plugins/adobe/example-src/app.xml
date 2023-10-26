@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.3">
+  <!-- A universally unique application identifier. Must be unique across all AIR applications.
+	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+  <id>com.aneexample.azpsample</id>
+  <!-- Used as the filename for the application. Required. -->
+  <filename>azp_ane</filename>
+  <!-- The name that is displayed in the AIR application installer. -->
+  <name>AIR AZP D Sample</name>
+  <!-- A string value of the format <0-999>.<0-999>.<0-999> 
+	It MUST be three parts separated by periods. Required. -->
+  <versionNumber>1.0.0</versionNumber>
+  <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the 
+	application, as it should be shown to users. Optional. -->
+  <versionLabel>v1.0.0</versionLabel>
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <!-- The main SWF or HTML file of the application. Required. -->
+    <content>anesample.swf</content>
+    <!-- Should the app figure out which way to orient itself? -->
+    <autoOrients>true</autoOrients>
+    <!-- What is the standard aspect ratio, landscape or portrait? -->
+    <aspectRatio>landscape</aspectRatio>
+    <renderMode>direct</renderMode>
+    <fullScreen>true</fullScreen>
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+  
+ <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <application>
+
+					<receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver">
+						<intent-filter>
+							<action android:name="com.amazon.inapp.purchasing.NOTIFY"
+								android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+						</intent-filter>
+					</receiver>
+					
+				</application>
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+
+  <extensions>
+    <extensionID>com.amazon.extensions.AmazonPurchase</extensionID>
+  </extensions>
+</application>

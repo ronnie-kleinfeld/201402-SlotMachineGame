@@ -1,0 +1,79 @@
+{
+ "B002Y6CWCM":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "", 
+ "category": "ArtsAndCrafts", 
+ "rating": 4.0, 
+ "title":"Art Alternatives Marquis Desk Easel",
+ "description":"The Marquis easel is a portable miniature desk that converts to a painting easel with one simple adjustment and folds up just as easily. The folding easel adjusts to four positions and will accommodate a canvas up to 11 x 14 inches. Cleverly designed and lightweight yet sturdy, it has a drawer with three compartments to hold brushes, paints, sketching tools and other essential gear.", 
+ "price":{"currency":"USD", "value":15.47}, 
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/41Kf6-J6R7L._SX450_.jpg"}
+ },
+ "B0027AANDA":
+ {
+  "productType":"PHYSICAL", 
+  "brand" : "", 
+  "category": "ArtsAndCrafts", 
+  "rating": 5, 
+  "title":"Art Advantage Oil and Acrylic Brush Set, 24-Piece",
+  "description":"Art Advantage twenty-four piece brush set. Long handle brushes are perfect for both oil and acrylic to use with a free canvas brush roll-up. Twelve white nylon brushes and twelve sturdy hog bristle brushes. Each set has one of each flat and round in sizes #2, #4, #6, #8, #10, #12 in both synthetic and natural bristle.",
+  "price":{"currency":"USD", "value":11.42},
+  "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/41Kf6-J6R7L._SX450_.jpg"}
+  },
+ "B006G2Z8IU":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "xyz", 
+ "category": "HomeGarden", 
+ "rating": 3, 
+ "title":"Furinno 11192B (99797B) Efficient Computer Desk, Black/Grey",
+ "description":"Furinno efficient computer desk for laptop and desktop is designed for space saving and modern stylish look.",
+ "price":{"currency":"USD", "value":40.44},
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/61Ixoc4RG2L._SX522_.jpg"}
+ },
+ "B001CXWQ6U":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "Dixon", 
+ "category": "OfficeProducts", 
+ "rating": 3, 
+ "title":"Ticonderoga Yellow Pencil",
+ "description":"Distinct black marks, smooth writing, easily erased. Comfortable to hold and use for a tradition of fine writing. PMA Certified nontoxic. 12 pencils per box.",
+ "price":{"currency":"USD", "value":549.11},
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/81Ox-leZoAL._SL1500_.jpg"}
+ },
+ "B000KQ4MDK":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "Amazon", 
+ "category": "MusicalInstruments", 
+ "rating": 4.5, 
+ "title":"MG38-BK 38 Acoustic Guitar Starter Package",
+ "description":"Acoustic Guitar set in Black is ideal for the beginning student! The Acoustic Guitar has a loud and bright ringing tone that clearly projects to the listener.",
+ "price":{"currency":"USD", "value":16.95},
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/31SN9ADMVSL.jpg"}
+ },
+ "B000OR2RNM":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "", 
+ "category": "MusicalInstruments", 
+ "rating": 2.5, 
+ "title":"Guitar Strings",
+ "description":"D'Addario's Phosphor Bronze acoustic guitar strings are engineered to serve as the critical link between you and your guitar",
+ "price":{"currency":"USD", "minValue":12.89, "maxValue":149.95},
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/51JFb7vPzRL._SL500_SS75_.jpg"}
+ },
+ "B007KXO970":
+ {
+ "productType":"PHYSICAL", 
+ "brand" : "Pampers", 
+ "category": "HealthPersonalCare", 
+ "rating": 4.5, 
+ "title":"Pampers Sensitive Wipes",
+ "description":"No matter their skin type, your baby deserves proven skin care. Pampers Sensitive wipes are made with PureCare lotion that helps condition baby’s skin and is clinically proven mild. They’re also made with pure water and contain a touch of aloe and chamomile. Sensitive wipes are dermatologist tested, hypoallergenic, and perfume free. Proven care for baby’s delicate skin.",
+ "price":{"currency":"USD", "value":12.89},
+ "image" : {"width":150, "height":150, "url":"http://ecx.images-amazon.com/images/I/81ECkYFt9vL._SX522_.jpg"}
+ }
+}

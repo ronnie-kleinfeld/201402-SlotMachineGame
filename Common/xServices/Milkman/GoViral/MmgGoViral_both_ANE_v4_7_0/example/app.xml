@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+  <!-- A universally unique application identifier. Must be unique across all AIR applications.
+	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+  <id>com.milkmangames.goviralex</id>
+  <!-- Used as the filename for the application. Required. -->
+  <filename>GoViral</filename>
+  <!-- The name that is displayed in the AIR application installer. -->
+  <name>GoViral</name>
+  <!-- A string value of the format <0-999>.<0-999>.<0-999> 
+	It MUST be three parts separated by periods. Required. -->
+  <versionNumber>4.0.0</versionNumber>
+  <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the 
+	application, as it should be shown to users. Optional. -->
+  <versionLabel>v4.0.0</versionLabel>
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <!-- The main SWF or HTML file of the application. Required. -->
+    <content>goviral.swf</content>
+    <!-- Should the app figure out which way to orient itself? -->
+    <autoOrients>true</autoOrients>
+    <!-- What is the standard aspect ratio, landscape or portrait? -->
+    <aspectRatio>any</aspectRatio>
+    <renderMode>cpu</renderMode>
+    <fullScreen>true</fullScreen>
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+  
+<iPhone>
+	<requestedDisplayResolution>high</requestedDisplayResolution>
+<InfoAdditions> 
+	<![CDATA[ 
+<key>FacebookAppID</key>
+<string>000000000000000</string>
+<key>FacebookDisplayName</key>
+<string>GoViral</string>
+<key>UIDeviceFamily</key> 
+<array> 
+    <string>1</string> 
+    <string>2</string> 
+</array>
+<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb000000000000000</string>
+			</array>
+		</dict>
+	</array>
+]]>
+
+</InfoAdditions>
+</iPhone>
+
+ <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				
+				<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
+				
+			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+				<uses-permission android:name="android.permission.INTERNET"/>
+
+			    <application>
+					 <activity android:launchMode="standard">
+						<intent-filter> 
+						 <action android:name="android.intent.action.MAIN"/> 
+						 <category android:name="android.intent.category.LAUNCHER"/> 
+						</intent-filter> 
+					</activity>
+	
+        <activity android:name="com.facebook.LoginActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                  android:label="Login" />
+				 
+				   <!-- replace 000000000000000 with your numeric Facebook Application ID -->
+				  <provider android:authorities="com.facebook.app.NativeAppCallContentProvider000000000000000" android:name="com.facebook.NativeAppCallContentProvider" />
+				  
+				  <!-- replace 000000000000000 with your numeric Facebook Application ID, and com.yourcompany.example with your apks application ID -->
+				  <meta-data android:name="air.com.yourcompany.example.ApplicationId" android:value="000000000000000"/>
+				</application>
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+
+  <extensions>
+    <extensionID>com.milkmangames.extensions.GoViral</extensionID> 
+
+  </extensions>
+</application>

@@ -1,0 +1,23 @@
+# IAP plugin properties
+name: In-App Purchasing
+version: 1.0.3
+info: The In-App Purchasing (IAP) API lets you sell digital content and subscriptions--such as in-game currency, expansion packs, upgrades, magazine issues and more--from within your apps.
+minApiLevel: 1
+minPluginVersion: 1.0.0
+
+features:
+    - name: core
+      optional: false
+      # API Library to include
+      libs: 
+        - jar: in-app-purchasing-1.0.3.jar
+          bundled: true
+      # Required AndroidManifest.xml entries
+      xmlEntries:
+        - parent: application
+          elements:
+            - <receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver" >
+                <intent-filter>
+                  <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+                </intent-filter>
+              </receiver>

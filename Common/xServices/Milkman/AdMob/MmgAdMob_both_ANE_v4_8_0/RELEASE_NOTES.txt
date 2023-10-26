@@ -1,0 +1,131 @@
+v4.8.0
+* this version of the AdMob.ane and GoogleServices.ane are *compatible with version 2.9.0 only of the GoogleGames.ane and 2.3.0 of GoogleAnalytics.ane*
+* fixes a bug on Android where if a banner ad is displayed, the ad is clicked and you leave the application for the browser, then use the hardware back button to return to the application, then use the hardware back button again to exit the application, then reopen the application from the task bar, the ad may no longer be visible
+* Refactored GoogleServices.ane for compatability with more third party Android extensions.  If you're using extensions relying on Google Services only from Milkman Games, use the included GoogleServices.ane and you will save 1-5 megabytes in the binary size of your final APK.  If you are using third party extensions that include a built-in Google Play services library, you may omit GoogleServices.ane in favor of the third party version but your binary may be larger.
+
+v4.7.0
+* this version of the AdMob.ane and GoogleServices.ane are *compatible with version 2.8.0 only of the GoogleGames.ane and 2.2.0 of GoogleAnalytics.ane*
+* fix problem where if an interstitial fails due to internet connection the subsequent interstitial may not load
+* workaround for issue in Adobe AIR latest version that could make the AIR stage appear in the wrong orientation if the screen is rotated while an intertitial is on display.  This is a temporary workaround that will need to removed when the root problem is fixed in a future Adobe AIR release.
+* Updates iOS internal AdMob SDK to version 7.
+
+v4.6.0
+* this version of the AdMob.ane and GoogleServices.ane are *compatible with version 2.7.0 only of the GoogleGames.ane and 2.1.0 of GoogleAnalytics.ane*
+* fixes bug that could prevent SCREEN_DISMISSED From being called when an interstitial is dismissed if LEAVE_APPLICATION was called right before
+* extension will now throw an exception if you attempt to preload a new interstitial when the last one has not finished
+* updates documentation on interstitial preloading
+
+v4.5.0
+* Adds iOS 64 bit (universal) binary support
+* Adds Android x86 library slices that were missing from GoogleServices.ane
+* Hide warning when compiling for iOS With GoogleServices ANE
+* the included com.milkmangames.nativeextensions.GoogleServices.ane has been updated.  *You MUST update it along with AdMob.ane to use this version of the extension*. 
+* this version of the AdMob.ane and GoogleServices.ane are *compatible with version 2.6.0 only of the GoogleGames.ane and 2.0.0 of GoogleAnalytics.ane*
+
+v4.4.0
+* Support library packages updated for compatability with some popular third party extensions
+* the included com.milkmangames.nativeextensions.GoogleServices.ane has been updated.  You MUST update it along with AdMob.ane to use this version of the extension. 
+* this version of the AdMob.ane and GoogleServices.ane are compatible with version 2.5.0 only of the GoogleGames.ane
+
+v4.3.0
+-the included com.milkmangames.nativeextensions.GoogleServices.ane has been updated.  You MUST update it along with AdMob.ane to use this version of the extension. 
+-this version of the AdMob.ane and GoogleServices.ane are compatible with version 2.4.0 only of the GoogleGames.ane
+-the android xml requirements have changed.  Please review GettingStarted.pdf, Update Your Application Descriptor
+-updates the iOS AdMob SDK version to 6.12.0.  This includes a fix for landscape smart banners not displaying on some devices
+-Smart Banners will now auto-reload when the orientation changes- you no longer have to recreate them on rotation if you have an app that supports multiple orientations
+-fixes a bug where loadSystemAdvertisingId could crash on Android if an old version, or no version of Google Play Services is installed on the device
+-the minIOSSdkVersion has been changed to 6.1 in order to provide compatability with the hotfix issued on the Adobe forum to workaround Apple rejecting all AIR applications.  We will change this min version back down to 5 when Adobe releases an AIR SDK that can create binaries Apple will accept without this change.
+-adds detailed directions to GettingStarted.pdf on correcting rendering problems that may occur for Starling users on Android, when calling interstitials, if context changes are not being handled correctly
+-adds support for Android-x86.  Although this makes the ANE file itself bigger, it will not make your final APK any bigger.
+-adds support for iPhone Simulator. Although this makes the ANE file itself bigger, it will not make your final IPA any bigger.
+
+
+v4.2.0
+-the included com.milkmangames.nativeextensions.GoogleServices.ane has been updated.  You MUST update it along with AdMob.ane to use this version of the extension. 
+-this version of the AdMob.ane and GoogleServices.ane are compatible with version 2.3.0 only of the GoogleGames.ane
+-adds the method loadSystemAdvertisingId().  Loads the Google Advertising Identifier or Apple Identifier for Advertising, and dispatched AdMobEvent.SYSTEM_AD_ID_LOADED.  Its systemAdvertisingId will be the id if available, "limited" if the user disabled it, or null if not available
+
+v4.1.0
+-the extension now uses version 4452000 of the Google Play Services library.  This value must be updated in your application.xml file metadata.  Refer to GettingStarted.pdf "Update Your Application Descriptor."
+-The Google Play Services library is now provided as a separate ANE, included.  You must include this ANE as well as the AdMob ANE for the extension to work.
+-If you are also using the Google Play Games extension, you must be using v2.2.0 if Google Play Games to be compatible with v4.1.0 of AdMob.
+-A number of hacks that may help work around Adobe AIR 14 bugs #3766144, #3752414, and #3773736 for affected users.
+-adds the method AdMob.trackIOSConversion(conversionID:String,label:String,value:String).  On iOS devices this will register an install conversion with AdMob.  On Android it will do nothing, as the Google Play Store will track the conversion automatically for you.
+-applies custom compression to the Google Play services library, which will reduce APK size
+
+v4.0.0
+-resolves an issue where some ads may not be able to display on android devices that do not have the most current googleplay services application update installed.  If you are also using the MMG GoogleGames extension in your project, it must be updated to v2.0.0+ to work alongside AdMob.
+-restores test ad functionality on iOS (removed by google in 2.0.2, now available again via getCurrentTestDeviceIDs using undocumented method for determining Google's internal test IDs)
+-Updates iOS AdMob SDK to version 6.9.2
+
+v3.0.4
+-resolves potential android resource conflict at compile time with GooglePlay service resources from 3.0.3
+
+v3.0.3
+-updates internal android sdk to GooglePlay 4.4
+-the application.xml settings for Android have changed; see GettingStarted.pdf
+-fixes a bug where width/height calculations for smart banner may not be adjusted for screen DPI
+
+v3.0.2
+-fix error getting size rects when ads are loaded in a particular order
+-fix potential namespace conflict when compiling
+
+v3.0.1
+-fix a bug where a smart banner top aligned with a y offset could appear to be partially offscreen when hidden
+-enable the .dimensions property of the AdMobEvent.RECEIVED_AD for smart banners
+-fix an error resolving setBannerAdUnitID method on some ios devices
+-reduces binary size on android
+
+v3.0.0
+-showInterstitial() replaced with loadInterstitial().  See GettingStarted.pdf, 'Loading Interstitial Ads'
+-optionally, interstitials can now be preloaded for future playback.  See GettingStarted.pdf, 'Preloading Interstitial Ads'
+-testDevices are no longer a parameter of showAd- use the separate enableTestDeviceIDs() function instead.  See GettingStarted.pdf, 'Showing test Ads During Development'
+-The SMART_BANNER ad type is now supported (automatically fill the screen width for banner ads.)
+-Complex apps may use multiple banner ad unit placement ids in one app.  See GettingStarted.pdf, 'Handling Multiple Banner Ad Units'
+-COPPA compliance option for children's apps.  See GettingStarted.pdf, 'COPPA support for Children's Apps'
+-GettingStarted.pdf updated with instructions for the new AdMob developer site
+-Troubleshooting documentation updated with common errors
+-AdMobErrorEvent no longer extends flash.events.ErrorEvent
+-update internal iOS SDK version to 6.8.0
+-updated for compatability with AIR 4 status bar style
+
+v2.0.3
+-updates internal AdMob SDK to the latest revision (6.4.2)
+-adds interstitial support via the showInterstitial() function.  Note you can only use interstitials if Google has specifically invited you to do so.
+-CHANGES REQUIRED additions to Application.xml - refer to GettingStarted.pdf or /example/app.xml for details
+-rebuilt against newest iOS Toolchain as PIE binary
+v2.0.2
+-ups requirement to air 3.5 or higher
+-updates internal ios admob sdk for compatability with app store rules. as a result, google no longer supports test ads on ios devices. be careful when testing to avoid getting flagged for 'cheating' during testing.  we expect google to resolve this is in the next release.
+-internal setup for smart banner alignment and invited interstitials, which will be activated in the next extension release.
+v2.0.1
+-fixes typo in example class
+-addresses issues with test ads still displaying when a null vector of test ids is passed on ios
+v2.0.0
+-initial release of android/ios combo version
+-package names changed from com.milkmangames.nativeextensions.android to com.milkmangames.nativeextensions
+-fixes issues on some newer android devices with rendering
+-showAd function now recreates an ad even if the old ad was not destroyed
+
+v.1.0.6
+-handle issue where latest AIR SDK on Android phones running ICS do not update properly on orientation change.  This requires an application.xml change; refer to the example app.xml or PDF documentation for updated settings.
+
+-adds convenience method AdMob.getTestDeviceIDs()- this removes the need to check logcat for your test device ID
+-improved documentation
+
+v.1.0.5
+-improves handling of visibility settings
+v.1.0.4
+-fixes some bugs finding classes in flashbuilder
+v.1.0.3
+-fixes autocompletion so documentation and code hints show up in all editors (Flash Pro, Flash Develop, Flash Builder)
+-fixes errors when included but unused in a cross-platform project targeting llvm (iOS non-interpreter)
+v.1.0.2
+-improved explanation in docs of how ads will be sized on different phones and tablets
+-added AdMobAdType.getPixelSize(AdMobAdType.BANNER) - function.  You can use this to find out what size, in real pixels, an add is going to show up on the current device.
+-fixed some timing issues with visibility settings and create/destroy.
+-added flash builder 4.6 instructions to documentation
+v.1.0.1
+-enables absolute positioning option in showAd function
+v1.0.0
+- initial release.

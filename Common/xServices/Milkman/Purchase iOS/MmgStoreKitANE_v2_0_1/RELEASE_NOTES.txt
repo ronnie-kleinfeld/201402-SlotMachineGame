@@ -1,0 +1,39 @@
+v2.0.1
+-fixes an error with transaction restore in the sandbox depending on the date of user creation
+v2.0.0
+-now requires AIR 3.5 or higher
+-adds the ability to download apple-hosted content.  Refer to GettingStarted.pdf for details
+-adds the ability to display iTunes store product windows in-app.  Refer to GettingStarted.pdf for details
+-expanded documentation and examples
+-fixes autocompletion handling for event names in some IDEs
+v1.0.9
+-fixes issue where consumable items may be out of sync if the transaction is canceled by the user after a restore
+-dispatches failure events in cases where the network times out on a product details request
+v1.0.8
+-fixes case where extension can fail to initialize if the user has turned off in-app purchases completely in Settings, started the app, switched purchases back on in settings, and returned to the app
+v1.0.7
+-improvements for using non-renewable subscriptions
+-receipt fixes for restore transactions: the latest receipt item is now sent to StoreKitEvent.receipt instead of the (nil) original receipt
+-reformats receipt property - [TID] element removed and is only present in transactionId or originalTransactionId
+-add handler for case where a product details request fails due to a network error
+v1.0.6
+-fixes for manual (server side) transaction verification users:
+-if using manual mode, ALL transaction callbacks must be finished with the API, including PURCHASE_SUCCESS, PURCHASE_CANCELLED and PURCHASE_FAILED.
+-ensures transactionId property is present on StoreKitEvent and StoreKitErrorEvent
+-adds originalTransactionId property to StoreKitEvent and StoreKitErrorEvent; present in the case of a restored transaction
+-adds StoreKitEvent.originalErrorId property; populated when a failed transaction is restored with an error ID.
+v1.0.5
+-add transactionId property to StoreKitEvent for PURCHASE_SUCCESS event, in restored and original purchase case
+v.1.0.4
+-fix conflict when initializing extension with ios 5.1+
+-fix error calculating prices in restored/loaded items
+v.1.0.3
+-woarkaround for bug with some Adobe IDs when using extensions with AIR 3.3
+-adds setManualTransactionMode() and and manualFinishTransaction(id)- for use if you are running your own server for back-end verification.
+-memory management improvements
+v1.0.2
+-fixes bug retrieving state of parental controls with isStoreKitAvailable()
+v1.0.1
+-compatability fix for inclusion with gamecenter in AIR 3.1 latest build
+v1.0.0
+- initial release.

@@ -1,0 +1,2 @@
+Amazon GameCircle Universal Beta SDK
+ Copyright 2000-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.

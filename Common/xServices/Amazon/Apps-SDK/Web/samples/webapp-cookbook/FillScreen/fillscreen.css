@@ -1,0 +1,16 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#fill {
+    border: 1px solid red;
+    display: block;
+    width: 300px;
+    height: 400px;
+}
+
+textarea, input {
+   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);    
+   -webkit-user-modify: read-write-plaintext-only;
+}

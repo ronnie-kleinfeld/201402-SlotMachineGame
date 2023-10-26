@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Simple Ad Sample</string>
+    <string name="description">
+        This is a simple app for testing ad loading capabilities of the Amazon Mobile Ads API. 
+        This app demonstrates ad loading, expanding and collapsing along with device rotation.
+    </string>
+    <string name="button_text">Load Ad</string>
+
+</resources>

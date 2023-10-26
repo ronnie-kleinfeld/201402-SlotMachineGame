@@ -1,0 +1,36 @@
+# Ads properties
+name: Mobile Ads
+version: 5.1.14
+info: The Amazon Mobile Ads API allows you to easily place high-quality display ads from the Amazon Mobile Ad Network in your app.
+registrationText: Follow the instructions here to register your app
+registrationURL: https://developer.amazon.com/sdk/mobileads/quick-start.html#Before%20You%20Use%20the%20Amazon%20Mobile%20Ads%20API
+minApiLevel: 4
+minPluginVersion: 1.0.0
+
+features:
+    - name: core
+      optional: false
+      # API Library to include
+      libs:
+          - jar: amazon-ads-5.1.14.jar
+            bundled: true
+      # Android Manifest element required
+      xmlEntries:
+          - parent: manifest
+            elements:
+              - <uses-permission android:name="android.permission.INTERNET" />
+          - parent: application
+            elements:
+              - <activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+    # Optional Features
+    - name: Include Recommended Targeting Permissions
+      info: Click here to automatically update AndroidManifest.xml with recommended permissions
+      xmlEntries:
+          - parent: manifest
+            elements:
+              - <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+              - <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+              - <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+              - <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+

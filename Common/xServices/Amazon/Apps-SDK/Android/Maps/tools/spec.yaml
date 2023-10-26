@@ -1,0 +1,27 @@
+# Maps Properties
+name: Maps
+version: 1.0.2
+info: With the Amazon Maps API, you can add interactive maps to your apps for most Kindle Fire tablets and delight users with custom overlays.
+registrationText: Follow the instructions here to register your app
+registrationURL: https://developer.amazon.com/sdk/maps/building.html#Registering
+minApiLevel: 13
+minPluginVersion: 1.0.0
+
+features:
+    - name: core
+      optional: false
+      # API Library to be include
+      libs: 
+        - jar: amazonmaps-1.0.2.jar
+          bundled: false
+      # Android Manifest element required
+      xmlEntries:
+        - parent: manifest
+          attributes:
+            - name: xmlns:amazon
+              value: http://schemas.amazon.com/apk/res/android
+          elements:
+            - <amazon:enable-feature android:name="com.amazon.geo.maps" android:required="true" />
+            - <uses-permission android:name="android.permission.INTERNET" />
+            - <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            - <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

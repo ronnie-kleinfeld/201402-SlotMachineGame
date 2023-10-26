@@ -1,0 +1,12 @@
+##
+#
+# If you are using the In-App Purchasing APIs, 
+# and are obfuscating your code before release, you will need 
+# to add these three lines into your Proguared.cfg file to ensure
+# that the proguard obfuscator does not interfere with the In-App Purchasing APIs.
+#
+#
+
+-dontwarn com.amazon.**
+-keep class com.amazon.** {*;}
+-keepattributes *Annotation*

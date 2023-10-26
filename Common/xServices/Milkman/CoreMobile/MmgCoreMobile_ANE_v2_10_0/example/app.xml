@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/16.0">
+  <!-- A universally unique application identifier. Must be unique across all AIR applications.
+	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+  <id>com.milkmangames.example.CoreMobile</id>
+  <!-- Used as the filename for the application. Required. -->
+  <filename>CoreMobileEx</filename>
+  <!-- The name that is displayed in the AIR application installer. -->
+  <name>CoreMobileEx</name>
+  <!-- A string value of the format <0-999>.<0-999>.<0-999> 
+	It MUST be three parts separated by periods. Required. -->
+  <versionNumber>1.0.0</versionNumber>
+  <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the 
+	application, as it should be shown to users. Optional. -->
+  <versionLabel>v1.0.0</versionLabel>
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <!-- The main SWF or HTML file of the application. Required. -->
+    <content>anesample.swf</content>
+    <!-- Should the app figure out which way to orient itself? -->
+    <autoOrients>false</autoOrients>
+    <!-- What is the standard aspect ratio, landscape or portrait? -->
+    <aspectRatio>portrait</aspectRatio>
+    <renderMode>cpu</renderMode>
+    <fullScreen>false</fullScreen>
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+  
+ <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				
+				<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
+				
+				<!-- These permissions are required by CoreMobile -->
+			    <uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+				<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+				
+				<!-- this permissions is required by CoreMobile, if you use notifications and want them to survive a reboot -->
+				<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+				
+				<!-- The Vibrate permission is required to use the vibration function, and/or local notifications. -->
+				<uses-permission android:name="android.permission.VIBRATE" />
+				
+				<!-- The WakeLock permission is required to use local notifications. -->
+				<uses-permission android:name="android.permission.WAKE_LOCK" />
+				
+				<application>
+					<!-- This receiver is required by CoreMobile -->
+					<receiver android:name="com.milkmangames.extensions.android.CMLocalNotificationReceiver"/>
+					
+					<!-- This receiver is required by CoreMobile, if you use notifications and want them to survive a reboot -->
+					<receiver android:name="com.milkmangames.extensions.android.CMBootReceiver">
+						<intent-filter>
+							<action android:name="android.intent.action.BOOT_COMPLETED"/>
+						</intent-filter>
+					</receiver>					
+					
+				</application>
+
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+	
+	<iPhone>
+	  <requestedDisplayResolution>high</requestedDisplayResolution>
+<InfoAdditions> 
+	<![CDATA[ 
+<key>UIDeviceFamily</key> 
+<array> 
+    <string>1</string> 
+    <string>2</string> 
+</array>
+
+]]>
+
+</InfoAdditions>
+</iPhone>
+	
+
+  <extensions>
+    <extensionID>com.milkmangames.extensions.CoreMobile</extensionID>
+  </extensions>
+</application>

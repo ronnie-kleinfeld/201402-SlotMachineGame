@@ -1,0 +1,45 @@
+v2.6.0
+* removes temporary workaround described below in v2.5.0, as the core Adobe AIR bug (https://bugbase.adobe.com/index.cfm?event=bug&id=3942204) was fixed in the March 24th beta release of AIR 17.  You must use the latest AIR 17 or higher release to avoid the landscape orientation handling issues on iOS 8.
+* fixes a typo in the code example in the GettingStarted.pdf troubleshooting section
+
+v2.5.0
+* adds a temporary hack to workaround Adobe AIR 16 and 17 not handling view controller orientation correctly
+* adds a manual check for internet connectivity when loading ads due to the very long default timeout in this condition for iAd framework
+
+v2.4.0
+* fixes incorrect offset of landscape bottom oriented banners when using Adobe AIR 16.0.272+ on iOS 8.1.2+
+* extension will now throw an exception if you attempt to preload a new interstitial when the last one has not finished
+* updates documentation on interstitial preloading
+
+v2.3.0
+-adds support for iOS 64 Bit (universal) binaries
+
+v2.2.0
+-adds events IAdEvent.INTERSTITIAL_SHOWN and IAdEvent.INTERSTITIAL_DISMISSED.  Please review GettingStarted.pdf- you should rely only on these events from now on if you need to respond to an interstitial being shown or closed in your application.
+
+v2.1.0
+-iAd Interstitials are now supported on the iPhone as well as the iPad! (device must be running iOS 7 or higher)
+-adds support for iOS Simulator builds
+-fixes an issue where builds targeting iOS versions with a visible status bar that is transparent, may cause a hidden banner ad to show behind the status bar
+-update documentation for the new iTunes Connect
+
+v2.0.0
+-showInterstitial() replaced with loadInterstitial().  See GettingStarted.pdf, 'Loading Interstitial Ads'
+-optionally, interstitials can now be preloaded for future playback.  See GettingStarted.pdf, 'Preloading Interstitial Ads'
+-GettingStarted.pdf updated with new instruction detailing events
+-IAdErrorEvent no longer extends flash.events.ErrorEvent
+-updated for compatability with AIR 4 status bar style
+
+v1.0.4
+-fixes compatability issues with ipad 1st gen
+-fixes issues with handling rotation in air 3.5 across devices
+v1.0.3
+-works around bug in ios 6 where if an ad is displayed aligned to the bottom edge of the screen, and the ipa was built for ios 5, and ios6 is displaying the app in a letterboxed window, the vertical positioning of the bottom aligned ad is incorrect.
+v1.0.2
+-corrects an issue where touch events are blocked if the user puts one or more fingers down outside the ad, then touches the ad with another finger, then releases the touch over the ad window
+v1.0.1
+-support interstitials in air 3.2+
+-memory management improvements
+-compatability fixes for air 3.3 with Adobe IDEs
+v1.0.0
+- initial release.

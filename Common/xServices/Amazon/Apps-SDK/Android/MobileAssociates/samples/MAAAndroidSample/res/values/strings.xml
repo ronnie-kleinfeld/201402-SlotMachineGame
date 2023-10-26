@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Art Studio</string>
+    <string name="action_settings">Settings</string>
+    <string name="store_activity_store"> Welcome to the Goodie Store!</string>
+    
+    <string name="desc">item icon</string>
+    <string name="paintString">Paint a portrait</string>
+    <string name="writeString">Write a poem</string>
+    <string name="playString">Play guitar</string>
+    <string name="storeString">Buy some stuff for your studio!</string>
+    <string name="searchString">Search on Amazon!</string>
+    <string name="searchOtherEasels">Search Other Easels</string>
+    <string name="searchOtherDesks">Search Other Desks</string>
+    <string name="searchOtherGuitars">Search Other Guitars</string>
+    <string name="title_activity_store">Goody Store</string>
+    <string name="easelHeaderString">Easel</string>
+    <string name="deskHeaderString">Desk</string>
+    <string name="guitarHeaderString">Guitar</string>
+    <string name="brushHeaderString">Brush</string>
+    <string name="pencilHeaderString">Pencil</string>
+    <string name="stringHeaderString">String</string>
+    <string name="loadingString">loading</string>
+    
+
+</resources>

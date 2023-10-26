@@ -1,0 +1,13 @@
+GLOBAL CHANGES
+--------------
+
+    Update to Amazon Insights to prevent crash if developer keeps deprecated service definitions in their manifest
+    Update to Amazon Insights to prevent message corruption issue (non-game impacting)
+    Performance Improvements
+    Support for Target Platform 17  
+    Support for Unity 3.5
+
+API CHANGES
+-----------
+
+    The getIcon method has been removed from the Achievements client.  This has been replaced by a URL to the icon.  This is available on the Achievement object.

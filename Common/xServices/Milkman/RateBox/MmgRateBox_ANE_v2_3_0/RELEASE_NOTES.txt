@@ -1,0 +1,48 @@
+v2.3.0
+* updates android UI to use modern themes on newer devices
+* fixes a regression bug on android where the prompt could be shown again for the same version in some cases
+* fixes bug on android that caused resetConditions not to reset whether the current version had been rated
+
+v2.2.0
+* on Kindle Fire devices and android devices where set to use amazon store, will now use the custom amzn: scheme to go directly to the Amazon App Store app instead of presenting the activity selector on first run, if available
+* on iOS, you can now call setUseInlineStoreView(true) which will make RateBox use a popup view of your app store listing instead of redirecting to the store app.  This avoids leaving your application, but also means the user will need to press the Ratings button themselves to complete the operation
+* adds support iOS 64 bit universal binaries
+
+v2.1.0
+-adds support for Android-x86
+-adds support for iOS Simulator
+
+v2.0.0
+-add the method gotoRatingsNow(), which allows you to display the ratings page directly at any time
+-add the methods recordCustomLaterButtonPress() and recordCustomNeverButtonPress().  If you want to setAutoPrompt(false) and build a completely custom UI for the ratings dialog, you can call these methods after the user presses your custom 'ask me later' or 'don't ask again' buttons.
+
+v1.0.11
+-iOS 7.1 fixes the apple bug preventing direct links to the rating window; ratebox now uses the direct scheme accordingly on 7.1 and the fallback scheme on 7.0.
+-adds useAmazonAppStore() method to force the ratings page on Android to load from the Amazon App Store instead of Google Play.  (RateBox already uses the Amazon app store automatically when deployed on a Kindle Fire, but this method is useful if you are supporting the Amazon App Store for Google Android as well.)
+
+v1.0.10
+-if running on a certain version of ios, fall back to going directly to the app page when rating prompt is selected, instead of direct to ratings pages
+
+v1.0.9
+-fixes current version rating not loaded on android if app was force quit
+-support amazon market urls
+-documentation improvements
+v1.0.8
+-resolves condition check bugs on android
+v1.0.7
+-adds support for kindle fire devices
+v1.0.6
+-fixes problem reading stored last rated condition in onLaunch()
+v1.0.5
+-fixes positioning of buttons in landscape mode when the message text exceeds a certain size
+-fixes potential crash on older ipod touches running ios4 with wifi disabled
+v1.0.4
+-fixes an issue on android where last rating time not stored on some systems
+v1.0.3
+-fix for setAutoPrompt() errors
+v1.0.2
+-fix for bug in Adobe IDEs that prevents some extensions from finishing compiling
+v1.0.1
+-fixes a bug that could cause a crash under certain circumstances.
+v1.0.0
+- initial release.

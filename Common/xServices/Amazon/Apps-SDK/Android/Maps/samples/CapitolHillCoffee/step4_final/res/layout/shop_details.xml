@@ -1,0 +1,53 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#444444" >
+
+    <ImageView
+        android:id="@+id/chc_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/capitolhillcoffee"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp" />
+
+    <TextView
+        android:id="@+id/shop_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chc_icon"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp" />
+
+    <TextView
+        android:id="@+id/shop_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_title"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginTop="10sp"
+        android:clickable="true"
+        android:textColor="#D70" />
+
+    <TextView
+        android:id="@+id/shop_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_phone"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginTop="10sp" />
+
+    <Button android:id="@+id/dismiss_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:layout_below="@+id/shop_address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp" />
+</RelativeLayout>

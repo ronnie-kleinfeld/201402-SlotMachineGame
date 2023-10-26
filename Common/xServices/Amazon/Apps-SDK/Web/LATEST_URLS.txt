@@ -1,0 +1,2 @@
+https://amazon-web-app-resources.s3.amazonaws.com/v0/latest/Amazon-Web-App-API.min.js
+https://amazon-web-app-resources.s3.amazonaws.com/v0/latest/Amazon-Web-App-API-tester.min.js

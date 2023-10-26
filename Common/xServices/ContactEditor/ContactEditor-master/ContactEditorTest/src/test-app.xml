@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.1">
+
+
+	<id>ContactEditor</id>
+	<filename>ContactEditor</filename>
+	<name>ContactEditor</name>
+	<versionNumber>0.0.0</versionNumber>
+	<initialWindow>
+		<content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+	<autoOrients>true</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+        <softKeyboardBehavior>none</softKeyboardBehavior>
+    </initialWindow>
+
+<android>
+        <colorDepth>16bit</colorDepth>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+				<uses-permission android:name="android.permission.READ_CONTACTS" />
+				<uses-permission android:name="android.permission.WRITE_CONTACTS" />
+				<uses-permission android:name="android.permission.INTERNET"/>
+                <application>
+                    <activity android:name="pl.mateuszmackowiak.nativeANE.contactManager.PickContactHandler" android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+                </application>
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+    <iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    <extensions>
+        <extensionID>pl.mllr.extensions.contactEditor</extensionID>
+    </extensions>
+</application>

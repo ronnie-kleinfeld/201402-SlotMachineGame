@@ -1,0 +1,34 @@
+v2.3.0
+* updates GoogleServices compatability library.  if you are also using our AdMob or GoogleGames extensions, you must *update those to versions 4.8.0 and 2.9.0* respectively to be compatible with this extension!
+* Updates GettingStarted.pdf with information on using Custom Dimensions and Custom Metrics
+* Refactored GoogleServices.ane for compatability with more third party Android extensions.  If you're using extensions relying on Google Services only from Milkman Games, use the included GoogleServices.ane and you will save 1-5 megabytes in the binary size of your final APK.  If you are using third party extensions that include a built-in Google Play services library, you may omit GoogleServices.ane in favor of the third party version but your binary may be larger.
+
+v2.2.0
+* updates GoogleServices compatability library.  if you are also using our AdMob or GoogleGames extensions, you must *update those to versions 4.7.0 and 2.8.0* respectively to be compatible with this extension!
+
+v2.1.0
+* if you are also using our AdMob or GoogleGames extensions, you must *update those to versions 4.6.0 and 2.7.0* respectively to be compatible with this extension!
+* updates the iOS internal GA SDK to v3.10
+* fixes a bug where the SKU may not be set when reporting a purchase transaction
+* adds support for setAdvertisingIdCollectionEnabled() on iOS. *If you use this on iOS, you must ALSO include GAIDFAAccess.ane in your project.  If you this on iOS but don't have any third party ads such as AdMob in your app, Apple will reject your binary!*
+
+
+v2.0.0
+* Adds support for iOS 64 bit (universal) binaries
+* Adds support for Android-x86 platform
+* adds the method GAnalytics.analytics.getInstallReferrer() - this will tell you the referrer data, if any, if the app was installed with a referrer on Android from the Google Play Store
+* adds the method GATracker.setAdvertisingIdCollectionEnabled().  This allows you to enable Google Ad ID Collection on Android systems for more detailed demographic profiling
+* the extension now includes and requires the GoogleServices.ane.  *YOU MUST INCLUDE THIS ANE* along with the main ANE for it to work on Android.
+* *THE APPLICATION.XML REQUIREMENTS HAVE CHANGED!* Carefully review /example/app.xml for changes or see GettingStarted.pdf.
+* if you are also using our AdMob or GoogleGames extensions, you must *update those to versions 4.5.0 and 2.6.0* respectively to be compatible with this extension!
+
+v1.2.0
+* fixes compatability issue with latest Facebook SDK
+
+v1.1.0
+* fixes a bug where apps may crash on some ios devices when being invoked from the background using an url handler
+* adds support for Android x86 builds
+* adds support for iPhone Simulator builds
+
+v1.0.0
+* initial release

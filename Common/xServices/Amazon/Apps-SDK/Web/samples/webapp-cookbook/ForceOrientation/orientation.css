@@ -1,0 +1,17 @@
+#forcerotation {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 101%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+#forcerotation #message {
+    position: relative;
+    top: 45%;
+    text-align: center;
+}

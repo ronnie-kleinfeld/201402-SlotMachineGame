@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>
+
+  MapController - Amazon Maps API
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../../reference/com/amazon/geo/maps/package-summary.html">com.amazon.geo.maps</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html">Overlay.Snappable</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Projection.html">Projection</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html">ItemizedOverlay</a>&lt;Item&nbsp;extends&nbsp;<a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a>&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapActivity.html">MapActivity</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html">MapController</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html">MapView.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MyLocationOverlay.html">MyLocationOverlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">Overlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/TrackballGestureDetector.html">TrackballGestureDetector</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.ReticleDrawMode.html">MapView.ReticleDrawMode</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+
+
+
+
+
+
+  <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+    final 
+    
+    class
+<h1>MapController</h1>
+
+
+
+  
+    extends <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="http://developer.android.com/reference/android/view/View.OnKeyListener.html">View.OnKeyListener</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.amazon.geo.maps.MapController</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p></p>
+
+<p>A utility class to manage the map.
+
+ This class is not thread-safe.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#animateTo(com.amazon.geo.maps.GeoPoint, android.os.Message)">animateTo</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, <a href="http://developer.android.com/reference/android/os/Message.html">Message</a> message)</nobr>
+        
+        <div class="jd-descrdiv">Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#animateTo(com.amazon.geo.maps.GeoPoint, java.lang.Runnable)">animateTo</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, <a href="http://developer.android.com/reference/java/lang/Runnable.html">Runnable</a> runnable)</nobr>
+        
+        <div class="jd-descrdiv">Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#animateTo(com.amazon.geo.maps.GeoPoint)">animateTo</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point)</nobr>
+        
+        <div class="jd-descrdiv">Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#onKey(android.view.View, int, android.view.KeyEvent)">onKey</a></span>(<a href="http://developer.android.com/reference/android/view/View.html">View</a> v, int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event)</nobr>
+        
+        <div class="jd-descrdiv">This is a no-op as it's related to a non-existent keyboard.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#scrollBy(int, int)">scrollBy</a></span>(int x, int y)</nobr>
+        
+        <div class="jd-descrdiv">Scroll the map by the given amount, in pixels.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#setCenter(com.amazon.geo.maps.GeoPoint)">setCenter</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point)</nobr>
+        
+        <div class="jd-descrdiv">Sets the map center to the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#setZoom(int)">setZoom</a></span>(int zoomLevel)</nobr>
+        
+        <div class="jd-descrdiv">Set the zoom level of the map to the given integer.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#stopAnimation(boolean)">stopAnimation</a></span>(boolean jumpToFinish)</nobr>
+        
+        <div class="jd-descrdiv">Stops any animation that may be in progress, and conditionally moves the map center to the
+ initially requested endpoint.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#stopPanning()">stopPanning</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">This is a no-op as it's related to a non-existent keyboard.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#zoomIn()">zoomIn</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">This starts a one second animated zoom-in based on the center of the map.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#zoomInFixing(int, int)">zoomInFixing</a></span>(int xPixel, int yPixel)</nobr>
+        
+        <div class="jd-descrdiv">This starts a one second animated zoom-in based on the given xPixel and yPixel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#zoomOut()">zoomOut</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">This starts a one second animated zoom-out based on the center of the map.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#zoomOutFixing(int, int)">zoomOutFixing</a></span>(int xPixel, int yPixel)</nobr>
+        
+        <div class="jd-descrdiv">This starts a one second animated zoom-out based on the given xPixel and yPixel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html#zoomToSpan(int, int)">zoomToSpan</a></span>(int latSpanE6, int lonSpanE6)</nobr>
+        
+        <div class="jd-descrdiv">Attempts to adjust the zoom of the map so that the given span of latitude and longitude will
+ be displayed.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://developer.android.com/reference/java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.view.View.OnKeyListener" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.view.View.OnKeyListener-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://developer.android.com/reference/android/view/View.OnKeyListener.html">android.view.View.OnKeyListener</a>
+
+<div id="inherited-methods-android.view.View.OnKeyListener">
+  <div id="inherited-methods-android.view.View.OnKeyListener-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.view.View.OnKeyListener-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">onKey</span>(<a href="http://developer.android.com/reference/android/view/View.html">View</a> arg0, int arg1, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> arg2)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="animateTo(com.amazon.geo.maps.GeoPoint, android.os.Message)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">animateTo</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, <a href="http://developer.android.com/reference/android/os/Message.html">Message</a> message)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>. Once the animation has completed
+ the given GeoPoint will be the center of the map and the given <code><a href="http://developer.android.com/reference/android/os/Message.html">Message</a></code> is dispatched to it's
+ target. If the animation is aborted, the given Message is null or no target is specified in
+ the given Message, no action is taken.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>point</td>
+          <td>The GeoPoint to animate towards</td>
+        </tr>
+        <tr>
+          <th>message</td>
+          <td>The Message to dispatch once the animation has successfully completed
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="animateTo(com.amazon.geo.maps.GeoPoint, java.lang.Runnable)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">animateTo</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point, <a href="http://developer.android.com/reference/java/lang/Runnable.html">Runnable</a> runnable)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>. Once the animation has completed
+ the given GeoPoint will be the center of the map and the given <code><a href="http://developer.android.com/reference/java/lang/Runnable.html">Runnable</a></code> will be executed on
+ the UI thread. If the animation is aborted or the given Runnable is null, no action is taken.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>point</td>
+          <td>The GeoPoint to animate towards</td>
+        </tr>
+        <tr>
+          <th>runnable</td>
+          <td>The Runnable to execute in the UI thread once the animation has completed
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="animateTo(com.amazon.geo.maps.GeoPoint)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">animateTo</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Starts a one second animation towards the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>. Once the animation has completed
+ the given GeoPoint will be the center of the map.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>point</td>
+          <td>The GeoPoint to animate towards
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onKey(android.view.View, int, android.view.KeyEvent)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onKey</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/view/View.html">View</a> v, int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This is a no-op as it's related to a non-existent keyboard.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="scrollBy(int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">scrollBy</span>
+      <span class="normal">(int x, int y)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Scroll the map by the given amount, in pixels. There is no animation associated with this
+ action.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>x</td>
+          <td>The amount to scroll horizontally in pixels</td>
+        </tr>
+        <tr>
+          <th>y</td>
+          <td>The amount to scroll vertically in pixels
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCenter(com.amazon.geo.maps.GeoPoint)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCenter</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> point)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the map center to the given <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>. There is no animation associated with this action.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>point</td>
+          <td>The GeoPoint that will be the new map center.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setZoom(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">setZoom</span>
+      <span class="normal">(int zoomLevel)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the zoom level of the map to the given integer. This value will be clipped 1 and 21
+ (inclusive). There is no animation associated with this action.
+ <p>
+ Note that not all areas have tiles at higher zoom levels. In these areas, a place-holder tile
+ is shown.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>zoomLevel</td>
+          <td>The zoomlevel you wish to set.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>22 if you attempted to set the zoom to a value above 21, otherwise the new zoom
+         level.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="stopAnimation(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">stopAnimation</span>
+      <span class="normal">(boolean jumpToFinish)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Stops any animation that may be in progress, and conditionally moves the map center to the
+ initially requested endpoint.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>jumpToFinish</td>
+          <td>- If true, the map center will jump to the initially requested end point.
+            If false, the map center that the animation has currently achieved will be the
+            final map center.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="stopPanning()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">stopPanning</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This is a no-op as it's related to a non-existent keyboard.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="zoomIn()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">zoomIn</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This starts a one second animated zoom-in based on the center of the map. If you have
+ added <code><a href="http://developer.android.com/reference/android/widget/ZoomControls.html">ZoomControls</a></code> from <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#getZoomControls()">getZoomControls()</a></code>, then a call to
+ <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#displayZoomControls(boolean)">displayZoomControls(boolean)</a></code> will be made causing the ZoomControls to appear
+ briefly.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if we started the animated zoom-in, false if we cannot zoom in further.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="zoomInFixing(int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">zoomInFixing</span>
+      <span class="normal">(int xPixel, int yPixel)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This starts a one second animated zoom-in based on the given xPixel and yPixel. If you have
+ added <code><a href="http://developer.android.com/reference/android/widget/ZoomControls.html">ZoomControls</a></code> from <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#getZoomControls()">getZoomControls()</a></code>, then a call to
+ <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#displayZoomControls(boolean)">displayZoomControls(boolean)</a></code> will be made causing the ZoomControls to appear
+ briefly.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>xPixel</td>
+          <td>Number of pixels from the left of the map where the zoom will focus on</td>
+        </tr>
+        <tr>
+          <th>yPixel</td>
+          <td>Number of pixels from the top of the map where the zoom will focus on</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if we started the animated zoom-in, false if we cannot zoom-in any further.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="zoomOut()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">zoomOut</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This starts a one second animated zoom-out based on the center of the map. If you have added
+ <code><a href="http://developer.android.com/reference/android/widget/ZoomControls.html">ZoomControls</a></code> from <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#getZoomControls()">getZoomControls()</a></code>, then a call to
+ <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#displayZoomControls(boolean)">displayZoomControls(boolean)</a></code> will be made causing the ZoomControls to appear
+ briefly.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if we started the animated zoom-out, false if we cannot zoom-out any further.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="zoomOutFixing(int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">zoomOutFixing</span>
+      <span class="normal">(int xPixel, int yPixel)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This starts a one second animated zoom-out based on the given xPixel and yPixel. If you have
+ added <code><a href="http://developer.android.com/reference/android/widget/ZoomControls.html">ZoomControls</a></code> from <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#getZoomControls()">getZoomControls()</a></code>, then a call to
+ <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html#displayZoomControls(boolean)">displayZoomControls(boolean)</a></code> will be made causing the ZoomControls to appear
+ briefly.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>xPixel</td>
+          <td>Number of pixels from the left of the map where the zoom will focus on</td>
+        </tr>
+        <tr>
+          <th>yPixel</td>
+          <td>Number of pixels from the top of the map where the zoom will focus on</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if we started the animated zoom-out, false if we cannot zoom-out any further.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="zoomToSpan(int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">zoomToSpan</span>
+      <span class="normal">(int latSpanE6, int lonSpanE6)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Attempts to adjust the zoom of the map so that the given span of latitude and longitude will
+ be displayed. The quality of fit may very. There is no animation associated with this action.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>latSpanE6</td>
+          <td>The latitude span you wish the map to display</td>
+        </tr>
+        <tr>
+          <th>lonSpanE6</td>
+          <td>The longitude span you wish the map to display
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+<p class="Footer">
+
+Copyright &copy; 2012, Amazon Digital Services, Inc. or its affiliates. All rights reserved.
+ 
+</p>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+</script>
+
+</body>
+</html>

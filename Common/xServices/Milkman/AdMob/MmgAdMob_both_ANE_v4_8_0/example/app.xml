@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/4.0">
+  <!-- A universally unique application identifier. Must be unique across all AIR applications.
+	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+  <id>com.aneexample.admobex</id>
+  <!-- Used as the filename for the application. Required. -->
+  <filename>AdMobEx4</filename>
+  <!-- The name that is displayed in the AIR application installer. -->
+  <name>AdMobEx4</name>
+  <!-- A string value of the format <0-999>.<0-999>.<0-999> 
+	It MUST be three parts separated by periods. Required. -->
+  <versionNumber>4.0.0</versionNumber>
+  <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the 
+	application, as it should be shown to users. Optional. -->
+  <versionLabel>v4.0.0</versionLabel>
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <!-- The main SWF or HTML file of the application. Required. -->
+    <content>anesample.swf</content>
+    <!-- Should the app figure out which way to orient itself? -->
+    <autoOrients>true</autoOrients>
+    <!-- What is the standard aspect ratio, landscape or portrait? -->
+    <aspectRatio>any</aspectRatio>
+    <renderMode>cpu</renderMode>
+    <fullScreen>true</fullScreen>
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+  
+ <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				
+				<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
+				
+				<!-- These permissions are required by AdMob -->
+			    <uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+				
+				<application>
+					<!-- this meta-data tag is required for AdMob -->
+					
+					<meta-data android:name="com.google.android.gms.version" android:value="4452000"/>
+					
+					
+					<!-- this activity is required for AdMob -->
+					 <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+				</application>
+
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+	
+	<iPhone>
+	  <requestedDisplayResolution>high</requestedDisplayResolution>
+<InfoAdditions> 
+	<![CDATA[ 
+<key>UIDeviceFamily</key> 
+<array> 
+    <string>1</string> 
+    <string>2</string> 
+</array>
+
+]]>
+
+</InfoAdditions>
+</iPhone>
+	
+
+  <extensions>
+    <extensionID>com.milkmangames.extensions.AdMob</extensionID> 
+	<extensionID>com.milkmangames.extensions.GoogleServices</extensionID>
+  </extensions>
+</application>

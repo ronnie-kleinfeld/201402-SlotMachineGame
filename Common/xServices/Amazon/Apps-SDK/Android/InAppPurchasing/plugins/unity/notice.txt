@@ -1,0 +1,2 @@
+Amazon Plug-Ins for Unity API
+Copyright 2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.

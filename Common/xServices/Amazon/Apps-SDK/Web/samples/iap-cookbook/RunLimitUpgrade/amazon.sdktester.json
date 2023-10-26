@@ -1,0 +1,9 @@
+{
+    "upgradeware.unlockruns" : {
+        "itemType" : "ENTITLED",
+        "price" : "0.99",
+        "title": "Unlock runs",
+        "description": "Unlock unlimited runs of the application",
+        "smallIconUrl": "http://path_to_image"
+    }
+}

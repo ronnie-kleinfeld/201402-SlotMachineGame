@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.5">
+
+  <id>com.aneexample.iabsample</id>
+  <filename>anesample</filename>
+  <name>AIR IAB Sample</name>
+  <versionNumber>2.0.2</versionNumber>
+  <versionLabel>v2.0.2</versionLabel>
+  <initialWindow>
+    <content>anesample.swf</content>
+    <autoOrients>true</autoOrients>
+    <aspectRatio>portrait</aspectRatio>
+    <renderMode>cpu</renderMode>
+    <fullScreen>true</fullScreen>
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+  
+ <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				
+				<uses-sdk android:targetSdkVersion="12"/>
+				<uses-sdk android:minSdkVersion="8"/>
+				
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="com.android.vending.BILLING" />
+
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+
+  <extensions>
+    <extensionID>com.milkmangames.extensions.AndroidIAB</extensionID>
+  </extensions>
+</application>

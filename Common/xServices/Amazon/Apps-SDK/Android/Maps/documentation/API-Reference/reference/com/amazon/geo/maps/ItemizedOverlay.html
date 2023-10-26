@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>
+
+  ItemizedOverlay - Amazon Maps API
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../../reference/com/amazon/geo/maps/package-summary.html">com.amazon.geo.maps</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html">Overlay.Snappable</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Projection.html">Projection</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html">ItemizedOverlay</a>&lt;Item&nbsp;extends&nbsp;<a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a>&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapActivity.html">MapActivity</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapController.html">MapController</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.LayoutParams.html">MapView.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MyLocationOverlay.html">MyLocationOverlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">Overlay</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">OverlayItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/TrackballGestureDetector.html">TrackballGestureDetector</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/com/amazon/geo/maps/MapView.ReticleDrawMode.html">MapView.ReticleDrawMode</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+
+  &#124; <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+
+
+  &#124; <a href="#pubctors">Constructors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    abstract
+    class
+<h1>ItemizedOverlay</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">Overlay</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html">Overlay.Snappable</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">com.amazon.geo.maps.Overlay</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.amazon.geo.maps.ItemizedOverlay&lt;Item&nbsp;extends&nbsp;<a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html">com.amazon.geo.maps.OverlayItem</a>&gt;</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p></p>
+
+<p>Base class for a map overlay that contains discrete items. Individual items
+ are represented by the OverlayItem class, and visually indicated by a marker
+ (a <code><a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">drawable</a></code>). ItemizedOverlay is
+ responsible for:
+ <ul>
+ <li>Management of the list of individual overlay items (instances of
+ OverlayItem).
+ <li>Drawing individual item markers on the overlay.
+ <li>Setting bounds for item markers (instances of
+ <code><a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a></code>.)
+ <li>Handling taps on the overlay or on a specific item.
+ <li>Keeping track of the item that has focus, and dispatching focus events.
+ </ul>
+ <p>
+ Item objects are stored in an item list in the order in which they are
+ created. By default items are drawn in latitude order, north to south.
+ Override <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getIndexToDraw(int)">getIndexToDraw(int)</a></code> to determine the order in which items
+ are drawn.
+ <p>
+ Taps to items on the overlay are managed by overriding the
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTap(int)">onTap(int)</a></code> method. Manage taps to the overlay itself (outside of
+ taps) with the <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTap(com.amazon.geo.maps.GeoPoint, com.amazon.geo.maps.MapView)">onTap(GeoPoint, MapView)</a></code> method.
+ <p>
+ This class is not thread-safe.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        interface</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a></td>
+      <td class="jd-descrcol" width="100%">Interface for listeners that keep track of changes in focus for all
+ items in this overlay.&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-com.amazon.geo.maps.Overlay" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-com.amazon.geo.maps.Overlay-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">com.amazon.geo.maps.Overlay</a>
+<div id="inherited-constants-com.amazon.geo.maps.Overlay">
+  <div id="inherited-constants-com.amazon.geo.maps.Overlay-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-com.amazon.geo.maps.Overlay-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#SHADOW_X_SKEW">SHADOW_X_SKEW</a></td>
+        <td class="jd-descrcol" width="100%">X Skew value for shadows.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">float</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#SHADOW_Y_SCALE">SHADOW_Y_SCALE</a></td>
+        <td class="jd-descrcol" width="100%">Y Scale value for shadows.</td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#ItemizedOverlay(android.graphics.drawable.Drawable)">ItemizedOverlay</a></span>(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> defaultMarker)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new instance of ItemizedOverlay.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#draw(android.graphics.Canvas, com.amazon.geo.maps.MapView, boolean)">draw</a></span>(<a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> canvas, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView, boolean shadow)</nobr>
+        
+        <div class="jd-descrdiv">Draws the markers on the overlay canvas for each Item in the item list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getCenter()">getCenter</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the location of the first Item object in the item list as a
+ <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Item</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getFocus()">getFocus</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the item that currently has the focus, or null if no item has
+ focus.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Item</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getItem(int)">getItem</a></span>(int position)</nobr>
+        
+        <div class="jd-descrdiv">Returns the Item object at the given position (index) in the item list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getLastFocusedIndex()">getLastFocusedIndex</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the index of the item that currently has (or most recently had) the
+ focus.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getLatSpanE6()">getLatSpanE6</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the latitude difference between northernmost and southernmost
+ items on the overlay, in microdegrees (decimal degrees multiplied by one
+ million).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getLonSpanE6()">getLonSpanE6</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the Longitude difference between westernmost and easternmost
+ items on the overlay, in microdegrees (decimal degrees multiplied by one
+ million).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Item</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#nextFocus(boolean)">nextFocus</a></span>(boolean forwards)</nobr>
+        
+        <div class="jd-descrdiv">Gives focus to the the next (or previous) item in the item list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onKeyUp(int, android.view.KeyEvent, com.amazon.geo.maps.MapView)">onKeyUp</a></span>(int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Default callback for Key Up events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onSnapToItem(int, int, android.graphics.Point, com.amazon.geo.maps.MapView)">onSnapToItem</a></span>(int x, int y, <a href="http://developer.android.com/reference/android/graphics/Point.html">Point</a> snapPoint, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Callback for snapping points to items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTap(com.amazon.geo.maps.GeoPoint, com.amazon.geo.maps.MapView)">onTap</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> p, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Callback for taps on a <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTouchEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)">onTouchEvent</a></span>(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Callback for touch events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTrackballEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)">onTrackballEvent</a></span>(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Callback for trackball events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#setDrawFocusedItem(boolean)">setDrawFocusedItem</a></span>(boolean drawFocusedItem)</nobr>
+        
+        <div class="jd-descrdiv">Define whether the focused item should be drawn or not.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#setFocus(Item)">setFocus</a></span>(Item item)</nobr>
+        
+        <div class="jd-descrdiv">Sets the focus to the given Item object in the item list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#setOnFocusChangeListener(com.amazon.geo.maps.ItemizedOverlay.OnFocusChangeListener)">setOnFocusChangeListener</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Define the listener that keeps track of changes of focus for all items in
+ this overlay during an onTap() or onTouchEvent() method.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#size()">size</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">The count of the Item objects in the item list.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#boundCenter(android.graphics.drawable.Drawable)">boundCenter</a></span>(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> balloon)</nobr>
+        
+        <div class="jd-descrdiv">Defines the bounds for the given marker drawable such that (0,0) is the center
+ of that drawable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#boundCenterBottom(android.graphics.drawable.Drawable)">boundCenterBottom</a></span>(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> balloon)</nobr>
+        
+        <div class="jd-descrdiv">Defines the bounds for the given marker drawable such that (0,0) is the bottom-center of
+ that drawable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Item</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#createItem(int)">createItem</a></span>(int i)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new overlay item.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getIndexToDraw(int)">getIndexToDraw</a></span>(int drawingOrder)</nobr>
+        
+        <div class="jd-descrdiv">Returns the index of the item to be drawn at the given rank.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#hitTest(Item, android.graphics.drawable.Drawable, int, int)">hitTest</a></span>(Item item, <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> marker, int hitX, int hitY)</nobr>
+        
+        <div class="jd-descrdiv">Checks whether a touched or tapped point on a MapView is within the
+ bounds of an item marker.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#onTap(int)">onTap</a></span>(int index)</nobr>
+        
+        <div class="jd-descrdiv">Callback for tap events on items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#populate()">populate</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Fill the item list with new Item objects.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#setLastFocusedIndex(int)">setLastFocusedIndex</a></span>(int lastFocusedIndex)</nobr>
+        
+        <div class="jd-descrdiv">Sets the last focused index to the index of the item that currently or
+ most recently had the focus, or -1 if no item has had the focus.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.amazon.geo.maps.Overlay" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.amazon.geo.maps.Overlay-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/com/amazon/geo/maps/Overlay.html">com.amazon.geo.maps.Overlay</a>
+
+<div id="inherited-methods-com.amazon.geo.maps.Overlay">
+  <div id="inherited-methods-com.amazon.geo.maps.Overlay-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.amazon.geo.maps.Overlay-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#draw(android.graphics.Canvas, com.amazon.geo.maps.MapView, boolean)">draw</a></span>(<a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> canvas, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView, boolean shadow)</nobr>
+        
+        <div class="jd-descrdiv">Draws the overlay on the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#draw(android.graphics.Canvas, com.amazon.geo.maps.MapView, boolean, long)">draw</a></span>(<a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> canvas, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView, boolean shadow, long when)</nobr>
+        
+        <div class="jd-descrdiv">Draws the overlay on the <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> and supports animation with the 
+ <code>when</code> parameter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#drawAt(android.graphics.Canvas, android.graphics.drawable.Drawable, int, int, boolean)">drawAt</a></span>(<a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> canvas, <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> drawable, int x, int y, boolean shadow)</nobr>
+        
+        <div class="jd-descrdiv">Draws the given <code><a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a></code> on the <code>Canvas</code> at the 
+ given offset in pixels.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#onKeyDown(int, android.view.KeyEvent, com.amazon.geo.maps.MapView)">onKeyDown</a></span>(int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Handles key-down events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#onKeyUp(int, android.view.KeyEvent, com.amazon.geo.maps.MapView)">onKeyUp</a></span>(int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Handles key-up events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#onTap(com.amazon.geo.maps.GeoPoint, com.amazon.geo.maps.MapView)">onTap</a></span>(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> p, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Handles tap events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#onTouchEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)">onTouchEvent</a></span>(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> e, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Handles touch events.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.html#onTrackballEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)">onTrackballEvent</a></span>(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+        <div class="jd-descrdiv">Handles trackball events.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://developer.android.com/reference/java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.amazon.geo.maps.Overlay.Snappable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.amazon.geo.maps.Overlay.Snappable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html">com.amazon.geo.maps.Overlay.Snappable</a>
+
+<div id="inherited-methods-com.amazon.geo.maps.Overlay.Snappable">
+  <div id="inherited-methods-com.amazon.geo.maps.Overlay.Snappable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.amazon.geo.maps.Overlay.Snappable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/com/amazon/geo/maps/Overlay.Snappable.html#onSnapToItem(int, int, android.graphics.Point, com.amazon.geo.maps.MapView)">onSnapToItem</a></span>(int x, int y, <a href="http://developer.android.com/reference/android/graphics/Point.html">Point</a> snapPoint, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="ItemizedOverlay(android.graphics.drawable.Drawable)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemizedOverlay</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> defaultMarker)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new instance of ItemizedOverlay. The <code>defaultMarker</code>
+ argument is used to draw items on the map. You can define different
+ markers on specific items with the
+ <code><a href="../../../../../reference/com/amazon/geo/maps/OverlayItem.html#setMarker(android.graphics.drawable.Drawable)">setMarker(Drawable)</a></code> method.
+ <p>
+ OverlayItem marker drawables can have two states: normal and focused.
+ ItemizedOverlay subclasses should ensure that the bounds have been set on
+ the item markers with the <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#boundCenter(android.graphics.drawable.Drawable)">boundCenter(Drawable)</a></code> or
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#boundCenterBottom(android.graphics.drawable.Drawable)">boundCenterBottom(Drawable)</a></code> methods.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>defaultMarker</td>
+          <td>the default marker for items on the overlay.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="draw(android.graphics.Canvas, com.amazon.geo.maps.MapView, boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">draw</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> canvas, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView, boolean shadow)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Draws the markers on the overlay canvas for each Item in the item list.
+ If the <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#populate()">populate()</a></code> method has not been called before this method
+ is invoked, no drawing occurs.
+ <p>
+ The default marker for this overlay (as defined in the constructor) is
+ used to draw the item markers, unless the Item defines its own custom
+ marker.
+ <p>
+ The overlay is drawn twice: once for the marker shadows (<code>shadow</code>
+ is true), and once for the markers themselves (<code>shadow</code> is false).
+ Marker shadows are drawn skewed, darkened and anchored to the bottom
+ center of the original marker.
+ <p>
+ Before items are drawn, they are ranked. The rank of the Item objects in
+ the item list may not be the same as the sequential order of that list.
+ By default, the items are drawn in latitude order, from north to south.
+ Override <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#getIndexToDraw(int)">getIndexToDraw(int)</a></code> to change the order in which items
+ are drawn.
+ <p>
+ The Item object that currently has focus is always drawn last so that it
+ appears on top.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>canvas</td>
+          <td>the <code><a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a></code> to draw upon.</td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> that contains this overlay.</td>
+        </tr>
+        <tr>
+          <th>shadow</td>
+          <td>If true, draw a shadow layer. If false, draw the markers.
+
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCenter()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a>
+      </span>
+      <span class="sympad">getCenter</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the location of the first Item object in the item list as a
+ <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the location of the first item in the item list.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getFocus()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Item
+      </span>
+      <span class="sympad">getFocus</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the item that currently has the focus, or null if no item has
+ focus.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The Item object that has the focus.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getItem(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        Item
+      </span>
+      <span class="sympad">getItem</span>
+      <span class="normal">(int position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the Item object at the given position (index) in the item list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</td>
+          <td>the index of the item.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the Item.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLastFocusedIndex()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        int
+      </span>
+      <span class="sympad">getLastFocusedIndex</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the index of the item that currently has (or most recently had) the
+ focus.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the index of the most-recently or currently focused Item object,
+         or -1 if no item has had the focus.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatSpanE6()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getLatSpanE6</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the latitude difference between northernmost and southernmost
+ items on the overlay, in microdegrees (decimal degrees multiplied by one
+ million).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Latitude span, in microdegrees.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLonSpanE6()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getLonSpanE6</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the Longitude difference between westernmost and easternmost
+ items on the overlay, in microdegrees (decimal degrees multiplied by one
+ million). Items spanned over the International Date Line at -180 return
+ large negative spans.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Longitude span, in microdegrees.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="nextFocus(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Item
+      </span>
+      <span class="sympad">nextFocus</span>
+      <span class="normal">(boolean forwards)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gives focus to the the next (or previous) item in the item list.
+ <p>
+ If <code>forwards</code> is true, this method returns the next item in the item list.
+ If no item currently has focus, returns the first item in the item list.
+ Returns null if the item that has focus is the last item in the
+ list, or if there are no items in the item list.
+ <p>
+ If @{code forwards} is false, this method chooses items from the list
+ in reverse, returning the previous item in the item list. Returns null
+ if no item currently has focus, the current focus is on the first item, or if
+ there are no items in the item list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>forwards</td>
+          <td>true to choose the next item from the list in increasing
+            order; false for decreasing order.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the next Item object in the item list, or null if there are no subsequent
+          items in the list.  If <code>forwards</code> is false, also returns null
+          if no item currently has focus.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onKeyUp(int, android.view.KeyEvent, com.amazon.geo.maps.MapView)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onKeyUp</span>
+      <span class="normal">(int keyCode, <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default callback for Key Up events. Override to handle these events.
+ <!-- inherit params from superclass -->
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>keyCode</td>
+          <td>The key code for the key-up event.</td>
+        </tr>
+        <tr>
+          <th>event</td>
+          <td>The key event for the key-up event.</td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> that generated this key-up event.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if this overlay handled this key-up event.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onSnapToItem(int, int, android.graphics.Point, com.amazon.geo.maps.MapView)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onSnapToItem</span>
+      <span class="normal">(int x, int y, <a href="http://developer.android.com/reference/android/graphics/Point.html">Point</a> snapPoint, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Callback for snapping points to items. Checks if a given x,y point on a
+ MapView is close to a given item (can be snapped), and if so, returns
+ true. If the point can be snapped, the snapPoint parameter contains the
+ point of the item.
+ <p>
+ By default, a point can be snapped if it is within the bounds of that
+ item's marker drawable. Override
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#hitTest(Item, android.graphics.drawable.Drawable, int, int)">hitTest()</a></code> in your
+ subclass to change how a hit on an item is determined.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>x</td>
+          <td>X coordinate of the point to test</td>
+        </tr>
+        <tr>
+          <th>y</td>
+          <td>Y coordinate of the point to test</td>
+        </tr>
+        <tr>
+          <th>snapPoint</td>
+          <td>If the point is snappable, set to the point of the item.</td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The MapView object requesting the snap</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the location could be snapped; false otherwise.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onTap(com.amazon.geo.maps.GeoPoint, com.amazon.geo.maps.MapView)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onTap</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a> p, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Callback for taps on a <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code>. By default, determines which item
+ was tapped (if any) and sets or unsets the focus for that item. Override
+ to add additional tap behavior on the overlay.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>p</td>
+          <td>The location of the map that was tapped, as a <code><a href="../../../../../reference/com/amazon/geo/maps/GeoPoint.html">GeoPoint</a></code></td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The MapView that generated the event.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the overlay handled the event; false otherwise.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onTouchEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onTouchEvent</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Callback for touch events.  By default, returns false. Override to
+ add additional touch behavior on the overlay.
+ <!-- inherit params from superclass -->
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>event</td>
+          <td>The motion event that occurred.</td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> that generated this touch event.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if this overlay handled this touch event.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onTrackballEvent(android.view.MotionEvent, com.amazon.geo.maps.MapView)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onTrackballEvent</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/view/MotionEvent.html">MotionEvent</a> event, <a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a> mapView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Callback for trackball events.  Override to handle these events.
+ <!-- inherit params -->
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>event</td>
+          <td>The motion event that occurred.</td>
+        </tr>
+        <tr>
+          <th>mapView</td>
+          <td>The <code><a href="../../../../../reference/com/amazon/geo/maps/MapView.html">MapView</a></code> that generated this trackball event.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if this overlay handled this trackball event.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDrawFocusedItem(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDrawFocusedItem</span>
+      <span class="normal">(boolean drawFocusedItem)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Define whether the focused item should be drawn or not.  True by default.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>drawFocusedItem</td>
+          <td>true to draw the item that has the current focus.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setFocus(Item)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setFocus</span>
+      <span class="normal">(Item item)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the focus to the given Item object in the item list. This method
+ does nothing if the Item object does not exist in the item list.
+ <p>
+ The <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a></code> is notified for each
+ change in focus.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>the Item object on which to focus.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOnFocusChangeListener(com.amazon.geo.maps.ItemizedOverlay.OnFocusChangeListener)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnFocusChangeListener</span>
+      <span class="normal">(<a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.OnFocusChangeListener.html">ItemizedOverlay.OnFocusChangeListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Define the listener that keeps track of changes of focus for all items in
+ this overlay during an onTap() or onTouchEvent() method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>the focus listener.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="size()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">size</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The count of the Item objects in the item list. Invoked from
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#populate()">populate()</a></code>. Subclasses must implement this method to indicate
+ the number of Items in the item list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the count of Item objects in the item list.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="boundCenter(android.graphics.drawable.Drawable)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+         
+         
+         
+        <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a>
+      </span>
+      <span class="sympad">boundCenter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> balloon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Defines the bounds for the given marker drawable such that (0,0) is the center
+ of that drawable.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>balloon</td>
+          <td>the <code><a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">drawable</a></code>
+                  on which to set bounds</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the same drawable with its bounds set
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="boundCenterBottom(android.graphics.drawable.Drawable)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+         
+         
+         
+        <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a>
+      </span>
+      <span class="sympad">boundCenterBottom</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> balloon)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Defines the bounds for the given marker drawable such that (0,0) is the bottom-center of
+ that drawable.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>balloon</td>
+          <td>the <code><a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">drawable</a></code>
+                  on which to set bounds</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the same drawable with its bounds set
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createItem(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        abstract 
+         
+        Item
+      </span>
+      <span class="sympad">createItem</span>
+      <span class="normal">(int i)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new overlay item. Invoked by <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#populate()">populate()</a></code> to create and
+ initialize new items added to the item list. Subclasses must implement
+ this method to create new items.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>i</td>
+          <td>the index of the new item in the item list.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the new Item.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getIndexToDraw(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getIndexToDraw</span>
+      <span class="normal">(int drawingOrder)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the index of the item to be drawn at the given rank. By default,
+ items are ranked (and then drawn) in latitude order, from north to south.
+ Override to change the order in which items are drawn.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>drawingOrder</td>
+          <td>- The rank of the item you're interested in.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The index of the Item object in the item list at that given rank.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="hitTest(Item, android.graphics.drawable.Drawable, int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">hitTest</span>
+      <span class="normal">(Item item, <a href="http://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a> marker, int hitX, int hitY)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Checks whether a touched or tapped point on a MapView is within the
+ bounds of an item marker. Override to change how a "hit" on an item is to
+ be determined.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>The item to test</td>
+        </tr>
+        <tr>
+          <th>marker</td>
+          <td>The marker for the item</td>
+        </tr>
+        <tr>
+          <th>hitX</td>
+          <td>x coordinate of the MapView point (pixel) to check</td>
+        </tr>
+        <tr>
+          <th>hitY</td>
+          <td>y coordinate of the MapView point (pixel) to check</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the touched point is on an item; false otherwise
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onTap(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">onTap</span>
+      <span class="normal">(int index)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Callback for tap events on items. Invoked only if the tap event is within
+ the bounds of an item. By default, returns false.  Override to handle item taps.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>index</td>
+          <td>the index of the item in the items list.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true to handle the tap event; false otherwise.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="populate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">populate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Fill the item list with new Item objects. Subclasses should invoke this
+ method each time new items are added to the item list.
+ <p>
+ This method invokes <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#size()">size()</a></code> to get the size of the item list, and
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#createItem(int)">createItem(int)</a></code> to create and/or initialize each item in the
+ list. Item-specific behavior is determined by the implementation of
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#createItem(int)">createItem(int)</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setLastFocusedIndex(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setLastFocusedIndex</span>
+      <span class="normal">(int lastFocusedIndex)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the last focused index to the index of the item that currently or
+ most recently had the focus, or -1 if no item has had the focus. Note
+ that this method does not actually set the focus, or change the order of
+ items in the Item list. The last focus is used with
+ <code><a href="../../../../../reference/com/amazon/geo/maps/ItemizedOverlay.html#nextFocus(boolean)">nextFocus(boolean)</a></code> to iterate through the Item objects in the
+ item list.
+ <p>
+ This property is automatically updated on every focus change.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>lastFocusedIndex</td>
+          <td>the index of the most recently focused or
+            currently focused item.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+<p class="Footer">
+
+Copyright &copy; 2012, Amazon Digital Services, Inc. or its affiliates. All rights reserved.
+ 
+</p>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+</script>
+
+</body>
+</html>
