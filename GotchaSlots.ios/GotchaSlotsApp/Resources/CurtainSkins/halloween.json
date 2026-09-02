@@ -1,0 +1,26 @@
+{
+  "startPopupMessage": "Halloween",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Halloween",
+      "tickerMessage": "Select an Bat",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Halloween",
+      "tickerMessage": "Select an Scary",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Halloween",
+      "tickerMessage": "Select an Witch",
+      "itemCount": 5,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

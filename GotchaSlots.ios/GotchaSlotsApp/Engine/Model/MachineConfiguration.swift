@@ -49,13 +49,23 @@ struct MachineFeatureFlags: Codable {
     var multiplierScatterValuator: Bool
 }
 
-/// Ports `bonusGameDataClass` (e.g. HolidayCurtainData, HigherLowerData) — which bonus-game
-/// family a machine launches when BonusGameEvaluator triggers. Only meaningful when
-/// features.bonusGameValuator is true. Curtain skins beyond Holiday (14 more themed reskins,
-/// same CurtainGameState engine with different level configs) are Phase 7 bulk data-entry work.
-enum BonusGameKind: String, Codable {
-    case holidayCurtain
-    case higherLower
+/// Ports `bonusGameDataClass` (e.g. HolidayCurtainData, CarCurtainData, HigherLowerData) —
+/// which bonus-game family a machine launches when BonusGameEvaluator triggers. Only meaningful
+/// when features.bonusGameValuator is true. `skin` names a CurtainSkinConfig resource (e.g.
+/// "holiday", "car") and is only used when family is `.curtain`; all 15 curtain skins share the
+/// same CurtainGameState engine, differing only in their level/item data.
+struct BonusGameKind: Codable, Equatable {
+    enum Family: String, Codable {
+        case curtain
+        case higherLower
+    }
+    let family: Family
+    let skin: String?
+
+    static func curtain(_ skin: String) -> BonusGameKind {
+        BonusGameKind(family: .curtain, skin: skin)
+    }
+    static let higherLower = BonusGameKind(family: .higherLower, skin: nil)
 }
 
 /// Ports the constructor-argument pattern of SlotsBaseLobbyMachineData / LobbyMachine{Shape}Data —

@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Boat",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Boat",
+      "tickerMessage": "Select an Kayak",
+      "itemCount": 5,
+      "selectiveItemsCount": 2
+    },
+    {
+      "id": 1,
+      "mapMessage": "Boat",
+      "tickerMessage": "Select an Sail",
+      "itemCount": 4,
+      "selectiveItemsCount": 2
+    }
+  ]
+}

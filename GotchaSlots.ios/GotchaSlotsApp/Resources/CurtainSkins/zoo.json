@@ -1,0 +1,33 @@
+{
+  "startPopupMessage": "Zoo",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Fish",
+      "tickerMessage": "Choose a Fish",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Chicken",
+      "tickerMessage": "Choose a Chicken",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Bird",
+      "tickerMessage": "Choose a Bird",
+      "itemCount": 5,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 3,
+      "mapMessage": "Dog",
+      "tickerMessage": "Choose a Dog",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

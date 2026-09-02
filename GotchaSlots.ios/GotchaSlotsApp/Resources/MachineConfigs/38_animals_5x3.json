@@ -1,0 +1,210 @@
+{
+  "id": 38,
+  "machineName": "Animals",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 180,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Animals_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 10,
+          "4": 6,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Animals_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 5,
+          "4": 4,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Animals_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 10,
+          "4": 8,
+          "3": 5,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Animals_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 53,
+          "4": 21,
+          "3": 9,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Animals_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 62,
+          "4": 29,
+          "3": 11,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Animals_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 36,
+          "4": 24,
+          "3": 15,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Animals_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 75,
+          "4": 31,
+          "3": 13,
+          "2": 9
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Animals_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 62,
+          "4": 38,
+          "3": 28,
+          "2": 16
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Animals_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 83,
+          "4": 48,
+          "3": 34,
+          "2": 22
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 9,
+    "assetName": "Animals_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "animals"
+  },
+  "freeSpins": {
+    "id": 10,
+    "assetName": "Animals_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 11,
+    "assetName": "Animals_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 12,
+    "assetName": "Animals_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 13,
+    "assetName": "Animals_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 14,
+    "assetName": "Animals_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "id": 8,
+  "machineName": "Meow",
+  "gridShape": "grid3x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 20,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Meow_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 20,
+          "4": 11,
+          "3": 5,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Meow_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 17,
+          "4": 16,
+          "3": 11,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Meow_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 97,
+          "4": 46,
+          "3": 18,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Meow_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 44,
+          "4": 20,
+          "3": 18,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Meow_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 46,
+          "4": 23,
+          "3": 20,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Meow_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 242,
+          "4": 108,
+          "3": 46,
+          "2": 20
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Meow_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 196,
+          "4": 141,
+          "3": 77,
+          "2": 37
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Meow_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 281,
+          "4": 113,
+          "3": 86,
+          "2": 52
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Meow_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 279,
+          "4": 276,
+          "3": 114,
+          "2": 80
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Meow_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 300,
+          "4": 296,
+          "3": 134,
+          "2": 90
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 10,
+    "assetName": "Meow_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "zoo"
+  },
+  "freeSpins": {
+    "id": 11,
+    "assetName": "Meow_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 12,
+    "assetName": "Meow_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 13,
+    "assetName": "Meow_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 14,
+    "assetName": "Meow_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 15,
+    "assetName": "Meow_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

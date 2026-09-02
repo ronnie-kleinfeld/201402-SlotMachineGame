@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Weather",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Sun",
+      "tickerMessage": "Select a Sun",
+      "itemCount": 5,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Winter",
+      "tickerMessage": "It's winter",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "startPopupMessage": "Animals",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Animals",
+      "tickerMessage": "Select an Animal",
+      "itemCount": 2,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Animals",
+      "tickerMessage": "Select an Dragon",
+      "itemCount": 2,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Animals",
+      "tickerMessage": "Select an Groundhog",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 3,
+      "mapMessage": "Animals",
+      "tickerMessage": "Select an Monkey",
+      "itemCount": 5,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": 21,
+  "machineName": "Sports",
+  "gridShape": "grid5x4",
+  "factor": 1.0,
+  "maxPaylines": 9,
+  "openOnLevel": 85,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Sports_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 14,
+          "4": 7,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Sports_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 8,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Sports_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 14,
+          "3": 9,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Sports_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 27,
+          "4": 14,
+          "3": 7,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Sports_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 28,
+          "4": 13,
+          "3": 11,
+          "2": 9
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Sports_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 108,
+          "4": 60,
+          "3": 31,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Sports_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 137,
+          "4": 54,
+          "3": 22,
+          "2": 13
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Sports_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 71,
+          "4": 29,
+          "3": 25,
+          "2": 18
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Sports_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 125,
+          "4": 58,
+          "3": 33,
+          "2": 25
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 9,
+    "assetName": "Sports_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "sports"
+  },
+  "freeSpins": {
+    "id": 10,
+    "assetName": "Sports_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 11,
+    "assetName": "Sports_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 12,
+    "assetName": "Sports_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 13,
+    "assetName": "Sports_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 14,
+    "assetName": "Sports_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

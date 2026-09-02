@@ -1,0 +1,33 @@
+{
+  "startPopupMessage": "Flags",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Europe",
+      "tickerMessage": "Select a Flag",
+      "itemCount": 8,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "America's",
+      "tickerMessage": "Select a Flag",
+      "itemCount": 7,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Asia - Pacific",
+      "tickerMessage": "Select a Flag",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 3,
+      "mapMessage": "Europe",
+      "tickerMessage": "Select a Flag",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

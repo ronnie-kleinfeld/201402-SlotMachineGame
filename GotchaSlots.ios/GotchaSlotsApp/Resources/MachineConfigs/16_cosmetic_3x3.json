@@ -1,0 +1,222 @@
+{
+  "id": 16,
+  "machineName": "Cosmetic",
+  "gridShape": "grid3x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 60,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Cosmetic_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 14,
+          "4": 7,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Cosmetic_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 9,
+          "4": 6,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Cosmetic_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 8,
+          "3": 7,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Cosmetic_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 20,
+          "4": 12,
+          "3": 7,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Cosmetic_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 18,
+          "4": 13,
+          "3": 11,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Cosmetic_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 54,
+          "4": 41,
+          "3": 17,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Cosmetic_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 75,
+          "4": 29,
+          "3": 13,
+          "2": 9
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Cosmetic_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 127,
+          "4": 51,
+          "3": 23,
+          "2": 13
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Cosmetic_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 101,
+          "4": 48,
+          "3": 20,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Cosmetic_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 132,
+          "4": 71,
+          "3": 29,
+          "2": 19
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 10,
+    "assetName": "Cosmetic_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "higherLower",
+    "skin": null
+  },
+  "freeSpins": {
+    "id": 11,
+    "assetName": "Cosmetic_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 12,
+    "assetName": "Cosmetic_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 13,
+    "assetName": "Cosmetic_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 14,
+    "assetName": "Cosmetic_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 15,
+    "assetName": "Cosmetic_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

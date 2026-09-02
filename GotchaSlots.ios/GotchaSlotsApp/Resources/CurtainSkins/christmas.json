@@ -1,0 +1,26 @@
+{
+  "startPopupMessage": "Christmas",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Christmas",
+      "tickerMessage": "Select an Candle",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Christmas",
+      "tickerMessage": "Select an Santa",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Christmas",
+      "tickerMessage": "Select an Sleigh",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

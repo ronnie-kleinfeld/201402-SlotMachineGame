@@ -1,0 +1,222 @@
+{
+  "id": 7,
+  "machineName": "Medical",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 15,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Medical_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 24,
+          "4": 9,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Medical_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 47,
+          "4": 18,
+          "3": 7,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Medical_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 27,
+          "4": 23,
+          "3": 15,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Medical_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 145,
+          "4": 59,
+          "3": 23,
+          "2": 9
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Medical_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 204,
+          "4": 87,
+          "3": 42,
+          "2": 16
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Medical_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 77,
+          "4": 33,
+          "3": 27,
+          "2": 17
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Medical_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 95,
+          "4": 71,
+          "3": 31,
+          "2": 18
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Medical_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 283,
+          "4": 118,
+          "3": 59,
+          "2": 32
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Medical_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 343,
+          "4": 161,
+          "3": 116,
+          "2": 45
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Medical_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 668,
+          "4": 306,
+          "3": 128,
+          "2": 59
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 10,
+    "assetName": "Medical_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "higherLower",
+    "skin": null
+  },
+  "freeSpins": {
+    "id": 11,
+    "assetName": "Medical_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 12,
+    "assetName": "Medical_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 13,
+    "assetName": "Medical_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 14,
+    "assetName": "Medical_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 15,
+    "assetName": "Medical_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

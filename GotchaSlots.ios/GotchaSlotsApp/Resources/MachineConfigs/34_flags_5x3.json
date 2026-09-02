@@ -1,0 +1,210 @@
+{
+  "id": 34,
+  "machineName": "Flags",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 40,
+  "openOnLevel": 155,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Flags_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 6,
+          "4": 5,
+          "3": 5,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Flags_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 28,
+          "4": 16,
+          "3": 6,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Flags_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 28,
+          "4": 21,
+          "3": 10,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Flags_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 83,
+          "4": 45,
+          "3": 21,
+          "2": 11
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Flags_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 135,
+          "4": 77,
+          "3": 41,
+          "2": 16
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Flags_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 51,
+          "4": 41,
+          "3": 18,
+          "2": 18
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Flags_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 137,
+          "4": 89,
+          "3": 39,
+          "2": 22
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Flags_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 105,
+          "4": 92,
+          "3": 67,
+          "2": 31
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Flags_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 198,
+          "4": 97,
+          "3": 73,
+          "2": 55
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 9,
+    "assetName": "Flags_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "map"
+  },
+  "freeSpins": {
+    "id": 10,
+    "assetName": "Flags_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 11,
+    "assetName": "Flags_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 12,
+    "assetName": "Flags_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 13,
+    "assetName": "Flags_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 14,
+    "assetName": "Flags_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

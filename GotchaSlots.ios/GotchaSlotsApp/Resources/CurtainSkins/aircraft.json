@@ -1,0 +1,26 @@
+{
+  "startPopupMessage": "Aircrafts",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Aircrafts",
+      "tickerMessage": "Select an Aircraft",
+      "itemCount": 7,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Airplane",
+      "tickerMessage": "Select an Airplane",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Helicopter",
+      "tickerMessage": "Select a Helicopter",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

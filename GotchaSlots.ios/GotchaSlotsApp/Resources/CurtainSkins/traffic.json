@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Traffic",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Traffic",
+      "tickerMessage": "Select an Train",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Traffic",
+      "tickerMessage": "Select an Truck",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

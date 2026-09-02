@@ -1,0 +1,198 @@
+{
+  "id": 40,
+  "machineName": "Chinese",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 40,
+  "openOnLevel": 190,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Chinese_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 12,
+          "4": 8,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Chinese_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 9,
+          "4": 7,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Chinese_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 27,
+          "4": 11,
+          "3": 7,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Chinese_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 18,
+          "4": 10,
+          "3": 6,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Chinese_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 21,
+          "4": 11,
+          "3": 9,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Chinese_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 21,
+          "4": 18,
+          "3": 14,
+          "2": 10
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Chinese_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 176,
+          "4": 79,
+          "3": 31,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Chinese_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 117,
+          "4": 73,
+          "3": 28,
+          "2": 22
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 8,
+    "assetName": "Chinese_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "newYear"
+  },
+  "freeSpins": {
+    "id": 9,
+    "assetName": "Chinese_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 10,
+    "assetName": "Chinese_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 11,
+    "assetName": "Chinese_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 12,
+    "assetName": "Chinese_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 13,
+    "assetName": "Chinese_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

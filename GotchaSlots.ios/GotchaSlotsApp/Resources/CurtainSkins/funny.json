@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Funny",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Funny",
+      "tickerMessage": "Select an Ghost",
+      "itemCount": 6,
+      "selectiveItemsCount": 2
+    },
+    {
+      "id": 1,
+      "mapMessage": "Funny",
+      "tickerMessage": "Select an House",
+      "itemCount": 5,
+      "selectiveItemsCount": 2
+    }
+  ]
+}

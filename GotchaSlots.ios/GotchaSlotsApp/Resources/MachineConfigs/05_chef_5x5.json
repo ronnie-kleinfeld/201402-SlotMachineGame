@@ -1,0 +1,246 @@
+{
+  "id": 5,
+  "machineName": "Chef",
+  "gridShape": "grid5x5",
+  "factor": 1.0,
+  "maxPaylines": 50,
+  "openOnLevel": 5,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Chef_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 22,
+          "4": 10,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Chef_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 6,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Chef_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 9,
+          "3": 4,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Chef_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 29,
+          "4": 15,
+          "3": 7,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Chef_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 20,
+          "4": 10,
+          "3": 4,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Chef_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 60,
+          "4": 33,
+          "3": 15,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Chef_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 50,
+          "4": 31,
+          "3": 18,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Chef_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 158,
+          "4": 73,
+          "3": 33,
+          "2": 14
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Chef_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 108,
+          "4": 73,
+          "3": 59,
+          "2": 22
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Chef_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 200,
+          "4": 87,
+          "3": 43,
+          "2": 30
+        }
+      }
+    },
+    {
+      "id": 10,
+      "assetName": "Chef_Symbol_11",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 131,
+          "4": 89,
+          "3": 66,
+          "2": 43
+        }
+      }
+    },
+    {
+      "id": 11,
+      "assetName": "Chef_Symbol_12",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 149,
+          "4": 140,
+          "3": 76,
+          "2": 46
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 12,
+    "assetName": "Chef_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "higherLower",
+    "skin": null
+  },
+  "freeSpins": {
+    "id": 13,
+    "assetName": "Chef_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 14,
+    "assetName": "Chef_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 15,
+    "assetName": "Chef_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 16,
+    "assetName": "Chef_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 17,
+    "assetName": "Chef_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "id": 19,
+  "machineName": "Tourism",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 100,
+  "openOnLevel": 75,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Tourism_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 9,
+          "4": 5,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Tourism_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 17,
+          "4": 9,
+          "3": 6,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Tourism_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 13,
+          "3": 7,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Tourism_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 40,
+          "4": 23,
+          "3": 12,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Tourism_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 106,
+          "4": 41,
+          "3": 19,
+          "2": 14
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Tourism_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 110,
+          "4": 53,
+          "3": 30,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Tourism_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 41,
+          "4": 30,
+          "3": 26,
+          "2": 23
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Tourism_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 230,
+          "4": 113,
+          "3": 45,
+          "2": 28
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Tourism_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 332,
+          "4": 157,
+          "3": 62,
+          "2": 31
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 9,
+    "assetName": "Tourism_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "higherLower",
+    "skin": null
+  },
+  "freeSpins": {
+    "id": 10,
+    "assetName": "Tourism_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 11,
+    "assetName": "Tourism_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 12,
+    "assetName": "Tourism_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 13,
+    "assetName": "Tourism_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 14,
+    "assetName": "Tourism_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "id": 25,
+  "machineName": "Airplane",
+  "gridShape": "grid3x3",
+  "factor": 1.0,
+  "maxPaylines": 15,
+  "openOnLevel": 105,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Airplane_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 7,
+          "4": 3,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Airplane_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 11,
+          "3": 7,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Airplane_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 23,
+          "4": 14,
+          "3": 5,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Airplane_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 44,
+          "4": 16,
+          "3": 16,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Airplane_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 36,
+          "4": 36,
+          "3": 15,
+          "2": 13
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Airplane_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 46,
+          "4": 22,
+          "3": 22,
+          "2": 17
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Airplane_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 157,
+          "4": 64,
+          "3": 29,
+          "2": 19
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Airplane_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 282,
+          "4": 128,
+          "3": 53,
+          "2": 27
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Airplane_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 150,
+          "4": 112,
+          "3": 73,
+          "2": 32
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Airplane_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 159,
+          "4": 74,
+          "3": 59,
+          "2": 38
+        }
+      }
+    },
+    {
+      "id": 10,
+      "assetName": "Airplane_Symbol_11",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 244,
+          "4": 123,
+          "3": 104,
+          "2": 67
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 11,
+    "assetName": "Airplane_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "aircraft"
+  },
+  "freeSpins": {
+    "id": 12,
+    "assetName": "Airplane_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 13,
+    "assetName": "Airplane_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 14,
+    "assetName": "Airplane_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 15,
+    "assetName": "Airplane_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 16,
+    "assetName": "Airplane_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

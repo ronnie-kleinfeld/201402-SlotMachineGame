@@ -1,0 +1,222 @@
+{
+  "id": 1,
+  "machineName": "Cars",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 1,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Cars_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 12,
+          "4": 4,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Cars_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 15,
+          "4": 6,
+          "3": 4,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Cars_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 18,
+          "4": 18,
+          "3": 8,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Cars_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 59,
+          "4": 26,
+          "3": 16,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Cars_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 35,
+          "4": 15,
+          "3": 7,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Cars_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 56,
+          "4": 24,
+          "3": 15,
+          "2": 10
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Cars_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 93,
+          "4": 46,
+          "3": 32,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Cars_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 51,
+          "4": 28,
+          "3": 24,
+          "2": 21
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Cars_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 148,
+          "4": 64,
+          "3": 43,
+          "2": 28
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Cars_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 185,
+          "4": 138,
+          "3": 104,
+          "2": 42
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 10,
+    "assetName": "Cars_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "car"
+  },
+  "freeSpins": {
+    "id": 11,
+    "assetName": "Cars_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 12,
+    "assetName": "Cars_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 13,
+    "assetName": "Cars_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 14,
+    "assetName": "Cars_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 15,
+    "assetName": "Cars_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

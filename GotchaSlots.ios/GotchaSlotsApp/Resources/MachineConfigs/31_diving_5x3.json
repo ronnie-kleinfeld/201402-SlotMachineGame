@@ -1,0 +1,222 @@
+{
+  "id": 31,
+  "machineName": "Diving",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 100,
+  "openOnLevel": 135,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Diving_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 7,
+          "4": 6,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Diving_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 9,
+          "3": 6,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Diving_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 11,
+          "4": 6,
+          "3": 4,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Diving_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 22,
+          "4": 16,
+          "3": 7,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Diving_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 40,
+          "4": 30,
+          "3": 11,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Diving_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 22,
+          "4": 13,
+          "3": 10,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Diving_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 51,
+          "4": 41,
+          "3": 21,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Diving_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 233,
+          "4": 96,
+          "3": 40,
+          "2": 16
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Diving_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 242,
+          "4": 127,
+          "3": 69,
+          "2": 27
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Diving_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 285,
+          "4": 162,
+          "3": 68,
+          "2": 45
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 10,
+    "assetName": "Diving_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "traffic"
+  },
+  "freeSpins": {
+    "id": 11,
+    "assetName": "Diving_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 12,
+    "assetName": "Diving_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 13,
+    "assetName": "Diving_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 14,
+    "assetName": "Diving_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 15,
+    "assetName": "Diving_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

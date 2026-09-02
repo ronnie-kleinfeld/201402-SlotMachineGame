@@ -1,0 +1,210 @@
+{
+  "id": 23,
+  "machineName": "Cheese",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 95,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Cheese_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 17,
+          "4": 7,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Cheese_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 11,
+          "4": 5,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Cheese_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 11,
+          "4": 5,
+          "3": 3,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Cheese_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 25,
+          "4": 13,
+          "3": 5,
+          "2": 4
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Cheese_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 74,
+          "4": 30,
+          "3": 14,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Cheese_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 65,
+          "4": 28,
+          "3": 23,
+          "2": 10
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Cheese_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 82,
+          "4": 32,
+          "3": 18,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Cheese_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 151,
+          "4": 69,
+          "3": 35,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Cheese_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 79,
+          "4": 34,
+          "3": 29,
+          "2": 20
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 9,
+    "assetName": "Cheese_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "higherLower",
+    "skin": null
+  },
+  "freeSpins": {
+    "id": 10,
+    "assetName": "Cheese_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 11,
+    "assetName": "Cheese_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 12,
+    "assetName": "Cheese_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 13,
+    "assetName": "Cheese_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 14,
+    "assetName": "Cheese_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

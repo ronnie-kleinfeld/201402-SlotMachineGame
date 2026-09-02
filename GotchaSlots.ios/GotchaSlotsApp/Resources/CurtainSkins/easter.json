@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Easter",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Easter",
+      "tickerMessage": "Select an Bunny",
+      "itemCount": 4,
+      "selectiveItemsCount": 2
+    },
+    {
+      "id": 1,
+      "mapMessage": "Easter",
+      "tickerMessage": "Select an Egg",
+      "itemCount": 5,
+      "selectiveItemsCount": 2
+    }
+  ]
+}

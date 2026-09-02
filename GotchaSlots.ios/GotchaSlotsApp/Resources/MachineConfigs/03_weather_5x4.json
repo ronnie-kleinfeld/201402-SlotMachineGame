@@ -1,0 +1,198 @@
+{
+  "id": 3,
+  "machineName": "Weather",
+  "gridShape": "grid5x4",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 3,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Weather_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 15,
+          "4": 7,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Weather_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 9,
+          "4": 6,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Weather_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 9,
+          "4": 5,
+          "3": 4,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Weather_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 24,
+          "4": 21,
+          "3": 11,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Weather_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 37,
+          "4": 31,
+          "3": 12,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Weather_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 47,
+          "4": 29,
+          "3": 15,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Weather_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 21,
+          "3": 17,
+          "2": 9
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Weather_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 133,
+          "4": 58,
+          "3": 28,
+          "2": 12
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 8,
+    "assetName": "Weather_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "weather"
+  },
+  "freeSpins": {
+    "id": 9,
+    "assetName": "Weather_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 10,
+    "assetName": "Weather_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 11,
+    "assetName": "Weather_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 12,
+    "assetName": "Weather_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 13,
+    "assetName": "Weather_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

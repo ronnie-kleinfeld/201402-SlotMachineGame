@@ -22,10 +22,16 @@ enum ActiveBonusGame {
         }
     }
 
-    static func make(kind: BonusGameKind) -> ActiveBonusGame {
-        switch kind {
-        case .holidayCurtain:
-            return .curtain(CurtainGameState(levels: HolidayCurtainConfig.makeLevels()))
+    /// Returns nil if `kind` names a curtain skin whose resource fails to load — a config/asset
+    /// error, not a gameplay outcome, so callers should treat nil as "don't start a bonus game"
+    /// rather than crash.
+    static func make(kind: BonusGameKind) -> ActiveBonusGame? {
+        switch kind.family {
+        case .curtain:
+            guard let skin = kind.skin, let config = try? CurtainSkinCatalog.load(skin: skin) else {
+                return nil
+            }
+            return .curtain(CurtainGameState(levels: config.makeLevels()))
         case .higherLower:
             return .higherLower(HigherLowerGameState())
         }

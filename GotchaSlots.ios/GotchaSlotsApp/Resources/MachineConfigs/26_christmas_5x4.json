@@ -1,0 +1,234 @@
+{
+  "id": 26,
+  "machineName": "Christmas",
+  "gridShape": "grid5x4",
+  "factor": 1.0,
+  "maxPaylines": 100,
+  "openOnLevel": 110,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Christmas_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 7,
+          "4": 5,
+          "3": 3,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Christmas_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 18,
+          "4": 10,
+          "3": 5,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Christmas_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 38,
+          "4": 18,
+          "3": 9,
+          "2": 3
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Christmas_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 31,
+          "4": 22,
+          "3": 11,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Christmas_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 53,
+          "4": 20,
+          "3": 16,
+          "2": 6
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Christmas_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 14,
+          "3": 12,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Christmas_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 63,
+          "4": 37,
+          "3": 19,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Christmas_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 103,
+          "4": 58,
+          "3": 28,
+          "2": 17
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Christmas_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 136,
+          "4": 68,
+          "3": 47,
+          "2": 26
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Christmas_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 144,
+          "4": 68,
+          "3": 35,
+          "2": 27
+        }
+      }
+    },
+    {
+      "id": 10,
+      "assetName": "Christmas_Symbol_11",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 180,
+          "4": 78,
+          "3": 54,
+          "2": 27
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 11,
+    "assetName": "Christmas_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "christmas"
+  },
+  "freeSpins": {
+    "id": 12,
+    "assetName": "Christmas_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 13,
+    "assetName": "Christmas_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 14,
+    "assetName": "Christmas_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 15,
+    "assetName": "Christmas_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 16,
+    "assetName": "Christmas_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "startPopupMessage": "Sports",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Sports",
+      "tickerMessage": "Select an Football",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Sports",
+      "tickerMessage": "Select an Hockey",
+      "itemCount": 2,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Sports",
+      "tickerMessage": "Select an Soccer",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 3,
+      "mapMessage": "Sports",
+      "tickerMessage": "Select an Sports",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

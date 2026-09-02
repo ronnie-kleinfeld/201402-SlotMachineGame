@@ -1,0 +1,33 @@
+{
+  "startPopupMessage": "Holiday",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Holiday",
+      "tickerMessage": "Select an Chinese",
+      "itemCount": 5,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "Holiday",
+      "tickerMessage": "Select an FourOfJuly",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "Holiday",
+      "tickerMessage": "Select an Hanukkah",
+      "itemCount": 6,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 3,
+      "mapMessage": "Holiday",
+      "tickerMessage": "Select an ThanksGiving",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

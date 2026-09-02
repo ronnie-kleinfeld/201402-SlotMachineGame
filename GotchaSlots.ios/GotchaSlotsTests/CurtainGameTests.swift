@@ -58,8 +58,9 @@ final class CurtainGameTests: XCTestCase {
         XCTAssertEqual(state.chipsWon(selectedBetChips: 1.0), 4) // only level0's win survives
     }
 
-    func testHolidayCurtainConfig_hasFourLevelsWithExpectedItemCounts() {
-        let levels = HolidayCurtainConfig.makeLevels()
+    func testHolidayCurtainSkin_hasFourLevelsWithExpectedItemCounts() throws {
+        let config = try CurtainSkinCatalog.load(skin: "holiday")
+        let levels = config.makeLevels()
         XCTAssertEqual(levels.count, 4)
         XCTAssertEqual(levels.map(\.items.count), [5, 6, 6, 4])
         XCTAssertTrue(levels.allSatisfy { $0.selectiveItemsCount == 1 })

@@ -23,7 +23,7 @@ final class SpinStateMachineBonusGameTests: XCTestCase {
     func testBonusGameTrigger_constructsTheConfiguredKind() async {
         let resolver = FakeResolver(result: makeBonusTriggeringResult())
         let sm = SpinStateMachine(
-            resolver: resolver, gridShape: .grid5x3, bonusGameKind: .holidayCurtain,
+            resolver: resolver, gridShape: .grid5x3, bonusGameKind: .curtain("holiday"),
             selectedPaylines: 20, selectedBetChips: 1.0, startingBalance: 1000
         )
         await sm.spin()
@@ -47,7 +47,7 @@ final class SpinStateMachineBonusGameTests: XCTestCase {
     func testPlayingTheCurtainGameToCompletion_addsItsChipsToBalance() async {
         let resolver = FakeResolver(result: makeBonusTriggeringResult())
         let sm = SpinStateMachine(
-            resolver: resolver, gridShape: .grid5x3, bonusGameKind: .holidayCurtain,
+            resolver: resolver, gridShape: .grid5x3, bonusGameKind: .curtain("holiday"),
             selectedPaylines: 20, selectedBetChips: 1.0, startingBalance: 1000
         )
         await sm.spin()

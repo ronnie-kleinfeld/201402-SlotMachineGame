@@ -1,0 +1,186 @@
+{
+  "id": 9,
+  "machineName": "Easter",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 25,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Easter_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 13,
+          "4": 12,
+          "3": 5,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Easter_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 22,
+          "4": 15,
+          "3": 7,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Easter_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 25,
+          "4": 10,
+          "3": 10,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Easter_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 29,
+          "4": 23,
+          "3": 20,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Easter_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 54,
+          "4": 37,
+          "3": 32,
+          "2": 12
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Easter_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 83,
+          "4": 58,
+          "3": 24,
+          "2": 20
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Easter_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 228,
+          "4": 98,
+          "3": 45,
+          "2": 25
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 7,
+    "assetName": "Easter_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "easter"
+  },
+  "freeSpins": {
+    "id": 8,
+    "assetName": "Easter_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 9,
+    "assetName": "Easter_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 10,
+    "assetName": "Easter_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 11,
+    "assetName": "Easter_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 12,
+    "assetName": "Easter_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}

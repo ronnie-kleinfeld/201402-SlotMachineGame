@@ -1,0 +1,19 @@
+{
+  "startPopupMessage": "Car",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "Car",
+      "tickerMessage": "Select an Car",
+      "itemCount": 5,
+      "selectiveItemsCount": 2
+    },
+    {
+      "id": 1,
+      "mapMessage": "Car",
+      "tickerMessage": "Select an CarShop",
+      "itemCount": 3,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

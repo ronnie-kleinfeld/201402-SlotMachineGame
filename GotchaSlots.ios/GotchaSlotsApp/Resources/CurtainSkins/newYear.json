@@ -1,0 +1,26 @@
+{
+  "startPopupMessage": "New Year",
+  "levels": [
+    {
+      "id": 0,
+      "mapMessage": "NewYear",
+      "tickerMessage": "Select an Flower",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 1,
+      "mapMessage": "NewYear",
+      "tickerMessage": "Select an Iceman",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    },
+    {
+      "id": 2,
+      "mapMessage": "NewYear",
+      "tickerMessage": "Select an Tree",
+      "itemCount": 4,
+      "selectiveItemsCount": 1
+    }
+  ]
+}

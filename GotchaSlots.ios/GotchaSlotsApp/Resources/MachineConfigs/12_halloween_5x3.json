@@ -1,0 +1,246 @@
+{
+  "id": 12,
+  "machineName": "Halloween",
+  "gridShape": "grid5x3",
+  "factor": 1.0,
+  "maxPaylines": 25,
+  "openOnLevel": 40,
+  "isComingSoon": false,
+  "depreciationRatio": 0.8,
+  "normalSymbols": [
+    {
+      "id": 0,
+      "assetName": "Halloween_Symbol_01",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 10,
+          "4": 6,
+          "3": 5,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 1,
+      "assetName": "Halloween_Symbol_02",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 20,
+          "4": 9,
+          "3": 5,
+          "2": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "assetName": "Halloween_Symbol_03",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 12,
+          "4": 5,
+          "3": 5,
+          "2": 5
+        }
+      }
+    },
+    {
+      "id": 3,
+      "assetName": "Halloween_Symbol_04",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 41,
+          "4": 21,
+          "3": 11,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 4,
+      "assetName": "Halloween_Symbol_05",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 26,
+          "4": 16,
+          "3": 8,
+          "2": 7
+        }
+      }
+    },
+    {
+      "id": 5,
+      "assetName": "Halloween_Symbol_06",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 29,
+          "4": 20,
+          "3": 8,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 6,
+      "assetName": "Halloween_Symbol_07",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 94,
+          "4": 40,
+          "3": 16,
+          "2": 8
+        }
+      }
+    },
+    {
+      "id": 7,
+      "assetName": "Halloween_Symbol_08",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 146,
+          "4": 58,
+          "3": 28,
+          "2": 13
+        }
+      }
+    },
+    {
+      "id": 8,
+      "assetName": "Halloween_Symbol_09",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 108,
+          "4": 42,
+          "3": 16,
+          "2": 15
+        }
+      }
+    },
+    {
+      "id": 9,
+      "assetName": "Halloween_Symbol_10",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 135,
+          "4": 53,
+          "3": 42,
+          "2": 18
+        }
+      }
+    },
+    {
+      "id": 10,
+      "assetName": "Halloween_Symbol_11",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 243,
+          "4": 136,
+          "3": 58,
+          "2": 22
+        }
+      }
+    },
+    {
+      "id": 11,
+      "assetName": "Halloween_Symbol_12",
+      "payoutTable": {
+        "payoutByHits": {
+          "5": 246,
+          "4": 111,
+          "3": 79,
+          "2": 36
+        }
+      }
+    }
+  ],
+  "wild": {
+    "id": 12,
+    "assetName": "Halloween_Wild",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "features": {
+    "strikeValuator": true,
+    "freeSpinsScatterValuator": true,
+    "bombScatterValuator": true,
+    "miniSpinScatterValuator": true,
+    "collectiblesScatterValuator": false,
+    "bonusGameValuator": true,
+    "columnValuator": true,
+    "symetricValuator": true,
+    "multiplierScatterValuator": true
+  },
+  "bonusGameKind": {
+    "family": "curtain",
+    "skin": "halloween"
+  },
+  "freeSpins": {
+    "id": 13,
+    "assetName": "Halloween_FreeSpins",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 7,
+        "4": 5,
+        "3": 3,
+        "2": 2
+      }
+    }
+  },
+  "bomb": {
+    "id": 14,
+    "assetName": "Halloween_Bomb",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "miniSpin": {
+    "id": 15,
+    "assetName": "Halloween_MiniSpin",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      }
+    }
+  },
+  "bonusGame": {
+    "id": 16,
+    "assetName": "Halloween_BonusGame",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 20,
+        "4": 15,
+        "3": 10,
+        "2": 5
+      }
+    }
+  },
+  "multiplier": {
+    "id": 17,
+    "assetName": "Halloween_Multiplier",
+    "payoutTable": {
+      "payoutByHits": {
+        "5": 5,
+        "4": 4,
+        "3": 3,
+        "2": 2,
+        "1": 1
+      }
+    }
+  }
+}
