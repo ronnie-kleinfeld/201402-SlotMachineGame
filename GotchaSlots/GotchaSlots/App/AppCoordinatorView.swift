@@ -1,41 +1,22 @@
 import SwiftUI
 import SpriteKit
 
-/// Top-level scene host. Phase 1 hardcodes entry into Classic 5x3 (no lobby yet — see
-/// Phase 5 of the plan). Falls back to a placeholder scene if the machine config fails to
-/// load, so a resource-bundling mistake shows up as an obvious on-screen message rather than
-/// a silent blank screen.
+/// Top-level scene host. Phase 5: hosts AppCoordinator's current scene (Lobby or Machine),
+/// switching whenever the coordinator navigates. `@StateObject` (not a computed property) is
+/// what keeps this from recreating the coordinator — and therefore reloading the wallet and
+/// rebuilding scenes — on every body evaluation.
 struct AppCoordinatorView: View {
-    // Built once as a @State default value, not a computed property — SwiftUI re-evaluates
-    // `body` far more often than once, and a computed `scene` handed a fresh SKScene to
-    // SpriteView on every evaluation, thrashing the SKView (background color survives because
-    // it's set synchronously in didMove, but child nodes never survive to a render pass before
-    // the next replacement scene arrives).
-    @State private var scene: SKScene = Self.makeScene()
-
-    private static func makeScene() -> SKScene {
-        let scene: SKScene
-        do {
-            let machine = try MachineConfigurationLoader.load(named: "classic_5x3")
-            scene = MachineScene(machine: machine)
-        } catch {
-            scene = PlaceholderScene(size: CGSize(width: 750, height: 1334), message: "Failed to load classic_5x3.json:\n\(error)")
-        }
-        // .aspectFit (not .aspectFill) so the whole 750x1334 scene is always visible —
-        // .aspectFill previously cropped most of the scene away when the device's actual
-        // aspect ratio didn't match, which is what caused the HUD/grid/button to appear
-        // entirely missing (see AppCoordinatorView git history / the orientation fix).
-        scene.scaleMode = .aspectFit
-        return scene
-    }
+    @StateObject private var coordinator = AppCoordinator()
 
     var body: some View {
-        SpriteView(scene: scene)
+        SpriteView(scene: coordinator.scene)
             .ignoresSafeArea()
     }
 }
 
-/// Fallback scene shown only if the machine config resource fails to load.
+/// Fallback scene shown when a machine config resource fails to load or the catalog is empty,
+/// so a resource-bundling mistake shows up as an obvious on-screen message rather than a
+/// silent blank screen.
 final class PlaceholderScene: SKScene {
     private let message: String
 

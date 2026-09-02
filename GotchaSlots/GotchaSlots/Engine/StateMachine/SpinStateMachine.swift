@@ -40,18 +40,40 @@ final class SpinStateMachine: ObservableObject {
     @Published private(set) var phase: SpinPhase = .idle
     @Published private(set) var lastResult: SpinResult?
     @Published private(set) var balance: Double
+    /// Set when DoBonusGame's trigger fires and a bonus-game kind is configured; a presentation
+    /// layer observes this to show the minigame UI, then calls `pickCurtainItem`/
+    /// `guessHigherLower` as the player plays, and the state machine settles it (adding its
+    /// chips to balance, ports BaseBonusGameEngine's DoBonusGameComplete -> CalculateChipsWon)
+    /// once the minigame reports `isOver`.
+    @Published private(set) var activeBonusGame: ActiveBonusGame?
 
     private let resolver: SpinResolving
     private let gridShape: GridShape
+    private let bonusGameKind: BonusGameKind?
     private let selectedPaylines: Int
     private let selectedBetChips: Double
+    /// Ports WalletSessionData's persistence — nil (the default) keeps balance purely in-memory,
+    /// which is what every pre-Phase-5 test relies on. When present, `balance` is seeded from
+    /// (and every change is written back to) the Keychain-backed store instead of
+    /// `startingBalance`.
+    private let walletStore: KeychainStore<WalletState>?
 
-    init(resolver: SpinResolving, gridShape: GridShape, selectedPaylines: Int, selectedBetChips: Double, startingBalance: Double) {
+    init(
+        resolver: SpinResolving, gridShape: GridShape, bonusGameKind: BonusGameKind? = nil,
+        selectedPaylines: Int, selectedBetChips: Double, startingBalance: Double,
+        walletStore: KeychainStore<WalletState>? = nil
+    ) {
         self.resolver = resolver
         self.gridShape = gridShape
+        self.bonusGameKind = bonusGameKind
         self.selectedPaylines = selectedPaylines
         self.selectedBetChips = selectedBetChips
-        self.balance = startingBalance
+        self.walletStore = walletStore
+        self.balance = walletStore?.state.balance ?? startingBalance
+    }
+
+    private func persistBalance() {
+        walletStore?.update { $0.balance = balance }
     }
 
     /// Ports DoSpin through DoWinToBalance: validates balance, resolves the outcome, and walks
@@ -64,6 +86,7 @@ final class SpinStateMachine: ObservableObject {
         guard balance >= totalBet else { return }
 
         balance -= totalBet
+        persistBalance()
         phase = .spinning
 
         let result = resolver.resolve(selectedPaylines: selectedPaylines, selectedBetChips: selectedBetChips)
@@ -80,14 +103,46 @@ final class SpinStateMachine: ObservableObject {
         if payout.strikeResults.contains(where: { $0.isValuable }) { phase = .strike }
         if payout.isFiveInARow(gridShape: gridShape) { phase = .fiveInARow }
         if payout.isFourInARow(gridShape: gridShape) { phase = .fourInARow }
-        if payout.isBonusGameTriggered { phase = .bonusGame }
+        if payout.isBonusGameTriggered {
+            phase = .bonusGame
+            if let bonusGameKind {
+                activeBonusGame = ActiveBonusGame.make(kind: bonusGameKind)
+            }
+        }
         if payout.isMultiplierTriggered { phase = .multiplier }
         if payout.isFreeSpinsTriggered { phase = .freeSpins }
 
         phase = .winToBalance
         balance += payout.totalChips
+        persistBalance()
 
         phase = .settling
         phase = .idle
+    }
+
+    /// Ports LevelBox.onItemClicked via CurtainGameState.pick, then settles the bonus game
+    /// (BaseBonusGameEngine.DoBonusGameComplete -> CalculateChipsWon -> added to wallet) once
+    /// it reports over — mirrors AS3's flow of the mini-game's own Chips being credited
+    /// separately from, and after, the spin's own totalChips (already added in `spin()` above).
+    func pickCurtainItem(_ itemID: Int) {
+        guard case .curtain(var state) = activeBonusGame else { return }
+        _ = state.pick(itemID: itemID)
+        activeBonusGame = .curtain(state)
+        settleBonusGameIfOver()
+    }
+
+    /// Ports HigherLowerEngine.onLowerClick/onHigherClick via HigherLowerGameState.guess.
+    func guessHigherLower(_ guess: HigherLowerGuess) {
+        guard case .higherLower(var state) = activeBonusGame else { return }
+        _ = state.guess(guess)
+        activeBonusGame = .higherLower(state)
+        settleBonusGameIfOver()
+    }
+
+    private func settleBonusGameIfOver() {
+        guard let activeBonusGame, activeBonusGame.isOver else { return }
+        balance += activeBonusGame.chipsWon(selectedBetChips: selectedBetChips)
+        persistBalance()
+        self.activeBonusGame = nil
     }
 }

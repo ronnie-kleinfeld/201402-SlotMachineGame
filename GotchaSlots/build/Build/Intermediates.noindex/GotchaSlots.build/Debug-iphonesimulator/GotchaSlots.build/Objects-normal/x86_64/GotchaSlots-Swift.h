@@ -373,8 +373,21 @@ extern "C" {
 @class SKView;
 @class UITouch;
 @class UIEvent;
-/// Phase 1’s minimal machine screen: the Classic 5x3 grid, a spin button, and a balance/bet
-/// readout. No lobby yet (Phase 5) — the app enters directly into this scene.
+/// Ports the lobby machine-select grid (com/gotchaslots/slots/ui/lobby): one tile per machine
+/// in the catalog, locked tiles showing why (level requirement or “coming soon”), unlocked
+/// tiles launching MachineScene on tap.
+SWIFT_CLASS("_TtC11GotchaSlots10LobbyScene")
+@interface LobbyScene : SKScene
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)didMoveToView:(SKView * _Nonnull)view;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (nonnull instancetype)initWithSize:(CGSize)size SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// The machine screen: a grid, a spin button, and a balance/bet readout. Entered from
+/// LobbyScene (Phase 5) via AppCoordinator; <code>onExit</code> returns there.
 SWIFT_CLASS("_TtC11GotchaSlots12MachineScene")
 @interface MachineScene : SKScene
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -385,7 +398,9 @@ SWIFT_CLASS("_TtC11GotchaSlots12MachineScene")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-/// Fallback scene shown only if the machine config resource fails to load.
+/// Fallback scene shown when a machine config resource fails to load or the catalog is empty,
+/// so a resource-bundling mistake shows up as an obvious on-screen message rather than a
+/// silent blank screen.
 SWIFT_CLASS("_TtC11GotchaSlots16PlaceholderScene")
 @interface PlaceholderScene : SKScene
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;

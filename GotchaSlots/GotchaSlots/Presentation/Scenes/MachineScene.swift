@@ -1,23 +1,25 @@
 import SpriteKit
 
-/// Phase 1's minimal machine screen: the Classic 5x3 grid, a spin button, and a balance/bet
-/// readout. No lobby yet (Phase 5) — the app enters directly into this scene.
+/// The machine screen: a grid, a spin button, and a balance/bet readout. Entered from
+/// LobbyScene (Phase 5) via AppCoordinator; `onExit` returns there.
 final class MachineScene: SKScene {
     private let machine: MachineConfiguration
     private let bag: SymbolBag
     private let paylines: [Payline]
     private let stateMachine: SpinStateMachine
+    var onExit: (() -> Void)?
 
     private var reels: [ReelNode] = []
     private var balanceLabel: SKLabelNode!
     private var resultLabel: SKLabelNode!
     private var spinButton: SKShapeNode!
+    private var backButton: SKShapeNode!
     private var isSpinning = false
 
     private let selectedPaylines = 20
     private let selectedBetChips = 1.0
 
-    init(machine: MachineConfiguration) {
+    init(machine: MachineConfiguration, walletStore: KeychainStore<WalletState>? = nil) {
         self.machine = machine
         self.bag = SymbolBag(
             normalSymbols: machine.normalSymbols, wild: machine.wild, factor: machine.factor,
@@ -30,9 +32,11 @@ final class MachineScene: SKScene {
         self.stateMachine = SpinStateMachine(
             resolver: resolver,
             gridShape: machine.gridShape,
+            bonusGameKind: machine.bonusGameKind,
             selectedPaylines: selectedPaylines,
             selectedBetChips: selectedBetChips,
-            startingBalance: 1000
+            startingBalance: 1000,
+            walletStore: walletStore
         )
         super.init(size: CGSize(width: 750, height: 1334))
     }
@@ -44,7 +48,26 @@ final class MachineScene: SKScene {
         buildGrid()
         buildHUD()
         buildSpinButton()
+        buildBackButton()
         updateBalanceLabel()
+    }
+
+    private func buildBackButton() {
+        backButton = SKShapeNode(rectOf: CGSize(width: 90, height: 50), cornerRadius: 10)
+        backButton.fillColor = SKColor(white: 1, alpha: 0.15)
+        backButton.strokeColor = .white
+        backButton.lineWidth = 1.5
+        backButton.position = CGPoint(x: 70, y: size.height * 0.95)
+        backButton.name = "backButton"
+        addChild(backButton)
+
+        let label = SKLabelNode(text: "< Lobby")
+        label.fontName = "HelveticaNeue-Bold"
+        label.fontSize = 18
+        label.fontColor = .white
+        label.verticalAlignmentMode = .center
+        label.name = "backButton"
+        backButton.addChild(label)
     }
 
     private func buildGrid() {
@@ -107,6 +130,8 @@ final class MachineScene: SKScene {
         let node = atPoint(location)
         if node.name == "spinButton" {
             handleSpinTapped()
+        } else if node.name == "backButton" {
+            onExit?()
         }
     }
 

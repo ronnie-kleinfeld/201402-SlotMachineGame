@@ -49,6 +49,15 @@ struct MachineFeatureFlags: Codable {
     var multiplierScatterValuator: Bool
 }
 
+/// Ports `bonusGameDataClass` (e.g. HolidayCurtainData, HigherLowerData) — which bonus-game
+/// family a machine launches when BonusGameEvaluator triggers. Only meaningful when
+/// features.bonusGameValuator is true. Curtain skins beyond Holiday (14 more themed reskins,
+/// same CurtainGameState engine with different level configs) are Phase 7 bulk data-entry work.
+enum BonusGameKind: String, Codable {
+    case holidayCurtain
+    case higherLower
+}
+
 /// Ports the constructor-argument pattern of SlotsBaseLobbyMachineData / LobbyMachine{Shape}Data —
 /// one generic engine configured per machine, rather than a Swift subclass per machine.
 ///
@@ -81,4 +90,6 @@ struct MachineConfiguration: Codable, Identifiable {
     var ace: SymbolConfig? = nil
     var gold: SymbolConfig? = nil
     var king: SymbolConfig? = nil
+
+    var bonusGameKind: BonusGameKind? = nil
 }

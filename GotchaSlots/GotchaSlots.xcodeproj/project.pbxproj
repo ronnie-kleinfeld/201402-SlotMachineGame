@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0045AB8BF3FF91D18C54521D /* CurtainGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7DB29A613B2F1662553BB /* CurtainGameTests.swift */; };
 		07B1E9A9C1D00EC8612A8D8D /* ScatterEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DA75E4C1C3819A9232971 /* ScatterEvaluator.swift */; };
 		0D0BE1BA300345EE5262A8C0 /* PaylineSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC33530707B29ED4D9E8514 /* PaylineSet.swift */; };
 		0DF5D7224FA5A26CE463CF8D /* Paylines5x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */; };
 		0FE3C22F4B60383A7513678B /* Payline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575960DDAD52A880807A8EC4 /* Payline.swift */; };
+		19E0F2D983D619CDA4D990A8 /* ActiveBonusGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BDDB85510338304DD34FC /* ActiveBonusGame.swift */; };
 		1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */; };
 		1F778F5C895FF2DB11FCF025 /* Art.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9235037F12EE777A16461B /* Art.xcassets */; };
 		239BF5F5B3445C6094D1BC4D /* MachineScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCF61C3B70324542765403 /* MachineScene.swift */; };
@@ -22,9 +24,12 @@
 		5333090C9A44087C525A67A1 /* Paylines5x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55898971634DC293F2CE50F4 /* Paylines5x3.swift */; };
 		53CFBB97831B4CCAB713EFCA /* Paylines5x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E596FF0E647EB6DB30EB2 /* Paylines5x5.swift */; };
 		58F7ACAD602D754A42901B12 /* BonusGameAndScatterEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */; };
+		5C352E9A87404EF3D3845A62 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2AF09545CACEF8B2137AF /* KeychainHelper.swift */; };
+		5DB33BAEBB644BAC14E81046 /* HigherLowerGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D1ECD8D94EA76972C19CA8 /* HigherLowerGameTests.swift */; };
 		696DA98F8D0EEB41D42888E8 /* MachineConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C878A916419E354B3CE62 /* MachineConfiguration.swift */; };
 		6AAB331863E82E975566C52F /* Paylines5x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */; };
 		6ADDBEE0D6B1D51DD05BE0F4 /* SymbolNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE05FC417358A2307755D4 /* SymbolNode.swift */; };
+		6DF8DD28698069E975BECA28 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9CB6789A2AB2D68007F6F0 /* AppCoordinator.swift */; };
 		6E00689E3D1CD8429965C790 /* StrikeEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25D6E67C8F7B045161A328 /* StrikeEvaluatorTests.swift */; };
 		711E77ED5ED8631C397FF6F1 /* SymetricEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */; };
 		72C6EBAD74A436531B127FFA /* ReelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012ECBF21414E77D6A118B3 /* ReelNode.swift */; };
@@ -32,23 +37,34 @@
 		78BD606D701A893164A5481B /* SpinStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */; };
 		79E344AECE4BC7E45003639C /* ResultMatrixGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */; };
 		7CCE982244C36D8F16458A9F /* classic_5x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 190A18FDCE6C303A5929D96C /* classic_5x3.json */; };
+		7FC567BBD03D26B146A5A72A /* CurtainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71A6C136B70B0136B8B40C /* CurtainGame.swift */; };
 		802A9D48D6D461576EC5DF28 /* PaylinesOtherGridsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */; };
+		873428A07E0E036F24D2B62D /* SpinStateMachineBonusGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5E55420657E4F2072B90D /* SpinStateMachineBonusGameTests.swift */; };
+		883A51737072545E1B13FCEC /* SpinStateMachineWalletPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EFCD9F38240F8752C9748 /* SpinStateMachineWalletPersistenceTests.swift */; };
+		8E174AD67F4EEF1BB02F1520 /* MachineCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D515A093BDAAB82E1403 /* MachineCatalog.swift */; };
+		8E6AD143AE928A0BB90B03BB /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46093E689718C94A5FE280C9 /* KeychainStore.swift */; };
 		8EC8FBE738D42DBABC47AEDE /* Paylines5x1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E71286725F8DC3374B6F3E /* Paylines5x1.swift */; };
 		9251BB92486FFF05CBE4D2A5 /* BonusGameEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C293960D8C66346C83D2B /* BonusGameEvaluator.swift */; };
 		9369228FA1A61071409F399C /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */; };
 		97C93776B609DEB97DCAF79D /* ColumnEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */; };
 		99DD8B351F566F8369510612 /* GridShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */; };
 		9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDADC78C67F535FB5C5465 /* ColumnEvaluator.swift */; };
+		9FA86F391B32ACE03B539647 /* HolidayCurtainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A7D1DCD411D972C1D1F356 /* HolidayCurtainConfig.swift */; };
 		AB9F3A59116426230D3EA3C9 /* StrikeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */; };
 		AF48D09F5F364F3D9AF84CF8 /* Paylines3x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */; };
 		AF4D689091503BC2EB83D84A /* SpinStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */; };
 		AFA2F37BB7BAEBF91828BD45 /* WinEvaluatorChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892E56EF569AE6926CBDFC2 /* WinEvaluatorChain.swift */; };
+		BCD3A0469C5E2D87FC7DC6B9 /* LobbyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE9850515BE4C21501D19 /* LobbyScene.swift */; };
+		C160996436EC2DF31BCCE4CE /* HigherLowerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA04E44A80DF871864447 /* HigherLowerGame.swift */; };
 		C56F1AF4E8179C15016CA412 /* WinEvaluatorChainPhase3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DF4FC0402F1B5226AB740 /* WinEvaluatorChainPhase3Tests.swift */; };
 		C74C6F862757E8BE9AAF5E70 /* WinEvaluatorChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */; };
 		D8F3D601B5F679CB39BDCB0E /* SymetricEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */; };
 		E70C641994066B40F0E37FE1 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */; };
 		E722C36F5F7F65EFDE461AC9 /* ResultMatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353E7F13B031116F9A20DF /* ResultMatrixGenerator.swift */; };
 		EBC0D8BFEFD581D721DE9023 /* SymbolBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */; };
+		EC2BD777363CE94F1AAFCE89 /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C45CA72AD265E6CE665D0E /* WalletState.swift */; };
+		F25617D621445DC2A1DF06AE /* LobbyGatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEE79F13EB201765AD4857 /* LobbyGatingTests.swift */; };
+		FC32910663BFF601C5197777 /* KeychainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56115EFC7A73397B085861 /* KeychainStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,24 +87,33 @@
 		25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinResolverTests.swift; sourceTree = "<group>"; };
 		269C293960D8C66346C83D2B /* BonusGameEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusGameEvaluator.swift; sourceTree = "<group>"; };
 		27FA2B6F5090DFF06A9A788F /* SymbolBagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolBagTests.swift; sourceTree = "<group>"; };
+		2D71A6C136B70B0136B8B40C /* CurtainGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainGame.swift; sourceTree = "<group>"; };
+		2E9EFCD9F38240F8752C9748 /* SpinStateMachineWalletPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachineWalletPersistenceTests.swift; sourceTree = "<group>"; };
 		31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusGameAndScatterEvaluatorTests.swift; sourceTree = "<group>"; };
 		326C878A916419E354B3CE62 /* MachineConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineConfiguration.swift; sourceTree = "<group>"; };
 		34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeEvaluator.swift; sourceTree = "<group>"; };
 		3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolBag.swift; sourceTree = "<group>"; };
+		46093E689718C94A5FE280C9 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines3x3.swift; sourceTree = "<group>"; };
 		55898971634DC293F2CE50F4 /* Paylines5x3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x3.swift; sourceTree = "<group>"; };
 		575960DDAD52A880807A8EC4 /* Payline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payline.swift; sourceTree = "<group>"; };
+		58C2AF09545CACEF8B2137AF /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		5C5DF4FC0402F1B5226AB740 /* WinEvaluatorChainPhase3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChainPhase3Tests.swift; sourceTree = "<group>"; };
+		5F9CB6789A2AB2D68007F6F0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		62FE05FC417358A2307755D4 /* SymbolNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNode.swift; sourceTree = "<group>"; };
 		6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x3Tests.swift; sourceTree = "<group>"; };
+		67B5E55420657E4F2072B90D /* SpinStateMachineBonusGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachineBonusGameTests.swift; sourceTree = "<group>"; };
+		728BDDB85510338304DD34FC /* ActiveBonusGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBonusGame.swift; sourceTree = "<group>"; };
 		735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachine.swift; sourceTree = "<group>"; };
+		73C7DB29A613B2F1662553BB /* CurtainGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainGameTests.swift; sourceTree = "<group>"; };
 		7C9235037F12EE777A16461B /* Art.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Art.xcassets; sourceTree = "<group>"; };
 		7F7DA75E4C1C3819A9232971 /* ScatterEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterEvaluator.swift; sourceTree = "<group>"; };
 		8892E56EF569AE6926CBDFC2 /* WinEvaluatorChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChain.swift; sourceTree = "<group>"; };
 		8DE12079FFB05CB10A4849C5 /* MultiGridShapeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGridShapeIntegrationTests.swift; sourceTree = "<group>"; };
 		8F2E596FF0E647EB6DB30EB2 /* Paylines5x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x5.swift; sourceTree = "<group>"; };
 		942A7BEDACFED16136407B86 /* PayoutTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayoutTableTests.swift; sourceTree = "<group>"; };
+		95DEE79F13EB201765AD4857 /* LobbyGatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyGatingTests.swift; sourceTree = "<group>"; };
 		95DF34159551D8AF73D2CF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A02B878A81406A797ACCBF29 /* GotchaSlotsTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GotchaSlotsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7AF983041B77DFD2303EC44 /* GotchaSlots.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GotchaSlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,12 +123,19 @@
 		AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnEvaluatorTests.swift; sourceTree = "<group>"; };
 		AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridShape.swift; sourceTree = "<group>"; };
 		B012ECBF21414E77D6A118B3 /* ReelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelNode.swift; sourceTree = "<group>"; };
+		B6D1ECD8D94EA76972C19CA8 /* HigherLowerGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherLowerGameTests.swift; sourceTree = "<group>"; };
 		BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMatrixGeneratorTests.swift; sourceTree = "<group>"; };
 		C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x4.swift; sourceTree = "<group>"; };
 		C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChainTests.swift; sourceTree = "<group>"; };
+		C4FBE9850515BE4C21501D19 /* LobbyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyScene.swift; sourceTree = "<group>"; };
 		C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotchaSlotsApp.swift; sourceTree = "<group>"; };
 		C8E71286725F8DC3374B6F3E /* Paylines5x1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x1.swift; sourceTree = "<group>"; };
+		CB56115EFC7A73397B085861 /* KeychainStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStoreTests.swift; sourceTree = "<group>"; };
+		CF72D515A093BDAAB82E1403 /* MachineCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineCatalog.swift; sourceTree = "<group>"; };
 		D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachineTests.swift; sourceTree = "<group>"; };
+		D1A7D1DCD411D972C1D1F356 /* HolidayCurtainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayCurtainConfig.swift; sourceTree = "<group>"; };
+		E1C45CA72AD265E6CE665D0E /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
+		EA0DA04E44A80DF871864447 /* HigherLowerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherLowerGame.swift; sourceTree = "<group>"; };
 		ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymetricEvaluator.swift; sourceTree = "<group>"; };
 		EDC33530707B29ED4D9E8514 /* PaylineSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylineSet.swift; sourceTree = "<group>"; };
 		F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymetricEvaluatorTests.swift; sourceTree = "<group>"; };
@@ -123,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */,
+				CF72D515A093BDAAB82E1403 /* MachineCatalog.swift */,
 				326C878A916419E354B3CE62 /* MachineConfiguration.swift */,
 				207ED19A99CDB140359C3C92 /* MachineConfigurationLoader.swift */,
 				575960DDAD52A880807A8EC4 /* Payline.swift */,
@@ -133,6 +166,7 @@
 		0CFF0DE870D970C4597C5C91 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C4FBE9850515BE4C21501D19 /* LobbyScene.swift */,
 				ADDCF61C3B70324542765403 /* MachineScene.swift */,
 			);
 			path = Scenes;
@@ -190,6 +224,7 @@
 				95DF34159551D8AF73D2CF5B /* Info.plist */,
 				DBDFBE27A41ABF7E89EE2D31 /* App */,
 				80D91F2F34FBC9D8434EA8A5 /* Engine */,
+				9D670E299874BB3F9BE154EF /* Persistence */,
 				46151981261D0365A6D23098 /* Platform */,
 				084FBE2D856C219861A3FACE /* Presentation */,
 				8187FED1142A4A5204E3C666 /* Resources */,
@@ -202,6 +237,10 @@
 			children = (
 				31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */,
 				AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */,
+				73C7DB29A613B2F1662553BB /* CurtainGameTests.swift */,
+				B6D1ECD8D94EA76972C19CA8 /* HigherLowerGameTests.swift */,
+				CB56115EFC7A73397B085861 /* KeychainStoreTests.swift */,
+				95DEE79F13EB201765AD4857 /* LobbyGatingTests.swift */,
 				8DE12079FFB05CB10A4849C5 /* MultiGridShapeIntegrationTests.swift */,
 				6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */,
 				09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */,
@@ -209,7 +248,9 @@
 				1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */,
 				BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */,
 				25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */,
+				67B5E55420657E4F2072B90D /* SpinStateMachineBonusGameTests.swift */,
 				D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */,
+				2E9EFCD9F38240F8752C9748 /* SpinStateMachineWalletPersistenceTests.swift */,
 				AD25D6E67C8F7B045161A328 /* StrikeEvaluatorTests.swift */,
 				27FA2B6F5090DFF06A9A788F /* SymbolBagTests.swift */,
 				F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */,
@@ -230,6 +271,15 @@
 				EDC33530707B29ED4D9E8514 /* PaylineSet.swift */,
 			);
 			path = Paylines;
+			sourceTree = "<group>";
+		};
+		6BCEC4BA584CA4BB72784542 /* Curtain */ = {
+			isa = PBXGroup;
+			children = (
+				2D71A6C136B70B0136B8B40C /* CurtainGame.swift */,
+				D1A7D1DCD411D972C1D1F356 /* HolidayCurtainConfig.swift */,
+			);
+			path = Curtain;
 			sourceTree = "<group>";
 		};
 		6EDB8B111D6D883C90380E1E = {
@@ -264,9 +314,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8262E7A92F7E723B6EC499F2 /* HigherLower */ = {
+			isa = PBXGroup;
+			children = (
+				EA0DA04E44A80DF871864447 /* HigherLowerGame.swift */,
+			);
+			path = HigherLower;
+			sourceTree = "<group>";
+		};
 		838F6E1F62F473628FD9F8BE /* BonusGames */ = {
 			isa = PBXGroup;
 			children = (
+				728BDDB85510338304DD34FC /* ActiveBonusGame.swift */,
+				6BCEC4BA584CA4BB72784542 /* Curtain */,
+				8262E7A92F7E723B6EC499F2 /* HigherLower */,
 			);
 			path = BonusGames;
 			sourceTree = "<group>";
@@ -277,6 +338,16 @@
 				190A18FDCE6C303A5929D96C /* classic_5x3.json */,
 			);
 			path = MachineConfigs;
+			sourceTree = "<group>";
+		};
+		9D670E299874BB3F9BE154EF /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				58C2AF09545CACEF8B2137AF /* KeychainHelper.swift */,
+				46093E689718C94A5FE280C9 /* KeychainStore.swift */,
+				E1C45CA72AD265E6CE665D0E /* WalletState.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		A40FA0B6819E97619604A74E /* StateMachine */ = {
@@ -290,6 +361,7 @@
 		DBDFBE27A41ABF7E89EE2D31 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5F9CB6789A2AB2D68007F6F0 /* AppCoordinator.swift */,
 				4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */,
 				C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */,
 			);
@@ -402,6 +474,10 @@
 			files = (
 				58F7ACAD602D754A42901B12 /* BonusGameAndScatterEvaluatorTests.swift in Sources */,
 				97C93776B609DEB97DCAF79D /* ColumnEvaluatorTests.swift in Sources */,
+				0045AB8BF3FF91D18C54521D /* CurtainGameTests.swift in Sources */,
+				5DB33BAEBB644BAC14E81046 /* HigherLowerGameTests.swift in Sources */,
+				FC32910663BFF601C5197777 /* KeychainStoreTests.swift in Sources */,
+				F25617D621445DC2A1DF06AE /* LobbyGatingTests.swift in Sources */,
 				4C61A4CACC44A23D07865B89 /* MultiGridShapeIntegrationTests.swift in Sources */,
 				0DF5D7224FA5A26CE463CF8D /* Paylines5x3Tests.swift in Sources */,
 				802A9D48D6D461576EC5DF28 /* PaylinesOtherGridsTests.swift in Sources */,
@@ -409,7 +485,9 @@
 				E70C641994066B40F0E37FE1 /* PlaceholderTests.swift in Sources */,
 				79E344AECE4BC7E45003639C /* ResultMatrixGeneratorTests.swift in Sources */,
 				74B9B5207516F8C1900F4400 /* SpinResolverTests.swift in Sources */,
+				873428A07E0E036F24D2B62D /* SpinStateMachineBonusGameTests.swift in Sources */,
 				AF4D689091503BC2EB83D84A /* SpinStateMachineTests.swift in Sources */,
+				883A51737072545E1B13FCEC /* SpinStateMachineWalletPersistenceTests.swift in Sources */,
 				6E00689E3D1CD8429965C790 /* StrikeEvaluatorTests.swift in Sources */,
 				4927361D389CA7D28D89CEE3 /* SymbolBagTests.swift in Sources */,
 				D8F3D601B5F679CB39BDCB0E /* SymetricEvaluatorTests.swift in Sources */,
@@ -422,11 +500,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E0F2D983D619CDA4D990A8 /* ActiveBonusGame.swift in Sources */,
+				6DF8DD28698069E975BECA28 /* AppCoordinator.swift in Sources */,
 				9369228FA1A61071409F399C /* AppCoordinatorView.swift in Sources */,
 				9251BB92486FFF05CBE4D2A5 /* BonusGameEvaluator.swift in Sources */,
 				9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */,
+				7FC567BBD03D26B146A5A72A /* CurtainGame.swift in Sources */,
 				1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */,
 				99DD8B351F566F8369510612 /* GridShape.swift in Sources */,
+				C160996436EC2DF31BCCE4CE /* HigherLowerGame.swift in Sources */,
+				9FA86F391B32ACE03B539647 /* HolidayCurtainConfig.swift in Sources */,
+				5C352E9A87404EF3D3845A62 /* KeychainHelper.swift in Sources */,
+				8E6AD143AE928A0BB90B03BB /* KeychainStore.swift in Sources */,
+				BCD3A0469C5E2D87FC7DC6B9 /* LobbyScene.swift in Sources */,
+				8E174AD67F4EEF1BB02F1520 /* MachineCatalog.swift in Sources */,
 				696DA98F8D0EEB41D42888E8 /* MachineConfiguration.swift in Sources */,
 				2CCBE45E1D4D41011824C956 /* MachineConfigurationLoader.swift in Sources */,
 				239BF5F5B3445C6094D1BC4D /* MachineScene.swift in Sources */,
@@ -446,6 +533,7 @@
 				EBC0D8BFEFD581D721DE9023 /* SymbolBag.swift in Sources */,
 				6ADDBEE0D6B1D51DD05BE0F4 /* SymbolNode.swift in Sources */,
 				711E77ED5ED8631C397FF6F1 /* SymetricEvaluator.swift in Sources */,
+				EC2BD777363CE94F1AAFCE89 /* WalletState.swift in Sources */,
 				AFA2F37BB7BAEBF91828BD45 /* WinEvaluatorChain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
