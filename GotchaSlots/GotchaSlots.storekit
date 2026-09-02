@@ -1,0 +1,81 @@
+{
+  "identifier" : "5C6A2E9B-6B0E-4C2F-9C1A-1E2F3A4B5C6D",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "9F1A2B3C-0001-4D5E-8F6A-1B2C3D4E5F01",
+      "localizations" : [
+        {
+          "description" : "A small pile of chips to keep spinning.",
+          "displayName" : "15,000 Chips",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.gotchaslots.ios.chips.099",
+      "referenceName" : "Chips 099",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "9F1A2B3C-0002-4D5E-8F6A-1B2C3D4E5F02",
+      "localizations" : [
+        {
+          "description" : "A solid stack of chips.",
+          "displayName" : "46,000 Chips",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.gotchaslots.ios.chips.199",
+      "referenceName" : "Chips 199",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "9F1A2B3C-0003-4D5E-8F6A-1B2C3D4E5F03",
+      "localizations" : [
+        {
+          "description" : "A big bag of chips.",
+          "displayName" : "100,000 Chips",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.gotchaslots.ios.chips.499",
+      "referenceName" : "Chips 499",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "9F1A2B3C-0004-4D5E-8F6A-1B2C3D4E5F04",
+      "localizations" : [
+        {
+          "description" : "The high roller's chip vault.",
+          "displayName" : "190,000 Chips",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.gotchaslots.ios.chips.999",
+      "referenceName" : "Chips 999",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_editorMode" : true,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

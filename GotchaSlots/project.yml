@@ -53,3 +53,4 @@ schemes:
         - GotchaSlotsTests
     run:
       config: Debug
+      storeKitConfiguration: GotchaSlots.storekit

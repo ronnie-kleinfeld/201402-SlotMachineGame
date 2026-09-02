@@ -12,6 +12,7 @@
 		0D0BE1BA300345EE5262A8C0 /* PaylineSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC33530707B29ED4D9E8514 /* PaylineSet.swift */; };
 		0DF5D7224FA5A26CE463CF8D /* Paylines5x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */; };
 		0FE3C22F4B60383A7513678B /* Payline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575960DDAD52A880807A8EC4 /* Payline.swift */; };
+		148355CC116AFCC56C8D5001 /* ChipProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037C531048894A305173325 /* ChipProduct.swift */; };
 		19E0F2D983D619CDA4D990A8 /* ActiveBonusGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BDDB85510338304DD34FC /* ActiveBonusGame.swift */; };
 		1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */; };
 		1F778F5C895FF2DB11FCF025 /* Art.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9235037F12EE777A16461B /* Art.xcassets */; };
@@ -50,6 +51,7 @@
 		99DD8B351F566F8369510612 /* GridShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */; };
 		9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDADC78C67F535FB5C5465 /* ColumnEvaluator.swift */; };
 		9FA86F391B32ACE03B539647 /* HolidayCurtainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A7D1DCD411D972C1D1F356 /* HolidayCurtainConfig.swift */; };
+		AA5E350DD0FEAD252A87BB7A /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2463D5A43C6DBCB4111CD1 /* PurchaseManager.swift */; };
 		AB9F3A59116426230D3EA3C9 /* StrikeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */; };
 		AF48D09F5F364F3D9AF84CF8 /* Paylines3x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */; };
 		AF4D689091503BC2EB83D84A /* SpinStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */; };
@@ -63,6 +65,7 @@
 		E722C36F5F7F65EFDE461AC9 /* ResultMatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353E7F13B031116F9A20DF /* ResultMatrixGenerator.swift */; };
 		EBC0D8BFEFD581D721DE9023 /* SymbolBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */; };
 		EC2BD777363CE94F1AAFCE89 /* WalletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C45CA72AD265E6CE665D0E /* WalletState.swift */; };
+		EEAB76880455B2779DEA47F5 /* PurchaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E28708D23F2E9090BE355 /* PurchaseManagerTests.swift */; };
 		F25617D621445DC2A1DF06AE /* LobbyGatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEE79F13EB201765AD4857 /* LobbyGatingTests.swift */; };
 		FC32910663BFF601C5197777 /* KeychainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56115EFC7A73397B085861 /* KeychainStoreTests.swift */; };
 /* End PBXBuildFile section */
@@ -124,7 +127,9 @@
 		AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridShape.swift; sourceTree = "<group>"; };
 		B012ECBF21414E77D6A118B3 /* ReelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelNode.swift; sourceTree = "<group>"; };
 		B6D1ECD8D94EA76972C19CA8 /* HigherLowerGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherLowerGameTests.swift; sourceTree = "<group>"; };
+		BC8E28708D23F2E9090BE355 /* PurchaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerTests.swift; sourceTree = "<group>"; };
 		BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMatrixGeneratorTests.swift; sourceTree = "<group>"; };
+		C037C531048894A305173325 /* ChipProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipProduct.swift; sourceTree = "<group>"; };
 		C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x4.swift; sourceTree = "<group>"; };
 		C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChainTests.swift; sourceTree = "<group>"; };
 		C4FBE9850515BE4C21501D19 /* LobbyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyScene.swift; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 		CF72D515A093BDAAB82E1403 /* MachineCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineCatalog.swift; sourceTree = "<group>"; };
 		D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachineTests.swift; sourceTree = "<group>"; };
 		D1A7D1DCD411D972C1D1F356 /* HolidayCurtainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayCurtainConfig.swift; sourceTree = "<group>"; };
+		DC2463D5A43C6DBCB4111CD1 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		E1C45CA72AD265E6CE665D0E /* WalletState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletState.swift; sourceTree = "<group>"; };
 		EA0DA04E44A80DF871864447 /* HigherLowerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherLowerGame.swift; sourceTree = "<group>"; };
 		ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymetricEvaluator.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 		46151981261D0365A6D23098 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				D7300B6D7186EAE207778F3E /* IAP */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
@@ -246,6 +253,7 @@
 				09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */,
 				942A7BEDACFED16136407B86 /* PayoutTableTests.swift */,
 				1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */,
+				BC8E28708D23F2E9090BE355 /* PurchaseManagerTests.swift */,
 				BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */,
 				25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */,
 				67B5E55420657E4F2072B90D /* SpinStateMachineBonusGameTests.swift */,
@@ -356,6 +364,15 @@
 				735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */,
 			);
 			path = StateMachine;
+			sourceTree = "<group>";
+		};
+		D7300B6D7186EAE207778F3E /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				C037C531048894A305173325 /* ChipProduct.swift */,
+				DC2463D5A43C6DBCB4111CD1 /* PurchaseManager.swift */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		DBDFBE27A41ABF7E89EE2D31 /* App */ = {
@@ -483,6 +500,7 @@
 				802A9D48D6D461576EC5DF28 /* PaylinesOtherGridsTests.swift in Sources */,
 				35393C5D122B77DEBDE2C141 /* PayoutTableTests.swift in Sources */,
 				E70C641994066B40F0E37FE1 /* PlaceholderTests.swift in Sources */,
+				EEAB76880455B2779DEA47F5 /* PurchaseManagerTests.swift in Sources */,
 				79E344AECE4BC7E45003639C /* ResultMatrixGeneratorTests.swift in Sources */,
 				74B9B5207516F8C1900F4400 /* SpinResolverTests.swift in Sources */,
 				873428A07E0E036F24D2B62D /* SpinStateMachineBonusGameTests.swift in Sources */,
@@ -504,6 +522,7 @@
 				6DF8DD28698069E975BECA28 /* AppCoordinator.swift in Sources */,
 				9369228FA1A61071409F399C /* AppCoordinatorView.swift in Sources */,
 				9251BB92486FFF05CBE4D2A5 /* BonusGameEvaluator.swift in Sources */,
+				148355CC116AFCC56C8D5001 /* ChipProduct.swift in Sources */,
 				9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */,
 				7FC567BBD03D26B146A5A72A /* CurtainGame.swift in Sources */,
 				1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */,
@@ -524,6 +543,7 @@
 				5333090C9A44087C525A67A1 /* Paylines5x3.swift in Sources */,
 				6AAB331863E82E975566C52F /* Paylines5x4.swift in Sources */,
 				53CFBB97831B4CCAB713EFCA /* Paylines5x5.swift in Sources */,
+				AA5E350DD0FEAD252A87BB7A /* PurchaseManager.swift in Sources */,
 				72C6EBAD74A436531B127FFA /* ReelNode.swift in Sources */,
 				E722C36F5F7F65EFDE461AC9 /* ResultMatrixGenerator.swift in Sources */,
 				07B1E9A9C1D00EC8612A8D8D /* ScatterEvaluator.swift in Sources */,
