@@ -1,0 +1,32 @@
+import Foundation
+
+// Auto-transcribed from Paylines3x3Data.as InitPaylines() — do not hand-edit, regenerate from source if it changes.
+let paylines3x3: [Payline] = [
+    Payline(id: 0, color: 0xCD9575, cells: [3, 4, 5]),
+    Payline(id: 1, color: 0xFDD9B5, cells: [0, 1, 2]),
+    Payline(id: 2, color: 0x78DBE2, cells: [6, 7, 8]),
+    Payline(id: 3, color: 0x87A96B, cells: [0, 4, 8]),
+    Payline(id: 4, color: 0xFFA474, cells: [6, 4, 2]),
+    Payline(id: 5, color: 0x9F8170, cells: [0, 1, 5]),
+    Payline(id: 6, color: 0xFD7C6E, cells: [0, 1, 8]),
+    Payline(id: 7, color: 0x1F75FE, cells: [0, 4, 2]),
+    Payline(id: 8, color: 0xADADD6, cells: [0, 4, 5]),
+    Payline(id: 9, color: 0x7366BD, cells: [0, 7, 2]),
+    Payline(id: 10, color: 0xDE5D83, cells: [0, 7, 5]),
+    Payline(id: 11, color: 0xCB4154, cells: [0, 7, 8]),
+    Payline(id: 12, color: 0xB4674D, cells: [3, 1, 2]),
+    Payline(id: 13, color: 0xFF7F49, cells: [3, 1, 5]),
+    Payline(id: 14, color: 0xEA7E5D, cells: [3, 1, 8]),
+    Payline(id: 15, color: 0xFFFF99, cells: [3, 4, 2]),
+    Payline(id: 16, color: 0x1CD3A2, cells: [3, 4, 8]),
+    Payline(id: 17, color: 0xFFAACC, cells: [3, 7, 2]),
+    Payline(id: 18, color: 0x1DACD6, cells: [3, 7, 5]),
+    Payline(id: 19, color: 0xBC5D58, cells: [3, 7, 8]),
+    Payline(id: 20, color: 0xDD9475, cells: [6, 1, 2]),
+    Payline(id: 21, color: 0x9ACEEB, cells: [6, 1, 5]),
+    Payline(id: 22, color: 0xFFBCD9, cells: [6, 1, 8]),
+    Payline(id: 23, color: 0xFDDB6D, cells: [6, 4, 5]),
+    Payline(id: 24, color: 0x2B6CC4, cells: [6, 4, 8]),
+    Payline(id: 25, color: 0x6E5160, cells: [6, 7, 2]),
+    Payline(id: 26, color: 0x1DF914, cells: [6, 7, 5]),
+]

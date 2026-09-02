@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07B1E9A9C1D00EC8612A8D8D /* ScatterEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DA75E4C1C3819A9232971 /* ScatterEvaluator.swift */; };
+		0D0BE1BA300345EE5262A8C0 /* PaylineSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC33530707B29ED4D9E8514 /* PaylineSet.swift */; };
+		0DF5D7224FA5A26CE463CF8D /* Paylines5x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */; };
+		0FE3C22F4B60383A7513678B /* Payline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575960DDAD52A880807A8EC4 /* Payline.swift */; };
+		1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */; };
+		1F778F5C895FF2DB11FCF025 /* Art.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9235037F12EE777A16461B /* Art.xcassets */; };
+		239BF5F5B3445C6094D1BC4D /* MachineScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCF61C3B70324542765403 /* MachineScene.swift */; };
+		25A7731D388A5D7A0E862431 /* SpinResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E69679374D9B7E2402F456E /* SpinResolver.swift */; };
+		2CCBE45E1D4D41011824C956 /* MachineConfigurationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207ED19A99CDB140359C3C92 /* MachineConfigurationLoader.swift */; };
+		35393C5D122B77DEBDE2C141 /* PayoutTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942A7BEDACFED16136407B86 /* PayoutTableTests.swift */; };
+		4927361D389CA7D28D89CEE3 /* SymbolBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA2B6F5090DFF06A9A788F /* SymbolBagTests.swift */; };
+		4C61A4CACC44A23D07865B89 /* MultiGridShapeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE12079FFB05CB10A4849C5 /* MultiGridShapeIntegrationTests.swift */; };
+		5333090C9A44087C525A67A1 /* Paylines5x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55898971634DC293F2CE50F4 /* Paylines5x3.swift */; };
+		53CFBB97831B4CCAB713EFCA /* Paylines5x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E596FF0E647EB6DB30EB2 /* Paylines5x5.swift */; };
+		58F7ACAD602D754A42901B12 /* BonusGameAndScatterEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */; };
+		696DA98F8D0EEB41D42888E8 /* MachineConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C878A916419E354B3CE62 /* MachineConfiguration.swift */; };
+		6AAB331863E82E975566C52F /* Paylines5x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */; };
+		6ADDBEE0D6B1D51DD05BE0F4 /* SymbolNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE05FC417358A2307755D4 /* SymbolNode.swift */; };
+		6E00689E3D1CD8429965C790 /* StrikeEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25D6E67C8F7B045161A328 /* StrikeEvaluatorTests.swift */; };
+		711E77ED5ED8631C397FF6F1 /* SymetricEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */; };
+		72C6EBAD74A436531B127FFA /* ReelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012ECBF21414E77D6A118B3 /* ReelNode.swift */; };
+		74B9B5207516F8C1900F4400 /* SpinResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */; };
+		78BD606D701A893164A5481B /* SpinStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */; };
+		79E344AECE4BC7E45003639C /* ResultMatrixGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */; };
+		7CCE982244C36D8F16458A9F /* classic_5x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 190A18FDCE6C303A5929D96C /* classic_5x3.json */; };
+		802A9D48D6D461576EC5DF28 /* PaylinesOtherGridsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */; };
+		8EC8FBE738D42DBABC47AEDE /* Paylines5x1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E71286725F8DC3374B6F3E /* Paylines5x1.swift */; };
+		9251BB92486FFF05CBE4D2A5 /* BonusGameEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C293960D8C66346C83D2B /* BonusGameEvaluator.swift */; };
+		9369228FA1A61071409F399C /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */; };
+		97C93776B609DEB97DCAF79D /* ColumnEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */; };
+		99DD8B351F566F8369510612 /* GridShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */; };
+		9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDADC78C67F535FB5C5465 /* ColumnEvaluator.swift */; };
+		AB9F3A59116426230D3EA3C9 /* StrikeEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */; };
+		AF48D09F5F364F3D9AF84CF8 /* Paylines3x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */; };
+		AF4D689091503BC2EB83D84A /* SpinStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */; };
+		AFA2F37BB7BAEBF91828BD45 /* WinEvaluatorChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892E56EF569AE6926CBDFC2 /* WinEvaluatorChain.swift */; };
+		C56F1AF4E8179C15016CA412 /* WinEvaluatorChainPhase3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DF4FC0402F1B5226AB740 /* WinEvaluatorChainPhase3Tests.swift */; };
+		C74C6F862757E8BE9AAF5E70 /* WinEvaluatorChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */; };
+		D8F3D601B5F679CB39BDCB0E /* SymetricEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */; };
+		E70C641994066B40F0E37FE1 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */; };
+		E722C36F5F7F65EFDE461AC9 /* ResultMatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8353E7F13B031116F9A20DF /* ResultMatrixGenerator.swift */; };
+		EBC0D8BFEFD581D721DE9023 /* SymbolBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		188540F60176E51BFFB7E9E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF1D676E07188B76A5364244 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5BA0C2CF08B25650BF78E4D;
+			remoteInfo = GotchaSlots;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinesOtherGridsTests.swift; sourceTree = "<group>"; };
+		0E69679374D9B7E2402F456E /* SpinResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinResolver.swift; sourceTree = "<group>"; };
+		190A18FDCE6C303A5929D96C /* classic_5x3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classic_5x3.json; sourceTree = "<group>"; };
+		1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
+		207ED19A99CDB140359C3C92 /* MachineConfigurationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineConfigurationLoader.swift; sourceTree = "<group>"; };
+		20FDADC78C67F535FB5C5465 /* ColumnEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnEvaluator.swift; sourceTree = "<group>"; };
+		25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinResolverTests.swift; sourceTree = "<group>"; };
+		269C293960D8C66346C83D2B /* BonusGameEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusGameEvaluator.swift; sourceTree = "<group>"; };
+		27FA2B6F5090DFF06A9A788F /* SymbolBagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolBagTests.swift; sourceTree = "<group>"; };
+		31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusGameAndScatterEvaluatorTests.swift; sourceTree = "<group>"; };
+		326C878A916419E354B3CE62 /* MachineConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineConfiguration.swift; sourceTree = "<group>"; };
+		34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeEvaluator.swift; sourceTree = "<group>"; };
+		3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolBag.swift; sourceTree = "<group>"; };
+		4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines3x3.swift; sourceTree = "<group>"; };
+		55898971634DC293F2CE50F4 /* Paylines5x3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x3.swift; sourceTree = "<group>"; };
+		575960DDAD52A880807A8EC4 /* Payline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payline.swift; sourceTree = "<group>"; };
+		5C5DF4FC0402F1B5226AB740 /* WinEvaluatorChainPhase3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChainPhase3Tests.swift; sourceTree = "<group>"; };
+		62FE05FC417358A2307755D4 /* SymbolNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNode.swift; sourceTree = "<group>"; };
+		6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x3Tests.swift; sourceTree = "<group>"; };
+		735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachine.swift; sourceTree = "<group>"; };
+		7C9235037F12EE777A16461B /* Art.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Art.xcassets; sourceTree = "<group>"; };
+		7F7DA75E4C1C3819A9232971 /* ScatterEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterEvaluator.swift; sourceTree = "<group>"; };
+		8892E56EF569AE6926CBDFC2 /* WinEvaluatorChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChain.swift; sourceTree = "<group>"; };
+		8DE12079FFB05CB10A4849C5 /* MultiGridShapeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGridShapeIntegrationTests.swift; sourceTree = "<group>"; };
+		8F2E596FF0E647EB6DB30EB2 /* Paylines5x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x5.swift; sourceTree = "<group>"; };
+		942A7BEDACFED16136407B86 /* PayoutTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayoutTableTests.swift; sourceTree = "<group>"; };
+		95DF34159551D8AF73D2CF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A02B878A81406A797ACCBF29 /* GotchaSlotsTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GotchaSlotsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7AF983041B77DFD2303EC44 /* GotchaSlots.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GotchaSlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8353E7F13B031116F9A20DF /* ResultMatrixGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMatrixGenerator.swift; sourceTree = "<group>"; };
+		AD25D6E67C8F7B045161A328 /* StrikeEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeEvaluatorTests.swift; sourceTree = "<group>"; };
+		ADDCF61C3B70324542765403 /* MachineScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineScene.swift; sourceTree = "<group>"; };
+		AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnEvaluatorTests.swift; sourceTree = "<group>"; };
+		AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridShape.swift; sourceTree = "<group>"; };
+		B012ECBF21414E77D6A118B3 /* ReelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelNode.swift; sourceTree = "<group>"; };
+		BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMatrixGeneratorTests.swift; sourceTree = "<group>"; };
+		C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x4.swift; sourceTree = "<group>"; };
+		C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinEvaluatorChainTests.swift; sourceTree = "<group>"; };
+		C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotchaSlotsApp.swift; sourceTree = "<group>"; };
+		C8E71286725F8DC3374B6F3E /* Paylines5x1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylines5x1.swift; sourceTree = "<group>"; };
+		D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinStateMachineTests.swift; sourceTree = "<group>"; };
+		ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymetricEvaluator.swift; sourceTree = "<group>"; };
+		EDC33530707B29ED4D9E8514 /* PaylineSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylineSet.swift; sourceTree = "<group>"; };
+		F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymetricEvaluatorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		084FBE2D856C219861A3FACE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				10701B5531CC4781622ADA0F /* Nodes */,
+				0CFF0DE870D970C4597C5C91 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		08625BBD50D644E231699920 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE49DC56A6ABC5481D0DB1E9 /* GridShape.swift */,
+				326C878A916419E354B3CE62 /* MachineConfiguration.swift */,
+				207ED19A99CDB140359C3C92 /* MachineConfigurationLoader.swift */,
+				575960DDAD52A880807A8EC4 /* Payline.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0CFF0DE870D970C4597C5C91 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ADDCF61C3B70324542765403 /* MachineScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		10701B5531CC4781622ADA0F /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				B012ECBF21414E77D6A118B3 /* ReelNode.swift */,
+				62FE05FC417358A2307755D4 /* SymbolNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		46151981261D0365A6D23098 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		4C32584C4A2F8A9F7F7C649E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7AF983041B77DFD2303EC44 /* GotchaSlots.app */,
+				A02B878A81406A797ACCBF29 /* GotchaSlotsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C7C996C4C49D4D92DB777A6 /* Symbols */ = {
+			isa = PBXGroup;
+			children = (
+				3ACB306E79A6A2EE8B9BA0ED /* SymbolBag.swift */,
+			);
+			path = Symbols;
+			sourceTree = "<group>";
+		};
+		552534899C63F94BAD1AADFE /* Valuators */ = {
+			isa = PBXGroup;
+			children = (
+				269C293960D8C66346C83D2B /* BonusGameEvaluator.swift */,
+				20FDADC78C67F535FB5C5465 /* ColumnEvaluator.swift */,
+				7F7DA75E4C1C3819A9232971 /* ScatterEvaluator.swift */,
+				34EA7F783D10E9AFA137827F /* StrikeEvaluator.swift */,
+				ED7290671E7E49AFEA2A88B3 /* SymetricEvaluator.swift */,
+				8892E56EF569AE6926CBDFC2 /* WinEvaluatorChain.swift */,
+			);
+			path = Valuators;
+			sourceTree = "<group>";
+		};
+		585F85CCD4BCBFF982968ADB /* GotchaSlots */ = {
+			isa = PBXGroup;
+			children = (
+				95DF34159551D8AF73D2CF5B /* Info.plist */,
+				DBDFBE27A41ABF7E89EE2D31 /* App */,
+				80D91F2F34FBC9D8434EA8A5 /* Engine */,
+				46151981261D0365A6D23098 /* Platform */,
+				084FBE2D856C219861A3FACE /* Presentation */,
+				8187FED1142A4A5204E3C666 /* Resources */,
+			);
+			path = GotchaSlots;
+			sourceTree = "<group>";
+		};
+		5C81810943C66A3521039B6A /* GotchaSlotsTests */ = {
+			isa = PBXGroup;
+			children = (
+				31EFC3EBB19B44DD77AB5774 /* BonusGameAndScatterEvaluatorTests.swift */,
+				AE35332535B4FB6F7F02056B /* ColumnEvaluatorTests.swift */,
+				8DE12079FFB05CB10A4849C5 /* MultiGridShapeIntegrationTests.swift */,
+				6505E21F2EB5FEDF14B255EA /* Paylines5x3Tests.swift */,
+				09B112831A94DE1D3AC91689 /* PaylinesOtherGridsTests.swift */,
+				942A7BEDACFED16136407B86 /* PayoutTableTests.swift */,
+				1A0521807FA3578FCF903AD5 /* PlaceholderTests.swift */,
+				BD159658A7EC757D23E0C956 /* ResultMatrixGeneratorTests.swift */,
+				25A01A1242EDEE1AF247E48D /* SpinResolverTests.swift */,
+				D04A775F98A424FF4841D15D /* SpinStateMachineTests.swift */,
+				AD25D6E67C8F7B045161A328 /* StrikeEvaluatorTests.swift */,
+				27FA2B6F5090DFF06A9A788F /* SymbolBagTests.swift */,
+				F402B827A9B15969E1BDA666 /* SymetricEvaluatorTests.swift */,
+				5C5DF4FC0402F1B5226AB740 /* WinEvaluatorChainPhase3Tests.swift */,
+				C0F45AA1E4D692AB92C74D20 /* WinEvaluatorChainTests.swift */,
+			);
+			path = GotchaSlotsTests;
+			sourceTree = "<group>";
+		};
+		60C23B36D4E25BA376D9F03B /* Paylines */ = {
+			isa = PBXGroup;
+			children = (
+				5013A4D42D8F966E33A400A6 /* Paylines3x3.swift */,
+				C8E71286725F8DC3374B6F3E /* Paylines5x1.swift */,
+				55898971634DC293F2CE50F4 /* Paylines5x3.swift */,
+				C06EB5E34CA71C105C9DF1D1 /* Paylines5x4.swift */,
+				8F2E596FF0E647EB6DB30EB2 /* Paylines5x5.swift */,
+				EDC33530707B29ED4D9E8514 /* PaylineSet.swift */,
+			);
+			path = Paylines;
+			sourceTree = "<group>";
+		};
+		6EDB8B111D6D883C90380E1E = {
+			isa = PBXGroup;
+			children = (
+				585F85CCD4BCBFF982968ADB /* GotchaSlots */,
+				5C81810943C66A3521039B6A /* GotchaSlotsTests */,
+				4C32584C4A2F8A9F7F7C649E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80D91F2F34FBC9D8434EA8A5 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				838F6E1F62F473628FD9F8BE /* BonusGames */,
+				08625BBD50D644E231699920 /* Model */,
+				60C23B36D4E25BA376D9F03B /* Paylines */,
+				EB965E1029F89DCE49BB1C49 /* ResultMatrix */,
+				A40FA0B6819E97619604A74E /* StateMachine */,
+				4C7C996C4C49D4D92DB777A6 /* Symbols */,
+				552534899C63F94BAD1AADFE /* Valuators */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		8187FED1142A4A5204E3C666 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C9235037F12EE777A16461B /* Art.xcassets */,
+				862C986065466AAFEBFAE371 /* MachineConfigs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		838F6E1F62F473628FD9F8BE /* BonusGames */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BonusGames;
+			sourceTree = "<group>";
+		};
+		862C986065466AAFEBFAE371 /* MachineConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				190A18FDCE6C303A5929D96C /* classic_5x3.json */,
+			);
+			path = MachineConfigs;
+			sourceTree = "<group>";
+		};
+		A40FA0B6819E97619604A74E /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				735674260F0E6EF3CAD9E426 /* SpinStateMachine.swift */,
+			);
+			path = StateMachine;
+			sourceTree = "<group>";
+		};
+		DBDFBE27A41ABF7E89EE2D31 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4A985039DEB13179CFD5484B /* AppCoordinatorView.swift */,
+				C62BA3CA7A7C1BB5B5F8727B /* GotchaSlotsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EB965E1029F89DCE49BB1C49 /* ResultMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				A8353E7F13B031116F9A20DF /* ResultMatrixGenerator.swift */,
+				0E69679374D9B7E2402F456E /* SpinResolver.swift */,
+			);
+			path = ResultMatrix;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCFFCC241210CC0AD20D1F3F /* GotchaSlotsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84349E9F166CC446568317C0 /* Build configuration list for PBXNativeTarget "GotchaSlotsTests" */;
+			buildPhases = (
+				AAC638AE4F8AD48D3EEA14A2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8B40BE861B9A3AB91E5B4C7 /* PBXTargetDependency */,
+			);
+			name = GotchaSlotsTests;
+			packageProductDependencies = (
+			);
+			productName = GotchaSlotsTests;
+			productReference = A02B878A81406A797ACCBF29 /* GotchaSlotsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5BA0C2CF08B25650BF78E4D /* GotchaSlots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EA65DB7145B5D0C5B4F37A0 /* Build configuration list for PBXNativeTarget "GotchaSlots" */;
+			buildPhases = (
+				ADE927CC37FD9BFF5F55C633 /* Sources */,
+				F10703C7B31720C877D48B8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GotchaSlots;
+			packageProductDependencies = (
+			);
+			productName = GotchaSlots;
+			productReference = A7AF983041B77DFD2303EC44 /* GotchaSlots.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF1D676E07188B76A5364244 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					CCFFCC241210CC0AD20D1F3F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					D5BA0C2CF08B25650BF78E4D = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9921B55237BD3EA126A7C53E /* Build configuration list for PBXProject "GotchaSlots" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6EDB8B111D6D883C90380E1E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4C32584C4A2F8A9F7F7C649E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5BA0C2CF08B25650BF78E4D /* GotchaSlots */,
+				CCFFCC241210CC0AD20D1F3F /* GotchaSlotsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F10703C7B31720C877D48B8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F778F5C895FF2DB11FCF025 /* Art.xcassets in Resources */,
+				7CCE982244C36D8F16458A9F /* classic_5x3.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC638AE4F8AD48D3EEA14A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F7ACAD602D754A42901B12 /* BonusGameAndScatterEvaluatorTests.swift in Sources */,
+				97C93776B609DEB97DCAF79D /* ColumnEvaluatorTests.swift in Sources */,
+				4C61A4CACC44A23D07865B89 /* MultiGridShapeIntegrationTests.swift in Sources */,
+				0DF5D7224FA5A26CE463CF8D /* Paylines5x3Tests.swift in Sources */,
+				802A9D48D6D461576EC5DF28 /* PaylinesOtherGridsTests.swift in Sources */,
+				35393C5D122B77DEBDE2C141 /* PayoutTableTests.swift in Sources */,
+				E70C641994066B40F0E37FE1 /* PlaceholderTests.swift in Sources */,
+				79E344AECE4BC7E45003639C /* ResultMatrixGeneratorTests.swift in Sources */,
+				74B9B5207516F8C1900F4400 /* SpinResolverTests.swift in Sources */,
+				AF4D689091503BC2EB83D84A /* SpinStateMachineTests.swift in Sources */,
+				6E00689E3D1CD8429965C790 /* StrikeEvaluatorTests.swift in Sources */,
+				4927361D389CA7D28D89CEE3 /* SymbolBagTests.swift in Sources */,
+				D8F3D601B5F679CB39BDCB0E /* SymetricEvaluatorTests.swift in Sources */,
+				C56F1AF4E8179C15016CA412 /* WinEvaluatorChainPhase3Tests.swift in Sources */,
+				C74C6F862757E8BE9AAF5E70 /* WinEvaluatorChainTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADE927CC37FD9BFF5F55C633 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9369228FA1A61071409F399C /* AppCoordinatorView.swift in Sources */,
+				9251BB92486FFF05CBE4D2A5 /* BonusGameEvaluator.swift in Sources */,
+				9F6ADEA04FA4B6717ADAF491 /* ColumnEvaluator.swift in Sources */,
+				1AB0FD950FDEC453AC4F4344 /* GotchaSlotsApp.swift in Sources */,
+				99DD8B351F566F8369510612 /* GridShape.swift in Sources */,
+				696DA98F8D0EEB41D42888E8 /* MachineConfiguration.swift in Sources */,
+				2CCBE45E1D4D41011824C956 /* MachineConfigurationLoader.swift in Sources */,
+				239BF5F5B3445C6094D1BC4D /* MachineScene.swift in Sources */,
+				0FE3C22F4B60383A7513678B /* Payline.swift in Sources */,
+				0D0BE1BA300345EE5262A8C0 /* PaylineSet.swift in Sources */,
+				AF48D09F5F364F3D9AF84CF8 /* Paylines3x3.swift in Sources */,
+				8EC8FBE738D42DBABC47AEDE /* Paylines5x1.swift in Sources */,
+				5333090C9A44087C525A67A1 /* Paylines5x3.swift in Sources */,
+				6AAB331863E82E975566C52F /* Paylines5x4.swift in Sources */,
+				53CFBB97831B4CCAB713EFCA /* Paylines5x5.swift in Sources */,
+				72C6EBAD74A436531B127FFA /* ReelNode.swift in Sources */,
+				E722C36F5F7F65EFDE461AC9 /* ResultMatrixGenerator.swift in Sources */,
+				07B1E9A9C1D00EC8612A8D8D /* ScatterEvaluator.swift in Sources */,
+				25A7731D388A5D7A0E862431 /* SpinResolver.swift in Sources */,
+				78BD606D701A893164A5481B /* SpinStateMachine.swift in Sources */,
+				AB9F3A59116426230D3EA3C9 /* StrikeEvaluator.swift in Sources */,
+				EBC0D8BFEFD581D721DE9023 /* SymbolBag.swift in Sources */,
+				6ADDBEE0D6B1D51DD05BE0F4 /* SymbolNode.swift in Sources */,
+				711E77ED5ED8631C397FF6F1 /* SymetricEvaluator.swift in Sources */,
+				AFA2F37BB7BAEBF91828BD45 /* WinEvaluatorChain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8B40BE861B9A3AB91E5B4C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5BA0C2CF08B25650BF78E4D /* GotchaSlots */;
+			targetProxy = 188540F60176E51BFFB7E9E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1A34F1C88C3238F97CE13299 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GotchaSlots/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gotchaslots.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BBA7775C5174193EF2249E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GotchaSlots/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gotchaslots.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B12BD8B10CFA4C22F9130AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		88219A94EFCFFA5C1C2A6768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gotchaslots.GotchaSlotsTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GotchaSlots.app/GotchaSlots";
+			};
+			name = Debug;
+		};
+		D0B3343A7E8BD59CC6312DCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gotchaslots.GotchaSlotsTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GotchaSlots.app/GotchaSlots";
+			};
+			name = Release;
+		};
+		EF6CBC52871824ABDD6FB70D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EA65DB7145B5D0C5B4F37A0 /* Build configuration list for PBXNativeTarget "GotchaSlots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A34F1C88C3238F97CE13299 /* Debug */,
+				4BBA7775C5174193EF2249E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		84349E9F166CC446568317C0 /* Build configuration list for PBXNativeTarget "GotchaSlotsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88219A94EFCFFA5C1C2A6768 /* Debug */,
+				D0B3343A7E8BD59CC6312DCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9921B55237BD3EA126A7C53E /* Build configuration list for PBXProject "GotchaSlots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF6CBC52871824ABDD6FB70D /* Debug */,
+				7B12BD8B10CFA4C22F9130AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF1D676E07188B76A5364244 /* Project object */;
+}
