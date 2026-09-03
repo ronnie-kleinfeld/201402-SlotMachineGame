@@ -17,6 +17,7 @@ final class MachineScene: SKScene {
     private var backButton: SKShapeNode!
     private var buyChipsButton: SKShapeNode!
     private var buyChipsOverlay: BuyChipsOverlay?
+    private var bonusGameOverlay: BonusGameOverlay?
     private var isSpinning = false
 
     private let selectedPaylines = 20
@@ -151,6 +152,11 @@ final class MachineScene: SKScene {
         let node = atPoint(location)
         let name = node.name ?? ""
 
+        if let overlay = bonusGameOverlay {
+            _ = overlay.handleTap(nodeName: name)
+            return
+        }
+
         if let overlay = buyChipsOverlay {
             _ = overlay.handleTap(nodeName: name)
             return
@@ -180,6 +186,21 @@ final class MachineScene: SKScene {
         updateBalanceLabel()
     }
 
+    private func showBonusGame() {
+        guard bonusGameOverlay == nil else { return }
+        let overlay = BonusGameOverlay(sceneSize: size, stateMachine: stateMachine)
+        overlay.onDismiss = { [weak self] chipsWon in self?.dismissBonusGame(chipsWon: chipsWon) }
+        addChild(overlay)
+        bonusGameOverlay = overlay
+    }
+
+    private func dismissBonusGame(chipsWon: Double) {
+        bonusGameOverlay?.removeFromParent()
+        bonusGameOverlay = nil
+        resultLabel.text = "Bonus Game: +\(Int(chipsWon)) chips"
+        updateBalanceLabel()
+    }
+
     private func handleSpinTapped() {
         guard !isSpinning else { return }
         isSpinning = true
@@ -192,6 +213,9 @@ final class MachineScene: SKScene {
             }
             updateBalanceLabel()
             isSpinning = false
+            if stateMachine.activeBonusGame != nil {
+                showBonusGame()
+            }
         }
     }
 
