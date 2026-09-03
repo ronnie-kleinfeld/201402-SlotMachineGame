@@ -197,7 +197,18 @@ final class MachineScene: SKScene {
     private func dismissBonusGame(chipsWon: Double) {
         bonusGameOverlay?.removeFromParent()
         bonusGameOverlay = nil
-        resultLabel.text = "Bonus Game: +\(Int(chipsWon)) chips"
+        // Settling the bonus game may have resumed a free-spins sequence that was paused for
+        // it (SpinStateMachine.settleBonusGameIfOver -> playPendingFreeSpins), which can change
+        // both the grid and the balance further — reflect that final state, not the grid as it
+        // was when the bonus game started.
+        if let result = stateMachine.lastResult {
+            render(result: result)
+        }
+        if let summary = stateMachine.lastFreeSpinsSummary {
+            resultLabel.text = "Free Spins: \(summary.spinsPlayed) spins, +\(Int(summary.chipsWon)) chips"
+        } else {
+            resultLabel.text = "Bonus Game: +\(Int(chipsWon)) chips"
+        }
         updateBalanceLabel()
     }
 
@@ -210,6 +221,9 @@ final class MachineScene: SKScene {
             await stateMachine.spin()
             if let result = stateMachine.lastResult {
                 render(result: result)
+            }
+            if let summary = stateMachine.lastFreeSpinsSummary {
+                resultLabel.text = "Free Spins: \(summary.spinsPlayed) spins, +\(Int(summary.chipsWon)) chips"
             }
             updateBalanceLabel()
             isSpinning = false

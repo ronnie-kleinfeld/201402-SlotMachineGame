@@ -6,6 +6,7 @@ final class SpinStateMachineWalletPersistenceTests: XCTestCase {
     struct FakeResolver: SpinResolving {
         let result: SpinResult
         func resolve(selectedPaylines: Int, selectedBetChips: Double) -> SpinResult { result }
+        func applyBombAndMiniSpinIfNeeded(to result: SpinResult, selectedPaylines: Int, selectedBetChips: Double) -> SpinResult { result }
     }
 
     func makeResult(totalChips: Double) -> SpinResult {

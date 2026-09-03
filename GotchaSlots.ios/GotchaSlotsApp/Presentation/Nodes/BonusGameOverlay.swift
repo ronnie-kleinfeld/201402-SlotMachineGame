@@ -185,22 +185,30 @@ final class BonusGameOverlay: SKNode {
         ratio == ratio.rounded() ? String(Int(ratio)) : String(ratio)
     }
 
-    /// Called by MachineScene's touchesBegan with the tapped node's name.
+    /// Called by MachineScene's touchesBegan with the tapped node's name. pickCurtainItem/
+    /// guessHigherLower are async (settling a bonus game may resume a paused free-spins
+    /// sequence), so the actual state-machine call and refresh happen inside a Task; `isBusy`
+    /// guards against a second tap landing before that Task completes.
     func handleTap(nodeName: String) -> Bool {
         guard !isBusy else { return true }
 
         if nodeName.hasPrefix("bonusItem_"), let itemID = Int(nodeName.dropFirst("bonusItem_".count)) {
             isBusy = true
-            stateMachine.pickCurtainItem(itemID)
-            isBusy = false
-            refresh()
+            Task { @MainActor in
+                await stateMachine.pickCurtainItem(itemID)
+                self.isBusy = false
+                self.refresh()
+            }
             return true
         }
         if nodeName == "bonusGuessHigher" || nodeName == "bonusGuessLower" {
             isBusy = true
-            stateMachine.guessHigherLower(nodeName == "bonusGuessHigher" ? .higher : .lower)
-            isBusy = false
-            refresh()
+            let guess: HigherLowerGuess = nodeName == "bonusGuessHigher" ? .higher : .lower
+            Task { @MainActor in
+                await stateMachine.guessHigherLower(guess)
+                self.isBusy = false
+                self.refresh()
+            }
             return true
         }
         if nodeName == "bonusGameDimmer" {

@@ -11,6 +11,15 @@ struct SpinResult {
 /// SpinStateMachine or any presentation code.
 protocol SpinResolving {
     func resolve(selectedPaylines: Int, selectedBetChips: Double) -> SpinResult
+
+    /// Ports SlotsMachineController's OnPostBombPresentation/OnPostMiniSpinPresentation ->
+    /// ReCalculatePayout -> DoPresentations(false) re-entry: if the result's matrix contains a
+    /// Bomb or MiniSpin symbol, mutates those cells (Bomb: gravity-shifts its column down one
+    /// and drops a fresh normal symbol in at the top; MiniSpin: redraws that cell to a fresh
+    /// normal symbol directly, porting each cell's independent "mini reel") and re-evaluates the
+    /// full win chain against the mutated board. A no-op (returns `result` unchanged) when
+    /// neither trigger fired.
+    func applyBombAndMiniSpinIfNeeded(to result: SpinResult, selectedPaylines: Int, selectedBetChips: Double) -> SpinResult
 }
 
 /// Ports ResultMatrixHandler.GetResultMatrix(): client-side RTP-shaping via reject-sampling.
@@ -144,5 +153,37 @@ final class SpinResolver: SpinResolving {
     private func plantRandomSymbol(_ symbolID: Int, in matrix: inout ResultMatrix) {
         let cellIndex = Int.random(in: 0..<matrix.gridShape.cellCount)
         matrix.cells[cellIndex] = symbolID
+    }
+
+    func applyBombAndMiniSpinIfNeeded(to result: SpinResult, selectedPaylines: Int, selectedBetChips: Double) -> SpinResult {
+        guard result.payout.isBombTriggered || result.payout.isMiniSpinTriggered else { return result }
+
+        var matrix = result.matrix
+        if let bomb = bag.bomb {
+            for cellIndex in matrix.cells.filter({ $0.value == bomb.id }).keys {
+                applyGravity(to: &matrix, cellIndex: cellIndex)
+            }
+        }
+        if let miniSpin = bag.miniSpin {
+            for cellIndex in matrix.cells.filter({ $0.value == miniSpin.id }).keys {
+                matrix.cells[cellIndex] = bag.randomNormalID
+            }
+        }
+
+        let payout = evaluate(matrix: matrix, selectedPaylines: selectedPaylines, selectedBetChips: selectedBetChips)
+        return SpinResult(matrix: matrix, payout: payout)
+    }
+
+    /// Ports ResultMatrix5x3Data.Gravity: shifts every cell above `cellIndex` in its column down
+    /// by one (overwriting the exploded Bomb cell) and drops a fresh normal symbol in at row 0.
+    private func applyGravity(to matrix: inout ResultMatrix, cellIndex: Int) {
+        let columns = matrix.gridShape.columns
+        let column = cellIndex % columns
+        var row = cellIndex / columns
+        while row > 0 {
+            matrix.cells[row * columns + column] = matrix.cells[(row - 1) * columns + column]
+            row -= 1
+        }
+        matrix.cells[column] = bag.randomNormalID
     }
 }

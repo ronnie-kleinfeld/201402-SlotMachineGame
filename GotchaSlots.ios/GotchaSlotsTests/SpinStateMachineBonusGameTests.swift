@@ -6,6 +6,7 @@ final class SpinStateMachineBonusGameTests: XCTestCase {
     struct FakeResolver: SpinResolving {
         let result: SpinResult
         func resolve(selectedPaylines: Int, selectedBetChips: Double) -> SpinResult { result }
+        func applyBombAndMiniSpinIfNeeded(to result: SpinResult, selectedPaylines: Int, selectedBetChips: Double) -> SpinResult { result }
     }
 
     func makeBonusTriggeringResult() -> SpinResult {
@@ -62,7 +63,7 @@ final class SpinStateMachineBonusGameTests: XCTestCase {
             guard case .curtain(let state) = sm.activeBonusGame, let level = state.currentLevel,
                   let firstUnselected = level.items.first(where: { !$0.isSelected })
             else { break }
-            sm.pickCurtainItem(firstUnselected.id)
+            await sm.pickCurtainItem(firstUnselected.id)
             guard_ += 1
         }
 

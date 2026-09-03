@@ -20,6 +20,85 @@ final class SpinResolverTests: XCTestCase {
             XCTAssertGreaterThanOrEqual(result.payout.totalChips, 0)
         }
     }
+
+    private func makeMachineAndResolver() -> (MachineConfiguration, SymbolBag, SpinResolver) {
+        let data = classicJSONFixture.data(using: .utf8)!
+        let machine = try! MachineConfigurationLoader.load(from: data)
+        let bag = SymbolBag(
+            normalSymbols: machine.normalSymbols, wild: machine.wild, factor: machine.factor,
+            freeSpins: machine.freeSpins, bomb: machine.bomb, miniSpin: machine.miniSpin,
+            bonusGame: machine.bonusGame, multiplier: machine.multiplier
+        )
+        let resolver = SpinResolver(machine: machine, bag: bag, paylines: paylines5x3, diagonalWinLimitChips: 1000)
+        return (machine, bag, resolver)
+    }
+
+    /// A grid5x3 matrix (5 columns, 3 rows) filled with distinct sentinel values, so a gravity
+    /// shift's cell movement can be verified by exact identity rather than just "changed".
+    private func sentinelMatrix() -> ResultMatrix {
+        var cells: [Int: Int] = [:]
+        for i in 0..<15 { cells[i] = 1000 + i }
+        return ResultMatrix(cells: cells, gridShape: .grid5x3)
+    }
+
+    func testApplyBombAndMiniSpinIfNeeded_bombGravityShiftsItsColumnAndRefillsTop() {
+        let (machine, _, resolver) = makeMachineAndResolver()
+        var matrix = sentinelMatrix()
+        // Column 2, row 2 (bottom row) — cell index 2*5+2 = 12.
+        let bombCellIndex = 12
+        matrix.cells[bombCellIndex] = machine.bomb!.id
+        let payout = WinEvaluatorChain.calculatePayout(
+            matrix: matrix, gridShape: .grid5x3, paylines: paylines5x3, bag: resolver.bag,
+            features: machine.features, selectedPaylines: 20, selectedBetChips: 1.0
+        )
+        let result = resolver.applyBombAndMiniSpinIfNeeded(
+            to: SpinResult(matrix: matrix, payout: payout), selectedPaylines: 20, selectedBetChips: 1.0
+        )
+
+        // Row 1's value (originally 1007, cell index 1*5+2=7) shifted down into the bomb's cell.
+        XCTAssertEqual(result.matrix.cells[bombCellIndex], 1007)
+        // Row 0's value (originally 1002, cell index 2) shifted down into row 1.
+        XCTAssertEqual(result.matrix.cells[7], 1002)
+        // Row 0 itself was refilled with a fresh normal symbol, not left empty or a sentinel.
+        let normalSymbolIDs = Set(machine.normalSymbols.map(\.id))
+        XCTAssertTrue(normalSymbolIDs.contains(result.matrix.cells[2] ?? -1))
+        // The bomb symbol itself is gone from the board.
+        XCTAssertFalse(result.matrix.cells.values.contains(machine.bomb!.id))
+    }
+
+    func testApplyBombAndMiniSpinIfNeeded_miniSpinRedrawsOnlyThatCellToANormalSymbol() {
+        let (machine, _, resolver) = makeMachineAndResolver()
+        var matrix = sentinelMatrix()
+        let miniSpinCellIndex = 5
+        matrix.cells[miniSpinCellIndex] = machine.miniSpin!.id
+        let payout = WinEvaluatorChain.calculatePayout(
+            matrix: matrix, gridShape: .grid5x3, paylines: paylines5x3, bag: resolver.bag,
+            features: machine.features, selectedPaylines: 20, selectedBetChips: 1.0
+        )
+        let result = resolver.applyBombAndMiniSpinIfNeeded(
+            to: SpinResult(matrix: matrix, payout: payout), selectedPaylines: 20, selectedBetChips: 1.0
+        )
+
+        let normalSymbolIDs = Set(machine.normalSymbols.map(\.id))
+        XCTAssertTrue(normalSymbolIDs.contains(result.matrix.cells[miniSpinCellIndex] ?? -1))
+        // Every other cell is untouched — MiniSpin redraws only the cell(s) it occupied.
+        for i in 0..<15 where i != miniSpinCellIndex {
+            XCTAssertEqual(result.matrix.cells[i], 1000 + i)
+        }
+    }
+
+    func testApplyBombAndMiniSpinIfNeeded_noTrigger_returnsResultUnchanged() {
+        let (machine, _, resolver) = makeMachineAndResolver()
+        let matrix = sentinelMatrix() // no bomb/miniSpin symbol anywhere
+        let payout = WinEvaluatorChain.calculatePayout(
+            matrix: matrix, gridShape: .grid5x3, paylines: paylines5x3, bag: resolver.bag,
+            features: machine.features, selectedPaylines: 20, selectedBetChips: 1.0
+        )
+        let original = SpinResult(matrix: matrix, payout: payout)
+        let result = resolver.applyBombAndMiniSpinIfNeeded(to: original, selectedPaylines: 20, selectedBetChips: 1.0)
+
+        XCTAssertEqual(result.matrix.cells, original.matrix.cells)
+    }
 }
 
 /// Mirrors Resources/MachineConfigs/classic_5x3.json — kept inline so the test target doesn't
