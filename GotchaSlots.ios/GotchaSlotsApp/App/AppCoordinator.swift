@@ -10,6 +10,7 @@ final class AppCoordinator: ObservableObject {
     @Published private(set) var scene: SKScene
 
     private let walletStore: KeychainStore<WalletState>
+    private let bonusStore: KeychainStore<BonusState>
     private let catalog: [MachineConfiguration]
     private static let sceneSize = CGSize(width: 750, height: 1334)
 
@@ -17,6 +18,9 @@ final class AppCoordinator: ObservableObject {
         let walletStore = KeychainStore<WalletState>(key: "com.gotchaslots.wallet")
         walletStore.load()
         self.walletStore = walletStore
+        let bonusStore = KeychainStore<BonusState>(key: "com.gotchaslots.bonuses")
+        bonusStore.load()
+        self.bonusStore = bonusStore
         self.catalog = MachineCatalog.loadAll()
 
         // Placeholder to satisfy Swift's "all stored properties assigned" rule before any
@@ -29,7 +33,10 @@ final class AppCoordinator: ObservableObject {
     }
 
     private func makeLobbyScene() -> SKScene {
-        let lobby = LobbyScene(machines: catalog, walletLevel: walletStore.state.level)
+        let lobby = LobbyScene(
+            machines: catalog, walletLevel: walletStore.state.level,
+            walletStore: walletStore, bonusStore: bonusStore
+        )
         lobby.scaleMode = .aspectFit
         lobby.onSelectMachine = { [weak self] machine in self?.showMachine(machine) }
         return lobby

@@ -22,6 +22,8 @@ extension MachineConfiguration {
 final class LobbyScene: SKScene {
     private let machines: [MachineConfiguration]
     private let walletLevel: Int
+    private let walletStore: KeychainStore<WalletState>?
+    private let bonusStore: KeychainStore<BonusState>?
     var onSelectMachine: ((MachineConfiguration) -> Void)?
 
     private static let sceneSize = CGSize(width: 750, height: 1334)
@@ -37,9 +39,18 @@ final class LobbyScene: SKScene {
     private var contentYAtDragStart: CGFloat = 0
     private var didDragPastTapThreshold = false
 
-    init(machines: [MachineConfiguration], walletLevel: Int) {
+    private var timerBonusButton: SKShapeNode!
+    private var timerBonusLabel: SKLabelNode!
+    private var bonusPopup: BonusPopupOverlay?
+
+    init(
+        machines: [MachineConfiguration], walletLevel: Int,
+        walletStore: KeychainStore<WalletState>? = nil, bonusStore: KeychainStore<BonusState>? = nil
+    ) {
         self.machines = machines
         self.walletLevel = walletLevel
+        self.walletStore = walletStore
+        self.bonusStore = bonusStore
         super.init(size: Self.sceneSize)
     }
 
@@ -56,8 +67,94 @@ final class LobbyScene: SKScene {
         title.zPosition = 500
         addChild(title)
 
+        buildTimerBonusButton()
         addChild(contentNode)
         buildMachineTiles()
+        showNextEligibleBonusPopup()
+    }
+
+    private func buildTimerBonusButton() {
+        timerBonusButton = SKShapeNode(rectOf: CGSize(width: 200, height: 50), cornerRadius: 12)
+        timerBonusButton.strokeColor = .white
+        timerBonusButton.lineWidth = 1.5
+        timerBonusButton.position = CGPoint(x: size.width - 130, y: size.height * 0.88)
+        timerBonusButton.name = "timerBonusButton"
+        timerBonusButton.zPosition = 500
+        addChild(timerBonusButton)
+
+        timerBonusLabel = SKLabelNode(fontNamed: "HelveticaNeue-Bold")
+        timerBonusLabel.fontSize = 16
+        timerBonusLabel.fontColor = .white
+        timerBonusLabel.verticalAlignmentMode = .center
+        timerBonusLabel.name = "timerBonusButton"
+        timerBonusButton.addChild(timerBonusLabel)
+
+        refreshTimerBonusButton()
+    }
+
+    private func refreshTimerBonusButton() {
+        guard let bonusStore else {
+            timerBonusButton.isHidden = true
+            return
+        }
+        let isReady = BonusEligibility.isTimerBonusReady(bonusStore.state)
+        timerBonusButton.fillColor = isReady
+            ? SKColor.systemYellow.withAlphaComponent(0.9)
+            : SKColor(white: 1, alpha: 0.1)
+        if isReady {
+            timerBonusLabel.text = "Timer Bonus!"
+        } else {
+            let remaining = Int(BonusEligibility.timerBonusTimeRemaining(bonusStore.state))
+            timerBonusLabel.text = "Timer \(remaining / 3600)h \((remaining % 3600) / 60)m"
+        }
+    }
+
+    /// Ports LobbyPanel.OnAddedToStage's sequential popup chain (welcome, then daily bonus) —
+    /// simplified to skip the invite/Facebook-connect steps, which need social infrastructure
+    /// out of scope for this port.
+    private func showNextEligibleBonusPopup() {
+        guard bonusPopup == nil, let bonusStore, let walletStore else { return }
+
+        if !bonusStore.state.isWelcomeBonusCollected {
+            let amount = LevelThresholds.welcomeBonusChips(forLevel: walletLevel)
+            presentBonusPopup(
+                title: "Welcome!", message: "Thanks for playing GotchaSlots", amount: amount
+            ) { [weak self] in
+                guard let self else { return }
+                var awarded = 0.0
+                bonusStore.update { awarded = BonusEligibility.collectWelcomeBonus(&$0, level: self.walletLevel) }
+                walletStore.update { $0.balance += awarded }
+            }
+        } else if BonusEligibility.isDailyBonusReady(bonusStore.state) {
+            let dayIndex = BonusEligibility.nextDailyBonusDayIndex(bonusStore.state)
+            let amount = LevelThresholds.levelReachedBonusChips(forLevel: walletLevel) * Double(dayIndex)
+            presentBonusPopup(
+                title: "Daily Bonus", message: "Day \(dayIndex) login bonus", amount: amount
+            ) { [weak self] in
+                guard let self else { return }
+                var awarded = 0.0
+                bonusStore.update { awarded = BonusEligibility.collectDailyBonus(&$0, level: self.walletLevel) }
+                walletStore.update { $0.balance += awarded }
+            }
+        }
+    }
+
+    private func presentBonusPopup(title: String, message: String, amount: Double, onCollect: @escaping () -> Void) {
+        let overlay = BonusPopupOverlay(sceneSize: size, title: title, message: message, amountChips: amount)
+        overlay.onCollect = { [weak self] in
+            onCollect()
+            self?.dismissBonusPopup()
+        }
+        addChild(overlay)
+        bonusPopup = overlay
+    }
+
+    private func dismissBonusPopup() {
+        bonusPopup?.removeFromParent()
+        bonusPopup = nil
+        // The welcome bonus and daily bonus are shown sequentially — check whether the next one
+        // in the chain is now eligible.
+        showNextEligibleBonusPopup()
     }
 
     private func buildMachineTiles() {
@@ -121,12 +218,18 @@ final class LobbyScene: SKScene {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
+        if let bonusPopup {
+            let name = atPoint(touch.location(in: self)).name ?? ""
+            _ = bonusPopup.handleTap(nodeName: name)
+            return
+        }
         dragStartTouchY = touch.location(in: self).y
         contentYAtDragStart = contentNode.position.y
         didDragPastTapThreshold = false
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard bonusPopup == nil else { return }
         guard let touch = touches.first, let dragStartTouchY else { return }
         let delta = touch.location(in: self).y - dragStartTouchY
         if abs(delta) > 8 { didDragPastTapThreshold = true }
@@ -135,14 +238,30 @@ final class LobbyScene: SKScene {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         defer { dragStartTouchY = nil }
+        guard bonusPopup == nil else { return }
         guard let touch = touches.first, !didDragPastTapThreshold else { return }
 
         let node = atPoint(touch.location(in: self))
-        guard let name = node.name, name.hasPrefix("machine_"),
+        let name = node.name ?? ""
+
+        if name == "timerBonusButton" {
+            collectTimerBonusIfReady()
+            return
+        }
+
+        guard name.hasPrefix("machine_"),
               let machineID = Int(name.dropFirst("machine_".count)),
               let machine = machines.first(where: { $0.id == machineID }),
               machine.isOpen(walletLevel: walletLevel)
         else { return }
         onSelectMachine?(machine)
+    }
+
+    private func collectTimerBonusIfReady() {
+        guard let bonusStore, let walletStore, BonusEligibility.isTimerBonusReady(bonusStore.state) else { return }
+        var awarded = 0.0
+        bonusStore.update { awarded = BonusEligibility.collectTimerBonus(&$0, level: walletLevel) }
+        walletStore.update { $0.balance += awarded }
+        refreshTimerBonusButton()
     }
 }

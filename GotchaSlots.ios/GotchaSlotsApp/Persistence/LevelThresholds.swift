@@ -40,4 +40,14 @@ enum LevelThresholds {
     static func levelReachedBonusChips(forLevel level: Int) -> Double {
         (200 + Double(level) * goldenRatio).rounded(.down)
     }
+
+    /// Ports LevelData.WelcomeBonusChips: floor(200 + level * GOLDEN_RATIO) * 2.
+    static func welcomeBonusChips(forLevel level: Int) -> Double {
+        levelReachedBonusChips(forLevel: level) * 2
+    }
+
+    /// Ports LevelData.TimerBonusChips: floor(LevelReachedBonusChips * GOLDEN_PART_BIG).
+    static func timerBonusChips(forLevel level: Int) -> Double {
+        (levelReachedBonusChips(forLevel: level) * goldenPartBig).rounded(.down)
+    }
 }
