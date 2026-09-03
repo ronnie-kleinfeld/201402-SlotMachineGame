@@ -78,11 +78,27 @@ final class LobbyScene: SKScene {
             tile.name = "machine_\(machine.id)"
             contentNode.addChild(tile)
 
+            let thumbnailBoxWidth = tileSize.height - 24
+            var textStartX = -tileSize.width / 2 + 24
+            if let image = UIImage(named: "\(machine.machineName)_Thumbnail") {
+                let thumbSize = CGSize(width: thumbnailBoxWidth, height: thumbnailBoxWidth)
+                let texture = SKTexture(image: image)
+                let scale = min(thumbSize.width / texture.size().width, thumbSize.height / texture.size().height)
+                let thumbnail = SKSpriteNode(texture: texture)
+                thumbnail.size = CGSize(width: texture.size().width * scale, height: texture.size().height * scale)
+                thumbnail.position = CGPoint(x: -tileSize.width / 2 + tileSize.height / 2, y: 0)
+                thumbnail.alpha = isOpen ? 1.0 : 0.5
+                thumbnail.name = tile.name
+                tile.addChild(thumbnail)
+                textStartX = -tileSize.width / 2 + tileSize.height + 16
+            }
+
             let nameLabel = SKLabelNode(text: machine.machineName)
             nameLabel.fontName = "HelveticaNeue-Bold"
             nameLabel.fontSize = 28
             nameLabel.fontColor = .white
-            nameLabel.position = CGPoint(x: 0, y: 15)
+            nameLabel.horizontalAlignmentMode = .left
+            nameLabel.position = CGPoint(x: textStartX, y: 15)
             nameLabel.name = tile.name
             tile.addChild(nameLabel)
 
@@ -93,7 +109,8 @@ final class LobbyScene: SKScene {
             statusLabel.fontName = "HelveticaNeue"
             statusLabel.fontSize = 18
             statusLabel.fontColor = SKColor(white: 0.9, alpha: 1)
-            statusLabel.position = CGPoint(x: 0, y: -22)
+            statusLabel.horizontalAlignmentMode = .left
+            statusLabel.position = CGPoint(x: textStartX, y: -22)
             statusLabel.name = tile.name
             tile.addChild(statusLabel)
         }

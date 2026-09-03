@@ -42,4 +42,14 @@ final class SymbolArtTests: XCTestCase {
             }
         }
     }
+
+    func testEveryMachineName_resolvesToALobbyThumbnail() {
+        let catalog = MachineCatalog.loadAll()
+        let uniqueMachineNames = Set(catalog.map(\.machineName))
+        XCTAssertEqual(uniqueMachineNames.count, 21, "expected 21 unique machine skins")
+
+        for name in uniqueMachineNames {
+            XCTAssertNotNil(UIImage(named: "\(name)_Thumbnail"), "no lobby thumbnail found for '\(name)'")
+        }
+    }
 }
