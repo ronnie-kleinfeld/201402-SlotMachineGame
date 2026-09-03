@@ -10,6 +10,32 @@ settings:
     SWIFT_VERSION: "5.0"
     DEVELOPMENT_TEAM: ""
     CODE_SIGN_STYLE: Automatic
+    # Xcode's own project template bakes ONLY_ACTIVE_ARCH=YES into Debug configs;
+    # XcodeGen doesn't add that implicitly, so without it a universal (arm64 + x86_64)
+    # simulator build is attempted and both slices collide on the same output path.
+    ONLY_ACTIVE_ARCH: YES
+    # Likewise "$(TARGET_NAME)" isn't an automatic fallback for PRODUCT_NAME — Xcode's
+    # template writes it explicitly. Without it PRODUCT_NAME resolves to empty, so every
+    # target's output collides on the same literal ".app" path.
+    PRODUCT_NAME: $(TARGET_NAME)
+    # Xcode 26's Explicit Module Build fails "@testable import GotchaSlotsIOS" from the
+    # test target with "Unable to resolve Swift module dependency to a compatible module"
+    # even right after a from-scratch clean build (the .swiftmodule is present and valid) —
+    # a known toolchain-level cache/fingerprint bug, not a code issue. Disabling it is the
+    # standard workaround.
+    SWIFT_ENABLE_EXPLICIT_MODULES: NO
+    # Another Xcode-template-only default XcodeGen doesn't add implicitly: without this,
+    # the app target isn't compiled with testability, so GotchaSlotsTests' "@testable
+    # import GotchaSlotsIOS" fails with "Module 'GotchaSlotsIOS' was not compiled for testing".
+    ENABLE_TESTABILITY: YES
+  configs:
+    debug:
+      # Xcode's template also pins Debug to -Onone; without it the compiler runs whole-
+      # module-optimized and dead-strips symbols (e.g. CurtainItem's initializer) that only
+      # the test target references, producing "Undefined symbol" link errors.
+      SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+    release:
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
 
 targets:
   GotchaSlots.ios:
@@ -51,6 +77,11 @@ targets:
     settings:
       base:
         GENERATE_INFOPLIST_FILE: true
+        # XcodeGen auto-sets TEST_HOST for a unit-test target depending on an application
+        # target, but not its required counterpart BUNDLE_LOADER — without it the linker
+        # tries to statically resolve every app symbol instead of treating the host app as
+        # a dynamic symbol source, producing a wall of "Undefined symbol" errors.
+        BUNDLE_LOADER: "$(TEST_HOST)"
 
 schemes:
   GotchaSlots.ios:

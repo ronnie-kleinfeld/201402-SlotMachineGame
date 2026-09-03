@@ -7,6 +7,7 @@ final class MachineScene: SKScene {
     private let bag: SymbolBag
     private let paylines: [Payline]
     private let stateMachine: SpinStateMachine
+    private let purchaseManager: PurchaseManager?
     var onExit: (() -> Void)?
 
     private var reels: [ReelNode] = []
@@ -14,6 +15,8 @@ final class MachineScene: SKScene {
     private var resultLabel: SKLabelNode!
     private var spinButton: SKShapeNode!
     private var backButton: SKShapeNode!
+    private var buyChipsButton: SKShapeNode!
+    private var buyChipsOverlay: BuyChipsOverlay?
     private var isSpinning = false
 
     private let selectedPaylines = 20
@@ -38,6 +41,7 @@ final class MachineScene: SKScene {
             startingBalance: 1000,
             walletStore: walletStore
         )
+        self.purchaseManager = walletStore.map { PurchaseManager(walletStore: $0) }
         super.init(size: CGSize(width: 750, height: 1334))
     }
 
@@ -99,6 +103,23 @@ final class MachineScene: SKScene {
         resultLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.30)
         resultLabel.zPosition = 500
         addChild(resultLabel)
+
+        buyChipsButton = SKShapeNode(rectOf: CGSize(width: 120, height: 44), cornerRadius: 10)
+        buyChipsButton.fillColor = SKColor.systemYellow.withAlphaComponent(0.9)
+        buyChipsButton.strokeColor = .white
+        buyChipsButton.lineWidth = 1.5
+        buyChipsButton.position = CGPoint(x: size.width - 90, y: size.height * 0.95)
+        buyChipsButton.name = "buyChipsButton"
+        buyChipsButton.zPosition = 500
+        addChild(buyChipsButton)
+
+        let buyLabel = SKLabelNode(text: "+ Chips")
+        buyLabel.fontName = "HelveticaNeue-Bold"
+        buyLabel.fontSize = 18
+        buyLabel.fontColor = .black
+        buyLabel.verticalAlignmentMode = .center
+        buyLabel.name = "buyChipsButton"
+        buyChipsButton.addChild(buyLabel)
     }
 
     private func buildSpinButton() {
@@ -128,11 +149,35 @@ final class MachineScene: SKScene {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let node = atPoint(location)
-        if node.name == "spinButton" {
-            handleSpinTapped()
-        } else if node.name == "backButton" {
-            onExit?()
+        let name = node.name ?? ""
+
+        if let overlay = buyChipsOverlay {
+            _ = overlay.handleTap(nodeName: name)
+            return
         }
+
+        if name == "spinButton" {
+            handleSpinTapped()
+        } else if name == "backButton" {
+            onExit?()
+        } else if name == "buyChipsButton" {
+            showBuyChips()
+        }
+    }
+
+    private func showBuyChips() {
+        guard buyChipsOverlay == nil, let purchaseManager else { return }
+        let overlay = BuyChipsOverlay(sceneSize: size, purchaseManager: purchaseManager)
+        overlay.onDismiss = { [weak self] in self?.dismissBuyChips() }
+        overlay.onPurchaseSucceeded = { [weak self] in self?.updateBalanceLabel() }
+        addChild(overlay)
+        buyChipsOverlay = overlay
+    }
+
+    private func dismissBuyChips() {
+        buyChipsOverlay?.removeFromParent()
+        buyChipsOverlay = nil
+        updateBalanceLabel()
     }
 
     private func handleSpinTapped() {
