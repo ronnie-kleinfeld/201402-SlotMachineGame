@@ -20,7 +20,11 @@ final class MachineScene: SKScene {
     private var bonusGameOverlay: BonusGameOverlay?
     private var isSpinning = false
 
-    private let selectedPaylines = 20
+    /// Ports SlotsMachineData's default-on-entry bet state: paylines default to the machine's
+    /// own max (NOT a fixed number — a hardcoded 20 here previously overcharged every machine
+    /// with fewer than 20 paylines, e.g. most 3x3/5x4 machines cap out at 9 or 15), bet defaults
+    /// to 1 chip per line pending real bet-selection UI.
+    private let selectedPaylines: Int
     private let selectedBetChips = 1.0
 
     init(machine: MachineConfiguration, walletStore: KeychainStore<WalletState>? = nil) {
@@ -31,7 +35,9 @@ final class MachineScene: SKScene {
             bonusGame: machine.bonusGame, multiplier: machine.multiplier,
             ace: machine.ace, gold: machine.gold, king: machine.king
         )
-        self.paylines = Array(PaylineSet.all(for: machine.gridShape).prefix(machine.maxPaylines))
+        let paylines = Array(PaylineSet.all(for: machine.gridShape).prefix(machine.maxPaylines))
+        self.paylines = paylines
+        self.selectedPaylines = paylines.count
         let resolver = SpinResolver(machine: machine, bag: bag, paylines: paylines, diagonalWinLimitChips: 500)
         self.stateMachine = SpinStateMachine(
             resolver: resolver,
