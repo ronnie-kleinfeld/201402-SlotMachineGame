@@ -38,6 +38,11 @@ struct FreeSpinsSummary {
     let chipsWon: Double
 }
 
+struct LevelUpSummary {
+    let newLevel: Int
+    let bonusChips: Double
+}
+
 /// Ports SlotsMachineController's Init→DoIdle→DoSpin→...→DoIdle chain as an async sequence
 /// instead of a chain of completion-callback methods.
 @MainActor
@@ -45,6 +50,8 @@ final class SpinStateMachine: ObservableObject {
     @Published private(set) var phase: SpinPhase = .idle
     @Published private(set) var lastResult: SpinResult?
     @Published private(set) var balance: Double
+    /// XP-derived, mirroring WalletState.level — see LevelThresholds.
+    var level: Int { LevelThresholds.level(forXP: xp) }
     /// Set when DoBonusGame's trigger fires and a bonus-game kind is configured; a presentation
     /// layer observes this to show the minigame UI, then calls `pickCurtainItem`/
     /// `guessHigherLower` as the player plays, and the state machine settles it (adding its
@@ -58,9 +65,18 @@ final class SpinStateMachine: ObservableObject {
     /// Set once a free-spins sequence this `spin()` call triggered has fully drained, so the
     /// presentation layer can show one summary instead of only the last individual spin's result.
     @Published private(set) var lastFreeSpinsSummary: FreeSpinsSummary?
+    /// Ports WalletSessionData's Level as an XP-derived value the presentation layer can react
+    /// to (e.g. a "Level Up!" toast) — set once per `spin()` call if any of its real/free spins
+    /// crossed a level threshold (see `addXP`). The lobby itself doesn't need a push notification
+    /// for this: it re-reads `walletStore.state.level` fresh every time it's shown.
+    @Published private(set) var lastLevelUp: LevelUpSummary?
 
     private var freeSpinsSequenceCount = 0
     private var freeSpinsSequenceChips = 0.0
+    private var levelUpThisSequence: LevelUpSummary?
+    /// Lifetime chips wagered — mirrors WalletState.xp the same way `balance` mirrors
+    /// WalletState.balance (in-memory always, persisted when a walletStore is present).
+    private var xp: Double = 0
 
     private let resolver: SpinResolving
     private let gridShape: GridShape
@@ -85,10 +101,31 @@ final class SpinStateMachine: ObservableObject {
         self.selectedBetChips = selectedBetChips
         self.walletStore = walletStore
         self.balance = walletStore?.state.balance ?? startingBalance
+        self.xp = walletStore?.state.xp ?? 0
     }
 
     private func persistBalance() {
-        walletStore?.update { $0.balance = balance }
+        walletStore?.update { $0.balance = balance; $0.xp = xp }
+    }
+
+    /// Ports WalletSessionData.SpinStarted's `XP += xp` (xp == the total bet, granted for BOTH
+    /// real and free spins, unlike the balance deduction which only applies to real spins) plus
+    /// the XP setter's level-up check. AS3 queues a popup and defers `CollectLevelUpBonus` to
+    /// when the player dismisses it; this port simplifies that to crediting the bonus immediately
+    /// and surfacing the fact via `lastLevelUp`, matching how Bomb/MiniSpin/FreeSpins already
+    /// skip intermediate popup/animation steps in favor of presenting the settled result.
+    private func addXP(_ amount: Double) {
+        let previousLevel = LevelThresholds.level(forXP: xp)
+        xp += amount
+        let newLevel = LevelThresholds.level(forXP: xp)
+        guard newLevel > previousLevel else { return }
+
+        let bonus = LevelThresholds.levelReachedBonusChips(forLevel: newLevel)
+        balance += bonus
+        levelUpThisSequence = LevelUpSummary(
+            newLevel: newLevel,
+            bonusChips: (levelUpThisSequence?.bonusChips ?? 0) + bonus
+        )
     }
 
     /// Ports DoSpin through DoWinToBalance for one PAID spin, then plays out any free spins
@@ -103,10 +140,13 @@ final class SpinStateMachine: ObservableObject {
         lastFreeSpinsSummary = nil
         freeSpinsSequenceCount = 0
         freeSpinsSequenceChips = 0
+        lastLevelUp = nil
+        levelUpThisSequence = nil
 
         await performSpin(isFreeSpin: false)
         await playPendingFreeSpins()
 
+        lastLevelUp = levelUpThisSequence
         phase = .settling
         phase = .idle
     }
@@ -116,16 +156,20 @@ final class SpinStateMachine: ObservableObject {
     /// order, visiting only the phases whose trigger fired. Reel animation timing is the
     /// presentation layer's job; this only owns the data-side phase transitions.
     private func performSpin(isFreeSpin: Bool) async {
+        let totalBet = selectedBetChips * Double(selectedPaylines)
         if isFreeSpin {
             // Ports WalletSessionData.SpinStarted(isFreeSpins:true) never touching Balance —
             // free spins use the same bet/paylines as the triggering spin but cost nothing.
             freeSpinsRemaining -= 1
         } else {
-            let totalBet = selectedBetChips * Double(selectedPaylines)
             guard balance >= totalBet else { return }
             balance -= totalBet
             persistBalance()
         }
+        // Ports SpinStarted's `XP += xp` — granted for every spin, free or paid alike (matches
+        // AS3 passing TotalBetChips as both the `chips` and `xp` arguments regardless of
+        // isFreeSpins).
+        addXP(totalBet)
         phase = .spinning
 
         var result = resolver.resolve(selectedPaylines: selectedPaylines, selectedBetChips: selectedBetChips)
@@ -214,5 +258,10 @@ final class SpinStateMachine: ObservableObject {
         persistBalance()
         self.activeBonusGame = nil
         await playPendingFreeSpins()
+        // `spin()`'s own tail already published whatever had accumulated up to the point this
+        // bonus game paused the free-spins loop; resuming it here can accumulate further
+        // (another level crossed, more spins played), so republish after each resume too —
+        // spin() itself has already returned by the time a bonus game settles.
+        lastLevelUp = levelUpThisSequence
     }
 }

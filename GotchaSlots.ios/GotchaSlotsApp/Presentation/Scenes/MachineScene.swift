@@ -143,7 +143,18 @@ final class MachineScene: SKScene {
     }
 
     private func updateBalanceLabel() {
-        balanceLabel.text = "Balance: \(Int(stateMachine.balance))   Bet: \(Int(selectedBetChips * Double(selectedPaylines)))"
+        balanceLabel.text = "Lv \(stateMachine.level)   Balance: \(Int(stateMachine.balance))   Bet: \(Int(selectedBetChips * Double(selectedPaylines)))"
+    }
+
+    /// Picks the most relevant post-spin message: a level-up (rarest, most exciting) takes
+    /// priority over a free-spins summary, which takes priority over the plain win/no-win text
+    /// `render(result:)` already set.
+    private func applyPostSpinMessage() {
+        if let levelUp = stateMachine.lastLevelUp {
+            resultLabel.text = "Level Up! Reached level \(levelUp.newLevel), +\(Int(levelUp.bonusChips)) chips"
+        } else if let summary = stateMachine.lastFreeSpinsSummary {
+            resultLabel.text = "Free Spins: \(summary.spinsPlayed) spins, +\(Int(summary.chipsWon)) chips"
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -204,11 +215,8 @@ final class MachineScene: SKScene {
         if let result = stateMachine.lastResult {
             render(result: result)
         }
-        if let summary = stateMachine.lastFreeSpinsSummary {
-            resultLabel.text = "Free Spins: \(summary.spinsPlayed) spins, +\(Int(summary.chipsWon)) chips"
-        } else {
-            resultLabel.text = "Bonus Game: +\(Int(chipsWon)) chips"
-        }
+        resultLabel.text = "Bonus Game: +\(Int(chipsWon)) chips"
+        applyPostSpinMessage()
         updateBalanceLabel()
     }
 
@@ -222,9 +230,7 @@ final class MachineScene: SKScene {
             if let result = stateMachine.lastResult {
                 render(result: result)
             }
-            if let summary = stateMachine.lastFreeSpinsSummary {
-                resultLabel.text = "Free Spins: \(summary.spinsPlayed) spins, +\(Int(summary.chipsWon)) chips"
-            }
+            applyPostSpinMessage()
             updateBalanceLabel()
             isSpinning = false
             if stateMachine.activeBonusGame != nil {

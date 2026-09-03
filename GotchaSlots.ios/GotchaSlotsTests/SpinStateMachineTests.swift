@@ -143,4 +143,45 @@ final class SpinStateMachineTests: XCTestCase {
         XCTAssertNil(sm.lastFreeSpinsSummary)
         XCTAssertEqual(sm.freeSpinsRemaining, 0)
     }
+
+    // MARK: - Leveling (XP)
+
+    func testEverySpin_earnsXPEqualToTheTotalBet_evenWithNoWin() async {
+        // totalBet = 1.0 * 20 = 20/spin. Level 2's threshold is ~200.618 XP, so the player is
+        // still level 1 after exactly 10 spins (XP=200 < 200.618).
+        let resolver = FakeResolver(result: makeResult(totalPayout: 0, totalChips: 0))
+        let sm = SpinStateMachine(resolver: resolver, gridShape: .grid5x3, selectedPaylines: 20, selectedBetChips: 1.0, startingBalance: 1_000_000)
+        for _ in 0..<10 { await sm.spin() }
+        XCTAssertEqual(sm.level, 1)
+        XCTAssertNil(sm.lastLevelUp)
+    }
+
+    func testCrossingALevelThreshold_awardsABonusAndPublishesLastLevelUp() async {
+        // The 11th spin pushes XP from 200 to 220, crossing level 2's ~200.618 threshold.
+        let resolver = FakeResolver(result: makeResult(totalPayout: 0, totalChips: 0))
+        let sm = SpinStateMachine(resolver: resolver, gridShape: .grid5x3, selectedPaylines: 20, selectedBetChips: 1.0, startingBalance: 1_000_000)
+        for _ in 0..<10 { await sm.spin() }
+        let balanceBeforeLevelUp = sm.balance
+
+        await sm.spin()
+
+        XCTAssertEqual(sm.level, 2)
+        XCTAssertEqual(sm.lastLevelUp?.newLevel, 2)
+        let expectedBonus = LevelThresholds.levelReachedBonusChips(forLevel: 2)
+        XCTAssertEqual(sm.lastLevelUp?.bonusChips, expectedBonus)
+        // Balance reflects the bet deducted AND the level-up bonus credited in the same spin.
+        XCTAssertEqual(sm.balance, balanceBeforeLevelUp - 20 + expectedBonus)
+    }
+
+    func testFreeSpins_alsoEarnXP_evenThoughTheyDontCostBalance() async {
+        // Spin 1 (paid, 20 XP): triggers 1 free spin.
+        // Spin 2 (free, ALSO 20 XP, ports SpinStarted always granting XP regardless of isFreeSpins).
+        let resolver = SequencedFakeResolver(results: [
+            makeResult(totalPayout: 1, totalChips: 0, freeSpinsAwarded: 1),
+            makeResult(totalPayout: 0, totalChips: 0),
+        ])
+        let sm = SpinStateMachine(resolver: resolver, gridShape: .grid5x3, selectedPaylines: 20, selectedBetChips: 1.0, startingBalance: 1_000_000)
+        await sm.spin()
+        XCTAssertEqual(sm.level, LevelThresholds.level(forXP: 40)) // 20 (paid) + 20 (free) = 40 XP
+    }
 }

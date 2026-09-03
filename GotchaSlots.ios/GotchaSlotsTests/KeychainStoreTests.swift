@@ -27,12 +27,13 @@ final class KeychainStoreTests: XCTestCase {
 
         let store = KeychainStore<WalletState>(key: key)
         store.load()
-        store.update { $0.balance = 12345; $0.level = 7 }
+        store.update { $0.balance = 12345; $0.xp = 500 }
 
         let reloaded = KeychainStore<WalletState>(key: key)
         reloaded.load()
         XCTAssertEqual(reloaded.state.balance, 12345)
-        XCTAssertEqual(reloaded.state.level, 7)
+        XCTAssertEqual(reloaded.state.xp, 500)
+        XCTAssertEqual(reloaded.state.level, LevelThresholds.level(forXP: 500))
     }
 
     func testSaveBeforeLoad_isANoOp() {
