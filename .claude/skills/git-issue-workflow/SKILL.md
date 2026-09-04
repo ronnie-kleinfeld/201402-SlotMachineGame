@@ -3,9 +3,7 @@ name: git-issue-workflow
 description: Governs how code changes land in this repo. Default is to leave changes uncommitted in the working tree for manual review, unless the user's request explicitly says "PR" - then run the full issue -> branch -> commit -> push -> PR pipeline. Use whenever about to touch git (commit/push) for a trackable code change.
 ---
 
-Standing convention for git work in this repo (`<repo-url>` — fill in).
-
-> **Template note:** this skill encodes one opinionated workflow. Adjust the default-commit behavior, branch naming, and language conventions below to match how this repo's team actually works, then delete this note.
+Standing convention for git work in this repo (`https://github.com/ronnie-kleinfeld/201402-SlotMachineGame`).
 
 ## Default: never commit - leave it in the working tree
 
