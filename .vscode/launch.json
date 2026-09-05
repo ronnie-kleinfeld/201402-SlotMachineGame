@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Run GotchaSlots (Desktop AIR)",
+            "command": "${workspaceFolder}/GotchaSlots2/Flex/com.gotchaslots.slots.mobile/run-desktop.sh",
+            "cwd": "${workspaceFolder}/GotchaSlots2/Flex/com.gotchaslots.slots.mobile"
+        }
+    ]
+}

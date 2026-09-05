@@ -1,0 +1,34 @@
+{
+    "config": "air",
+    "type": "app",
+    "application": "src/GotchaSlots-app.xml",
+    "mainClass": "GotchaSlots",
+    "compilerOptions": {
+        "source-path": [
+            "src"
+        ],
+        "library-path": [
+            "../lib_swc"
+        ],
+        "external-library-path": [
+            "/Users/ronniekleinfeld/sdks/air/frameworks/libs/air/airglobal.swc",
+            "/Users/ronniekleinfeld/sdks/air/frameworks/libs/air/aircore.swc"
+        ],
+        "define": [
+            {
+                "name": "CONFIG::DEBUG",
+                "value": "true"
+            },
+            {
+                "name": "CONFIG::RELEASE",
+                "value": "false"
+            }
+        ],
+        "output": "bin-debug/GotchaSlots.swf"
+    },
+    "airOptions": {
+        "extdir": [
+            "../lib_swc"
+        ]
+    }
+}
